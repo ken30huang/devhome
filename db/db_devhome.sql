@@ -2,21 +2,21 @@
 Navicat MySQL Data Transfer
 
 Source Server         : local_db
-Source Server Version : 100113
+Source Server Version : 50720
 Source Host           : localhost:3306
 Source Database       : db_devhome
 
 Target Server Type    : MYSQL
-Target Server Version : 100113
+Target Server Version : 50720
 File Encoding         : 65001
 
-Date: 2019-07-12 11:57:04
+Date: 2019-07-14 19:06:41
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for db_tag
+-- Table structure for `db_tag`
 -- ----------------------------
 DROP TABLE IF EXISTS `db_tag`;
 CREATE TABLE `db_tag` (
@@ -30,7 +30,7 @@ CREATE TABLE `db_tag` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for dh_category
+-- Table structure for `dh_category`
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_category`;
 CREATE TABLE `dh_category` (
@@ -39,6 +39,7 @@ CREATE TABLE `dh_category` (
   `cate_pid` int(4) NOT NULL DEFAULT '0',
   `cate_cont` varchar(255) DEFAULT NULL,
   `cate_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `cate_icon` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`cate_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -47,7 +48,7 @@ CREATE TABLE `dh_category` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for dh_content
+-- Table structure for `dh_content`
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_content`;
 CREATE TABLE `dh_content` (
@@ -70,7 +71,7 @@ CREATE TABLE `dh_content` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for dh_points
+-- Table structure for `dh_points`
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_points`;
 CREATE TABLE `dh_points` (
@@ -87,7 +88,7 @@ CREATE TABLE `dh_points` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for dh_pushlog
+-- Table structure for `dh_pushlog`
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_pushlog`;
 CREATE TABLE `dh_pushlog` (
@@ -105,7 +106,7 @@ CREATE TABLE `dh_pushlog` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for dh_pushuser
+-- Table structure for `dh_pushuser`
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_pushuser`;
 CREATE TABLE `dh_pushuser` (
@@ -120,7 +121,7 @@ CREATE TABLE `dh_pushuser` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for dh_searchlog
+-- Table structure for `dh_searchlog`
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_searchlog`;
 CREATE TABLE `dh_searchlog` (
@@ -137,7 +138,30 @@ CREATE TABLE `dh_searchlog` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for dh_sites
+-- Table structure for `dh_setting`
+-- ----------------------------
+DROP TABLE IF EXISTS `dh_setting`;
+CREATE TABLE `dh_setting` (
+  `setting_id` int(4) NOT NULL AUTO_INCREMENT,
+  `setting_title` varchar(20) DEFAULT NULL,
+  `setting_keyword` varchar(255) DEFAULT NULL,
+  `setting_desc` varchar(255) DEFAULT NULL,
+  `setting_intro` text,
+  `setting_email` varchar(255) DEFAULT NULL,
+  `setting_github` varchar(255) DEFAULT NULL,
+  `setting_msg` varchar(255) DEFAULT NULL,
+  `setting_status` tinyint(2) DEFAULT '1',
+  `setting_stmp` varchar(50) DEFAULT NULL,
+  `setting_pop3` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`setting_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of dh_setting
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `dh_sites`
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_sites`;
 CREATE TABLE `dh_sites` (
@@ -155,7 +179,7 @@ CREATE TABLE `dh_sites` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for dh_uisetting
+-- Table structure for `dh_uisetting`
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_uisetting`;
 CREATE TABLE `dh_uisetting` (
@@ -174,7 +198,7 @@ CREATE TABLE `dh_uisetting` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for dh_user
+-- Table structure for `dh_user`
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_user`;
 CREATE TABLE `dh_user` (
@@ -193,7 +217,7 @@ CREATE TABLE `dh_user` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for dh_visitlog
+-- Table structure for `dh_visitlog`
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_visitlog`;
 CREATE TABLE `dh_visitlog` (
