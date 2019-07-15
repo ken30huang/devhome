@@ -1,13 +1,3 @@
-
-/*  - 1 Fonts Load - Start
-==================================================================================================== */
-@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Poppins:400,700');
-/*  - 1 Fonts Load - End
-==================================================================================================== */
-
-
-
-
 /*  - 2 Global Area - Start
 ==================================================================================================== */
 * { box-sizing: border-box; }
@@ -19,7 +9,7 @@ body {
   line-height: 24px;
   overflow-x: hidden;
   background-color: #f1f1f1;
-  font-family: 'Lato', sans-serif;
+  font-family:Microsoft YaHei;
 }
 a {
  text-decoration: none;
@@ -1284,45 +1274,5 @@ ul.footer-social-links li a {
   padding: 5px 10px;
   position: relative;
 }
-ul.footer-social-links li a.facebook:before,
-ul.footer-social-links li a.twitter:before,
-ul.footer-social-links li a.google-plus:before,
-ul.footer-social-links li a.linkedin:before,
-ul.footer-social-links li a.pinterest:before,
-ul.footer-social-links li a.instagram:before {
-  z-index: -1;
-  content: '';
-  width: 100%;
-  height: 2px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  position: absolute;
-  background-color: red;
-  transition: .2s all ease-in-out;
-}
-
-ul.footer-social-links li a.facebook {color: #3b599a;}
-ul.footer-social-links li a.facebook:before {background-color: #3b599a;}
-
-ul.footer-social-links li a.twitter {color: #50abf1;}
-ul.footer-social-links li a.twitter:before {background-color: #50abf1;}
-
-ul.footer-social-links li a.google-plus {color: #df4a32;}
-ul.footer-social-links li a.google-plus:before {background-color: #df4a32;}
-
-ul.footer-social-links li a.linkedin {color: #007bb6;}
-ul.footer-social-links li a.linkedin:before {background-color: #007bb6;}
-
-ul.footer-social-links li a.pinterest {color: #cb2027;}
-ul.footer-social-links li a.pinterest:before {background-color: #cb2027;}
-
-ul.footer-social-links li a.instagram {color: #bc2a8d;}
-ul.footer-social-links li a.instagram:before {background-color: #bc2a8d;}
-
-ul.footer-social-links li a:hover {
-  color: #fff;
-}
-ul.footer-social-links li a:hover:before {height: 100%;}
 /*  - 10 - footer-section - End
 ==================================================================================================== */

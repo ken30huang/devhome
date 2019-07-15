@@ -16,7 +16,8 @@
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+					data-target="#sidebar-collapse">
 					<span class="sr-only">Toggle navigation</span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
@@ -25,7 +26,8 @@
 				<a class="navbar-brand" href="#"><span>Lumino</span>Admin</a>
 				<ul class="user-menu">
 					<li class="dropdown pull-right">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span
+								class="glyphicon glyphicon-user"></span>
 							User <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
 							<li><a href="#"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
@@ -122,7 +124,7 @@
 		<div class="row">
 			<ol class="breadcrumb">
 				<li><a href="/html/admin/"><span class="glyphicon glyphicon-home"></span></a></li>
-				<li class="active">UI模板设置</li>
+				<li class="active">Demo管理</li>
 			</ol>
 		</div>
 		<!--/.row-->
@@ -131,74 +133,67 @@
 			<div class="col-lg-12">
 				<div class="panel panel-default">
 					<div class="panel-body">
-						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">新增UI</button>
-					</div>
-					<div class="panel-body">
+						<div class="btn-group">
+							<button type="button" class="btn btn-default" onclick="location.href='demo_add.html';">新建Demo</button>
+						</div>
 						<table class="table table-bordered table-hover">
 							<thead>
 								<tr>
-									<th>UI名称</th>
-									<th>UI路径</th>
-									<th>启用</th>
+									<th>DEMO名称</th>
+									<th>DEMO分类</th>
 									<th>操作</th>
 								</tr>
+							</thead>
 							<tbody>
 								<tr>
-									<td>DEV HOME</td>
-									<td>/devhome</td>
-									<td>是</td>
+									<td>11</td>
+									<td>水果</td>
 									<td>
 										<a href="">编辑</a>
 										<a href="">删除</a>
 									</td>
 								</tr>
 								<tr>
-									<td>DEV HOME</td>
-									<td>/devhome</td>
-									<td>是</td>
+									<td>12</td>
+									<td>- 香蕉</td>
 									<td>
 										<a href="">编辑</a>
 										<a href="">删除</a>
 									</td>
 								</tr>
 								<tr>
-									<td>DEV HOME</td>
-									<td>/devhome</td>
-									<td>是</td>
+									<td>12</td>
+									<td>- 苹果</td>
 									<td>
 										<a href="">编辑</a>
 										<a href="">删除</a>
 									</td>
 								</tr>
 								<tr>
-									<td>DEV HOME</td>
-									<td>/devhome</td>
-									<td>是</td>
+									<td>11</td>
+									<td>水果</td>
 									<td>
 										<a href="">编辑</a>
 										<a href="">删除</a>
 									</td>
 								</tr>
 								<tr>
-									<td>DEV HOME</td>
-									<td>/devhome</td>
-									<td>是</td>
+									<td>12</td>
+									<td>- 香蕉</td>
 									<td>
 										<a href="">编辑</a>
 										<a href="">删除</a>
 									</td>
 								</tr>
 								<tr>
-									<td>DEV HOME</td>
-									<td>/devhome</td>
-									<td>是</td>
+									<td>12</td>
+									<td>- 苹果</td>
 									<td>
 										<a href="">编辑</a>
 										<a href="">删除</a>
 									</td>
 								</tr>
 							</tbody>
-							</thead>
 						</table>
 					</div>
 				</div>
@@ -207,46 +202,6 @@
 		<!--/.row-->
 
 	</div>
-	<!--/.main-->
-	<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-							aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title">新增UI</h4>
-				</div>
-				<div class="modal-body">
-					<form role="form">
-						<div class="form-group">
-							<label>UI名称</label>
-							<input name="setting_title" class="form-control" placeholder="">
-						</div>
-						<div class="form-group">
-							<label>UI路径</label>
-							<input name="setting_keyword" class="form-control" placeholder="">
-						</div>
-						<div class="form-group">
-							<label>UI header内容</label>
-							<textarea class="form-control" rows="3"></textarea>
-						</div>
-						<div class="form-group">
-							<label>UI Slider内容</label>
-							<textarea class="form-control" rows="3"></textarea>
-						</div>
-						<div class="form-group">
-							<label>UI Footer内容</label>
-							<textarea class="form-control" rows="3"></textarea>
-						</div>
-					</form>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-					<button type="button" class="btn btn-primary">保存</button>
-				</div>
-			</div><!-- /.modal-content -->
-		</div><!-- /.modal-dialog -->
-	</div><!-- /.modal -->
 
 	<script src="/static/js/libs/jquery/jquery.min.js"></script>
 	<script src="/static/plugins/bootstrap/js/bootstrap.min.js"></script>

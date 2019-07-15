@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lumino - Dashboard</title>
 
-<link href="/static/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href="/static/plugins/bootstrap/css/datepicker3.css" rel="stylesheet">
-<link href="/static/plugins/bootstrap/css/styles.css" rel="stylesheet">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Lumino - Dashboard</title>
+
+	<link href="/static/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/static/plugins/bootstrap/css/datepicker3.css" rel="stylesheet">
+	<link href="/static/plugins/bootstrap/css/styles.css" rel="stylesheet">
 
 </head>
 
@@ -24,7 +25,8 @@
 				<a class="navbar-brand" href="#"><span>Devhome</span>Admin</a>
 				<ul class="user-menu">
 					<li class="dropdown pull-right">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> User <span class="caret"></span></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
+							User <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
 							<li><a href="#"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
 							<li><a href="#"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
@@ -35,12 +37,13 @@
 			</div>
 		</div><!-- /.container-fluid -->
 	</nav>
-		
+
 	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
 		<ul class="nav menu">
 			<li class="parent ">
 				<a href="#">
-					<span class="glyphicon glyphicon-list"></span> 内容管理 <span data-toggle="collapse" href="#sub-item-2" class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span> 
+					<span class="glyphicon glyphicon-list"></span> 内容管理 <span data-toggle="collapse" href="#sub-item-2"
+						class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span>
 				</a>
 				<ul class="children collapse" id="sub-item-2">
 					<li>
@@ -73,23 +76,37 @@
 							<span class="glyphicon glyphicon-share-alt"></span> 文档/书籍
 						</a>
 					</li>
-					<li>
-						<a class="" href="demo_list.html">
-							<span class="glyphicon glyphicon-share-alt"></span> Demo管理
-						</a>
-					</li>
-					<li>
-						<a class="" href="api_list.html">
-							<span class="glyphicon glyphicon-share-alt"></span> API管理
-						</a>
-					</li>
+				</ul>
+			</li>
+			<li class="parent">
+				<a href="#">
+					<span class="glyphicon glyphicon-list"></span> 开发设置 <span data-toggle="collapse" href="#sub-item-1"
+						class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span>
+				</a>
+				<ul class="children collapse" id="sub-item-1">
+						<li>
+							<a class="" href="lib_list.html">
+								<span class="glyphicon glyphicon-share-alt"></span> 第三方库
+							</a>
+						</li>
+						<li>
+							<a class="" href="demo_list.html">
+								<span class="glyphicon glyphicon-share-alt"></span> Demo管理
+							</a>
+						</li>
+						<li>
+							<a class="" href="api_list.html">
+								<span class="glyphicon glyphicon-share-alt"></span> API管理
+							</a>
+						</li>
 				</ul>
 			</li>
 			<li class="parent ">
 				<a href="#">
-					<span class="glyphicon glyphicon-list"></span> 系统设置 <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span> 
+					<span class="glyphicon glyphicon-list"></span> 系统设置 <span data-toggle="collapse" href="#sub-item-3"
+						class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span>
 				</a>
-				<ul class="children collapse" id="sub-item-1">
+				<ul class="children collapse" id="sub-item-3">
 					<li>
 						<a class="" href="site_setting.html">
 							<span class="glyphicon glyphicon-share-alt"></span> 网站设置
@@ -107,18 +124,18 @@
 					</li>
 				</ul>
 			</li>
-			<li role="presentation" class="divider"></li>
-			<li><a href="login.html"><span class="glyphicon glyphicon-user"></span> Login Out</a></li>
 		</ul>
-	</div><!--/.sidebar-->
-		
-	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
+	</div>
+	<!--/.sidebar-->
+
+	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 		<div class="row">
 			<ol class="breadcrumb">
 				<li><a href="/html/admin/"><span class="glyphicon glyphicon-home"></span></a></li>
 				<li class="active">首页</li>
 			</ol>
-		</div><!--/.row-->		
+		</div>
+		<!--/.row-->
 		<div class="row">
 			<div class="col-xs-12 col-md-6 col-lg-3">
 				<div class="panel panel-blue panel-widget ">
@@ -172,14 +189,15 @@
 					</div>
 				</div>
 			</div>
-		</div><!--/.row-->
-		
+		</div>
+		<!--/.row-->
+
 		<div class="row">
 			<div class="col-xs-6 col-md-3">
 				<div class="panel panel-default">
 					<div class="panel-body easypiechart-panel">
 						<h4>New Orders</h4>
-						<div class="easypiechart" id="easypiechart-blue" data-percent="92" ><span class="percent">92%</span>
+						<div class="easypiechart" id="easypiechart-blue" data-percent="92"><span class="percent">92%</span>
 						</div>
 					</div>
 				</div>
@@ -188,7 +206,7 @@
 				<div class="panel panel-default">
 					<div class="panel-body easypiechart-panel">
 						<h4>Comments</h4>
-						<div class="easypiechart" id="easypiechart-orange" data-percent="65" ><span class="percent">65%</span>
+						<div class="easypiechart" id="easypiechart-orange" data-percent="65"><span class="percent">65%</span>
 						</div>
 					</div>
 				</div>
@@ -197,7 +215,7 @@
 				<div class="panel panel-default">
 					<div class="panel-body easypiechart-panel">
 						<h4>New Users</h4>
-						<div class="easypiechart" id="easypiechart-teal" data-percent="56" ><span class="percent">56%</span>
+						<div class="easypiechart" id="easypiechart-teal" data-percent="56"><span class="percent">56%</span>
 						</div>
 					</div>
 				</div>
@@ -206,16 +224,17 @@
 				<div class="panel panel-default">
 					<div class="panel-body easypiechart-panel">
 						<h4>Visitors</h4>
-						<div class="easypiechart" id="easypiechart-red" data-percent="27" ><span class="percent">27%</span>
+						<div class="easypiechart" id="easypiechart-red" data-percent="27"><span class="percent">27%</span>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div><!--/.row-->
-								
+		</div>
+		<!--/.row-->
+
 		<div class="row">
 			<div class="col-md-8">
-			
+
 				<div class="panel panel-default chat">
 					<div class="panel-heading" id="accordion"><span class="glyphicon glyphicon-comment"></span> Chat</div>
 					<div class="panel-body">
@@ -229,7 +248,8 @@
 										<strong class="primary-font">John Doe</strong> <small class="text-muted">32 mins ago</small>
 									</div>
 									<p>
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ante turpis, rutrum ut ullamcorper sed, dapibus ac nunc. Vivamus luctus convallis mauris, eu gravida tortor aliquam ultricies. 
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ante turpis, rutrum ut ullamcorper
+										sed, dapibus ac nunc. Vivamus luctus convallis mauris, eu gravida tortor aliquam ultricies.
 									</p>
 								</div>
 							</li>
@@ -239,10 +259,13 @@
 								</span>
 								<div class="chat-body clearfix">
 									<div class="header">
-										<strong class="pull-left primary-font">Jane Doe</strong> <small class="text-muted">6 mins ago</small>
+										<strong class="pull-left primary-font">Jane Doe</strong> <small class="text-muted">6 mins
+											ago</small>
 									</div>
 									<p>
-										Mauris dignissim porta enim, sed commodo sem blandit non. Ut scelerisque sapien eu mauris faucibus ultrices. Nulla ac odio nisl. Proin est metus, interdum scelerisque quam eu, eleifend pretium nunc. Suspendisse finibus auctor lectus, eu interdum sapien.
+										Mauris dignissim porta enim, sed commodo sem blandit non. Ut scelerisque sapien eu mauris faucibus
+										ultrices. Nulla ac odio nisl. Proin est metus, interdum scelerisque quam eu, eleifend pretium nunc.
+										Suspendisse finibus auctor lectus, eu interdum sapien.
 									</p>
 								</div>
 							</li>
@@ -255,13 +278,14 @@
 										<strong class="primary-font">John Doe</strong> <small class="text-muted">32 mins ago</small>
 									</div>
 									<p>
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ante turpis, rutrum ut ullamcorper sed, dapibus ac nunc. Vivamus luctus convallis mauris, eu gravida tortor aliquam ultricies. 
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ante turpis, rutrum ut ullamcorper
+										sed, dapibus ac nunc. Vivamus luctus convallis mauris, eu gravida tortor aliquam ultricies.
 									</p>
 								</div>
 							</li>
 						</ul>
 					</div>
-					
+
 					<div class="panel-footer">
 						<div class="input-group">
 							<input id="btn-input" type="text" class="form-control input-md" placeholder="Type your message here..." />
@@ -271,16 +295,17 @@
 						</div>
 					</div>
 				</div>
-				
-			</div><!--/.col-->
-			
+
+			</div>
+			<!--/.col-->
+
 			<div class="col-md-4">
-			
+
 				<div class="panel panel-blue">
 					<div class="panel-heading dark-overlay"><span class="glyphicon glyphicon-check"></span>To-do List</div>
 					<div class="panel-body">
 						<ul class="todo-list">
-						<li class="todo-list-item">
+							<li class="todo-list-item">
 								<div class="checkbox">
 									<input type="checkbox" id="checkbox" />
 									<label for="checkbox">Make a plan for today</label>
@@ -357,10 +382,13 @@
 						</div>
 					</div>
 				</div>
-								
-			</div><!--/.col-->
-		</div><!--/.row-->
-	</div>	<!--/.main-->
+
+			</div>
+			<!--/.col-->
+		</div>
+		<!--/.row-->
+	</div>
+	<!--/.main-->
 
 	<script src="/static/js/libs/jquery/jquery.min.js"></script>
 	<script src="/static/plugins/bootstrap/js/bootstrap.min.js"></script>
@@ -372,19 +400,19 @@
 		});
 
 		!function ($) {
-		    $(document).on("click","ul.nav li.parent > a > span.icon", function(){          
-		        $(this).find('em:first').toggleClass("glyphicon-minus");      
-		    }); 
-		    $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
+			$(document).on("click", "ul.nav li.parent > a > span.icon", function () {
+				$(this).find('em:first').toggleClass("glyphicon-minus");
+			});
+			$(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
 		}(window.jQuery);
 
 		$(window).on('resize', function () {
-		  if ($(window).width() > 768) $('#sidebar-collapse').collapse('show')
+			if ($(window).width() > 768) $('#sidebar-collapse').collapse('show')
 		})
 		$(window).on('resize', function () {
-		  if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
+			if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
 		})
-	</script>	
+	</script>
 </body>
 
 </html>

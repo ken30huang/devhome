@@ -2,21 +2,21 @@
 Navicat MySQL Data Transfer
 
 Source Server         : local_db
-Source Server Version : 50720
+Source Server Version : 100113
 Source Host           : localhost:3306
 Source Database       : db_devhome
 
 Target Server Type    : MYSQL
-Target Server Version : 50720
+Target Server Version : 100113
 File Encoding         : 65001
 
-Date: 2019-07-14 19:06:41
+Date: 2019-07-15 18:40:31
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for `db_tag`
+-- Table structure for db_tag
 -- ----------------------------
 DROP TABLE IF EXISTS `db_tag`;
 CREATE TABLE `db_tag` (
@@ -30,7 +30,7 @@ CREATE TABLE `db_tag` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `dh_category`
+-- Table structure for dh_category
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_category`;
 CREATE TABLE `dh_category` (
@@ -48,7 +48,7 @@ CREATE TABLE `dh_category` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `dh_content`
+-- Table structure for dh_content
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_content`;
 CREATE TABLE `dh_content` (
@@ -58,11 +58,16 @@ CREATE TABLE `dh_content` (
   `c_title` varchar(255) NOT NULL DEFAULT '' COMMENT '标题',
   `c_thumb` varchar(255) DEFAULT NULL COMMENT '文章缩略图',
   `c_tag` varchar(255) DEFAULT NULL COMMENT '标签',
+  `c_linktitle` varchar(255) DEFAULT NULL,
   `c_link` varchar(255) DEFAULT NULL COMMENT '外链',
-  `c_alias` varchar(255) NOT NULL,
+  `c_alias` varchar(255) DEFAULT NULL,
   `c_cont` longtext COMMENT '文章内容',
   `c_summery` text COMMENT '摘要',
   `c_pubdate` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP COMMENT '时间',
+  `c_parentid` int(11) DEFAULT NULL,
+  `c_seokeyword` varchar(255) DEFAULT NULL,
+  `c_seodescription` varchar(255) DEFAULT NULL,
+  `c_pageid` int(11) DEFAULT '0',
   PRIMARY KEY (`c_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
@@ -71,24 +76,49 @@ CREATE TABLE `dh_content` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `dh_points`
+-- Table structure for dh_demo
 -- ----------------------------
-DROP TABLE IF EXISTS `dh_points`;
-CREATE TABLE `dh_points` (
-  `point_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `point_name` varchar(255) NOT NULL COMMENT '标题',
-  `point_pic` varchar(255) DEFAULT NULL COMMENT '链接',
-  `point_link` varchar(255) DEFAULT NULL COMMENT '内容',
-  `point_tag` varchar(255) DEFAULT NULL COMMENT '标签名',
-  PRIMARY KEY (`point_id`)
+DROP TABLE IF EXISTS `dh_demo`;
+CREATE TABLE `dh_demo` (
+  `demo_id` int(11) NOT NULL AUTO_INCREMENT,
+  `demo_name` varchar(50) NOT NULL DEFAULT '' COMMENT '代码名称',
+  `demo_html` text,
+  `demo_css` text,
+  `demo_code` text,
+  `demo_js` text,
+  `demo_type` varchar(10) NOT NULL COMMENT '代码类型:代码段/完整demo',
+  `demo_libid` int(11) DEFAULT '0' COMMENT '库ID',
+  PRIMARY KEY (`demo_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of dh_points
+-- Records of dh_demo
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `dh_pushlog`
+-- Table structure for dh_libs
+-- ----------------------------
+DROP TABLE IF EXISTS `dh_libs`;
+CREATE TABLE `dh_libs` (
+  `lib_id` int(11) NOT NULL AUTO_INCREMENT,
+  `lib_name` varchar(50) NOT NULL COMMENT '库名称',
+  `lib_site` varchar(255) DEFAULT NULL COMMENT '库主页',
+  `lib_github` varchar(255) DEFAULT NULL COMMENT 'github地址',
+  `lib_intro` varchar(255) DEFAULT NULL COMMENT '库介绍',
+  `lib_css` text COMMENT 'css链接',
+  `lib_js` text COMMENT 'js链接',
+  `lib_download` varchar(255) DEFAULT NULL COMMENT '包下载地址',
+  `lib_keyword` varchar(255) DEFAULT NULL COMMENT '库所对应的关键字',
+  `lib_type` tinyint(1) DEFAULT '0' COMMENT '库的类型: 0-开源项目,1-DEMO模板',
+  PRIMARY KEY (`lib_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of dh_libs
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for dh_pushlog
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_pushlog`;
 CREATE TABLE `dh_pushlog` (
@@ -106,7 +136,7 @@ CREATE TABLE `dh_pushlog` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `dh_pushuser`
+-- Table structure for dh_pushuser
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_pushuser`;
 CREATE TABLE `dh_pushuser` (
@@ -121,7 +151,7 @@ CREATE TABLE `dh_pushuser` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `dh_searchlog`
+-- Table structure for dh_searchlog
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_searchlog`;
 CREATE TABLE `dh_searchlog` (
@@ -138,7 +168,7 @@ CREATE TABLE `dh_searchlog` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `dh_setting`
+-- Table structure for dh_setting
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_setting`;
 CREATE TABLE `dh_setting` (
@@ -161,7 +191,7 @@ CREATE TABLE `dh_setting` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `dh_sites`
+-- Table structure for dh_sites
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_sites`;
 CREATE TABLE `dh_sites` (
@@ -179,7 +209,7 @@ CREATE TABLE `dh_sites` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `dh_uisetting`
+-- Table structure for dh_uisetting
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_uisetting`;
 CREATE TABLE `dh_uisetting` (
@@ -198,7 +228,7 @@ CREATE TABLE `dh_uisetting` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `dh_user`
+-- Table structure for dh_user
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_user`;
 CREATE TABLE `dh_user` (
@@ -217,7 +247,7 @@ CREATE TABLE `dh_user` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `dh_visitlog`
+-- Table structure for dh_visitlog
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_visitlog`;
 CREATE TABLE `dh_visitlog` (

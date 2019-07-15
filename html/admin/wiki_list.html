@@ -117,7 +117,7 @@
 		<div class="row">
 			<ol class="breadcrumb">
 				<li><a href="/html/admin/"><span class="glyphicon glyphicon-home"></span></a></li>
-				<li class="active">内容分类</li>
+				<li class="active">文档管理</li>
 			</ol>
 		</div><!--/.row-->				
 		
@@ -125,14 +125,14 @@
 			<div class="col-lg-12">
 				<div class="panel panel-default">
 					<div class="panel-body">
-						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">新增分类</button>
+						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">新增文档</button>
 					</div>
 					<div class="panel-body">
 						<table class="table table-bordered table-hover">
 						    <thead>
 								<tr>
-									<th>分类ID</th>
-									<th>分类名</th>
+									<th>文档ID</th>
+									<th>文档标题</th>
 									<th>操作</th>
 								</tr>
 								<tbody>
@@ -198,36 +198,35 @@
 			<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title">新增分类</h4>
+				<h4 class="modal-title">编辑文档</h4>
 			</div>
 			<div class="modal-body">
 				<form role="form">
 					<div class="form-group">
-						<label>分类名称</label>
+						<label>文档名称</label>
 						<input name="setting_title" class="form-control" placeholder="">
 					</div>
 					<div class="form-group">
-						<label>上级分类</label>
-						<select class="form-control">
-							<option>Option 1</option>
-							<option>Option 2</option>
-							<option>Option 3</option>
-							<option>Option 4</option>
-						</select>
+						<label>文档标签</label>
+						<input name="setting_title" class="form-control" placeholder="">
 					</div>
 					<div class="form-group">
-						<label>分类ICON</label>
+						<label>文档封面</label>
 						<input name="setting_keyword" class="form-control" placeholder="">
 					</div>
 					<div class="form-group">
-						<label>分类描述</label>
+						<label>文档链接</label>
+						<input name="setting_title" class="form-control" placeholder="">
+					</div>
+					<div class="form-group">
+						<label>文档描述</label>
 						<textarea class="form-control" rows="3"></textarea>
 					</div>
 				</form>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary">Save changes</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+				<button type="button" class="btn btn-primary">保存</button>
 			</div>
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal-dialog -->
