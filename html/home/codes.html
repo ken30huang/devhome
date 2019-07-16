@@ -17,6 +17,8 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/responsive.css">
 
+	<link rel="stylesheet" href="/static/plugins/highlight/styles/an-old-hope.css" />
+
 </head>
 
 <body>
@@ -122,71 +124,52 @@
 	<section id="cateogry-section" class="cateogry-section w100dt mb-50">
 		<div class="container">
 			<div class="row">
-
+				<div class="col s12 m12 l12">
+					分类哦
+				</div>
 				<div class="col s12 m12 l12">
 
 					<div class="row">
-						<div class="col m6 s12">
+						
+						<div class="col m6 s12 l4">
 							<div class="blogs mb-30">
 								<div class="card">
 									<!-- /.card-image -->
-									<div class="card-content w100dt">
-										<h4>
-											Labore Etdolore Magna Aliqua Utero Ratione
-										</h4>
-										<p class="mb-30">
-											Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur
-											adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et
-											dolore magnam aliquam.
-										</p>
-									</div>
-									<!-- /.card-content -->
-								</div>
-								<!-- /.card -->
-							</div>
-							<!-- /.blogs -->
-						</div>
-						<!-- colm6 -->
+									<p class="mb-30">
+										Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur
+										adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et
+										dolore magnam aliquam.
+									</p>
+									<pre>
+										<code class="less">@import "fruits";
 
-						<div class="col m6 s12">
-							<div class="blogs mb-30">
-								<div class="card">
-									<!-- /.card-image -->
-									<div class="card-content w100dt">
-										<p class="mb-30">
-											Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur
-											adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et
-											dolore magnam aliquam.
-										</p>
-										<pre>
-											<code>
-												var a = 1;
-												var b = 2;
-											</code>
-										</pre>
-									</div>
-									<!-- /.card-content -->
-								</div>
-								<!-- /.card -->
-							</div>
-							<!-- /.blogs -->
-						</div>
-						<!-- colm6 -->
+@rhythm: 1.5em;
 
-						<div class="col m6 s12">
-							<div class="blogs mb-30">
-								<div class="card">
-									<!-- /.card-image -->
-									<div class="card-content w100dt">
-										<h4>
-											Labore Etdolore Magna Aliqua Utero Ratione
-										</h4>
-										<p class="mb-30">
-											Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur
-											adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et
-											dolore magnam aliquam.
-										</p>
-									</div>
+@media screen and (min-resolution: 2dppx) {
+    body {font-size: 125%}
+}
+
+section > .foo + #bar:hover [href*="less"] {
+    margin:     @rhythm 0 0 @rhythm;
+    padding:    calc(5% + 20px);
+    background: #f00ba7 url(http://placehold.alpha-centauri/42.png) no-repeat;
+    background-image: linear-gradient(-135deg, wheat, fuchsia) !important ;
+    background-blend-mode: multiply;
+}
+
+@font-face {
+    font-family: /* ? */ 'Omega';
+    src: url('../fonts/omega-webfont.woff?v=2.0.2');
+}
+
+.icon-baz::before {
+    display:     inline-block;
+    font-family: "Omega", Alpha, sans-serif;
+    content:     "\f085";
+    color:       rgba(98, 76 /* or 54 */, 231, .75);
+}
+										</code>
+									</pre>
 									<!-- /.card-content -->
 								</div>
 								<!-- /.card -->
@@ -194,20 +177,46 @@
 							<!-- /.blogs -->
 						</div>
 
-						<div class="col m6 s12">
+						<div class="col m6 s12 l4">
 							<div class="blogs mb-30">
 								<div class="card">
 									<!-- /.card-image -->
-									<div class="card-content w100dt">
-										<h4>
-											Labore Etdolore Magna Aliqua Utero Ratione
-										</h4>
-										<p class="mb-30">
-											Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur
-											adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et
-											dolore magnam aliquam.
-										</p>
-									</div>
+									<p class="mb-30">
+										Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur
+										adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et
+										dolore magnam aliquam.
+									</p>
+									<pre>
+										<code>
+												@import "fruits";
+
+@rhythm: 1.5em;
+
+@media screen and (min-resolution: 2dppx) {
+	body {font-size: 125%}
+}
+
+section > .foo + #bar:hover [href*="less"] {
+	margin:     @rhythm 0 0 @rhythm;
+	padding:    calc(5% + 20px);
+	background: #f00ba7 url(http://placehold.alpha-centauri/42.png) no-repeat;
+	background-image: linear-gradient(-135deg, wheat, fuchsia) !important ;
+	background-blend-mode: multiply;
+}
+
+@font-face {
+	font-family: /* ? */ 'Omega';
+	src: url('../fonts/omega-webfont.woff?v=2.0.2');
+}
+
+.icon-baz::before {
+	display:     inline-block;
+	font-family: "Omega", Alpha, sans-serif;
+	content:     "\f085";
+	color:       rgba(98, 76 /* or 54 */, 231, .75);
+}
+										</code>
+									</pre>
 									<!-- /.card-content -->
 								</div>
 								<!-- /.card -->
@@ -215,20 +224,46 @@
 							<!-- /.blogs -->
 						</div>
 
-						<div class="col m6 s12">
+						<div class="col m6 s12 l4">
 							<div class="blogs mb-30">
 								<div class="card">
 									<!-- /.card-image -->
-									<div class="card-content w100dt">
-										<h4>
-											Labore Etdolore Magna Aliqua Utero Ratione
-										</h4>
-										<p class="mb-30">
-											Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur
-											adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et
-											dolore magnam aliquam.
-										</p>
-									</div>
+									<p class="mb-30">
+										Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur
+										adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et
+										dolore magnam aliquam.
+									</p>
+									<pre>
+										<code>
+												@import "fruits";
+
+@rhythm: 1.5em;
+
+@media screen and (min-resolution: 2dppx) {
+	body {font-size: 125%}
+}
+
+section > .foo + #bar:hover [href*="less"] {
+	margin:     @rhythm 0 0 @rhythm;
+	padding:    calc(5% + 20px);
+	background: #f00ba7 url(http://placehold.alpha-centauri/42.png) no-repeat;
+	background-image: linear-gradient(-135deg, wheat, fuchsia) !important ;
+	background-blend-mode: multiply;
+}
+
+@font-face {
+	font-family: /* ? */ 'Omega';
+	src: url('../fonts/omega-webfont.woff?v=2.0.2');
+}
+
+.icon-baz::before {
+	display:     inline-block;
+	font-family: "Omega", Alpha, sans-serif;
+	content:     "\f085";
+	color:       rgba(98, 76 /* or 54 */, 231, .75);
+}
+										</code>
+									</pre>
 									<!-- /.card-content -->
 								</div>
 								<!-- /.card -->
@@ -236,20 +271,46 @@
 							<!-- /.blogs -->
 						</div>
 
-						<div class="col m6 s12">
+						<div class="col m6 s12 l4">
 							<div class="blogs mb-30">
 								<div class="card">
 									<!-- /.card-image -->
-									<div class="card-content w100dt">
-										<h4>
-											Labore Etdolore Magna Aliqua Utero Ratione
-										</h4>
-										<p class="mb-30">
-											Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur
-											adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et
-											dolore magnam aliquam.
-										</p>
-									</div>
+									<p class="mb-30">
+										Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur
+										adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et
+										dolore magnam aliquam.
+									</p>
+									<pre>
+										<code>
+												@import "fruits";
+
+@rhythm: 1.5em;
+
+@media screen and (min-resolution: 2dppx) {
+	body {font-size: 125%}
+}
+
+section > .foo + #bar:hover [href*="less"] {
+	margin:     @rhythm 0 0 @rhythm;
+	padding:    calc(5% + 20px);
+	background: #f00ba7 url(http://placehold.alpha-centauri/42.png) no-repeat;
+	background-image: linear-gradient(-135deg, wheat, fuchsia) !important ;
+	background-blend-mode: multiply;
+}
+
+@font-face {
+	font-family: /* ? */ 'Omega';
+	src: url('../fonts/omega-webfont.woff?v=2.0.2');
+}
+
+.icon-baz::before {
+	display:     inline-block;
+	font-family: "Omega", Alpha, sans-serif;
+	content:     "\f085";
+	color:       rgba(98, 76 /* or 54 */, 231, .75);
+}
+										</code>
+									</pre>
 									<!-- /.card-content -->
 								</div>
 								<!-- /.card -->
@@ -257,72 +318,47 @@
 							<!-- /.blogs -->
 						</div>
 
-						<div class="col m6 s12">
+						<div class="col m6 s12 l4">
 							<div class="blogs mb-30">
 								<div class="card">
 									<!-- /.card-image -->
-									<div class="card-content w100dt">
-										<h4>
-											Labore Etdolore Magna Aliqua Utero Ratione
-										</h4>
-										<p class="mb-30">
-											Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur
-											adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et
-											dolore magnam aliquam.
-										</p>
-									</div>
-									<!-- /.card-content -->
-								</div>
-								<!-- /.card -->
-							</div>
-							<!-- /.blogs -->
-						</div>
+									<p class="mb-30">
+										Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur
+										adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et
+										dolore magnam aliquam.
+									</p>
+									<pre>
+										<code>
+												@import "fruits";
 
-						<div class="col m6 s12">
-							<div class="blogs mb-30">
-								<div class="card">
-									<!-- /.card-image -->
-									<div class="card-content w100dt">
-										<h4>
-											Labore Etdolore Magna Aliqua Utero Ratione
-										</h4>
-										<p class="mb-30">
-											Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur
-											adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et
-											dolore magnam aliquam.
-										</p>
-									</div>
-									<!-- /.card-content -->
-								</div>
-								<!-- /.card -->
-							</div>
-							<!-- /.blogs -->
-						</div>
+@rhythm: 1.5em;
 
-						<div class="col m6 s12">
-							<div class="blogs mb-30">
-								<div class="card">
-								<div class="card-image">
-									<img src="img/travel2.jpg" alt="Image" class="materialboxed" />
-								</div>
-									<!-- /.card-image -->
-									<div class="card-content w100dt">
-										<h4>
-											Labore Etdolore Magna Aliqua Utero Ratione
-										</h4>
-										<p class="tag">
-											<a href="javascript:;">标签1</a>
-											<a href="javascript:;">标签1</a>
-											<a href="javascript:;">标签1</a>
-											<a href="javascript:;">标签1</a>
-											<a href="javascript:;">标签1</a>
-										</p>
-										<p class="mb-30">
-											Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur
-											adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et
-											dolore magnam aliquam.
-										</p>
-									</div>
+@media screen and (min-resolution: 2dppx) {
+	body {font-size: 125%}
+}
+
+section > .foo + #bar:hover [href*="less"] {
+	margin:     @rhythm 0 0 @rhythm;
+	padding:    calc(5% + 20px);
+	background: #f00ba7 url(http://placehold.alpha-centauri/42.png) no-repeat;
+	background-image: linear-gradient(-135deg, wheat, fuchsia) !important ;
+	background-blend-mode: multiply;
+}
+
+@font-face {
+	font-family: /* ? */ 'Omega';
+	src: url('../fonts/omega-webfont.woff?v=2.0.2');
+}
+
+.icon-baz::before {
+	display:     inline-block;
+	font-family: "Omega", Alpha, sans-serif;
+	content:     "\f085";
+	color:       rgba(98, 76 /* or 54 */, 231, .75);
+}
+										</code>
+									</pre>
+									<!-- /.card-content -->
 								</div>
 								<!-- /.card -->
 							</div>
@@ -359,6 +395,7 @@
 	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
 	<script type="text/javascript" src="js/materialize.js"></script>
 	<script type="text/javascript" src="js/owl.carousel.min.js"></script>
+	<script src="/static/plugins/highlight/highlight.pack.js"></script>
 
 	<!-- my custom js -->
 	<script type="text/javascript" src="js/custom.js"></script>
@@ -366,6 +403,10 @@
 	<script type="text/javascript">
 		$(document).ready(function () {
 			$('.materialboxed').materialbox();
+
+			document.querySelectorAll('pre code').forEach((block) => {
+				hljs.highlightBlock(block);
+			});
 		});
 	</script>
 

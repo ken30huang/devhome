@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 100113
 File Encoding         : 65001
 
-Date: 2019-07-15 18:40:31
+Date: 2019-07-16 11:22:43
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -45,6 +45,21 @@ CREATE TABLE `dh_category` (
 
 -- ----------------------------
 -- Records of dh_category
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for dh_codestyle
+-- ----------------------------
+DROP TABLE IF EXISTS `dh_codestyle`;
+CREATE TABLE `dh_codestyle` (
+  `cs_id` int(4) NOT NULL AUTO_INCREMENT,
+  `cs_lang` varchar(50) NOT NULL COMMENT '编程语言',
+  `cs_style` varchar(20) NOT NULL COMMENT '样式名',
+  PRIMARY KEY (`cs_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of dh_codestyle
 -- ----------------------------
 
 -- ----------------------------
@@ -184,7 +199,7 @@ CREATE TABLE `dh_setting` (
   `setting_stmp` varchar(50) DEFAULT NULL,
   `setting_pop3` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`setting_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of dh_setting
