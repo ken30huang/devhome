@@ -1,6 +1,6 @@
 <div class="row">
     <ol class="breadcrumb">
-        <li><a href="/html/admin/"><span class="glyphicon glyphicon-home"></span></a></li>
+        <li><a href="/admin/"><span class="glyphicon glyphicon-home"></span></a></li>
         <li class="active">网站列表</li>
     </ol>
 </div><!--/.row-->				

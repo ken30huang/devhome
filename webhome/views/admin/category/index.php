@@ -1,7 +1,7 @@
 <div class="row">
     <ol class="breadcrumb">
-        <li><a href="/html/admin/"><span class="glyphicon glyphicon-home"></span></a></li>
-        <li class="active">网站列表</li>
+        <li><a href="/admin"><span class="glyphicon glyphicon-home"></span></a></li>
+        <li class="active">分类列表</li>
     </ol>
 </div><!--/.row-->				
 
@@ -21,15 +21,27 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach($rows as $row):?>
+                            <?php foreach($parents as $row):?>
                             <tr>
                                 <td ><?php echo $row['cate_id'];?></td>
                                 <td><?php echo $row['cate_name'];?></td>
                                 <td>
                                     <a href="javascript:;" onclick="javascript:listEdit(<?php echo $row['cate_id'];?>)">编辑</a>
+                                    <?php if(count($row['childs']) == 0):?>
                                     <a href="javascript:;" onclick="javascript:listDel(<?php echo $row['cate_id'];?>)">删除</a>
+                                    <?php endif;?>
                                 </td>
                             </tr>
+                                <?php foreach($row['childs'] as $child):?>
+                                <tr>
+                                    <td ><?php echo $child['cate_id'];?></td>
+                                    <td> - <?php echo $child['cate_name'];?></td>
+                                    <td>
+                                        <a href="javascript:;" onclick="javascript:listEdit(<?php echo $child['cate_id'];?>)">编辑</a>
+                                        <a href="javascript:;" onclick="javascript:listDel(<?php echo $child['cate_id'];?>)">删除</a>
+                                    </td>
+                                </tr>
+                                <?php endforeach;?>
                             <?php endforeach;?>
                         </tbody>
                     </thead>

@@ -1,7 +1,7 @@
 <div class="row">
     <ol class="breadcrumb">
         <li><a href="/admin"><span class="glyphicon glyphicon-home"></span></a></li>
-        <li class="active"><a href="/admin/article">文章管理</a></li>
+        <li class="active"><a href="/admin/series">文章管理</a></li>
         <li>文章编辑</li>
     </ol>
 </div><!--/.row-->				
@@ -18,6 +18,14 @@
                             <input id="c_title" field="c_title" class="form-control" placeholder="" value="<?php echo getRowVal('c_title' , $row);?>" />
                         </div>
                         <div class="form-group">
+                            <label>文章链接</label>
+                            <input id="c_link" field="c_link" class="form-control" placeholder="" value="<?php echo getRowVal('c_link' , $row);?>" />
+                        </div>
+                        <div class="form-group">
+                            <label>发布时间</label>
+                            <input id="c_linkdate" field="c_linkdate" class="form-control" placeholder="" value="<?php echo getRowVal('c_linkdate' , $row);?>" />
+                        </div>
+                        <div class="form-group">
                             <label>文章别名</label>
                             <input id="c_alias" field="c_alias" class="form-control" placeholder="" value="<?php echo getRowVal('c_alias' , $row);?>" />
                         </div>
@@ -28,10 +36,6 @@
                         <div class="form-group">
                             <label>SEO描述</label>
                             <input id="c_seodescription" field="c_seodescription" class="form-control" placeholder="" value="<?php echo getRowVal('c_seodescription' , $row);?>" />
-                        </div>
-                        <div class="form-group">
-                            <label>文章缩略图</label>
-                            <input id="c_thumb" field="c_thumb" class="form-control" placeholder="" value="<?php echo getRowVal('c_thumb' , $row);?>" />
                         </div>
                         <div class="form-group">
                             <label>文章Tags</label>
@@ -81,12 +85,10 @@ function contSave() {
         alert('请输入标题');
         return;
     }
-    if($('#c_alias').val() == '') {
-        alert('请输入别名');
-        return;
-    }
-    if($('#c_summery').val() == '') {
-        alert('请输入内容摘要');
+    if($('#c_link').val() == '') {
+        if($('#c_alias').val() == '') {
+            alert('请输入别名');
+        }
         return;
     }
     var tag = $('#taginput').val();
@@ -103,19 +105,21 @@ function contSave() {
         c_title:$('#c_title').val(),
         c_id:$('#c_id').val(),
         c_alias:$('#c_alias').val(),
+        c_link:$('#c_link').val(),
+        c_tag:tag,
         c_seokeyword:$('#c_seokeyword').val(),
         c_seodescription:$('#c_seodescription').val(),
-        c_tag:tag,
         c_summery:$('#c_summery').val(),
         c_cont:$('#showMd').html(),
-        c_mdcont:$('#c_mdcont').val()
+        c_mdcont:$('#c_mdcont').val(),
+        c_linkdate:$('#c_linkdate').val()
     };
     ajaxReq({
-        url:'/admin/article/save',
+        url:'/admin/series/save',
         data: _saveData,
         succFun:function(res) {
             if(res.code == '000') {
-                location.href = '/admin/article';
+                location.href = '/admin/series';
             } else {
                 alert(res.msg);
             }

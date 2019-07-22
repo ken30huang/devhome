@@ -1,16 +1,15 @@
 <?php
-class AdminArticleController extends AdminController {
+class AdminSeriesController extends AdminController {
 
-    private $c_type = 'article';
+    private $c_type = 'series';
 
     public function index() {
         $cmodel = $this->getModel('content');
-        
         $page = intval($this->web->req('page'));
         $page = $page==0 ? 1 : $page;
         $pageData = $cmodel->setPageNum($page)->getPageData($this->c_type);
         $this->view->assign('rows' , $pageData['rows']);
-        $this->view->assign('pager' , show_pagenums($page , $pageData['count'] , $cmodel->getPageSize() , "/admin/article"));
+        $this->view->assign('pager' , show_pagenums($page , $pageData['count'] , $cmodel->getPageSize() , "/admin/series"));
         $this->view();
     }
 

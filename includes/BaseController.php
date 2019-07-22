@@ -2,7 +2,7 @@
 abstract class BaseController {
 
     protected $result = array();
-    protected $model;
+    protected $models = array();
     protected $routers = array();
     protected $view = NULL;
 
@@ -44,9 +44,13 @@ abstract class BaseController {
     }
 
     protected function getModel($mName) {
+        if(isset($this->models[$mName])) {
+            return $this->models[$mName];
+        }
         $modelName = $mName.'Model';
         incFile(M_PATH.DS.$modelName.'.php');
         $modelClass = new $modelName;
+        $this->models[$mName] = $modelClass;
         return $modelClass;
     }
 

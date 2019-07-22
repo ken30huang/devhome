@@ -74,11 +74,19 @@ function show_pagenums($page , $total , $pageSize, $url) {
         $next = $pageTotal;
     }
 
-    $html[] = '<a href="'.$url.'/page/'.$prev.'"><</a>';
-    for($i=$start;$i<=$end; $i++) {
-        $html[] = '<a href="'.$url.'/page/'.$i.'" class="'.($page==$i?'cur':'').'">'.$i.'</a>';
+    $urls = array();
+    foreach($_GET as $getkey=>$getval) {
+        if($getkey != 'page') {
+            $urls[] = $getkey.'='.$getval;
+        }
     }
-    $html[] = '<a href="'.$url.'/page/'.$next.'">></a>';
+    $pageurl = count($urls) > 0 ? '?'.implode('&', $urls).'&page=' : '?page=';
+    
+    $html[] = '<a href="'.$url.$pageurl.$prev.'"><</a>';
+    for($i=$start;$i<=$end; $i++) {
+        $html[] = '<a href="'.$url.$pageurl.$i.'" class="'.($page==$i?'cur':'').'">'.$i.'</a>';
+    }
+    $html[] = '<a href="'.$url.$pageurl.$next.'">></a>';
 
     return implode('' , $html);
 }
@@ -115,6 +123,16 @@ function router_parse() {
     $uri_arr = explode('/', $uri_alls[0]);
     array_shift($uri_arr);
     return $uri_arr;
+}
+
+function router_get($key , $route=array()) {
+    $val = '';
+    for($i=0; $i<count($route); $i++) {
+        if($route[$i] == $key && isset($route[$i+1])) {
+            $val = $route[$i+1];
+        }
+    }
+    return $val;
 }
 
 function get_config_setting() {

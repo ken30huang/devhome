@@ -5,6 +5,8 @@ class BaseModel {
     protected $table;
     protected $idkey='id';
     protected $lastId='';
+    protected $pagenum = 0;
+    protected $pagesize = 10;
     private $_queryOptions = array();
 
     public function __construct() {
@@ -107,5 +109,13 @@ class BaseModel {
         return $this;
     }
 
+    public function setPageNum($page=1) {
+        $this->pagenum = $page;
+        return $this;
+    }
+
+    public function getPageSize() {
+        return $this->pagesize;
+    }
 }
 ?>

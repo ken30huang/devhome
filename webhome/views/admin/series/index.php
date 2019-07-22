@@ -1,7 +1,7 @@
 <div class="row">
     <ol class="breadcrumb">
         <li><a href="/admin/"><span class="glyphicon glyphicon-home"></span></a></li>
-        <li class="active">网站列表</li>
+        <li class="active">系列文章列表</li>
     </ol>
 </div><!--/.row-->				
 
@@ -9,14 +9,14 @@
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-body">
-                <button type="button" class="btn btn-primary" onclick="location.href='/admin/article/add';">新增文章</button>
+                <button type="button" class="btn btn-primary" onclick="location.href='/admin/series/add';">新增文章</button>
             </div>
             <div class="panel-body">
                 <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
                             <th>标题</th>
-                            <th>别名</th>
+                            <th>收藏时间</th>
                             <th>发布时间</th>
                             <th>操作</th>
                         </tr>
@@ -24,10 +24,10 @@
                             <?php foreach($rows as $row):?>
                             <tr>
                                 <td ><?php echo $row['c_title'];?></td>
-                                <td><?php echo $row['c_alias'];?></td>
                                 <td><?php echo $row['c_pubdate'];?></td>
+                                <td><?php echo $row['c_linkdate'];?></td>
                                 <td>
-                                    <a href="javascript:;" onclick="location.href='/admin/article/add?c_id=<?php echo $row['c_id'];?>';">编辑</a>
+                                    <a href="javascript:;" onclick="location.href='/admin/series/add?c_id=<?php echo $row['c_id'];?>';">编辑</a>
                                     <a href="javascript:;" onclick="javascript:listDel(<?php echo $row['c_id'];?>)">删除</a>
                                 </td>
                             </tr>
@@ -42,5 +42,5 @@
 </div><!--/.row-->
 
 <script>
-var moduleURL = '/admin/article';
+var moduleURL = '/admin/series';
 </script>

@@ -1,8 +1,8 @@
 <div class="row">
     <ol class="breadcrumb">
         <li><a href="/admin"><span class="glyphicon glyphicon-home"></span></a></li>
-        <li class="active"><a href="/admin/article">文章管理</a></li>
-        <li>文章编辑</li>
+        <li class="active"><a href="/admin/page">页面管理</a></li>
+        <li>页面编辑</li>
     </ol>
 </div><!--/.row-->				
 
@@ -14,12 +14,21 @@
                     <form role="form">
                         <input type="hidden" id="c_id" value="<?php echo getRowVal('c_id' , $row , '0');?>" />
                         <div class="form-group">
-                            <label>文章标题</label>
+                            <label>页面标题</label>
                             <input id="c_title" field="c_title" class="form-control" placeholder="" value="<?php echo getRowVal('c_title' , $row);?>" />
                         </div>
                         <div class="form-group">
-                            <label>文章别名</label>
+                            <label>页面别名</label>
                             <input id="c_alias" field="c_alias" class="form-control" placeholder="" value="<?php echo getRowVal('c_alias' , $row);?>" />
+                        </div>
+                        <div class="form-group">
+                            <label>上级页面</label>
+                            <select class="form-control" id="c_parentid" field="c_parentid">
+                                <option value="0">一级页面</option>
+                                <?php foreach($parents as $p):?>
+                                <option value="<?php echo $p['c_id']; ?>" <?php echo getSelVal('c_parentid' , $p['c_id'] , $row)?>><?php echo $p['c_title']; ?></option>
+                                <?php endforeach;?>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label>SEO关键词</label>
@@ -30,24 +39,7 @@
                             <input id="c_seodescription" field="c_seodescription" class="form-control" placeholder="" value="<?php echo getRowVal('c_seodescription' , $row);?>" />
                         </div>
                         <div class="form-group">
-                            <label>文章缩略图</label>
-                            <input id="c_thumb" field="c_thumb" class="form-control" placeholder="" value="<?php echo getRowVal('c_thumb' , $row);?>" />
-                        </div>
-                        <div class="form-group">
-                            <label>文章Tags</label>
-                            <input id="taginput" class="form-control" placeholder="" />
-                            <div class="checkbox">
-                                <?php foreach($tags as $t):?>
-                                <label><input type="checkbox" name="tagnames[]" value="<?php echo $t['tag_name'];?>" <?php echo isCheckSel('c_tag' , $row , $t['tag_name']);?>><?php echo $t['tag_name'];?></label>
-                                <?php endforeach;?>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>文章摘要</label>
-                            <textarea id="c_summery" class="form-control" rows="4" placeholder=""><?php echo getRowVal('c_summery' , $row);?></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>文章内容</label>
+                            <label>页面内容</label>
                             <textarea id="c_mdcont" field="c_mdcont" class="form-control" rows="8" placeholder=""><?php echo getRowVal('c_mdcont' , $row);?></textarea>
                             <div id="showMd" style="border:1px solid #ccc;height:240px; padding:10px; overflow:auto;"><?php echo getRowVal('c_cont' , $row , '内容预览');?></div>
                         </div>
@@ -89,33 +81,23 @@ function contSave() {
         alert('请输入内容摘要');
         return;
     }
-    var tag = $('#taginput').val();
-    $('[name="tagnames[]"]').each(function() {
-        if(this.checked) {
-            if(tag) {
-                tag += ','+this.value;
-            } else {
-                tag = this.value;
-            }
-        }
-    });
     var _saveData = {
         c_title:$('#c_title').val(),
         c_id:$('#c_id').val(),
         c_alias:$('#c_alias').val(),
+        c_parentid:$('#c_parentid').val(),
         c_seokeyword:$('#c_seokeyword').val(),
         c_seodescription:$('#c_seodescription').val(),
-        c_tag:tag,
         c_summery:$('#c_summery').val(),
         c_cont:$('#showMd').html(),
         c_mdcont:$('#c_mdcont').val()
     };
     ajaxReq({
-        url:'/admin/article/save',
+        url:'/admin/page/save',
         data: _saveData,
         succFun:function(res) {
             if(res.code == '000') {
-                location.href = '/admin/article';
+                location.href = '/admin/page';
             } else {
                 alert(res.msg);
             }
