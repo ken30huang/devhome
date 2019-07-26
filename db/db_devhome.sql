@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 100113
 File Encoding         : 65001
 
-Date: 2019-07-22 18:46:17
+Date: 2019-07-26 18:51:12
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,7 +27,7 @@ CREATE TABLE `dh_category` (
   `cate_icon` varchar(255) DEFAULT NULL,
   `cate_pageid` int(4) DEFAULT '0',
   PRIMARY KEY (`cate_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of dh_category
@@ -37,21 +37,26 @@ INSERT INTO `dh_category` VALUES ('10', '学习教程', '9', '', '', '0');
 INSERT INTO `dh_category` VALUES ('12', 'Web框架', '9', '', '', '0');
 INSERT INTO `dh_category` VALUES ('13', '前端框架', '9', '', '', '0');
 INSERT INTO `dh_category` VALUES ('14', 'BLOG', '0', '', '', '0');
-
--- ----------------------------
--- Table structure for dh_codestyle
--- ----------------------------
-DROP TABLE IF EXISTS `dh_codestyle`;
-CREATE TABLE `dh_codestyle` (
-  `cs_id` int(4) NOT NULL AUTO_INCREMENT,
-  `cs_lang` varchar(50) NOT NULL COMMENT '编程语言',
-  `cs_style` varchar(20) NOT NULL COMMENT '样式名',
-  PRIMARY KEY (`cs_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of dh_codestyle
--- ----------------------------
+INSERT INTO `dh_category` VALUES ('15', '编程语言', '0', '', '', '0');
+INSERT INTO `dh_category` VALUES ('16', 'Javascript', '15', 'Javascript', 'js', '0');
+INSERT INTO `dh_category` VALUES ('17', 'C/C++', '15', 'C/C++', 'c', '0');
+INSERT INTO `dh_category` VALUES ('18', 'Python', '15', 'python', 'python', '0');
+INSERT INTO `dh_category` VALUES ('19', 'Go', '15', 'go', 'go', '0');
+INSERT INTO `dh_category` VALUES ('20', 'Java', '15', 'java', 'java', '0');
+INSERT INTO `dh_category` VALUES ('21', 'PHP', '15', 'php', 'php', '0');
+INSERT INTO `dh_category` VALUES ('22', 'HTML', '15', 'html', 'html', '0');
+INSERT INTO `dh_category` VALUES ('23', 'CSS', '15', 'css', 'css', '0');
+INSERT INTO `dh_category` VALUES ('24', 'C#', '15', 'cshap', 'cshap', '0');
+INSERT INTO `dh_category` VALUES ('25', 'Rust', '15', 'rust', 'rust', '0');
+INSERT INTO `dh_category` VALUES ('26', 'Erlang', '15', 'erlang', 'erlang', '0');
+INSERT INTO `dh_category` VALUES ('27', 'Lua', '15', 'lua', 'lua', '0');
+INSERT INTO `dh_category` VALUES ('28', 'Nginx', '15', 'nginx', 'nginx', '0');
+INSERT INTO `dh_category` VALUES ('29', 'Apache', '15', 'apache', 'apache', '0');
+INSERT INTO `dh_category` VALUES ('30', '技术博客&社区', '9', '', '', '0');
+INSERT INTO `dh_category` VALUES ('31', '网站导航', '9', '', '', '0');
+INSERT INTO `dh_category` VALUES ('32', '工具网站', '9', '', '', '0');
+INSERT INTO `dh_category` VALUES ('33', '第三方插件', '9', '', '', '0');
+INSERT INTO `dh_category` VALUES ('34', '技术团队', '9', '', '', '0');
 
 -- ----------------------------
 -- Table structure for dh_content
@@ -77,16 +82,11 @@ CREATE TABLE `dh_content` (
   `c_order` int(4) DEFAULT '0',
   `c_linkdate` datetime DEFAULT NULL COMMENT '链接发布时间',
   PRIMARY KEY (`c_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- ----------------------------
 -- Records of dh_content
 -- ----------------------------
-INSERT INTO `dh_content` VALUES ('6', 'article', '0', 'd56fdgdsfg', null, 'fsdfsa122,fsad', null, null, 'twerdfg', '<p>fsdfasfsdfsa</p>\n', 'fsfasfsafd', '2019-07-22 14:17:21', '0', 'gdfgw5terg', 'fdgsdg', 'fsdfasfsdfsa', '0', null);
-INSERT INTO `dh_content` VALUES ('7', 'article', '0', 'rrdgsdfs21213', null, 'fsafasdsaf,fsad,fsdfsa122,fsad', null, null, 'fsfdsaf', '<p>fsafsafs</p>\n', 'dasfsa', '2019-07-22 14:17:21', '0', 'fsadf', 'fsf', 'fsafsafs', '0', null);
-INSERT INTO `dh_content` VALUES ('8', 'article', '0', 'FASA', null, 'fsad,fsdfsa122', null, null, '/TESSDASDF', '<p>FSDSFAFASF</p>\n', 'DSFASF', '2019-07-22 14:17:21', '0', 'FASFSAFS', 'SDFSAFA', 'FSDSFAFASF', '0', null);
-INSERT INTO `dh_content` VALUES ('9', 'article', '0', 'JFKSDFSAHJFS', null, 'fasfa', null, null, 'DSFASFS', '<p>sdfsafas</p>\n', 'fasfafsafasf', '2019-07-22 14:17:21', '0', 'FSA', 'dsfsa', 'sdfsafas', '0', null);
-INSERT INTO `dh_content` VALUES ('10', 'article', '0', 'JFKSDFSAHJFS1', null, 'fasfa', null, null, 'DSFASFS1', '<p>sdfsafas</p>\n', 'fasfafsafasf', '2019-07-22 14:17:21', '0', 'FSA', 'dsfsa', 'sdfsafas', '0', null);
 INSERT INTO `dh_content` VALUES ('14', 'page', '0', 'HOME', null, null, null, null, '/', '内容预览', null, '2019-07-22 14:45:56', '0', '', 'HOME', '', '0', null);
 INSERT INTO `dh_content` VALUES ('15', 'page', '0', '收藏集锦', null, null, null, null, '/collect', '内容预览', null, '2019-07-22 14:47:27', '0', '收藏集锦', '收藏集锦', '', '0', null);
 INSERT INTO `dh_content` VALUES ('16', 'page', '0', '系列文章', null, null, null, null, '/series', '内容预览', null, '2019-07-22 14:51:21', '15', '前端,人工智能,机器学习,图像识别,后台技术,java,python,javascript,html5,css,css3,es6', '系列文章，筛选收藏来自各个技术社区和网站的系列文章', '', '0', null);
@@ -105,6 +105,30 @@ INSERT INTO `dh_content` VALUES ('30', 'series', '0', '支付宝、微信支付�
 INSERT INTO `dh_content` VALUES ('31', 'wiki', '0', '写给程序员的管理入门课程 -《格鲁夫给经理人的第一课》', 'http://blog.devtang.com/images/high-output-management-book.png', '', null, 'http://blog.devtang.com/2016/06/06/high-output-management-summary/', null, null, '《格鲁夫给经理人的第一课》 最早出版于 2007 年，书原名为《High Output Management》。本书的作者格鲁夫是 Intel 的前 CEO，领导了 Intel 从一家濒临倒闭的存储器公司，转型为微处理器公司，并且在个人 PC 开始流行时，成功和微软缔结 Wintel 联盟，主宰了整个 PC 电脑时代', '2019-07-22 16:49:09', '0', '管理', null, null, '0', '2016-06-06 23:50:00');
 INSERT INTO `dh_content` VALUES ('32', 'wiki', '0', 'ECMAScript 6 入门', 'http://es6.ruanyifeng.com/images/cover-3rd.jpg', 'es6,教程,javascript', null, 'http://es6.ruanyifeng.com/', null, null, '本书覆盖 ES6 与上一个版本 ES5 的所有不同之处，对涉及的语法知识给予详细介绍，并给出大量简洁易懂的示例代码。', '2019-07-22 18:29:03', '0', 'es6', null, null, '0', '2017-09-01 00:00:00');
 INSERT INTO `dh_content` VALUES ('33', 'series', '0', 'jQuery源码分析系列 - 【艾伦】 - 博客园', null, 'javascript,jquery', null, 'https://www.cnblogs.com/aaronjs/p/3279314.html', '', '内容预览', 'jQuery源码分析系列', '2019-07-22 17:45:33', '0', 'jquery,源码', 'jquery,源码', '', '0', '2013-08-24 14:52:00');
+INSERT INTO `dh_content` VALUES ('34', 'snippet', '16', 'JS小数点取整', null, null, 'js向上取整 向下取整四舍五入方法总结', 'https://www.cnblogs.com/Marydon20170307/p/8831055.html', null, 'Math.floor(5.55) //向下取整 结果为5 \nMath.floor(5.99) //向下取整 结果为5 \nMath.ceil(5.21) //向上取整，结果为6 \nMath.ceil(5.88) //向上取整，结果为6 \nMath.round(5.78) //四舍五入 结果为6 \nMath.round(5.33) //结果为5 ', null, '2019-07-24 15:30:44', '0', 'javascript,小数,取整,整数', null, null, '0', '2018-10-30 08:43:40');
+INSERT INTO `dh_content` VALUES ('35', 'wiki', '0', 'High Performance Browser Networking', '', '性能,浏览器,javascript', null, 'https://hpbn.co/', null, null, 'Performance is a feature. This book provides a hands-on overview of what every web developer needs to know about the various types of networks (WiFi, 3G/4G), transport protocols (UDP, TCP, and TLS), application protocols (HTTP/1.1, HTTP/2), and APIs available in the browser (XHR, WebSocket, WebRTC, and more) to deliver the best—fast, reliable, and resilient—user experience.\n\n', '2019-07-25 09:37:36', '0', '浏览器,网络,性能', null, null, '0', '2013-04-05 00:00:00');
+INSERT INTO `dh_content` VALUES ('36', 'collect', '32', 'OSCHINA在线工具', null, null, null, 'http://tool.oschina.net/', null, '为开发设计人员提供在线工具，提供jsbin在线 CSS、JS 调试，在线 API文档查看', null, '2019-07-25 12:03:58', '0', '工具,api,调试', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('37', 'collect', '33', 'Unheap', null, null, null, 'http://www.unheap.com/?badge=all', null, 'Javascript第三方插件网站，包含不同的分类，有输入相关的、菜单相关的、多媒体相关、移动端相关等', null, '2019-07-25 12:03:37', '0', 'jquery,javascript', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('38', 'collect', '31', 'Alloyteam导航', null, null, null, 'http://www.alloyteam.com/nav/', null, '', null, '2019-07-25 12:05:06', '0', '前端,导航', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('39', 'collect', '30', 'Smashing Magazine', null, null, null, 'https://www.smashingmagazine.com/', null, '', null, '2019-07-25 12:06:00', '0', '博客,社区', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('40', 'collect', '10', '现代 JavaScript 教程', null, null, null, 'https://zh.javascript.info/', null, '主要课程包含 2 部分，涵盖了以 JavaScript 作为编程语言并在浏览器中运行。此外还有一系列专题文章。', null, '2019-07-25 12:06:58', '0', 'javascript,学习,教程', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('41', 'collect', '10', '入门教程网（英）', null, null, null, 'https://www.tutorialspoint.com/index.htm', null, 'The Biggest Online Tutorials Library, It\'s all Free', null, '2019-07-25 12:14:00', '0', '', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('42', 'collect', '10', '微信开发者文档', null, null, null, 'https://developers.weixin.qq.com/doc/', null, '微信开放平台,微信小程序,微信小游戏开发文档', null, '2019-07-25 12:24:08', '0', '微信,开发,文档', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('43', 'collect', '30', '一线码农 - 博客园', null, null, null, 'https://www.cnblogs.com/huangxincheng/', null, '', null, '2019-07-25 12:25:05', '0', '技术,博客', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('44', 'collect', '30', '博客园', null, null, null, 'https://www.cnblogs.com/', null, '技术社区，论坛，主要是博客为主', null, '2019-07-25 12:28:57', '0', '社区,论坛,博客', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('45', 'collect', '34', 'IMWeb 前端技术团队', null, null, null, 'https://imweb.io/', null, 'IMWeb 团队隶属腾讯公司，是国内最专业的前端团队之一。', null, '2019-07-25 12:35:35', '0', '前端,技术,团队', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('46', 'collect', '30', '酷壳', null, null, null, 'https://coolshell.cn', null, '一个分享技术见闻，知识，趋势的网站', null, '2019-07-25 12:36:11', '0', '', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('47', 'collect', '30', '张鑫旭的个人博客', null, null, null, 'https://www.zhangxinxu.com/', null, '', null, '2019-07-25 12:43:29', '0', 'html,javascript,css,原理', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('48', 'collect', '30', '阮一峰的网络日志', null, null, null, 'http://www.ruanyifeng.com/blog/', null, '', null, '2019-07-25 12:44:06', '0', '博客', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('49', 'collect', '30', 'CSDN', null, null, null, 'https://www.csdn.net/', null, '中国专业IT社区CSDN (Chinese Software Developer Network) 创立于1999年，致力于为中国软件开发者提供知识传播、在线学习、职业发展等全生命周期服务。 CSDN全职员工超过500名，分布在北京、上海、深圳、武汉、成都、江苏沭阳等地区。', null, '2019-07-25 12:48:03', '0', '程序员,软件开发,区块链,前端开发,后端开发,人工智能', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('50', 'collect', '34', 'Bocoup', null, null, null, 'https://bocoup.com/', null, 'We are a team of project managers and engineers with a track record driving browser and JavaScript interoperability, and shipping interactive applications using the Web Platform. We work with product teams to ship to the web and with browser implementers to improve the platform.（来源:官网）', null, '2019-07-25 12:53:43', '0', '前端,浏览器', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('51', 'collect', '30', 'David Barreto', null, null, null, 'http://david-barreto.com/', null, '', null, '2019-07-25 13:07:37', '0', 'javascript,react,angular', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('52', 'collect', '31', '设计达人网站导航', null, null, null, 'http://hao.shejidaren.com/', null, '设计师网址导航专注分享优秀设计网站、免费无版权限制可商用的高品质素材，设计教程、尺寸规范、配色方案、设计素材和灵感', null, '2019-07-25 13:08:49', '0', '导航,网站', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('53', 'collect', '30', '拉风的博客', null, null, null, 'http://rapheal.sinaapp.com/', null, '小程序前端框架开发负责人，曾在阿里、百度等企业实习工作', null, '2019-07-25 13:12:02', '0', '博客', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('54', 'collect', '34', '前端圈', null, null, null, 'https://fequan.com/', null, '我们成立于2010年1月，在普及W3C标准的基础上，我们一直在努力为广州web前端人员量身打造一个良好的生态圈。未来2~3年的时间内形成既与国际接轨又符合中国国情的web标准体系。', null, '2019-07-25 13:13:36', '0', 'w3c,web', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('55', 'collect', '30', 'w3cmark', null, null, null, 'http://www.w3cmark.com/', null, '', null, '2019-07-25 13:15:14', '0', '前端,css,javascript,python,bug', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('56', 'collect', '13', '微信H5UI框架', null, null, null, 'https://weui.io/', null, 'WeUI 是一套同微信原生视觉体验一致的基础样式库，由微信官方设计团队为微信内网页和微信小程序量身设计，令用户的使用感知更加统一。', null, '2019-07-25 13:16:46', '0', '微信,html5,ui,框架', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('57', 'collect', '32', '免费前端CDN', null, null, null, 'https://www.bootcdn.cn/', null, '稳定、快速、免费的前端开源项目 CDN 加速服务', null, '2019-07-26 08:35:03', '0', 'cdn,前端', null, null, '0', null);
 
 -- ----------------------------
 -- Table structure for dh_demo
@@ -142,11 +166,17 @@ CREATE TABLE `dh_libs` (
   `lib_keyword` varchar(255) DEFAULT NULL COMMENT '库所对应的关键字',
   `lib_type` tinyint(1) DEFAULT '0' COMMENT '库的类型: 0-开源项目,1-DEMO模板',
   PRIMARY KEY (`lib_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of dh_libs
 -- ----------------------------
+INSERT INTO `dh_libs` VALUES ('1', 'Layzr.js', 'http://callmecavs.com/layzr.js/', 'https://github.com/callmecavs/layzr.js', '一个小型的图片懒加载JS库，支持ES6标准开发模式', '', 'Javascript', '', null, '0');
+INSERT INTO `dh_libs` VALUES ('3', 'Slick.js', 'http://kenwheeler.github.io/slick/', 'https://github.com/kenwheeler/slick/', 'Slick.js是一款幻灯片特效JS库，依赖JQuery 1.7+', '//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css', 'jquery,javascript,幻灯片,js', 'https://codeload.github.com/kenwheeler/slick/zip/v1.8.1', null, '0');
+INSERT INTO `dh_libs` VALUES ('4', 'Bootstrap3', 'https://www.bootcss.com/', 'https://v3.bootcss.com/getting-started/', '简洁、直观、强悍的前端开发框架，让web开发更迅速、简单。', 'https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css', '简洁、直观、强悍的前端开发框架，让web开发更迅速、简单。', 'https://v3.bootcss.com/getting-started/', null, '0');
+INSERT INTO `dh_libs` VALUES ('5', 'Vue.js', 'https://cn.vuejs.org/', 'https://cn.vuejs.org/v2/guide/', 'Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现代化的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。（来源：Vue.js官网）', '', '渐进式,javascript', 'https://cn.vuejs.org/js/vue.min.js', null, '0');
+INSERT INTO `dh_libs` VALUES ('6', 'Mock.js', 'http://mockjs.com/', 'https://github.com/nuysoft/Mock/wiki/Getting-Started', 'Mock.js,生成随机数据，拦截 Ajax 请求， 用于模拟后台响应数据', '', '测试', '', null, '0');
+INSERT INTO `dh_libs` VALUES ('7', '百度上传插件 Web Uploader', 'http://fex.baidu.com/webuploader/', 'http://fex.baidu.com/webuploader/getting-started.html', 'WebUploader是由Baidu WebFE(FEX)团队开发的一个简单的以HTML5为主，FLASH为辅的现代文件上传组件。在现代的浏览器里面能充分发挥HTML5的优势，同时又不摒弃主流IE浏览器，沿用原来的FLASH运行时，兼容IE6+，iOS 6+, android 4+。两套运行时，同样的调用方式，可供用户任意选用。采用大文件分片并发上传，极大的提高了文件上传效率。（来源：Web Uploader 官网）', '', '上传', 'https://github.com/fex-team/webuploader/releases', null, '0');
 
 -- ----------------------------
 -- Table structure for dh_pushlog
@@ -215,43 +245,12 @@ CREATE TABLE `dh_setting` (
   `setting_stmp` varchar(50) DEFAULT NULL,
   `setting_pop3` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`setting_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of dh_setting
 -- ----------------------------
-
--- ----------------------------
--- Table structure for dh_sites
--- ----------------------------
-DROP TABLE IF EXISTS `dh_sites`;
-CREATE TABLE `dh_sites` (
-  `site_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
-  `site_name` varchar(255) NOT NULL COMMENT '网站名称',
-  `site_url` varchar(255) NOT NULL COMMENT '网站地址',
-  `site_description` varchar(255) DEFAULT NULL COMMENT 'site_description',
-  `site_charge` tinyint(2) DEFAULT '0' COMMENT '收费类型:0-全免费,1-部分收费,2-全免费',
-  `site_isrecord` tinyint(2) DEFAULT '0' COMMENT '是否收录网站:0-是,1-否',
-  PRIMARY KEY (`site_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of dh_sites
--- ----------------------------
-INSERT INTO `dh_sites` VALUES ('1', 'CSDN', 'https://www.csdn.net/', '中国专业IT社区CSDN (Chinese Software Developer Network) 创立于1999年，致力于为中国软件开发者提供知识传播、在线学习、职业发展等全生命周期服务。 CSDN全职员工超过500名，分布在北京、上海、深圳、武汉、成都、江苏沭阳等地区。', '0', '0');
-INSERT INTO `dh_sites` VALUES ('3', '淘宝前端团队（FED）', 'http://taobaofed.org/', '淘宝前端团队（FED）', '0', '1');
-INSERT INTO `dh_sites` VALUES ('4', '阮一峰的网络日志', 'http://www.ruanyifeng.com/blog/', '阮一峰的网络日志', '0', '1');
-INSERT INTO `dh_sites` VALUES ('7', '张鑫旭的个人博客', 'https://www.zhangxinxu.com/', '张鑫旭的个人博客', '0', '1');
-INSERT INTO `dh_sites` VALUES ('8', '小胡子哥的个人网站', 'https://www.barretlee.com/', '', '0', '1');
-INSERT INTO `dh_sites` VALUES ('9', '酷壳', 'https://coolshell.cn', '一个分享技术见闻，知识，趋势的网站', '0', '1');
-INSERT INTO `dh_sites` VALUES ('10', 'IMWeb 前端技术团队', 'https://imweb.io/', 'IMWeb 团队隶属腾讯公司，是国内最专业的前端团队之一。', '0', '1');
-INSERT INTO `dh_sites` VALUES ('11', '博客园', 'https://www.cnblogs.com/', '技术社区，论坛，主要是博客为主', '0', '0');
-INSERT INTO `dh_sites` VALUES ('12', '一线码农 - 博客园', 'https://www.cnblogs.com/huangxincheng/', '', '0', '1');
-INSERT INTO `dh_sites` VALUES ('13', '微信官方网站', 'https://developers.weixin.qq.com/doc/', '小程序,小游戏,公众号,开放平台', '0', '1');
-INSERT INTO `dh_sites` VALUES ('14', '入门教程网（英）', 'https://www.tutorialspoint.com/index.htm', 'The Biggest Online Tutorials Library, It\'s all Free', '0', '1');
-INSERT INTO `dh_sites` VALUES ('15', '现代 JavaScript 教程', 'https://zh.javascript.info/', '主要课程包含 2 部分，涵盖了以 JavaScript 作为编程语言并在浏览器中运行。此外还有一系列专题文章。', '0', '1');
-INSERT INTO `dh_sites` VALUES ('16', 'Smashing Magazine — For Web Designers And Developers', 'https://www.smashingmagazine.com/', '', '0', '1');
-INSERT INTO `dh_sites` VALUES ('17', 'Web前端导航', 'http://www.alloyteam.com/nav/', '', '0', '1');
+INSERT INTO `dh_setting` VALUES ('1', '码农直通车', '逐步建立起一个完整的知识体系，便于学习和回顾', '汇总一些新发布的，或者已发布旧的系列型的技术文章，方便查看和回顾', '国内外技术社区很多，各自都有一些优秀的文章 和 代码资源 在这里收集和汇总一些内容，信息都是来自于各个不同的社区', 'wx279639439@163.com', null, '', '1', 'wx279639439@163.com', 'wx279639439@163.com');
 
 -- ----------------------------
 -- Table structure for dh_tag
@@ -261,7 +260,7 @@ CREATE TABLE `dh_tag` (
   `tag_id` int(11) NOT NULL AUTO_INCREMENT,
   `tag_name` varchar(255) NOT NULL COMMENT '标签名',
   PRIMARY KEY (`tag_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of dh_tag
@@ -277,6 +276,7 @@ INSERT INTO `dh_tag` VALUES ('17', 'three.js');
 INSERT INTO `dh_tag` VALUES ('18', 'javascript');
 INSERT INTO `dh_tag` VALUES ('19', 'jquery');
 INSERT INTO `dh_tag` VALUES ('20', 'es6');
+INSERT INTO `dh_tag` VALUES ('21', '性能');
 
 -- ----------------------------
 -- Table structure for dh_uisetting

@@ -7,8 +7,8 @@
             </a>
             <ul class="children collapse" id="sub-item-2">
                 <li>
-                    <a class="" href="/admin/sites">
-                        <span class="glyphicon glyphicon-share-alt"></span> 网站来源
+                    <a class="" href="/admin/collect">
+                        <span class="glyphicon glyphicon-share-alt"></span> 网站收藏
                     </a>
                 </li>
                 <li>
@@ -24,11 +24,6 @@
                 <li>
                     <a class="" href="/admin/page">
                         <span class="glyphicon glyphicon-share-alt"></span> 页面管理
-                    </a>
-                </li>
-                <li>
-                    <a class="" href="/admin/category">
-                        <span class="glyphicon glyphicon-share-alt"></span> 内容分类
                     </a>
                 </li>
                 <li>
@@ -59,6 +54,11 @@
                         <span class="glyphicon glyphicon-share-alt"></span> Demo管理
                     </a>
                 </li>
+                <li>
+                    <a class="" href="/admin/snippet">
+                        <span class="glyphicon glyphicon-share-alt"></span> 代码段管理
+                    </a>
+                </li>
             </ul>
         </li>
         <li class="parent ">
@@ -80,6 +80,11 @@
                 <li>
                     <a class="" href="/admin/ui">
                         <span class="glyphicon glyphicon-share-alt"></span> UI模板设置
+                    </a>
+                </li>
+                <li>
+                    <a class="" href="/admin/category">
+                        <span class="glyphicon glyphicon-share-alt"></span> 内容分类
                     </a>
                 </li>
             </ul>
