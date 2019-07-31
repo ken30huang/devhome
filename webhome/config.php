@@ -15,7 +15,8 @@ $config['run_mode']['admin'] = 1; //以mvc模式运行
 $config['run_mode']['index'] = 2; //以函数式运行
 
 //需要载入的模型父类
-$config['base']['models'] = array('mysql');
+$config['load']['models'] = array('mysql','table');
+$config['load']['controller'] = array('mysql');
 
 return $config;
 ?>

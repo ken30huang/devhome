@@ -1,25 +1,4 @@
 <?php
-function render_page_btns($url , $recordtotal , $pagesize) {
-    $page = App::web()->requestAll('page');
-    if(empty($page)) {
-    	$page = 1;
-    }
-    $pagetotal = ceil($recordtotal/$pagesize);
-    $prev = $page-1;
-    $prev = $prev<=0?1:$prev;
-    $next = $page+1;
-    $next = $next>$pagetotal?$pagetotal:$next;
-    $start = ($page-1)*$pagesize;
-
-    $html = '总共'.$recordtotal.'条记录 共'.$pagetotal.'页 ';
-    $html .= '<a href="'.$url.'/1">首页</a> ';
-    $html .= '<a href="'.$url.'/'.$prev.'">上一页</a> ';
-    $html .= '当前第'.$page.'页 ';
-    $html .= '<a href="'.$url.'/'.$next.'">下一页</a> ';
-    $html .= '<a href="'.$url.'/'.$pagetotal.'">尾页</a> ';
-
-    return array('html'=>$html,'start'=>$start , 'page'=>$page, 'prev'=>$prev , 'next'=>$next);
-}
 
 function show_date($time) {
 	return date('Y-m-d H:s' , $time);

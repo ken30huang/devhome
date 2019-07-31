@@ -1,13 +1,14 @@
 <?php
-class View {
+//所有试图类的
+class BaseView {
 
     private $_blocks = array();
     private $_config = array();
     private $_vals = array();
 
-    public function __construct() {
-        $config = get_config_setting();
-        $this->_config = $config['theme'][MODULE];
+    //初始化试图类
+    public function init($config) {
+        $this->_config = $config['theme'][APP_DIR];
         if(isset($this->_config['blocks'])) {
             foreach($this->_config['blocks'] as $block) {
                 $this->getBlockCont($block);

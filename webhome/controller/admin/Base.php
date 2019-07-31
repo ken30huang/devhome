@@ -1,5 +1,5 @@
 <?php
-class AdminController extends BaseController {
+class AdminController extends WebController {
 
     public function index() { echo 'admin controller '; }
 

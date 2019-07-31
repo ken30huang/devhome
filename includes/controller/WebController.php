@@ -1,17 +1,12 @@
 <?php
-abstract class BaseController {
+abstract class WebController {
 
     protected $result = array();
     protected $models = array();
-    protected $routers = array();
     protected $view = NULL;
-
-    public function init($routers) {
-        $this->routers = $routers;
-        $this->view = new View();
-        $this->web = new Web();
-        $this->web->initSession();
-    }
+    protected $http = NULL;
+    protected $session = NULL;
+    protected $uri = NULL;
 
     public function index() {
         echo 'Controller default method';

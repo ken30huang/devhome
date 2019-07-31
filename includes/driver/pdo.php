@@ -1,5 +1,5 @@
 <?php
-class DB {
+class PDODriver {
 
 	private $_dbh;
 	private $_prex;

@@ -1,5 +1,5 @@
 <?php
-Class TableModel extends BaseModel {
+Class TableModel extends MysqlModel {
 
     private static $_model = null;
 

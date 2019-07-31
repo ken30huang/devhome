@@ -10,7 +10,8 @@ class MysqlModel {
     protected $pagesize = 10;
     private $_queryOptions = array();
 
-    public function __construct($driver) {
+    public function __construct() {
+        
         $this->db = $driver;
     }
 
