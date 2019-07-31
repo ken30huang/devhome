@@ -25,22 +25,6 @@ function show_date($time) {
 	return date('Y-m-d H:s' , $time);
 }
 
-function get_template($result) {
-    $view = App::view();
-    $view->setDatas($result['data']);
-    $view->setTemplate($result['view']);
-    $view->display();
-}
-
-function add_script($script) {
-    App::web()->addScript($script);
-}
-
-
-function add_style($style) {
-    App::web()->addStyle($style);
-}
-
 function inc($filename , $data=array()) {
     if(!file_exists($filename)) {
         die('Can not find ' . $filename);

@@ -17,6 +17,7 @@
                         <tr>
                             <th>代码说明</th>
                             <th>编程语言</th>
+                            <th>来源</th>
                             <th>发布时间</th>
                             <th>操作</th>
                         </tr>
@@ -25,6 +26,7 @@
                             <tr>
                                 <td ><?php echo $row['c_title'];?></td>
                                 <td ><?php echo $codenames[$row['c_cateid']];?></td>
+                                <td ><a href="<?php echo $row['c_link'];?>" target="_blank"><?php echo $row['c_linktitle'];?></td>
                                 <td><?php echo $row['c_pubdate'];?></td>
                                 <td>
                                     <a href="javascript:;" onclick="location.href='/admin/snippet/add?c_id=<?php echo $row['c_id'];?>';">编辑</a>

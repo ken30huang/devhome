@@ -61,5 +61,22 @@ class View {
         ob_clean();
         return $all_cont;
     }
+
+    public function show($name) {
+        $all_cont = '';
+        $real_path = [];
+        $paths = explode('/', $name);
+        foreach($paths as $path) {
+            if(!empty($path)) {
+                $real_path[] = $path;
+            }
+        }
+        ob_start();
+        extract($this->_vals);
+        require(V_PATH.DS.implode(DS, $real_path).'.php');
+        $all_cont = ob_get_contents();
+        ob_clean();
+        echo $all_cont;
+    }
 }
 ?>

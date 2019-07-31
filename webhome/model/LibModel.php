@@ -1,5 +1,5 @@
 <?php
-class LibModel extends BaseModel {
+class LibModel extends MysqlModel {
 
     protected $table = 'libs';
     protected $idkey = 'lib_id';

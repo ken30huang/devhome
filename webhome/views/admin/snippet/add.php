@@ -19,7 +19,7 @@
                         </div>
                         <div class="form-group">
                             <label>出处标题</label>
-                            <input id="c_linktitle" field="c_linktitle" class="form-control" placeholder="" value="<?php echo getRowVal('c_link' , $row);?>" />
+                            <input id="c_linktitle" field="c_linktitle" class="form-control" placeholder="" value="<?php echo getRowVal('c_linktitle' , $row);?>" />
                         </div>
                         <div class="form-group">
                             <label>出处链接</label>

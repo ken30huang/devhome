@@ -141,5 +141,18 @@ class Web {
 		return $_SERVER['REMOTE_ADDR'];
 	}
 
+	public function redirect($url) {
+		echo '<meta charset="utf-8" /><script>';
+		echo 'location.href="'.$url.'";</script>';
+	}
+
+	public function isGet() {
+		return $_SERVER['REQUEST_METHOD'] == 'GET' ? true : false;
+	}
+
+	public function isPost() {
+		return $_SERVER['REQUEST_METHOD'] == 'POST' ? true : false;
+	}
+
 }
 ?>

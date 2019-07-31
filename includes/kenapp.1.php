@@ -4,11 +4,15 @@ class KenApp {
 	private $_route = array();
 	private $_caches = array();
 	private $_appname = 'default';
-	private $_webs = array();
+	private $_routerMaps = array();
 	private $_imports = array();
 
-	public function __construct() {
-
+	public function __construct($app_name) {
+		$this->_appname = $app_name;
+		define('APP_BASE' , ROOT_PATH.DS.$app_name);
+		define('__PUBLIC__' , '/'.$app_name.'/public/');
+		filterReq();
+		$this->_initRouter();
 	}
 
 	private function _initRouter() {
@@ -73,8 +77,12 @@ class KenApp {
 		exit;
 	}
 
-	public function loadWeb() {
+	public function addRoute($key , $handle) {
+		$this->_routerMaps[$key] = $handle;
+	}
 
+	public function import($path) {
+		$this->_imports[] = $path;
 	}
 
 	public function run() {

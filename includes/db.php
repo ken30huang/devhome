@@ -4,11 +4,9 @@ class DB {
 	private $_dbh;
 	private $_prex;
 	
-	public function __construct() {
+	public function __construct($config) {
 
 		try {
-			$allsetting = get_config_setting();
-			$config = $allsetting['db'];
 			$dsn = $config['dbtype'].":dbname=".$config['dbname'].";host=".$config['host'];
 			$user = $config['user'];
 			$pwd = $config['pwd'];

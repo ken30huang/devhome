@@ -1,5 +1,6 @@
 <?php
-class BaseModel {
+//专用于mysql的模型
+class MysqlModel {
     
     protected $db;
     protected $table;
@@ -9,8 +10,8 @@ class BaseModel {
     protected $pagesize = 10;
     private $_queryOptions = array();
 
-    public function __construct() {
-        $this->db = new DB();
+    public function __construct($driver) {
+        $this->db = $driver;
     }
 
     public function save($data=array()) {
@@ -117,5 +118,10 @@ class BaseModel {
     public function getPageSize() {
         return $this->pagesize;
     }
+
+    public function setData($data , $where) {
+        $this->db->update($this->table , $data , $where);
+    }
+    
 }
 ?>

@@ -1,5 +1,5 @@
 <?php
-class ContentModel extends BaseModel {
+class ContentModel extends MysqlModel {
 
     protected $table = 'content';
     protected $idkey = 'c_id';

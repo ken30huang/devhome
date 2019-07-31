@@ -40,7 +40,7 @@
                                     <td><?php echo $child['c_alias'];?></td>
                                     <td>
                                         <a href="javascript:;" onclick="location.href='/admin/page/add?c_id=<?php echo $child['c_id'];?>';">编辑</a>
-                                        <a href="javascript:;" onclick="javascript:listDel(<?php echo $child['cate_id'];?>)">删除</a>
+                                        <a href="javascript:;" onclick="javascript:listDel(<?php echo $child['c_id'];?>)">删除</a>
                                     </td>
                                 </tr>
                                 <?php endforeach;?>
