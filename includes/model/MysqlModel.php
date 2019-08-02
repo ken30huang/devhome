@@ -5,24 +5,32 @@ class MysqlModel {
     protected $db;
     protected $table;
     protected $idkey='id';
+    protected $data = array();
     protected $lastId='';
     protected $pagenum = 0;
     protected $pagesize = 10;
     private $_queryOptions = array();
 
     public function __construct() {
-        
-        $this->db = $driver;
+        //从驱动获取数据库操作对象
+        $this->db = Driver::get('pdo');
+    }
+
+    public function data($key , $val=NULL) {
+        if(is_array($key)) {
+            $this->data = $key;
+        } else if(is_string($key) && $val != NULL) {
+            $this->data[$key] = $val;
+        }
+    }
+
+    private function _getIdVal() {
+        return isset($data[$this->idkey]) ? intval($this->idkey) : 0;
     }
 
     public function save($data=array()) {
 
-        if(count($data) == 0) {
-            $data = $_REQUEST;
-        }
-
-        $idkey = getReq($this->idkey);
-        $idkey = intval($idkey);
+        $idkey = $this->_getIdVal();
         if($idkey > 0) {
             $this->lastId = $idkey;
             $this->db->update($this->table , $data , $this->idkey.'='.$idkey);
@@ -40,8 +48,7 @@ class MysqlModel {
     }
 
     public function getRow() {
-        $idkey = getReq($this->idkey);
-        $idkey = intval($idkey);
+        $idkey = $this->_getIdVal();
         $rows = $this->db->select($this->table , array('where'=>" AND ".$this->idkey."=".$idkey, 'limit'=>'1'));
         if(count($rows) == 0) {
             return false;
@@ -55,8 +62,7 @@ class MysqlModel {
     }
 
     public function deleteById() {
-        $idkey = getReq($this->idkey);
-        $idkey = intval($idkey);
+        $idkey = $this->_getIdVal();
         $this->db->delete($this->table, $this->idkey."=".$idkey);
     }
 
@@ -120,7 +126,7 @@ class MysqlModel {
         return $this->pagesize;
     }
 
-    public function setData($data , $where) {
+    public function modify($data , $where) {
         $this->db->update($this->table , $data , $where);
     }
     

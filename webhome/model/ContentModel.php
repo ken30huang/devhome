@@ -14,6 +14,19 @@ class ContentModel extends MysqlModel {
         return array('rows'=>$rows, 'count'=>$count);
     }
 
+    public function getPageDataBySearch($keyword = '') {
+        $where = " AND c_type!='page' ";
+        if(!empty($keyword)) {
+            $where .= " AND (c_title LIKE '%".$keyword."%' OR c_tag LIKE '%".$keyword."%' OR c_seokeyword LIKE '%".$keyword."%' OR c_mdcont LIKE '%".$keyword."%')";
+        }
+        $count = $this->getCount($where);
+        $start = intval($this->pagenum-1)*$this->pagesize-1;
+        $start = $start < 0 ? 0 : $start;
+        $rows = $this->select(array('order'=>'c_pubdate DESC , c_id DESC' , 'where'=>$where, 'limit'=>$start.','.$this->pagesize));
+
+        return array('rows'=>$rows, 'count'=>$count);
+    }
+
     public function getPageTree() {
         $where = " AND c_type='page'";
         $rows = $this->select(array('order'=>'c_order ASC , c_id ASC' , 'where'=>$where));

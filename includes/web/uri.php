@@ -20,15 +20,6 @@ class WebUri {
         $this->_uris = $uri_arr;
     }
 
-    public static function getInstance() {
-        
-        if(!self::$_instance) {
-            self::$_instance = new _instance();
-        }
-
-        return self::$_instance;
-    }
-
     public function get($index) {
         return isset($this->_uris[$index])?$this->_uris[$index]:'';
     }

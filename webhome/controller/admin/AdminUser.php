@@ -16,23 +16,23 @@ class AdminUserController extends AdminController {
     }
 
     public function logout() {
-        $this->web->clearSession();
-        $this->web->redirect('/admin/user/login');
+        $this->session->del('user');
+        $this->http->redirect('/admin/user/login');
     }
 
     public function login() {
-        if($this->web->isPost()) {
-            $uname = $this->web->reqPost('uname');
-            $upassword = $this->web->reqPost('upassword');
+        if($this->http->isPost()) {
+            $uname = $this->http->inputPost('uname');
+            $upassword = $this->http->inputPost('upassword');
             $admin_model = TableModel::getInstance('admin' , 'admin_uid');
             $ucount = $admin_model->getCount(" AND admin_uname='".$uname."' AND admin_upwd='".md5($upassword)."'");
             if($ucount == 0) {
-                $this->fail('用户名密码错误')->getJSON();
+                $this->http->fail('用户名密码错误')->json();
             }
 
             $rows = $admin_model->where("admin_uname='".$uname."' AND admin_upwd='".md5($upassword)."'")->query();
-            $this->web->setSession('user' ,$rows[0] );
-            $this->success()->getJSON();
+            $this->session->set('user' ,$rows[0] );
+            $this->http->success()->json();
         } else {
             $this->view->show('user/login');
         }

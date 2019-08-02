@@ -2,7 +2,7 @@
 //web会话类
 class WebSession {
 
-    public function start() {
+    public function __construct() {
         //初始化session
         session_start();
     }

@@ -10,10 +10,28 @@ Target Server Type    : MYSQL
 Target Server Version : 100113
 File Encoding         : 65001
 
-Date: 2019-07-26 18:51:12
+Date: 2019-07-31 18:49:49
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for dh_admin
+-- ----------------------------
+DROP TABLE IF EXISTS `dh_admin`;
+CREATE TABLE `dh_admin` (
+  `admin_uid` int(3) NOT NULL AUTO_INCREMENT,
+  `admin_uname` varchar(20) NOT NULL,
+  `admin_upwd` varchar(50) NOT NULL,
+  `admin_utime` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `admin_ugroupid` int(11) DEFAULT '0',
+  PRIMARY KEY (`admin_uid`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of dh_admin
+-- ----------------------------
+INSERT INTO `dh_admin` VALUES ('1', 'ken', 'af974cf3ae8a5bf92832a864766f5b6c', '2019-07-29 10:40:38', '0');
 
 -- ----------------------------
 -- Table structure for dh_category
@@ -27,7 +45,7 @@ CREATE TABLE `dh_category` (
   `cate_icon` varchar(255) DEFAULT NULL,
   `cate_pageid` int(4) DEFAULT '0',
   PRIMARY KEY (`cate_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of dh_category
@@ -57,6 +75,10 @@ INSERT INTO `dh_category` VALUES ('31', '网站导航', '9', '', '', '0');
 INSERT INTO `dh_category` VALUES ('32', '工具网站', '9', '', '', '0');
 INSERT INTO `dh_category` VALUES ('33', '第三方插件', '9', '', '', '0');
 INSERT INTO `dh_category` VALUES ('34', '技术团队', '9', '', '', '0');
+INSERT INTO `dh_category` VALUES ('35', '免费图库', '9', '', '', '0');
+INSERT INTO `dh_category` VALUES ('36', '代码展示', '9', '', '', '0');
+INSERT INTO `dh_category` VALUES ('37', '静态模板', '9', '', '', '0');
+INSERT INTO `dh_category` VALUES ('38', '配色相关', '9', '', '', '0');
 
 -- ----------------------------
 -- Table structure for dh_content
@@ -82,30 +104,19 @@ CREATE TABLE `dh_content` (
   `c_order` int(4) DEFAULT '0',
   `c_linkdate` datetime DEFAULT NULL COMMENT '链接发布时间',
   PRIMARY KEY (`c_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=96 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- ----------------------------
 -- Records of dh_content
 -- ----------------------------
 INSERT INTO `dh_content` VALUES ('14', 'page', '0', 'HOME', null, null, null, null, '/', '内容预览', null, '2019-07-22 14:45:56', '0', '', 'HOME', '', '0', null);
-INSERT INTO `dh_content` VALUES ('15', 'page', '0', '收藏集锦', null, null, null, null, '/collect', '内容预览', null, '2019-07-22 14:47:27', '0', '收藏集锦', '收藏集锦', '', '0', null);
-INSERT INTO `dh_content` VALUES ('16', 'page', '0', '系列文章', null, null, null, null, '/series', '内容预览', null, '2019-07-22 14:51:21', '15', '前端,人工智能,机器学习,图像识别,后台技术,java,python,javascript,html5,css,css3,es6', '系列文章，筛选收藏来自各个技术社区和网站的系列文章', '', '0', null);
-INSERT INTO `dh_content` VALUES ('17', 'page', '0', '在线文档', null, null, null, null, '/books', '内容预览', null, '2019-07-22 14:53:05', '15', '在线文档，开源文档', '在线文档，开源文档', '', '0', null);
-INSERT INTO `dh_content` VALUES ('18', 'page', '0', '博客&社区', null, null, null, null, '/techsites', '', null, '2019-07-22 14:54:36', '15', '技术社区,技术博客', '技术社区,技术博客', '', '0', null);
-INSERT INTO `dh_content` VALUES ('19', 'page', '0', '开发资源', null, null, null, null, 'javascript:;', '内容预览', null, '2019-07-22 14:56:16', '0', '开发资源', '开发资源', '', '0', null);
-INSERT INTO `dh_content` VALUES ('20', 'page', '0', 'DEMO展示', null, null, null, null, '/demos', '内容预览', null, '2019-07-22 14:58:11', '19', 'js,python,svg,canvas', 'js,python,svg,canvas', '', '0', null);
-INSERT INTO `dh_content` VALUES ('21', 'page', '0', '小工具', null, null, null, null, '/smalltool', '内容预览', null, '2019-07-22 14:59:12', '19', '小工具', '小工具', '', '0', null);
-INSERT INTO `dh_content` VALUES ('22', 'page', '0', '知识点', null, null, null, null, '/points', '内容预览', null, '2019-07-22 14:59:48', '19', '知识点', '知识点', '', '0', null);
-INSERT INTO `dh_content` VALUES ('23', 'page', '0', 'BLOG', null, null, null, null, '/blog', '内容预览', null, '2019-07-22 15:01:06', '0', '博客,javascript,js,svg,docker,java,小程序', '博客,javascript,js,svg,docker,java,小程序', '', '0', null);
-INSERT INTO `dh_content` VALUES ('24', 'page', '0', '关于\"我\"', null, null, null, null, '/about', '内容预览', null, '2019-07-22 15:01:52', '0', '关于我', '关于我', '', '0', null);
 INSERT INTO `dh_content` VALUES ('26', 'series', '0', 'app后端设计--总目录 - 曾健生的专栏 - CSDN博客', null, '', null, 'https://blog.csdn.net/newjueqi/article/details/19003775', '', '内容预览', '系统架构', '2019-07-22 15:57:44', '0', 'api,推送,系统架构', 'api,推送,系统架构', '', '0', '2014-02-09 09:24:21');
-INSERT INTO `dh_content` VALUES ('28', 'series', '0', 'RabbitMQ学习教程 - slimina - CSDN博客', null, 'rabbitmq,教程', null, 'https://blog.csdn.net/tianwei7518/column/info/slimina-rabbitmq/2', '', '内容预览', 'RabbitMQ介绍、安装以及各种场景的应用，讲解与spring的各种集成，以及集群环境的搭建和使用。', '2019-07-22 16:01:05', '0', 'rabbitmq,教程', 'rabbitmq,教程', '', '0', '2014-11-05 21:29:32');
 INSERT INTO `dh_content` VALUES ('29', 'series', '0', '理解WebKit和Chromium技术 - Yongsheng - CSDN博客', null, 'webkit,浏览器', null, 'https://blog.csdn.net/milado_nju/column/info/yongsheng', '', '内容预览', 'WebKit被广泛的应用在桌面系统和移动系统，特别是移动领域的兴起更是将WebKit推向了全所未有的应用场景。基于WebKit（Blink）的开源项目Chromium浏览器以其众多新颖的技术和高性能的表现获得广泛的关注。本专栏着重剖析WebKit和Chromium架构和原理。', '2019-07-22 16:00:37', '0', 'webkit,浏览器', 'webkit,浏览器', '', '0', '2012-01-27 14:56:07');
 INSERT INTO `dh_content` VALUES ('30', 'series', '0', '支付宝、微信支付接入 - 我是大愚 - CSDN博客', null, '支付宝,微信,支付', null, 'https://idayu.blog.csdn.net/column/info/payment', '', '', '全面集成支付宝支付与微信支付功能。方便快速接入。免费支付聚合sdk。支付宝支付、订单查询、退款、转账完全支持。涵盖微信刷卡、小程序、公众号、app支付。', '2019-07-22 16:13:11', '0', '支付宝,微信,支付,接入', '支付宝,微信,支付,接入', '', '0', '2016-07-18 16:49:58');
 INSERT INTO `dh_content` VALUES ('31', 'wiki', '0', '写给程序员的管理入门课程 -《格鲁夫给经理人的第一课》', 'http://blog.devtang.com/images/high-output-management-book.png', '', null, 'http://blog.devtang.com/2016/06/06/high-output-management-summary/', null, null, '《格鲁夫给经理人的第一课》 最早出版于 2007 年，书原名为《High Output Management》。本书的作者格鲁夫是 Intel 的前 CEO，领导了 Intel 从一家濒临倒闭的存储器公司，转型为微处理器公司，并且在个人 PC 开始流行时，成功和微软缔结 Wintel 联盟，主宰了整个 PC 电脑时代', '2019-07-22 16:49:09', '0', '管理', null, null, '0', '2016-06-06 23:50:00');
 INSERT INTO `dh_content` VALUES ('32', 'wiki', '0', 'ECMAScript 6 入门', 'http://es6.ruanyifeng.com/images/cover-3rd.jpg', 'es6,教程,javascript', null, 'http://es6.ruanyifeng.com/', null, null, '本书覆盖 ES6 与上一个版本 ES5 的所有不同之处，对涉及的语法知识给予详细介绍，并给出大量简洁易懂的示例代码。', '2019-07-22 18:29:03', '0', 'es6', null, null, '0', '2017-09-01 00:00:00');
 INSERT INTO `dh_content` VALUES ('33', 'series', '0', 'jQuery源码分析系列 - 【艾伦】 - 博客园', null, 'javascript,jquery', null, 'https://www.cnblogs.com/aaronjs/p/3279314.html', '', '内容预览', 'jQuery源码分析系列', '2019-07-22 17:45:33', '0', 'jquery,源码', 'jquery,源码', '', '0', '2013-08-24 14:52:00');
-INSERT INTO `dh_content` VALUES ('34', 'snippet', '16', 'JS小数点取整', null, null, 'js向上取整 向下取整四舍五入方法总结', 'https://www.cnblogs.com/Marydon20170307/p/8831055.html', null, 'Math.floor(5.55) //向下取整 结果为5 \nMath.floor(5.99) //向下取整 结果为5 \nMath.ceil(5.21) //向上取整，结果为6 \nMath.ceil(5.88) //向上取整，结果为6 \nMath.round(5.78) //四舍五入 结果为6 \nMath.round(5.33) //结果为5 ', null, '2019-07-24 15:30:44', '0', 'javascript,小数,取整,整数', null, null, '0', '2018-10-30 08:43:40');
+INSERT INTO `dh_content` VALUES ('34', 'snippet', '16', 'JS小数点取整', null, null, 'js 向上取整、向下取整、四舍五入', 'https://www.cnblogs.com/Marydon20170307/p/8831055.html', null, 'Math.floor(5.55) //向下取整 结果为5 \nMath.floor(5.99) //向下取整 结果为5 \nMath.ceil(5.21) //向上取整，结果为6 \nMath.ceil(5.88) //向上取整，结果为6 \nMath.round(5.78) //四舍五入 结果为6 \nMath.round(5.33) //结果为5 ', null, '2019-07-30 14:48:45', '0', 'javascript,小数,取整,整数', null, null, '0', '2018-10-30 08:43:40');
 INSERT INTO `dh_content` VALUES ('35', 'wiki', '0', 'High Performance Browser Networking', '', '性能,浏览器,javascript', null, 'https://hpbn.co/', null, null, 'Performance is a feature. This book provides a hands-on overview of what every web developer needs to know about the various types of networks (WiFi, 3G/4G), transport protocols (UDP, TCP, and TLS), application protocols (HTTP/1.1, HTTP/2), and APIs available in the browser (XHR, WebSocket, WebRTC, and more) to deliver the best—fast, reliable, and resilient—user experience.\n\n', '2019-07-25 09:37:36', '0', '浏览器,网络,性能', null, null, '0', '2013-04-05 00:00:00');
 INSERT INTO `dh_content` VALUES ('36', 'collect', '32', 'OSCHINA在线工具', null, null, null, 'http://tool.oschina.net/', null, '为开发设计人员提供在线工具，提供jsbin在线 CSS、JS 调试，在线 API文档查看', null, '2019-07-25 12:03:58', '0', '工具,api,调试', null, null, '0', null);
 INSERT INTO `dh_content` VALUES ('37', 'collect', '33', 'Unheap', null, null, null, 'http://www.unheap.com/?badge=all', null, 'Javascript第三方插件网站，包含不同的分类，有输入相关的、菜单相关的、多媒体相关、移动端相关等', null, '2019-07-25 12:03:37', '0', 'jquery,javascript', null, null, '0', null);
@@ -129,6 +140,44 @@ INSERT INTO `dh_content` VALUES ('54', 'collect', '34', '前端圈', null, null,
 INSERT INTO `dh_content` VALUES ('55', 'collect', '30', 'w3cmark', null, null, null, 'http://www.w3cmark.com/', null, '', null, '2019-07-25 13:15:14', '0', '前端,css,javascript,python,bug', null, null, '0', null);
 INSERT INTO `dh_content` VALUES ('56', 'collect', '13', '微信H5UI框架', null, null, null, 'https://weui.io/', null, 'WeUI 是一套同微信原生视觉体验一致的基础样式库，由微信官方设计团队为微信内网页和微信小程序量身设计，令用户的使用感知更加统一。', null, '2019-07-25 13:16:46', '0', '微信,html5,ui,框架', null, null, '0', null);
 INSERT INTO `dh_content` VALUES ('57', 'collect', '32', '免费前端CDN', null, null, null, 'https://www.bootcdn.cn/', null, '稳定、快速、免费的前端开源项目 CDN 加速服务', null, '2019-07-26 08:35:03', '0', 'cdn,前端', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('58', 'collect', '32', 'JSRUN在线编辑器', null, null, null, 'http://jsrun.net/ ', null, 'JSRUN是一款支持手机端的在线JS编辑器,比jsfiddle/scrimba/runjs更强大的HTML/CSS/Javascript在线代码运行工具,js代码在线测试调试，\n支持vue.js/angular.js的在线编辑器 、手机端js编辑器\\ js在线运行工具, 支持ES6开发babel ', null, '2019-07-29 11:08:04', '0', '在线,运行,调试', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('59', 'collect', '32', 'SDemo展示Demo', null, null, null, 'http://www.sdemo.cn', null, '在这里你可以分享(share)学习(study)展示(show)Demo', null, '2019-07-29 11:12:11', '0', 'demo,分享,学习', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('60', 'collect', '31', 'tool.lu', null, null, null, 'https://tool.lu/index.html', null, '', null, '2019-07-29 11:31:15', '0', '运行,编译,导航,工具', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('61', 'collect', '30', 'React 大神博客（英）', null, null, null, 'https://overreacted.io/', null, 'React 大神博客', null, '2019-07-29 11:57:36', '0', 'react', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('62', 'collect', '30', 'Codrops（英）', null, null, null, 'https://tympanus.net/codrops/', null, 'Code Snap', null, '2019-07-29 11:57:26', '0', 'css,前端,javascript', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('63', 'collect', '30', 'Sebastian Müller（英）', null, null, null, 'https://sbstjn.com/', null, 'Hi!  I work as an independent Serverless Consultant, GraphQL Specialist, and Senior Cloud Consultant for superluminar in Hamburg, Germany. I am a passionate Scrum Master, Full Stack Engineer, and Technology Enthusiast who’s fancy about vinyl records, design, people, and vegan food.', null, '2019-07-29 12:01:18', '0', 'serverless,GraphQL', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('64', 'series', '0', '【全栈React】React 30天教程索引', null, '测试,部署,react,javascript,教程,javascript', null, 'https://segmentfault.com/a/1190000010516935', '', '内容预览', '在接下来的30天内，我们将逐步了解您需要知道的与React相关的所有内容。 从我们的第一个应用的从零开始到测试和部署。', '2019-07-29 15:08:32', '0', 'react,javascript', '', '', '0', '2017-08-05 15:00:00');
+INSERT INTO `dh_content` VALUES ('65', 'page', '0', 'Demo', null, null, null, null, '/demo', '内容预览', null, '2019-07-30 15:21:39', '0', '案例,展示', '前后端案例展示', '', '0', null);
+INSERT INTO `dh_content` VALUES ('66', 'page', '0', '代码段', null, null, null, null, '/code-snippet', '内容预览', null, '2019-07-30 15:35:01', '0', '代码,分享,收集', '', '', '0', null);
+INSERT INTO `dh_content` VALUES ('67', 'page', '0', 'Blog', null, null, null, null, '/blog', '内容预览', null, '2019-07-30 15:43:54', '0', '', '', '', '0', null);
+INSERT INTO `dh_content` VALUES ('68', 'page', '0', '在线文档', null, null, null, null, '/wiki', '内容预览', null, '2019-07-30 15:45:00', '0', '', '', '', '0', null);
+INSERT INTO `dh_content` VALUES ('69', 'page', '0', '系列文章(收藏)', null, null, null, null, '/series', '内容预览', null, '2019-07-30 15:45:48', '0', '系列文章(收藏)', '', '', '0', null);
+INSERT INTO `dh_content` VALUES ('70', 'collect', '35', 'Pixabay', null, null, null, 'https://pixabay.com', null, 'Over 1 million+ high quality stock images and videos shared by our talented community.', null, '2019-07-30 15:48:27', '0', '视频,免费,图片', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('71', 'collect', '35', 'ImageFinder', null, null, null, 'https://imagefinder.co/', null, '', null, '2019-07-30 15:50:44', '0', '免费,图片,视频', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('72', 'collect', '36', 'CSS Desk', null, null, null, 'http://cssdeck.com/', null, '', null, '2019-07-30 15:56:18', '0', 'css,代码,展示', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('73', 'collect', '35', 'Wallions', null, null, null, 'https://wallions.com/', null, '', null, '2019-07-30 15:59:00', '0', '免费,图库', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('74', 'collect', '35', 'Undraw', null, null, null, 'https://undraw.co/illustrations', null, '', null, '2019-07-30 16:16:32', '0', '图标,下载,免费', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('75', 'collect', '35', 'Iconstore', null, null, null, 'https://iconstore.co/', null, '', null, '2019-07-30 16:18:04', '0', '图标,免费', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('76', 'collect', '12', 'Roast', null, null, null, 'https://www.roast.io/', null, '', null, '2019-07-30 16:21:51', '0', '静态,生成', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('77', 'collect', '32', 'ZeroSSL-免费SSL证书', null, null, null, 'https://zerossl.com/', null, '', null, '2019-07-31 09:45:39', '0', 'ssl,免费', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('78', 'collect', '32', 'TinyCert免费ssl证书', null, null, null, 'https://www.tinycert.org', null, '', null, '2019-07-31 09:46:16', '0', '免费,ssl', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('79', 'collect', '37', 'HTML5 UP', null, null, null, 'https://html5up.net/', null, '', null, '2019-07-31 09:49:32', '0', 'html5,模板', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('80', 'collect', '32', '生成loading', null, null, null, 'https://loading.io/', null, '', null, '2019-07-31 09:51:25', '0', 'svg,css', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('81', 'collect', '38', 'Color Koala', null, null, null, 'https://colorkoala.xyz/', null, '', null, '2019-07-31 09:52:22', '0', '配色', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('82', 'collect', '32', '静态网站部署', null, null, null, 'http://staticsiteboilerplate.com/', null, '', null, '2019-07-31 10:00:23', '0', '静态,部署', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('83', 'collect', '38', 'LOLCOLORS', null, null, null, 'https://www.webdesignrankings.com/resources/lolcolors/', null, '', null, '2019-07-31 10:01:43', '0', '配色', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('84', 'collect', '32', 'Pixels-设计模板', null, null, null, 'https://klart.io/pixels', null, '', null, '2019-07-31 10:04:57', '0', '设计', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('85', 'collect', '38', 'Colors Klart', null, null, null, 'https://klart.io/colors/', null, '', null, '2019-07-31 10:06:30', '0', '配色', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('86', 'collect', '38', ' CoolHue 2.0', null, null, null, 'https://colorhunt.co/palettes', null, '', null, '2019-07-31 10:08:04', '0', '配色', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('87', 'collect', '30', 'Keyframes', null, null, null, 'https://keyframes.net', null, '基于CSS动画特性的聊天室', null, '2019-07-31 10:09:50', '0', 'css,动画,聊天室,社区', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('88', 'collect', '38', 'Color Hunt', null, null, null, 'https://colorhunt.co/palettes', null, '', null, '2019-07-31 10:10:41', '0', '配色', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('89', 'collect', '38', 'CoolHue 2.0', null, null, null, 'https://webkul.github.io/coolhue/', null, '', null, '2019-07-31 10:12:39', '0', '配色', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('90', 'collect', '38', 'WebGradients', null, null, null, 'https://webgradients.com/', null, '', null, '2019-07-31 10:14:40', '0', '配色', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('91', 'collect', '32', 'CSS参考网站', null, null, null, 'https://cssreference.io/', null, '', null, '2019-07-31 10:17:48', '0', 'css', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('92', 'collect', '30', 'CSS Wizardry', null, null, null, 'https://csswizardry.com/', null, '', null, '2019-07-31 10:33:11', '0', 'css', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('93', 'wiki', '0', 'Css Guidelin', '', 'css,教程', null, 'https://cssguidelin.es/', null, null, '', '2019-07-31 10:37:04', '0', '', null, null, '0', '2017-05-20 00:00:00');
+INSERT INTO `dh_content` VALUES ('94', 'collect', '10', '卡片式编程教学', null, null, null, 'https://www.flashcardsfordevelopers.com/', null, '', null, '2019-07-31 10:52:49', '0', '', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('95', 'collect', '10', 'Flexbox开发教程', null, null, null, 'https://www.flexboxpatterns.com/', null, '', null, '2019-07-31 10:53:18', '0', 'flex,css3', null, null, '0', null);
 
 -- ----------------------------
 -- Table structure for dh_demo
@@ -166,7 +215,7 @@ CREATE TABLE `dh_libs` (
   `lib_keyword` varchar(255) DEFAULT NULL COMMENT '库所对应的关键字',
   `lib_type` tinyint(1) DEFAULT '0' COMMENT '库的类型: 0-开源项目,1-DEMO模板',
   PRIMARY KEY (`lib_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of dh_libs
@@ -177,6 +226,7 @@ INSERT INTO `dh_libs` VALUES ('4', 'Bootstrap3', 'https://www.bootcss.com/', 'ht
 INSERT INTO `dh_libs` VALUES ('5', 'Vue.js', 'https://cn.vuejs.org/', 'https://cn.vuejs.org/v2/guide/', 'Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现代化的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。（来源：Vue.js官网）', '', '渐进式,javascript', 'https://cn.vuejs.org/js/vue.min.js', null, '0');
 INSERT INTO `dh_libs` VALUES ('6', 'Mock.js', 'http://mockjs.com/', 'https://github.com/nuysoft/Mock/wiki/Getting-Started', 'Mock.js,生成随机数据，拦截 Ajax 请求， 用于模拟后台响应数据', '', '测试', '', null, '0');
 INSERT INTO `dh_libs` VALUES ('7', '百度上传插件 Web Uploader', 'http://fex.baidu.com/webuploader/', 'http://fex.baidu.com/webuploader/getting-started.html', 'WebUploader是由Baidu WebFE(FEX)团队开发的一个简单的以HTML5为主，FLASH为辅的现代文件上传组件。在现代的浏览器里面能充分发挥HTML5的优势，同时又不摒弃主流IE浏览器，沿用原来的FLASH运行时，兼容IE6+，iOS 6+, android 4+。两套运行时，同样的调用方式，可供用户任意选用。采用大文件分片并发上传，极大的提高了文件上传效率。（来源：Web Uploader 官网）', '', '上传', 'https://github.com/fex-team/webuploader/releases', null, '0');
+INSERT INTO `dh_libs` VALUES ('8', 'LESS', 'https://less.bootcss.com', 'https://less.bootcss.com', 'It\'s CSS, with just a little more.', '', 'css', '', null, '0');
 
 -- ----------------------------
 -- Table structure for dh_pushlog
@@ -260,7 +310,7 @@ CREATE TABLE `dh_tag` (
   `tag_id` int(11) NOT NULL AUTO_INCREMENT,
   `tag_name` varchar(255) NOT NULL COMMENT '标签名',
   PRIMARY KEY (`tag_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of dh_tag
@@ -269,7 +319,6 @@ INSERT INTO `dh_tag` VALUES ('10', 'rabbitmq');
 INSERT INTO `dh_tag` VALUES ('11', '教程');
 INSERT INTO `dh_tag` VALUES ('12', 'webkit');
 INSERT INTO `dh_tag` VALUES ('13', '浏览器');
-INSERT INTO `dh_tag` VALUES ('14', '支付宝');
 INSERT INTO `dh_tag` VALUES ('15', '微信');
 INSERT INTO `dh_tag` VALUES ('16', '支付');
 INSERT INTO `dh_tag` VALUES ('17', 'three.js');
@@ -277,6 +326,10 @@ INSERT INTO `dh_tag` VALUES ('18', 'javascript');
 INSERT INTO `dh_tag` VALUES ('19', 'jquery');
 INSERT INTO `dh_tag` VALUES ('20', 'es6');
 INSERT INTO `dh_tag` VALUES ('21', '性能');
+INSERT INTO `dh_tag` VALUES ('22', '测试');
+INSERT INTO `dh_tag` VALUES ('23', '部署');
+INSERT INTO `dh_tag` VALUES ('24', 'react');
+INSERT INTO `dh_tag` VALUES ('25', 'css');
 
 -- ----------------------------
 -- Table structure for dh_uisetting
@@ -291,11 +344,12 @@ CREATE TABLE `dh_uisetting` (
   `ui_footercont` longtext COMMENT 'footer内容',
   `ui_isactive` tinyint(2) DEFAULT '0' COMMENT '是否启用:0-否,1-是',
   PRIMARY KEY (`ui_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of dh_uisetting
 -- ----------------------------
+INSERT INTO `dh_uisetting` VALUES ('1', '默认模板', 'default', '<link href=\"//cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css\" rel=\"stylesheet\" />\n<link href=\"/static/css/codeso.css?v=1.0.0\" rel=\"stylesheet\" />', '', '<script src=\"//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js\"></script>\n<script src=\"//cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js\"></script>', '1');
 
 -- ----------------------------
 -- Table structure for dh_user

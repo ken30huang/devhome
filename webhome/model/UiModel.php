@@ -1,5 +1,5 @@
 <?php
-class UiModel extends BaseModel {
+class UiModel extends MysqlModel {
 
     protected $table = 'uisetting';
     protected $idkey = 'ui_id';

@@ -5,8 +5,7 @@ class AdminArticleController extends AdminController {
 
     public function index() {
         $cmodel = $this->getModel('content');
-        
-        $page = intval($this->web->req('page'));
+        $page = intval($this->http->inputGet('page'));
         $page = $page==0 ? 1 : $page;
         $pageData = $cmodel->setPageNum($page)->getPageData($this->c_type);
         $this->view->assign('rows' , $pageData['rows']);
