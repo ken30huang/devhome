@@ -8,7 +8,7 @@ $config['db']['dbtype'] = 'mysql';
 // $config['db']['dbname'] = 'bdm271789608_db';
 $config['db']['host'] = 'localhost';
 $config['db']['user'] = 'root';
-$config['db']['pwd'] = '123';
+$config['db']['pwd'] = '123456';
 $config['db']['dbname'] = 'db_kenhome';
 $config['db']['prex'] = 'k_';
 

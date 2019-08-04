@@ -32,22 +32,20 @@ class AdminCategoryController extends AdminController {
 
     public function save() {
         $table = TableModel::getInstance('category' , 'cate_id');
-        $table->save();
-        $this->getJSON();
+        $table->data($this->http->inputAll())->save();
+        $this->http->success()->json();
     }
 
     public function del() {
-        $this->web->setReq('cate_id' , $this->web->reqPost('del_id'));
         $table = TableModel::getInstance('category' , 'cate_id');
-        $table->deleteById();
-        $this->getJSON();
+        $table->data('cate_id', $this->http->inputPost('del_id'))->deleteById();
+        $this->http->success()->json();
     }
 
     public function info() {
-        $this->web->setReq('cate_id' , $this->web->reqPost('edit_id'));
         $table = TableModel::getInstance('category' , 'cate_id');
-        $row = $table->getRow();
-        $this->setResult('row' , $row)->getJSON();
+        $row = $table->data('cate_id', $this->http->inputPost('edit_id'))->getRow();
+        $this->http->res('row',$row)->success()->json();
     }
 
 }

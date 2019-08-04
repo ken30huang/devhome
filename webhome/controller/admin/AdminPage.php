@@ -5,26 +5,25 @@ class AdminPageController extends AdminController {
 
     public function index() {
         $cmodel = $this->getModel('content');
-        $page = intval($this->web->req('page'));
+        $page = intval($this->http->inputGet('page'));
         $treeData = $cmodel->getPageTree($this->c_type);
         $this->view->assign('pagetree' , $treeData);
         $this->view();
     }
 
     public function save() {
-        if(intval($this->web->req('c_id')) == 0) {
-            $this->web->setReq('c_pubdate' , date('Y-m-d H:i:s'));
+        $post = $this->http->inputPost();
+        if(intval($post['c_id']) == 0) {
+            $post['c_pubdate'] = date('Y-m-d H:i:s');
         }
-        $this->web->setReq('c_type' , $this->c_type);
-        $this->getModel('content')->save();
-        $this->getJSON();
+        $post['c_type'] = $this->c_type;
+        $this->getModel('content')->data($post)->save();
+        $this->http->success()->json();
     }
 
     public function del() {
-        $this->web->setReq('c_id' , $this->web->reqPost('del_id'));
-        $table = TableModel::getInstance('content' , 'c_id');
-        $table->deleteById();
-        $this->getJSON();
+        $this->getModel('content')->data('c_id' , $this->http->inputPost('del_id'))->deleteById();
+        $this->http->success()->json();
     }
 
     public function add() {

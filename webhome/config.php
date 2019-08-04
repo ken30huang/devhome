@@ -4,7 +4,7 @@ $config = array();
 $config['db']['dbtype'] = 'mysql';
 $config['db']['host'] = 'localhost';
 $config['db']['user'] = 'root';
-$config['db']['pwd'] = '123';
+$config['db']['pwd'] = '123456';
 $config['db']['dbname'] = 'db_devhome';
 $config['db']['prex'] = 'dh_';
 

@@ -5,7 +5,7 @@ class AdminCollectController extends AdminController {
 
     public function index() {
         $cmodel = $this->getModel('content');
-        $page = intval($this->web->req('page'));
+        $page = intval($this->http->inputGet('page'));
         $page = $page==0 ? 1 : $page;
         $pageData = $cmodel->setPageNum($page)->getPageData($this->c_type);
 
@@ -21,25 +21,25 @@ class AdminCollectController extends AdminController {
     }
 
     public function save() {
-        if(intval($this->web->req('c_id')) == 0) {
-            $this->web->setReq('c_pubdate' , date('Y-m-d H:i:s'));
+        $post = $this->http->inputPost();
+        $post['c_type'] = $this->c_type;
+        if(intval($post['c_id']) == 0) {
+            $post['c_pubdate'] = date('Y-m-d H:i:s');
         }
-        $this->web->setReq('c_type' , $this->c_type);
-        $this->getModel('content')->save();
-        $this->getJSON();
+        $this->getModel('content')->data($post)->save();
+        $this->http->success()->json();
     }
 
     public function del() {
-        $this->web->setReq('c_id' , $this->web->reqPost('del_id'));
         $table = TableModel::getInstance('content' , 'c_id');
-        $table->deleteById();
-        $this->getJSON();
+        $table->data('c_id' , $this->http->inputPost('del_id'))->deleteById();
+        $this->http->success()->json();
     }
 
     public function add() {
 
         $cmodel = $this->getModel('content');
-        $row = $cmodel->getRow();
+        $row = $cmodel->data('c_id', $this->http->inputGet('c_id'))->getRow();
         $this->view->assign('type_list' ,  $this->getCodes());
         $this->view->assign('row' , $row);
         $this->view();

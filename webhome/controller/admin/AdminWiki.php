@@ -5,7 +5,7 @@ class AdminWikiController extends AdminController {
 
     public function index() {
         $cmodel = $this->getModel('content');
-        $page = intval($this->web->req('page'));
+        $page = intval($this->http->inputGet('page'));
         $page = $page==0 ? 1 : $page;
         $pageData = $cmodel->setPageNum($page)->getPageData($this->c_type);
         $this->view->assign('rows' , $pageData['rows']);
@@ -15,28 +15,27 @@ class AdminWikiController extends AdminController {
 
     public function save() {
         $tmodel = $this->getModel('tag');
-        $tags = explode(',',$this->web->req('c_tag'));
+        $post = $this->http->inputPost();
+        $tags = explode(',',$post('c_tag'));
+        $post['c_type'] = $this->c_type;
         foreach($tags as $tname) {
             if(empty($tname)) continue;
             $tcount = $tmodel->getCount(" AND tag_name='".$tname."'");
             
             if($tcount == 0) {
-                $tmodel->save(array('tag_name'=>$tname));
+                $tmodel->data(array('tag_name'=>$tname))->save();
             }
         }
-        if(intval($this->web->req('c_id')) == 0) {
-            $this->web->setReq('c_pubdate' , date('Y-m-d H:i:s'));
+        if(intval($post['c_id']) == 0) {
+            $post['c_pubdate'] = date('Y-m-d H:i:s');
         }
-        $this->web->setReq('c_type' , $this->c_type);
-        $this->getModel('content')->save();
-        $this->getJSON();
+        $this->getModel('content')->data($post)->save();
+        $this->http->success()->json();
     }
 
     public function del() {
-        $this->web->setReq('c_id' , $this->web->reqPost('del_id'));
-        $table = TableModel::getInstance('content' , 'c_id');
-        $table->deleteById();
-        $this->getJSON();
+        $this->getModel('content')->data('c_id' , $this->http->inputPost('c_id'))->deleteById();
+        $this->http->success()->json();
     }
 
     public function add() {

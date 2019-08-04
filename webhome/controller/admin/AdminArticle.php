@@ -15,28 +15,28 @@ class AdminArticleController extends AdminController {
 
     public function save() {
         $tmodel = $this->getModel('tag');
-        $tags = explode(',',$this->web->req('c_tag'));
+        $post = $this->http->inputPost();
+        $tags = explode(',', $this->c_type);
+        $post['c_type'] = date('Y-m-d H:i:s');
+        $tags = explode(',',$post['c_tag']);
         foreach($tags as $tname) {
             if(empty($tname)) continue;
             $tcount = $tmodel->getCount(" AND tag_name='".$tname."'");
-            
             if($tcount == 0) {
-                $tmodel->save(array('tag_name'=>$tname));
+                $tmodel->data(array('tag_name'=>$tname))->save();
             }
         }
-        if(intval($this->web->req('c_id')) == 0) {
-            $this->web->setReq('c_pubdate' , date('Y-m-d H:i:s'));
+        if(intval($post['c_id']) == 0) {
+            $post['c_pubdate'] = date('Y-m-d H:i:s');
         }
-        $this->web->setReq('c_type' , $this->c_type);
-        $this->getModel('content')->save();
-        $this->getJSON();
+        $this->getModel('content')->data($post)->save();
+        $this->http->success()->json();
     }
 
     public function del() {
-        $this->web->setReq('c_id' , $this->web->reqPost('del_id'));
         $table = TableModel::getInstance('content' , 'c_id');
-        $table->deleteById();
-        $this->getJSON();
+        $table->data('c_id' , $this->http->inputPost('del_id'))->deleteById();
+        $this->http->success()->json();
     }
 
     public function add() {

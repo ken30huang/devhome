@@ -45,7 +45,12 @@ class WebHttp {
         return $this;
 	}
 
-	public function success($data=array() , $msg='请求处理成功' ) {
+	public function res($key , $val) {
+		$this->_res[$key] = $val;
+        return $this;
+	}
+
+	public function success($msg='请求处理成功' ) {
         $this->_res['code'] = '000';
 		$this->_res['msg'] = $msg;
         return $this;
@@ -56,8 +61,11 @@ class WebHttp {
         exit;
     }
 
-	public function inputGet($name) {
+	public function inputGet($name = '') {
 		$this->_filterRequest();
+		if(empty($name)) {
+			return $_GET;
+		}
 		if(isset($_GET[$name])) {
 			return $_GET[$name];
 		}
@@ -65,8 +73,11 @@ class WebHttp {
 		return '';
 	}
 
-	public function inputPost($name , $default='') {
+	public function inputPost($name = '' , $default='') {
 		$this->_filterRequest();
+		if(empty($name)) {
+			return $_POST;
+		}
 		if(isset($_POST[$name])) {
 			return $_POST[$name];
 		} else {
@@ -76,8 +87,11 @@ class WebHttp {
 		return '';
 	}
 
-	public function inputAll($name) {
+	public function inputAll($name = '') {
 		$this->_filterRequest();
+		if(empty($name)) {
+			return $_REQUEST;
+		}
 		if(isset($_REQUEST[$name])) {
 			return $_REQUEST[$name];
 		}

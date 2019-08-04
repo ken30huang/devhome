@@ -22,20 +22,21 @@ class MysqlModel {
         } else if(is_string($key) && $val != NULL) {
             $this->data[$key] = $val;
         }
+        return $this;
     }
 
     private function _getIdVal() {
-        return isset($data[$this->idkey]) ? intval($this->idkey) : 0;
+        return isset($this->data[$this->idkey]) ? intval($this->data[$this->idkey]) : 0;
     }
 
-    public function save($data=array()) {
+    public function save() {
 
         $idkey = $this->_getIdVal();
         if($idkey > 0) {
             $this->lastId = $idkey;
-            $this->db->update($this->table , $data , $this->idkey.'='.$idkey);
+            $this->db->update($this->table , $this->data , $this->idkey.'='.$idkey);
         } else {
-            $this->db->insert($this->table , $data);
+            $this->db->insert($this->table , $this->data);
             $this->lastId = $this->db->getInsertID();
         }
         
@@ -126,8 +127,8 @@ class MysqlModel {
         return $this->pagesize;
     }
 
-    public function modify($data , $where) {
-        $this->db->update($this->table , $data , $where);
+    public function modify($where) {
+        $this->db->update($this->table , $this->data , $where);
     }
     
 }

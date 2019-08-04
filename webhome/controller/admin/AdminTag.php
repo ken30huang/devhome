@@ -9,9 +9,8 @@ class AdminTagController extends AdminController {
     }
 
     public function del() {
-        $this->web->setReq('tag_id' , $this->web->reqPost('del_id'));
-        $this->getModel('tag')->deleteById();
-        $this->getJSON();
+        $this->getModel('tag')->data('tag_id' , $this->http->inputPost('del_id'))->deleteById();
+        $this->http->success()->json();
     }
 }
 ?>
