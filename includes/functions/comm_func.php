@@ -186,7 +186,7 @@ function model_load($name , $id='id') {
     if(!isset($models[$name])) {
         if(!incFile(APP_BASE.DS.'model'.DS.ucfirst($name).'Model.php')) {
             //找不到文件，使用table加载
-            $models[$name] = TableModel::getInstance($name , $id);
+            $models[$name] = new TableModel($name , $id);
         } else {
             $class_name = ucfirst($name).'Model';
             if(!class_exists($class_name)) {

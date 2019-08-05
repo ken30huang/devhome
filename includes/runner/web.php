@@ -24,14 +24,24 @@ class WebRunner {
                 define('APP_DIR' , $dir);
             }
             
-            $c_name = $uri->get(2)?$uri->get(2):'index';
-            $a_name = $uri->get(3)?$uri->get(3):'index';
-        } else {
-            $c_name = $uri->get(1)?$uri->get(1):'index';
-            $a_name = $uri->get(2)?$uri->get(2):'index';
+            
             if($first == 'admin') {
+                $c_name = $uri->get(2)?$uri->get(2):'index';
+                $a_name = $uri->get(3)?$uri->get(3):'index';
                 define('APP_DIR' , 'admin');
             } else {
+                $c_name = $uri->get(1)?$uri->get(1):'index';
+                $a_name = $uri->get(2)?$uri->get(2):'index';
+                define('APP_DIR' , 'index');
+            }
+        } else {
+            if($first == 'admin') {
+                $c_name = $uri->get(1)?$uri->get(1):'index';
+                $a_name = $uri->get(2)?$uri->get(2):'index';
+                define('APP_DIR' , 'admin');
+            } else {
+                $c_name = $uri->get(0)?$uri->get(0):'index';
+                $a_name = $uri->get(1)?$uri->get(1):'index';
                 define('APP_DIR' , 'index');
             }
         }

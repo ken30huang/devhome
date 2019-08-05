@@ -32,6 +32,7 @@ function _get_view_name() {
         case 'demos':
         case 'blog':
         case 'index':
+        case 'collect':
             return C_NAME;
         default:
             return 'detail';

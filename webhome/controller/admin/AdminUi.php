@@ -11,28 +11,27 @@ class AdminUiController extends AdminController {
 
     public function save() {
         $uimodel = $this->getModel('ui');
-        $uimodel->save();
-        $this->getJSON();
+        $uimodel->data($this->http->inputAll())->save();
+        $this->http->success()->json();
     }
 
     public function del() {
-        $this->web->setReq('ui_id' , $this->web->reqPost('del_id'));
-        $this->getModel('ui')->deleteById();
-        $this->getJSON();
+        $this->getModel('ui')->data('ui_id' , $this->http->inputPost('del_id'))->deleteById();
+        $this->http->success()->json();
     }
 
     public function add() {
         $uimodel = $this->getModel('ui');
-        $row = $uimodel->getRow();
+        $row = $uimodel->data('ui_id' , $this->http->inputGet('ui_id'))->getRow();
         $this->view->assign('row' , $row);
         $this->view();
     }
 
     public function active() {
-        $ui_id = intval($this->web->reqGet('ui_id'));
-        $this->getModel('ui')->setData(array('ui_isactive'=>0) , 'ui_id!='.$ui_id);
-        $this->getModel('ui')->setData(array('ui_isactive'=>1) , 'ui_id='.$ui_id);
-        $this->web->redirect('/admin/ui');
+        $ui_id = intval($this->http->inputGet('ui_id'));
+        $this->getModel('ui')->data(array('ui_isactive'=>0))->modify('ui_id!='.$ui_id);
+        $this->getModel('ui')->data(array('ui_isactive'=>1))->modify('ui_id='.$ui_id);
+        $this->http->redirect('/admin/ui');
     }
 
 }

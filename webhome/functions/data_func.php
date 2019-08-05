@@ -4,7 +4,14 @@
 //获取UI设置数据
 function get_ui() {
     $ui_date = model_load('ui')->order('ui_id DESC')->query();
-    return $ui_date[0];
+    $row = NULL;
+    foreach($ui_date as $ui) {
+        if($ui['ui_isactive'] == 1) {
+            $row = $ui;
+            break;
+        }
+    }
+    return ($row == NULL ? $ui_date[0]:$row);
 }
 
 //获取网站设置
@@ -26,14 +33,14 @@ function get_cont($id=0) {
 }
 
 //获取收藏列表
-function get_collects() {
+function get_collect() {
     $cate_data = model_load('category', 'cate_id')->where('cate_pid=9')->query();
     $content_data = model_load('content')->order('c_pubdate')->where("c_type='collect'")->query();
 
     $cont_map = array();
     foreach($content_data as $cdata) {
-        $cate_id = $cdata['cate_id'];
-        if(isset($cont_map[$cate_id])) {
+        $cate_id = $cdata['c_cateid'];
+        if(!isset($cont_map[$cate_id])) {
             $cont_map[$cate_id] = array();
         }
         $cont_map[$cate_id][] = $cdata;
