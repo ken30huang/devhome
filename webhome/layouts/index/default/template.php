@@ -2,24 +2,41 @@
 <html lang="zh-CN">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-  <title><?php echo isset($data['setting'])?$data['setting']['setting_title']:'首页'; ?></title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <?php echo isset($data['header'])?$data['header']:'首页'; ?>
+    <link rel="stylesheet" href="/static/plugins/bootstrap4/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="/webhome/layouts/index/css/main.css"/>
+
+    <title>代码直通车</title>
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+                aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                  <?php foreach($menu_list as $menu):?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo $menu['c_alias'];?>"><?php echo $menu['c_title'];?></a>
+                    </li>
+                  <?php endforeach;?>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <?php echo $body; ?>
 
-  <div class="main-container mt40">
-      <?php echo isset($data['navbar'])?$data['navbar']:''; ?>
-      <div class="body mt40">
-        <?php echo isset($data['body'])?$data['body']:'';?>
-      </div>
-  </div>
-
-  <?php echo isset($footer)?$footer:''; ?>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="/static/js/libs/jquery/jquery.min.js"></script>
+    <script src="/static/plugins/bootstrap4/js/bootstrap.min.js"></script>
 </body>
 
 </html>

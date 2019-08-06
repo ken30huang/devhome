@@ -28,7 +28,7 @@ class AdminPageController extends AdminController {
 
     public function add() {
         $cmodel = $this->getModel('content');
-        $row = $cmodel->getRow();
+        $row = $cmodel->data('c_id' , $this->http->inputGet('c_id'))->getRow();
         $parents = $cmodel->getParentNodes();
         $this->view->assign('row' , $row);
         $this->view->assign('parents' , $parents);

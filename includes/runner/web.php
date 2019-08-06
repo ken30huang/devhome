@@ -13,39 +13,40 @@ class WebRunner {
         $first = $uri->get(0);
         $c_name = 'index';
         $a_name = 'index';
+        $app_dir = '';
         //判断是app路径 , /mall/web
         if(is_dir(ROOT_PATH.DS.$first)) {
             //查找第二部分
             $dir = $uri->get(1);
             if(empty($dir)) {
                 //空-访问前台首页，非admin-访问前台
-                define('APP_DIR' , 'index');
+                $app_dir = 'index';
             } else {
-                define('APP_DIR' , $dir);
+                $app_dir = $dir;
             }
-            
             
             if($first == 'admin') {
                 $c_name = $uri->get(2)?$uri->get(2):'index';
                 $a_name = $uri->get(3)?$uri->get(3):'index';
-                define('APP_DIR' , 'admin');
+                $app_dir = 'admin';
             } else {
                 $c_name = $uri->get(1)?$uri->get(1):'index';
                 $a_name = $uri->get(2)?$uri->get(2):'index';
-                define('APP_DIR' , 'index');
+                $app_dir = 'index';
             }
         } else {
             if($first == 'admin') {
                 $c_name = $uri->get(1)?$uri->get(1):'index';
                 $a_name = $uri->get(2)?$uri->get(2):'index';
-                define('APP_DIR' , 'admin');
+                $app_dir = 'admin';
             } else {
                 $c_name = $uri->get(0)?$uri->get(0):'index';
                 $a_name = $uri->get(1)?$uri->get(1):'index';
-                define('APP_DIR' , 'index');
+                $app_dir = 'index';
             }
         }
 
+        define('APP_DIR' , $app_dir);
         define('C_NAME' , $c_name);
         define('A_NAME' , $a_name);
         //设置应用配置
@@ -102,7 +103,7 @@ class WebRunner {
             $ctrl_name = ucfirst(APP_DIR).ucfirst(C_NAME).'Controller';
             if(!class_exists($ctrl_name)) {
                 //找不到具体的控制类
-                die($this->_preErro.'Can not find controller class');
+                die($this->_preErro.'Can not find controller class ['.$ctrl_name.']');
             }
             $ctrl_obj = new $ctrl_name;
             $ctrl_action = A_NAME;

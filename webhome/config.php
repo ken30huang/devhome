@@ -12,7 +12,7 @@ $config['theme']['admin']['layouts'] = 'admin.php';
 $config['theme']['admin']['blocks'] = array('nav' , 'footer' , 'slider');
 
 $config['uri_mode']['admin'] = 1; //以mvc模式运行
-$config['uri_mode']['index'] = 2; //以自定义方式运行
+$config['uri_mode']['index'] = 1; //以自定义方式运行
 
 
 return $config;
