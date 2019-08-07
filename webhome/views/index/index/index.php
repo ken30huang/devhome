@@ -15,33 +15,29 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">最新博文</h5>
-                    <p class="card-text">
-                        <ul>
-                            <li><a href="#">hahahahaha</a></li>
-                            <li><a href="#">hahahahaha</a></li>
-                            <li><a href="#">hahahahaha</a></li>
-                            <li><a href="#">hahahahaha</a></li>
-                            <li><a href="#">hahahahaha</a></li>
+                    <div class="card-text">
+                        <ul class="series_list">
+                            <?php foreach($blog_list as $blog): ?>
+                            <li><a href="/blog/detail/<?php echo $blog['c_alias']?>"><?php echo $blog['c_title']?></a></li>
+                            <?php endforeach;?>
                         </ul>
-                    </p>
-                    <a href="./blog.html" class="btn btn-primary">更多博文</a>
+                    </div>
+                    <a href="/blog" class="btn btn-primary">更多博文</a>
                 </div>
             </div>
         </div>
         <div class="col-sm">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">系列文章</h5>
-                    <p class="card-text">
-                        <ul>
-                            <li><a href="#">hahahahaha</a></li>
-                            <li><a href="#">hahahahaha</a></li>
-                            <li><a href="#">hahahahaha</a></li>
-                            <li><a href="#">hahahahaha</a></li>
-                            <li><a href="#">hahahahaha</a></li>
+                    <h5 class="card-title">社区&博客技术系列文章</h5>
+                    <div class="card-text">
+                        <ul class="series_list">
+                            <?php foreach($series_list as $series): ?>
+                            <li><?php echo $series['c_title']; ?><a href="<?php echo $series['c_link']?>" target="_blank"><img class="icons" src="<?php echo __STATIC__.'/icons/ico_link.svg'?>" /></a></li>
+                            <?php endforeach;?>
                         </ul>
-                    </p>
-                    <a href="./series.html" class="btn btn-primary">更多系列文章</a>
+                    </div>
+                    <a href="/series" class="btn btn-primary">更多系列文章</a>
                 </div>
             </div>
         </div>

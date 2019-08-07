@@ -16,8 +16,7 @@ class AdminArticleController extends AdminController {
     public function save() {
         $tmodel = $this->getModel('tag');
         $post = $this->http->inputPost();
-        $tags = explode(',', $this->c_type);
-        $post['c_type'] = date('Y-m-d H:i:s');
+        $post['c_type'] = $this->c_type;
         $tags = explode(',',$post['c_tag']);
         foreach($tags as $tname) {
             if(empty($tname)) continue;
@@ -29,7 +28,13 @@ class AdminArticleController extends AdminController {
         if(intval($post['c_id']) == 0) {
             $post['c_pubdate'] = date('Y-m-d H:i:s');
         }
-        $this->getModel('content')->data($post)->save();
+        $c_model = $this->getModel('content');
+        $alias_count = $c_model->getCount("c_alias='".$post['c_alias']."'");
+        if($alias_count > 0) {
+            $this->http->fail('文章别名已存在')->json();
+            exit;
+        }
+        $c_model->data($post)->save();
         $this->http->success()->json();
     }
 

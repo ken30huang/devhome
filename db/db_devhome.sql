@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 100113
 File Encoding         : 65001
 
-Date: 2019-07-31 18:49:49
+Date: 2019-08-07 18:42:14
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -45,16 +45,15 @@ CREATE TABLE `dh_category` (
   `cate_icon` varchar(255) DEFAULT NULL,
   `cate_pageid` int(4) DEFAULT '0',
   PRIMARY KEY (`cate_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of dh_category
 -- ----------------------------
 INSERT INTO `dh_category` VALUES ('9', '社区&博客', '0', '', '', '0');
-INSERT INTO `dh_category` VALUES ('10', '学习教程', '9', '', '', '0');
+INSERT INTO `dh_category` VALUES ('10', '文档教程', '9', '', '', '0');
 INSERT INTO `dh_category` VALUES ('12', 'Web框架', '9', '', '', '0');
 INSERT INTO `dh_category` VALUES ('13', '前端框架', '9', '', '', '0');
-INSERT INTO `dh_category` VALUES ('14', 'BLOG', '0', '', '', '0');
 INSERT INTO `dh_category` VALUES ('15', '编程语言', '0', '', '', '0');
 INSERT INTO `dh_category` VALUES ('16', 'Javascript', '15', 'Javascript', 'js', '0');
 INSERT INTO `dh_category` VALUES ('17', 'C/C++', '15', 'C/C++', 'c', '0');
@@ -79,6 +78,8 @@ INSERT INTO `dh_category` VALUES ('35', '免费图库', '9', '', '', '0');
 INSERT INTO `dh_category` VALUES ('36', '代码展示', '9', '', '', '0');
 INSERT INTO `dh_category` VALUES ('37', '静态模板', '9', '', '', '0');
 INSERT INTO `dh_category` VALUES ('38', '配色相关', '9', '', '', '0');
+INSERT INTO `dh_category` VALUES ('39', '知识点', '0', '知识点的简短介绍', '', '0');
+INSERT INTO `dh_category` VALUES ('41', '在线开源书籍', '9', '', '', '0');
 
 -- ----------------------------
 -- Table structure for dh_content
@@ -104,7 +105,7 @@ CREATE TABLE `dh_content` (
   `c_order` int(4) DEFAULT '0',
   `c_linkdate` datetime DEFAULT NULL COMMENT '链接发布时间',
   PRIMARY KEY (`c_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=96 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=131 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- ----------------------------
 -- Records of dh_content
@@ -147,12 +148,11 @@ INSERT INTO `dh_content` VALUES ('61', 'collect', '30', 'React 大神博客（�
 INSERT INTO `dh_content` VALUES ('62', 'collect', '30', 'Codrops（英）', null, null, null, 'https://tympanus.net/codrops/', null, 'Code Snap', null, '2019-07-29 11:57:26', '0', 'css,前端,javascript', null, null, '0', null);
 INSERT INTO `dh_content` VALUES ('63', 'collect', '30', 'Sebastian Müller（英）', null, null, null, 'https://sbstjn.com/', null, 'Hi!  I work as an independent Serverless Consultant, GraphQL Specialist, and Senior Cloud Consultant for superluminar in Hamburg, Germany. I am a passionate Scrum Master, Full Stack Engineer, and Technology Enthusiast who’s fancy about vinyl records, design, people, and vegan food.', null, '2019-07-29 12:01:18', '0', 'serverless,GraphQL', null, null, '0', null);
 INSERT INTO `dh_content` VALUES ('64', 'series', '0', '【全栈React】React 30天教程索引', null, '测试,部署,react,javascript,教程,javascript', null, 'https://segmentfault.com/a/1190000010516935', '', '内容预览', '在接下来的30天内，我们将逐步了解您需要知道的与React相关的所有内容。 从我们的第一个应用的从零开始到测试和部署。', '2019-07-29 15:08:32', '0', 'react,javascript', '', '', '0', '2017-08-05 15:00:00');
-INSERT INTO `dh_content` VALUES ('65', 'page', '0', 'Demo', null, null, null, null, '/demo', '内容预览', null, '2019-07-30 15:21:39', '0', '案例,展示', '前后端案例展示', '', '0', null);
-INSERT INTO `dh_content` VALUES ('66', 'page', '0', '代码段', null, null, null, null, '/code-snippet', '内容预览', null, '2019-07-30 15:35:01', '0', '代码,分享,收集', '', '', '0', null);
-INSERT INTO `dh_content` VALUES ('67', 'page', '0', 'Blog', null, null, null, null, '/blog', '内容预览', null, '2019-07-30 15:43:54', '0', '', '', '', '0', null);
-INSERT INTO `dh_content` VALUES ('68', 'page', '0', '在线文档', null, null, null, null, '/wiki', '内容预览', null, '2019-07-30 15:45:00', '0', '', '', '', '0', null);
-INSERT INTO `dh_content` VALUES ('69', 'page', '0', '系列文章(收藏)', null, null, null, null, '/series', '内容预览', null, '2019-07-30 15:45:48', '0', '系列文章(收藏)', '', '', '0', null);
-INSERT INTO `dh_content` VALUES ('70', 'collect', '35', 'Pixabay', null, null, null, 'https://pixabay.com', null, 'Over 1 million+ high quality stock images and videos shared by our talented community.', null, '2019-07-30 15:48:27', '0', '视频,免费,图片', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('65', 'page', '0', 'Blog', null, null, null, null, '/blog', '内容预览', null, '2019-08-06 17:52:26', '0', '前端,后端,服务器,区块链,机器学习,javascript,css,html,php,python,java,lua,nginx', '记录编程路上的点点滴滴', '', '0', null);
+INSERT INTO `dh_content` VALUES ('66', 'page', '0', '代码段', null, null, null, null, '/codesnippet', '内容预览', null, '2019-08-06 18:17:25', '0', '代码,分享,收集', '', '', '0', null);
+INSERT INTO `dh_content` VALUES ('67', 'page', '0', '系列文章', null, null, null, null, '/series', '内容预览', null, '2019-08-06 17:54:24', '0', '整理收集来自于不同技术社区的技术类系列文章', '整理收集来自于不同技术社区的技术类系列文章', '', '0', null);
+INSERT INTO `dh_content` VALUES ('68', 'page', '0', '链接', null, null, null, null, '/links', '内容预览', null, '2019-08-06 17:55:03', '0', '', '', '', '0', null);
+INSERT INTO `dh_content` VALUES ('69', 'page', '0', 'Demo展示', null, null, null, null, '/demos', '内容预览', null, '2019-08-06 17:55:39', '0', 'Demo展示', '', '', '0', null);
 INSERT INTO `dh_content` VALUES ('71', 'collect', '35', 'ImageFinder', null, null, null, 'https://imagefinder.co/', null, '', null, '2019-07-30 15:50:44', '0', '免费,图片,视频', null, null, '0', null);
 INSERT INTO `dh_content` VALUES ('72', 'collect', '36', 'CSS Desk', null, null, null, 'http://cssdeck.com/', null, '', null, '2019-07-30 15:56:18', '0', 'css,代码,展示', null, null, '0', null);
 INSERT INTO `dh_content` VALUES ('73', 'collect', '35', 'Wallions', null, null, null, 'https://wallions.com/', null, '', null, '2019-07-30 15:59:00', '0', '免费,图库', null, null, '0', null);
@@ -178,6 +178,41 @@ INSERT INTO `dh_content` VALUES ('92', 'collect', '30', 'CSS Wizardry', null, nu
 INSERT INTO `dh_content` VALUES ('93', 'wiki', '0', 'Css Guidelin', '', 'css,教程', null, 'https://cssguidelin.es/', null, null, '', '2019-07-31 10:37:04', '0', '', null, null, '0', '2017-05-20 00:00:00');
 INSERT INTO `dh_content` VALUES ('94', 'collect', '10', '卡片式编程教学', null, null, null, 'https://www.flashcardsfordevelopers.com/', null, '', null, '2019-07-31 10:52:49', '0', '', null, null, '0', null);
 INSERT INTO `dh_content` VALUES ('95', 'collect', '10', 'Flexbox开发教程', null, null, null, 'https://www.flexboxpatterns.com/', null, '', null, '2019-07-31 10:53:18', '0', 'flex,css3', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('96', 'collect', '32', 'Coding', null, null, null, 'https://coding.net/', null, ' CODING 是扣钉网络科技有限公司旗下一站式云端软件服务平台', null, '2019-08-05 17:05:10', '0', '项目管理,需求管理,缺陷管理,Bug Tracking,Bug管理', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('97', 'collect', '30', '前端进阶', null, null, null, 'https://muyiy.vip/', null, '深入介绍Javascript相关的原理，作用域，调用栈，防抖操作等', null, '2019-08-06 17:18:46', '0', '前端,javascript,基础,原理', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('98', 'page', '0', '在线工具', null, null, null, null, '/tools', '内容预览', null, '2019-08-06 17:56:47', '0', '在线运行,编译', '', '', '0', null);
+INSERT INTO `dh_content` VALUES ('99', 'article', '0', ' JS去掉数组中重复元素的三种方法', null, '教程,javascript,es6', null, null, 'js-array-remove-3-methods', '<h2 id=\"第一种方法：使用-new-set\">第一种方法：使用 new Set</h2>\n<p>Set对象有个特点，不能包含重复元素</p>\n<pre><code class=\"language-javascript\">let arr = [1,1,1,2,2,3,3,3];\n\nconsole.log([...(new Set(arr))]);\n//output: [1,2,3]</code></pre>\n<h2 id=\"第二种方法：使用arraymap\">第二种方法：使用Array.map</h2>\n<p>数组对象有个map方法，传入一个回调函数，这个回调函数均作用于数组中的每个元素</p>\n<pre><code class=\"language-javascript\">let arr = [1,1,1,2,2,3,3,3];\nlet res = [];\narr.map(function(item) {\n    !res.include(item) &amp;&amp; res.push(item);\n});\n//output: [1,2,3]</code></pre>\n<h2 id=\"第三种方式：使用arrayfilter\">第三种方式：使用Array.filter</h2>\n<p>数组对象有个filter方法，用于根据自定义规则过滤数组元素，同样需要传递一个回调函数，这个回调函数均作用于每个数组元素，最终返回一个布尔值来表示该元素是否符合规则</p>\n<pre><code class=\"language-javascript\">let arr = [1,1,1,2,2,3,3,3];\nlet res = arr.filter(function(item , index) {\n    return arr.indexOf(item)&gt;=i;\n});\nconsole.log(res);\n//output: [1,2,3]</code></pre>\n', '列举一些处理数组重复元素的方法', '2019-08-07 10:11:32', '0', 'javascript,数组,删除,ES6,es6,重复', '', '## 第一种方法：使用 new Set\n\nSet对象有个特点，不能包含重复元素\n\n```javascript\nlet arr = [1,1,1,2,2,3,3,3];\n\nconsole.log([...(new Set(arr))]);\n//output: [1,2,3]\n```\n\n## 第二种方法：使用Array.map\n\n数组对象有个map方法，传入一个回调函数，这个回调函数均作用于数组中的每个元素\n\n```javascript\nlet arr = [1,1,1,2,2,3,3,3];\nlet res = [];\narr.map(function(item) {\n    !res.include(item) && res.push(item);\n});\n//output: [1,2,3]\n```\n\n## 第三种方式：使用Array.filter\n\n数组对象有个filter方法，用于根据自定义规则过滤数组元素，同样需要传递一个回调函数，这个回调函数均作用于每个数组元素，最终返回一个布尔值来表示该元素是否符合规则\n\n```javascript\nlet arr = [1,1,1,2,2,3,3,3];\nlet res = arr.filter(function(item , index) {\n    return arr.indexOf(item)>=i;\n});\nconsole.log(res);\n//output: [1,2,3]\n```', '0', null);
+INSERT INTO `dh_content` VALUES ('100', 'article', '0', 'Gulp使用入门', null, 'gulp,工程化,自动化', null, null, 'gulp-use-begin', '<h1 id=\"gulp使用入门\">Gulp使用入门</h1>\n<p>Gulp主要是用于完成一些前端自动化任务的工具，比如构建项目，编译程序，压缩文件，生成目标文件等。</p>\n<h2 id=\"安装gulp\">安装gulp</h2>\n<pre><code class=\"language-javascript\">npm i --g gulp gulp-cli</code></pre>\n<h2 id=\"执行gulp\">执行gulp</h2>\n<p>新建一个gulpfile.js文件，输入以下代码</p>\n<pre><code class=\"language-javascript\">var gulp = require(\'gulp\');\n\ngulp.task(\'default\', async function() {\n  // 将你的默认的任务代码放在这\n  console.log(\'default\');\n});</code></pre>\n<h2 id=\"执行gulp命令，运行程序\">执行gulp命令，运行程序</h2>\n<pre><code class=\"language-javascript\">&gt; gulp\n\n//命令行输出：\n[22:03:09] Using gulpfile D:\\DEV\\PROJECTS\\gulp\\gulpfile.js\n[22:03:09] Starting \'default\'...\ndefault\n[22:03:09] Finished \'default\' after 18 ms</code></pre>\n<h2 id=\"几个重要的方法\">几个重要的方法</h2>\n<ul>\n<li>gulp.task() 自定义任务流，处理文件</li>\n<li>gulp.src() 加载本地文件</li>\n<li>gulp.dest() 最终生成文件的目录</li>\n</ul>\n<h2 id=\"gulp插件\">gulp插件</h2>\n<p>插件也是gulp项目中的一个重要的元素，大部分的gulp任务都是通过调用插件来完成</p>\n<p>安装插件：</p>\n<pre><code>npm i --save-dev gulp-uglify</code></pre><p>加载插件：</p>\n<pre><code>var uglify = require(\'gulp-uglify\');</code></pre><p>调用插件</p>\n<pre><code>gulp.pipe(uglify());</code></pre><h2 id=\"完成一个简单的任务：压缩文件\">完成一个简单的任务：压缩文件</h2>\n<p>新建一个src目录，在目录中新建文件 demo.js，输入以下代码</p>\n<pre><code class=\"language-javascript\">console.log(\'a\');\nalert(\'b\');</code></pre>\n<p>修改gulpfile.js</p>\n<pre><code class=\"language-javascript\">//加载gulp\nvar gulp = require(\'gulp\');\n//加载gulp压缩插件\nvar uglify = require(\'gulp-uglify\');\n\ngulp.task(\'default\', async function() {\n  //定义任务\n  return gulp.src(\'src/*.js\') //加载自定目录文件\n      .pipe(uglify()) //执行压缩任务\n      .pipe(gulp.dest(\'dest\')); //输出结果到指定目录\n});</code></pre>\n<p>命令行执行：</p>\n<pre><code class=\"language-cmd\">&gt; gulp\n\n[23:16:14] Using gulpfile D:\\DEV\\PROJECTS\\gulp\\gulpfile.js\n[23:16:14] Starting \'default\'...\n开始压缩文件\n[23:16:14] Finished \'default\' after 20 ms\n</code></pre>\n<p>参考最终目录结构：</p>\n<pre><code class=\"language-javascript\">dest  //输出结果目录\n  |- demo.js\nnode_modules  //项目依赖模块\nsrc //被gulp指定处理的目录\n  |- demo.js\ngulpfile.js //定义gulp任务的主程序\npackage.json\npackage-lock.json</code></pre>\n', 'Gulp主要是用于完成一些前端自动化任务的工具，比如构建项目，编译程序，压缩文件，生成目标文件等。', '2019-08-07 10:17:54', '0', 'gulp,前端,工程,自动化', '', '# Gulp使用入门\n\nGulp主要是用于完成一些前端自动化任务的工具，比如构建项目，编译程序，压缩文件，生成目标文件等。\n\n## 安装gulp\n\n```javascript\nnpm i --g gulp gulp-cli\n```\n\n## 执行gulp\n新建一个gulpfile.js文件，输入以下代码\n```javascript\nvar gulp = require(\'gulp\');\n\ngulp.task(\'default\', async function() {\n  // 将你的默认的任务代码放在这\n  console.log(\'default\');\n});\n```\n## 执行gulp命令，运行程序\n```javascript\n> gulp\n\n//命令行输出：\n[22:03:09] Using gulpfile D:\\DEV\\PROJECTS\\gulp\\gulpfile.js\n[22:03:09] Starting \'default\'...\ndefault\n[22:03:09] Finished \'default\' after 18 ms\n```\n\n## 几个重要的方法\n\n- gulp.task() 自定义任务流，处理文件\n- gulp.src() 加载本地文件\n- gulp.dest() 最终生成文件的目录\n\n## gulp插件\n\n插件也是gulp项目中的一个重要的元素，大部分的gulp任务都是通过调用插件来完成\n\n安装插件：\n```\nnpm i --save-dev gulp-uglify\n```\n加载插件：\n```\nvar uglify = require(\'gulp-uglify\');\n```\n调用插件\n```\ngulp.pipe(uglify());\n```\n\n## 完成一个简单的任务：压缩文件\n新建一个src目录，在目录中新建文件 demo.js，输入以下代码\n```javascript\nconsole.log(\'a\');\nalert(\'b\');\n```\n\n修改gulpfile.js\n```javascript\n//加载gulp\nvar gulp = require(\'gulp\');\n//加载gulp压缩插件\nvar uglify = require(\'gulp-uglify\');\n\ngulp.task(\'default\', async function() {\n  //定义任务\n  return gulp.src(\'src/*.js\') //加载自定目录文件\n  	.pipe(uglify()) //执行压缩任务\n  	.pipe(gulp.dest(\'dest\')); //输出结果到指定目录\n});\n```\n\n命令行执行：\n```cmd\n> gulp\n\n[23:16:14] Using gulpfile D:\\DEV\\PROJECTS\\gulp\\gulpfile.js\n[23:16:14] Starting \'default\'...\n开始压缩文件\n[23:16:14] Finished \'default\' after 20 ms\n\n```\n\n参考最终目录结构：\n```javascript\ndest  //输出结果目录\n  |- demo.js\nnode_modules  //项目依赖模块\nsrc //被gulp指定处理的目录\n  |- demo.js\ngulpfile.js //定义gulp任务的主程序\npackage.json\npackage-lock.json\n```', '0', null);
+INSERT INTO `dh_content` VALUES ('101', 'article', '0', 'Javascript备忘录：常用keycode映射表', null, '', null, null, 'javascript-keycode-map-table', '<h1 id=\"javascript备忘录：常用keycode映射表\">Javascript备忘录：常用keycode映射表</h1>\n<p><strong>表格</strong></p>\n<table>\n<thead>\n<tr>\n<th>键盘按钮</th>\n<th>keycode</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>shift</td>\n<td>16</td>\n</tr>\n<tr>\n<td>Ctrl</td>\n<td>17</td>\n</tr>\n<tr>\n<td>Alt</td>\n<td>18</td>\n</tr>\n<tr>\n<td>大小写切换（capslock）</td>\n<td>20</td>\n</tr>\n<tr>\n<td>退格（backspace）</td>\n<td>8</td>\n</tr>\n<tr>\n<td>tab</td>\n<td>9</td>\n</tr>\n<tr>\n<td>回车</td>\n<td>13</td>\n</tr>\n<tr>\n<td>退出</td>\n<td>27</td>\n</tr>\n<tr>\n<td>空格</td>\n<td>32</td>\n</tr>\n<tr>\n<td>PageUp</td>\n<td>33</td>\n</tr>\n<tr>\n<td>PageDdown</td>\n<td>34</td>\n</tr>\n<tr>\n<td>Home</td>\n<td>36</td>\n</tr>\n<tr>\n<td>End</td>\n<td>35</td>\n</tr>\n<tr>\n<td>Insert</td>\n<td>45</td>\n</tr>\n<tr>\n<td>Left（方向向左）</td>\n<td>37</td>\n</tr>\n<tr>\n<td>Up（方向向上）</td>\n<td>38</td>\n</tr>\n<tr>\n<td>Right（方向向右）</td>\n<td>39</td>\n</tr>\n<tr>\n<td>Down（方向向下）</td>\n<td>40</td>\n</tr>\n<tr>\n<td>Delete（删除）</td>\n<td>46</td>\n</tr>\n<tr>\n<td>NumLock</td>\n<td>144</td>\n</tr>\n<tr>\n<td>F1~F12</td>\n<td>112~123</td>\n</tr>\n<tr>\n<td>`</td>\n<td>192</td>\n</tr>\n<tr>\n<td>=</td>\n<td>187</td>\n</tr>\n<tr>\n<td>-</td>\n<td>189</td>\n</tr>\n<tr>\n<td>/</td>\n<td>191</td>\n</tr>\n<tr>\n<td>.</td>\n<td>190</td>\n</tr>\n</tbody></table>\n<p><strong>JS代码</strong></p>\n<pre><code class=\"language-javascript\">    var keymap = {\n        \'Shift\': 16,\n        \'Control\': 17,\n        \'Alt\': 18,\n        \'CapsLock\': 20,\n        \'BackSpace\': 8,\n        \'Tab\': 9,\n        \'Enter\': 13,\n        \'Esc\': 27,\n        \'Space\': 32,\n        \'PageUp\': 33,\n        \'PageDown\': 34,\n        \'End\': 35,\n        \'Home\': 36,\n        \'Insert\': 45,\n        \'Left\': 37,\n        \'Up\': 38,\n        \'Right\': 39,\n        \'Down\': 40,\n        \'Delete\': 46,\n        \'NumLock\': 144,\n        \'F1\': 112,\n        \'F2\': 113,\n        \'F3\': 114,\n        \'F4\': 115,\n        \'F5\': 116,\n        \'F6\': 117,\n        \'F7\': 118,\n        \'F8\': 119,\n        \'F9\': 120,\n        \'F10\': 121,\n        \'F11\': 122,\n        \'F12\': 123,\n        \'`\': 192,\n        \'=\': 187,\n        \'-\': 189,\n        \'/\': 191,\n        \'.\': 190\n    };</code></pre>\n', '在js实际开发中，需要监听键盘事件，通过事件对象的keycode属性判断再键盘上输入的内容，文中列出常用的keycode所对应的输入', '2019-08-07 10:29:18', '0', 'javascript,键盘,keycode,事件', '', '# Javascript备忘录：常用keycode映射表\n\n**表格**\n\n| 键盘按钮 | keycode |\n| --- | --- |\n| shift | 16 |\n| Ctrl | 17 |\n| Alt | 18 |\n| 大小写切换（capslock） | 20 |\n| 退格（backspace） | 8 |\n| tab | 9 |\n| 回车 | 13 |\n| 退出 | 27 |\n| 空格 | 32 |\n| PageUp | 33 |\n| PageDdown | 34 |\n| Home | 36 |\n| End | 35 |\n| Insert | 45 |\n| Left（方向向左） | 37 |\n| Up（方向向上） | 38 |\n| Right（方向向右） | 39 |\n| Down（方向向下） | 40 |\n| Delete（删除） | 46 |\n| NumLock | 144 |\n| F1~F12 | 112~123 |\n| ` | 192 |\n| = | 187 |\n| - | 189 |\n| / | 191 |\n| . | 190 |\n\n**JS代码**\n\n```javascript\n    var keymap = {\n        \'Shift\': 16,\n        \'Control\': 17,\n        \'Alt\': 18,\n        \'CapsLock\': 20,\n        \'BackSpace\': 8,\n        \'Tab\': 9,\n        \'Enter\': 13,\n        \'Esc\': 27,\n        \'Space\': 32,\n        \'PageUp\': 33,\n        \'PageDown\': 34,\n        \'End\': 35,\n        \'Home\': 36,\n        \'Insert\': 45,\n        \'Left\': 37,\n        \'Up\': 38,\n        \'Right\': 39,\n        \'Down\': 40,\n        \'Delete\': 46,\n        \'NumLock\': 144,\n        \'F1\': 112,\n        \'F2\': 113,\n        \'F3\': 114,\n        \'F4\': 115,\n        \'F5\': 116,\n        \'F6\': 117,\n        \'F7\': 118,\n        \'F8\': 119,\n        \'F9\': 120,\n        \'F10\': 121,\n        \'F11\': 122,\n        \'F12\': 123,\n        \'`\': 192,\n        \'=\': 187,\n        \'-\': 189,\n        \'/\': 191,\n        \'.\': 190\n    };\n```', '0', null);
+INSERT INTO `dh_content` VALUES ('102', 'collect', '41', '编写可维护的、可扩展的CSS（英）', null, null, null, 'https://cssguidelin.es/', null, '', null, '2019-08-07 14:18:51', '0', 'css,维护,灵活', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('103', 'collect', '41', '基于浏览器的高性能网络', null, null, null, 'https://hpbn.co/', null, '每个开发人员都需要知道各类网络和传输协议', null, '2019-08-07 14:23:24', '0', '网络,http,tcp,udp,wifi,4g', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('104', 'collect', '41', 'ECMAScript 6 入门', null, null, null, 'http://es6.ruanyifeng.com/', null, '', null, '2019-08-07 14:24:48', '0', 'es6,javascript', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('105', 'collect', '32', '前端属性检测', null, null, null, 'https://www.caniuse.com/', null, '用于检测当前浏览器是否支持某个特性', null, '2019-08-07 14:29:16', '0', 'html5,css3,javascript', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('106', 'collect', '41', '格鲁夫给经理人的第一课', null, null, null, 'http://blog.devtang.com/2016/06/06/high-output-management-summary/', null, '', null, '2019-08-07 14:30:05', '0', '管理', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('107', 'collect', '34', '钉粑前端团队', null, null, null, 'http://tinper.org/', null, '', null, '2019-08-07 14:38:59', '0', 'html,css,javascript', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('108', 'collect', '13', 'Knockoutjs', null, null, null, 'https://knockoutjs.com/', null, '', null, '2019-08-07 16:46:04', '0', 'mvvm,框架', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('109', 'collect', '13', '钉粑 Tinper', null, null, null, 'http://tinper.org/', null, '', null, '2019-08-07 16:47:39', '0', '前端,企业,基础', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('110', 'collect', '13', 'Vue.js', null, null, null, 'https://cn.vuejs.org/', null, '', null, '2019-08-07 16:49:24', '0', 'vue,javascript,框架', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('111', 'collect', '13', 'React.js', null, null, null, 'https://react.docschina.org/', null, '', null, '2019-08-07 16:52:26', '0', 'react,javascript', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('112', 'collect', '36', 'HTML & CSS特效', null, null, null, 'https://littlesnippets.net/', null, '', null, '2019-08-07 16:55:06', '0', 'html,javascript,css', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('113', 'collect', '13', '基于React的原型设计框架 - Framer X', null, null, null, 'https://www.framer.com', null, '', null, '2019-08-07 16:58:38', '0', 'react', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('114', 'collect', '32', 'Iconfont-阿里巴巴矢量图标库', null, null, null, 'https://www.iconfont.cn/', null, '', null, '2019-08-07 17:00:10', '0', 'iconfont', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('115', 'collect', '30', 'Dev Awesome Js周报', null, null, null, 'https://devawesome.io/archive', null, '', null, '2019-08-07 17:59:44', '0', 'javascript,周报', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('116', 'collect', '32', 'Froont - 在线网页设计', null, null, null, 'http://froont.com/', null, '', null, '2019-08-07 18:01:11', '0', '网页,设计', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('117', 'collect', '32', 'Canva - 在线平面设计', null, null, null, 'https://www.canva.cn/', null, '', null, '2019-08-07 18:02:45', '0', '平面,设计', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('118', 'collect', '32', 'Easel - 在线信息图设计', null, null, null, 'https://www.easel.ly', null, '', null, '2019-08-07 18:03:43', '0', '信息图,设计', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('119', 'collect', '32', 'Infogram - 在线信息图设计', null, null, null, 'https://infogram.com/', null, '', null, '2019-08-07 18:05:17', '0', '信息图,设计', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('120', 'collect', '10', 'Mozilla', null, null, null, 'https://developer.mozilla.org/', null, '', null, '2019-08-07 18:06:18', '0', 'web,开发', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('121', 'collect', '10', 'Web开发教程', null, null, null, 'https://webplatform.github.io/', null, '', null, '2019-08-07 18:07:50', '0', '', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('122', 'collect', '13', 'CSS动画库', null, null, null, 'http://justinaguilar.com/animations/', null, '', null, '2019-08-07 18:12:49', '0', 'css3,动画', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('123', 'collect', '13', 'Picnic - 轻量级CSS框架', null, null, null, 'https://picnicss.com/', null, '', null, '2019-08-07 18:12:43', '0', 'css3', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('124', 'collect', '13', 'Bulma - CSSFlex框架', null, null, null, 'https://bulma.io/', null, '', null, '2019-08-07 18:13:45', '0', 'css,flex', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('125', 'collect', '38', 'Material Design Palette', null, null, null, 'https://www.materialpalette.com/', null, '', null, '2019-08-07 18:19:35', '0', '配色', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('126', 'collect', '10', ' Devhints.io', null, null, null, 'https://devhints.io/', null, '', null, '2019-08-07 18:26:47', '0', 'coding', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('127', 'collect', '13', 'Vuetify', null, null, null, 'https://vuetifyjs.com/zh-Hans/', null, '', null, '2019-08-07 18:28:30', '0', 'vue', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('128', 'collect', '30', '免费教程社区（英文）', null, null, null, 'https://tutsplus.com/', null, '', null, '2019-08-07 18:30:30', '0', '免费,教程', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('129', 'collect', '10', 'HTML&CSS教程', null, null, null, 'https://learn.shayhowe.com/', null, '', null, '2019-08-07 18:31:43', '0', 'html,css', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('130', 'collect', '30', 'Tutorialzine', null, null, null, 'https://tutorialzine.com/articles', null, '', null, '2019-08-07 18:33:45', '0', '前端', null, null, '0', null);
 
 -- ----------------------------
 -- Table structure for dh_demo
@@ -309,27 +344,31 @@ DROP TABLE IF EXISTS `dh_tag`;
 CREATE TABLE `dh_tag` (
   `tag_id` int(11) NOT NULL AUTO_INCREMENT,
   `tag_name` varchar(255) NOT NULL COMMENT '标签名',
+  `tag_color` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`tag_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of dh_tag
 -- ----------------------------
-INSERT INTO `dh_tag` VALUES ('10', 'rabbitmq');
-INSERT INTO `dh_tag` VALUES ('11', '教程');
-INSERT INTO `dh_tag` VALUES ('12', 'webkit');
-INSERT INTO `dh_tag` VALUES ('13', '浏览器');
-INSERT INTO `dh_tag` VALUES ('15', '微信');
-INSERT INTO `dh_tag` VALUES ('16', '支付');
-INSERT INTO `dh_tag` VALUES ('17', 'three.js');
-INSERT INTO `dh_tag` VALUES ('18', 'javascript');
-INSERT INTO `dh_tag` VALUES ('19', 'jquery');
-INSERT INTO `dh_tag` VALUES ('20', 'es6');
-INSERT INTO `dh_tag` VALUES ('21', '性能');
-INSERT INTO `dh_tag` VALUES ('22', '测试');
-INSERT INTO `dh_tag` VALUES ('23', '部署');
-INSERT INTO `dh_tag` VALUES ('24', 'react');
-INSERT INTO `dh_tag` VALUES ('25', 'css');
+INSERT INTO `dh_tag` VALUES ('10', 'rabbitmq', null);
+INSERT INTO `dh_tag` VALUES ('11', '教程', null);
+INSERT INTO `dh_tag` VALUES ('12', 'webkit', null);
+INSERT INTO `dh_tag` VALUES ('13', '浏览器', null);
+INSERT INTO `dh_tag` VALUES ('15', '微信', null);
+INSERT INTO `dh_tag` VALUES ('16', '支付', null);
+INSERT INTO `dh_tag` VALUES ('17', 'three.js', null);
+INSERT INTO `dh_tag` VALUES ('18', 'javascript', null);
+INSERT INTO `dh_tag` VALUES ('19', 'jquery', null);
+INSERT INTO `dh_tag` VALUES ('20', 'es6', null);
+INSERT INTO `dh_tag` VALUES ('21', '性能', null);
+INSERT INTO `dh_tag` VALUES ('22', '测试', null);
+INSERT INTO `dh_tag` VALUES ('23', '部署', null);
+INSERT INTO `dh_tag` VALUES ('24', 'react', null);
+INSERT INTO `dh_tag` VALUES ('25', 'css', null);
+INSERT INTO `dh_tag` VALUES ('26', 'gulp', null);
+INSERT INTO `dh_tag` VALUES ('27', '工程化', null);
+INSERT INTO `dh_tag` VALUES ('28', '自动化', null);
 
 -- ----------------------------
 -- Table structure for dh_uisetting
@@ -344,12 +383,13 @@ CREATE TABLE `dh_uisetting` (
   `ui_footercont` longtext COMMENT 'footer内容',
   `ui_isactive` tinyint(2) DEFAULT '0' COMMENT '是否启用:0-否,1-是',
   PRIMARY KEY (`ui_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of dh_uisetting
 -- ----------------------------
 INSERT INTO `dh_uisetting` VALUES ('1', '默认模板', 'default', '<link href=\"//cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css\" rel=\"stylesheet\" />\n<link href=\"/static/css/codeso.css?v=1.0.0\" rel=\"stylesheet\" />', '', '<script src=\"//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js\"></script>\n<script src=\"//cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js\"></script>', '1');
+INSERT INTO `dh_uisetting` VALUES ('3', 'tip7', 'tip7', '', '', '', '0');
 
 -- ----------------------------
 -- Table structure for dh_user

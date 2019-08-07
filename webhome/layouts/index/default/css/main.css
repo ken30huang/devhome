@@ -1,4 +1,9 @@
 .mt-80 { margin-top:80px; }
 .mt-20 { margin-top:20px; }
+.mb-20 { margin-bottom:20px; }
+.mb-40 { margin-bottom:40px; }
+.mb-60 { margin-bottom:60px; }
 .m-center { margin:0 auto; }
 .card-text-h100 { height: 100px; }
+.icons { width:24px; height:24px; margin-left: 5px; }
+.series_list li { line-height: 32px; }

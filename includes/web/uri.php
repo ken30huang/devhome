@@ -23,5 +23,9 @@ class WebUri {
     public function get($index) {
         return isset($this->_uris[$index])?$this->_uris[$index]:'';
     }
+
+    public function all() {
+        return $this->_uris;
+    }
 }
 ?>

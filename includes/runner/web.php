@@ -97,7 +97,6 @@ class WebRunner {
             $load_path = APP_BASE.DS.'controller'.DS.APP_DIR.DS.ucfirst(APP_DIR).ucfirst(C_NAME).'.php';
             if(!incFile($load_path)) {
                 //找不到具体的控制
-                echo $load_path;
                 die($this->_preErro.'Can not find controller path');
             }
             $ctrl_name = ucfirst(APP_DIR).ucfirst(C_NAME).'Controller';

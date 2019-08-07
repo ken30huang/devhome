@@ -59,5 +59,11 @@ class ContentModel extends MysqlModel {
         $rows = $this->select(array('order'=>'c_order ASC , c_id ASC' , 'where'=>$where));
         return $rows;
     }
+
+    public function getLast($c_type , $limit) {
+        $where = " AND c_type='".$c_type."'";
+        $rows = $this->select(array('order'=>'c_pubdate DESC' , 'where'=>$where, 'limit'=>'0,'.$limit));
+        return $rows;
+    }
 }
 ?>

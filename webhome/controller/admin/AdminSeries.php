@@ -41,7 +41,7 @@ class AdminSeriesController extends AdminController {
 
         $cmodel = $this->getModel('content');
         $tmodel = $this->getModel('tag');
-        $row = $cmodel->getRow();
+        $row = $cmodel->data('c_id' , $this->http->inputGet('c_id'))->getRow();
         $tagRows = $tmodel->select();
 
         $this->view->assign('row' , $row);

@@ -130,6 +130,11 @@ class MysqlModel {
     public function modify($where) {
         $this->db->update($this->table , $this->data , $where);
     }
+
+    public function clearQuery() {
+        $this->_queryOptions = array();
+        return $this;
+    }
     
 }
 ?>
