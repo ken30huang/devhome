@@ -7,3 +7,4 @@
 .card-text-h100 { height: 100px; }
 .icons { width:24px; height:24px; margin-left: 5px; }
 .series_list li { line-height: 32px; }
+.pd-lr-clear { padding-left:0; padding-right:0; }

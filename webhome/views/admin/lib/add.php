@@ -31,19 +31,15 @@
                         </div>
                         <div class="form-group">
                             <label>库介绍</label>
-                            <textarea id="lib_intro" field="lib_intro" class="form-control" rows="4" placeholder=""><?php echo getRowVal('lib_intro' , $row);?></textarea>
+                            <input id="lib_intro" field="lib_intro" class="form-control" rows="4" placeholder="" value="<?php echo getRowVal('lib_intro' , $row);?>" />
                         </div>
                         <div class="form-group">
                             <label>CSS链接</label>
-                            <textarea id="lib_css" field="lib_css" class="form-control" rows="3" placeholder=""><?php echo getRowVal('lib_css' , $row);?></textarea>
+                            <input id="lib_css" field="lib_css" class="form-control" rows="3" placeholder="" value="<?php echo getRowVal('lib_css' , $row);?>" />
                         </div>
                         <div class="form-group">
                             <label>JS链接</label>
-                            <textarea id="lib_js" field="lib_js" class="form-control" rows="3" placeholder=""><?php echo getRowVal('lib_intro' , $row);?></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>关键字</label>
-                            <textarea id="lib_js" field="lib_js" class="form-control" rows="3" placeholder=""><?php echo getRowVal('lib_intro' , $row);?></textarea>
+                            <input id="lib_js" field="lib_js" class="form-control" rows="3" placeholder="" value="<?php echo getRowVal('lib_js' , $row);?>" />
                         </div>
                         <div class="form-group">
                             <label>包下载地址</label>

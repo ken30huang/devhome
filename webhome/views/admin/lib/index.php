@@ -1,7 +1,7 @@
 <div class="row">
     <ol class="breadcrumb">
         <li><a href="/admin/"><span class="glyphicon glyphicon-home"></span></a></li>
-        <li class="active">在线文档列表</li>
+        <li class="active">前端第三方库</li>
     </ol>
 </div><!--/.row-->				
 

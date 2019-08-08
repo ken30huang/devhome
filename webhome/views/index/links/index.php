@@ -5,10 +5,7 @@
         <div class="nav-list row">
             <?php foreach($item['c_lists'] as $c_item): ?>
             <div class="col-sm-4">
-                <a href="<?php echo $c_item['c_link']?>" target="_blank">
-                    <?php echo $c_item['c_title'];?>
-                    <img class="icons" src="<?php echo __STATIC__.'/icons/ico_link.svg'?>" />
-                </a>
+                <a href="<?php echo $c_item['c_link']?>" target="_blank"><?php echo $c_item['c_title'];?></a>
             </div>
             <?php endforeach;?>
         </div>

@@ -34,7 +34,7 @@ class AdminWikiController extends AdminController {
     }
 
     public function del() {
-        $this->getModel('content')->data('c_id' , $this->http->inputPost('c_id'))->deleteById();
+        $this->getModel('content')->data('c_id' , $this->http->inputPost('del_id'))->deleteById();
         $this->http->success()->json();
     }
 

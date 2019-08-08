@@ -7,7 +7,7 @@
     <title>代码直通车</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="/static/plugins/bootstrap4/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/webhome/layouts/index/default/css/main.css?v=1.0.1"/>
+    <link rel="stylesheet" href="/webhome/layouts/index/default/css/main.css?v=1.0.2"/>
     <script src="/static/js/libs/jquery/jquery.min.js"></script>
     <script src="/static/plugins/bootstrap4/js/bootstrap.min.js"></script>
 </head>

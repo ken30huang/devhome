@@ -5,12 +5,13 @@ class AdminSnippetController extends AdminController {
 
     public function index() {
         $cmodel = $this->getModel('content');
-        $page = intval($this->web->req('page'));
+        $category_model = $this->getModel('category');
+        $page = intval($this->http->inputGet('page'));
         $page = $page==0 ? 1 : $page;
         $pageData = $cmodel->setPageNum($page)->getPageData($this->c_type);
 
         $codenames = array();
-        foreach($this->getCodes() as $codeitem) {
+        foreach($category_model->getChilds(15) as $codeitem) {
             $codenames[$codeitem['cate_id']] = $codeitem['cate_name'];
         }
 
@@ -21,33 +22,27 @@ class AdminSnippetController extends AdminController {
     }
 
     public function save() {
-        if(intval($this->web->req('c_id')) == 0) {
+        if(intval($this->http->inputGet('c_id')) == 0) {
             $this->web->setReq('c_pubdate' , date('Y-m-d H:i:s'));
         }
         $this->web->setReq('c_type' , $this->c_type);
         $this->getModel('content')->save();
-        $this->getJSON();
+        $this->http->success()->json();
     }
 
     public function del() {
-        $this->web->setReq('c_id' , $this->web->reqPost('del_id'));
-        $table = TableModel::getInstance('content' , 'c_id');
-        $table->deleteById();
-        $this->getJSON();
+        $this->web->setReq('c_id' , $this->http->inputPost('del_id'));
+        $this->getModel('content')->deleteById();
+        $this->http->success()->json();
     }
 
     public function add() {
 
         $cmodel = $this->getModel('content');
-        $row = $cmodel->getRow();
-        $this->view->assign('code_list' ,  $this->getCodes());
+        $row = $cmodel->data('c_id' , $this->http->inputGet('c_id'))->getRow();
+        $this->view->assign('code_list' ,  $this->getModel('category')->getChilds(15));
         $this->view->assign('row' , $row);
         $this->view();
-    }
-
-    private function getCodes() {
-        $cate_model = TableModel::getInstance('category' , 'cate_id');
-        return $cate_model->where(' cate_pid=15')->order('cate_id DESC')->query();
     }
 
 }

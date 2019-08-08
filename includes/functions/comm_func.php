@@ -168,7 +168,7 @@ function getSelVal($key , $val , $row) {
 function isCheckSel($key , $row , $val='') {
     $checked = '';
     if(isset($row[$key])) {
-        if(strpos($row[$key] , $val) !== false) {
+        if(strpos($row[$key] , $val) !== false || $row[$key]==$val) {
             $checked = 'checked';
         }
     }

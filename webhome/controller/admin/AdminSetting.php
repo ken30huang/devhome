@@ -11,7 +11,7 @@ class AdminSettingController extends AdminController {
 
     public function save() {
         TableModel::getInstance('setting')->save();
-        $this->getJSON();
+        $this->http->success()->json();
     }
 }
 ?>

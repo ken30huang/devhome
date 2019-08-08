@@ -13,14 +13,17 @@ class IndexLinksController extends IndexBaseController {
             $c_groups[$link['c_cateid']][] = $link;
         }
         $catemaps = array();
+        $idx = 0;
         foreach($cate_list as $cate) {
             $catemaps[$cate['cate_id']] = array(
+                'cate_idx'=>$idx,
                 'cate_name'=>$cate['cate_name'],
                 'c_lists'=>array()
             );
             if(isset($c_groups[$cate['cate_id']])) {
                 $catemaps[$cate['cate_id']]['c_lists'] = $c_groups[$cate['cate_id']];
             }
+            $idx++;
         }
         $this->assign('catemaps' , $catemaps);
         $this->display();

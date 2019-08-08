@@ -22,14 +22,6 @@
                             <input id="c_thumb" field="c_thumb" class="form-control" placeholder="" value="<?php echo getRowVal('c_thumb' , $row);?>" />
                         </div>
                         <div class="form-group">
-                            <label>文档链接</label>
-                            <input id="c_link" field="c_link" class="form-control" placeholder="" value="<?php echo getRowVal('c_link' , $row);?>" />
-                        </div>
-                        <div class="form-group">
-                            <label>发布时间</label>
-                            <input id="c_linkdate" field="c_linkdate" class="form-control" placeholder="" value="<?php echo getRowVal('c_linkdate' , $row);?>" />
-                        </div>
-                        <div class="form-group">
                             <label>SEO关键词</label>
                             <input id="c_seokeyword" field="c_seokeyword" class="form-control" placeholder="" value="<?php echo getRowVal('c_seokeyword' , $row);?>" />
                         </div>
@@ -45,6 +37,11 @@
                         <div class="form-group">
                             <label>文档摘要</label>
                             <textarea id="c_summery" class="form-control" rows="4" placeholder=""><?php echo getRowVal('c_summery' , $row);?></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>文章内容</label>
+                            <textarea id="c_mdcont" field="c_mdcont" class="form-control" rows="8" placeholder=""><?php echo getRowVal('c_mdcont' , $row);?></textarea>
+                            <div id="showMd" style="border:1px solid #ccc;height:240px; padding:10px; overflow:auto;"><?php echo getRowVal('c_cont' , $row , '内容预览');?></div>
                         </div>
                         <button type="button" id="saveBtn" class="btn btn-primary">保存</button>
                         <button type="button" class="btn btn-default" onclick="javascript:history.back();">取消</button>
@@ -93,12 +90,13 @@ function contSave() {
     var _saveData = {
         c_title:$('#c_title').val(),
         c_id:$('#c_id').val(),
-        c_link:$('#c_link').val(),
         c_tag:tag,
         c_thumb:$('#c_thumb').val(),
         c_seokeyword:$('#c_seokeyword').val(),
         c_summery:$('#c_summery').val(),
-        c_linkdate:$('#c_linkdate').val()
+        c_cont:$('#showMd').html(),
+        c_mdcont:$('#c_mdcont').val(),
+        c_parentid:$('#c_parentid').val()
     };
     ajaxReq({
         url:'/admin/wiki/save',

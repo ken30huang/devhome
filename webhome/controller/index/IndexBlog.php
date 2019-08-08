@@ -14,7 +14,12 @@ class IndexBlogController extends IndexBaseController {
     public function detail() {
         $uris = $this->uri->all();
         $alias = end($uris);
-        echo $alias;
+        
+        $cmodel = $this->getModel('content');
+        $result = $cmodel->where("c_alias='".$alias."'")->order('c_pubdate DESC,c_id DESC')->range(0,1)->query();
+
+        $this->assign('row' , $result[0]);
+        $this->display();
     }
 }
 ?>
