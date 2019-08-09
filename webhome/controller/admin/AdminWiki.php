@@ -1,7 +1,7 @@
 <?php
 class AdminWikiController extends AdminController {
 
-    private $c_type = 'wiki';
+    private $c_type = 'knowledge';
 
     public function index() {
         $cmodel = $this->getModel('content');
@@ -16,7 +16,7 @@ class AdminWikiController extends AdminController {
     public function save() {
         $tmodel = $this->getModel('tag');
         $post = $this->http->inputPost();
-        $tags = explode(',',$post('c_tag'));
+        $tags = explode(',',$post['c_tag']);
         $post['c_type'] = $this->c_type;
         foreach($tags as $tname) {
             if(empty($tname)) continue;

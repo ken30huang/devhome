@@ -1,100 +1,36 @@
-<style type="text/css">/* fonts */
 
-div.jqcloud {
-  font-family: "Helvetica", "Arial", sans-serif;
-  font-size: 10px;
-  line-height: normal;
-}
-
-div.jqcloud a {
-  font-size: inherit;
-  text-decoration: none;
-}
-
-div.jqcloud span.w10 { font-size: 550%; }
-div.jqcloud span.w9 { font-size: 500%; }
-div.jqcloud span.w8 { font-size: 450%; }
-div.jqcloud span.w7 { font-size: 400%; }
-div.jqcloud span.w6 { font-size: 350%; }
-div.jqcloud span.w5 { font-size: 300%; }
-div.jqcloud span.w4 { font-size: 250%; }
-div.jqcloud span.w3 { font-size: 200%; }
-div.jqcloud span.w2 { font-size: 150%; }
-div.jqcloud span.w1 { font-size: 100%; }
-
-/* colors */
-
-div.jqcloud { color: #09f; }
-div.jqcloud a { color: inherit; }
-div.jqcloud a:hover { color: #0df; }
-div.jqcloud a:hover { color: #0cf; }
-div.jqcloud span.w10 { color: #0cf; }
-div.jqcloud span.w9 { color: #0cf; }
-div.jqcloud span.w8 { color: #0cf; }
-div.jqcloud span.w7 { color: #39d; }
-div.jqcloud span.w6 { color: #90c5f0; }
-div.jqcloud span.w5 { color: #90a0dd; }
-div.jqcloud span.w4 { color: #90c5f0; }
-div.jqcloud span.w3 { color: #a0ddff; }
-div.jqcloud span.w2 { color: #99ccee; }
-div.jqcloud span.w1 { color: #aab5f0; }
-
-/* layout */
-
-div.jqcloud {
-  overflow: hidden;
-  position: relative;
-}
-
-div.jqcloud span { padding: 0; }</style>
 <div class="container mt-80">
-    <div class="card-columns">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">在线代码运行</a></h5>
-                <p class="card-text">111
-                </p>
-            </div>
-        </div>
-    </div>
-</div>
-<div id="example" class="jqcloud" style="width: 550px; height: 350px;"></div>
-<script src="https://raw.githubusercontent.com/lucaong/jQCloud/master/jqcloud/jqcloud-1.0.4.min.js"></script>
-<script>
-/*!
-       * Create an array of word objects, each representing a word in the cloud
-       */
-      var word_array = [
-          {text: "Lorem", weight: 15},
-          {text: "Ipsum", weight: 9, link: "http://jquery.com/"},
-          {text: "Dolor", weight: 6, html: {title: "I can haz any html attribute"}},
-          {text: "Click", weight: 7, handlers : { 
-              click: function() { 
-                  alert("it works!"); 
-              }
-            }
-        } ,
-          {text: "Amet", weight: 5},
-          {text: "Amet", weight: 5},
-          {text: "Amet", weight: 5},
-          {text: "Amet", weight: 5},
-          {text: "Amet", weight: 5},
-          {text: "Amet", weight: 5},
-          {text: "Amet", weight: 5},
-          {text: "Amet", weight: 5},
-          {text: "Amet", weight: 5},
-          {text: "Amet", weight: 5},
-          {text: "Amet", weight: 5},
-          {text: "Amet", weight: 5},
-          {text: "Amet", weight: 5},
-          {text: "Amet", weight: 5},
-          {text: "Amet", weight: 5},
-          {text: "Amet", weight: 5},
-          // ...as many words as you want
-      ];
+      
+<div class="container">
+    <div class="row text-right align-items-center">
+      <div class="col-12 col-lg-6 col-xl-5 m-lg-auto text-left">
+        <h1>Features</h1>
+        <p class="h3 pb-xl-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
 
-      $(function() {
-        // When DOM is ready, select the container element and call the jQCloud method, passing the array of words as the first argument.
-        $("#example").jQCloud(word_array);
-      });
-</script>
+        <div class="row pt-5">
+          <div class="col-3">
+            <img alt="image" class="img-fluid" src="./imgs/icons/gift.svg">
+          </div>
+          <div class="col-9">
+            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences.</p>
+          </div>
+        </div>
+
+        <div class="row pt-5">
+          <div class="col-9 text-right">
+            <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, there live the blind texts.</p>
+          </div>
+
+          <div class="col-3">
+            <img alt="image" class="img-fluid" src="./imgs/icons/map-pin.svg">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-7 col-sm-4 m-auto pt-5 pt-md-0">
+        <img alt="image" class="img-fluid" src="./imgs/draws/simple-iphone.svg">
+      </div>
+    </div>
+  </div>
+</section>
+</div>

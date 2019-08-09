@@ -22,6 +22,10 @@
                             <input id="demo_desc" field="demo_desc" class="form-control" placeholder="" value="<?php echo getRowVal('demo_desc' , $row);?>" />
                         </div>
                         <div class="form-group">
+                            <label>缩略图</label>
+                            <input id="demo_thumb" field="demo_thumb" class="form-control" placeholder="" value="<?php echo getRowVal('demo_thumb' , $row);?>" />
+                        </div>
+                        <div class="form-group">
                             <label>是否前端展示</label>
                             <input type="checkbox" id="demo_isfront" field="demo_isfront" value="1" <?php echo isCheckSel('demo_isfront' , $row , 1);?> />
                         </div>
@@ -118,6 +122,7 @@ function contSave(lib_ids) {
         demo_iscompile:($('#demo_iscompile')[0].checked?1:0),
         demo_isfront:($('#demo_isfront')[0].checked?1:0),
         demo_packjson:$('#demo_packjson').val(),
+        demo_thumb:$('#demo_thumb').val()
     };
     ajaxReq({
         url:'/admin/demo/save',

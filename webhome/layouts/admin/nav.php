@@ -15,6 +15,7 @@
 					<ul class="dropdown-menu" role="menu">
 						<li><a href="#"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
 						<li><a href="#"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
+						<li><a href="/" target="_blank"><span class="glyphicon glyphicon-log-out"></span> 网站首页</a></li>
 						<li><a href="/admin/user/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 					</ul>
 				</li>

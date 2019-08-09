@@ -33,7 +33,7 @@
                 </li>
                 <li>
                     <a class="" href="/admin/wiki">
-                        <span class="glyphicon glyphicon-share-alt"></span> 文档/书籍
+                        <span class="glyphicon glyphicon-share-alt"></span> 知识点
                     </a>
                 </li>
             </ul>

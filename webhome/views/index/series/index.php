@@ -1,14 +1,15 @@
 <div class="container mt-80">
-    <div class="alert alert-primary" role="alert">整理收集来自于不同技术社区的技术类系列文章，目前共收录<?php echo $scount;?>个链接</div>
-
-    <?php foreach($data_list as $year=>$lists):?>
-    <div class="series-wrap">
-        <h5><?php echo $year;?></h5>
-        <ul class="series-list">
-            <?php foreach($lists as $citem):?>
-            <li><a href="<?php echo $citem['c_link']?>" target="_blank"><?php echo $citem['c_title']?></a></li>
-            <?php endforeach;?>
-        </ul>
+    <div class="row">
+        <?php foreach($series_list as $series):?>
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <img class="card-img-top" style="height:213px;" src="<?php echo $series['c_thumb']; ?>" alt="Card image cap">
+                    <h5 class="card-title"><a href="/series/detail/<?php echo $series['c_id']; ?>"><?php echo $series['c_title'];?></a></h5>
+                    <p class="card-text"><?php echo $series['c_summery'];?></p>
+                </div>
+            </div>
+        </div>
+        <?php endforeach;?>
     </div>
-    <?php endforeach;?>
 </div>

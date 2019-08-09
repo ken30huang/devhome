@@ -41,6 +41,7 @@ class IndexDemosController extends IndexBaseController {
         foreach($cf_list as $cf_item) {
             if($cf_item['cf_type'] == 'html') {
                 $show_map['html'] = $cf_item['cf_code'];
+                $show_map['htmlcode'] = htmlentities($cf_item['cf_code']);
             }
             if($cf_item['cf_type'] == 'css') {
                 $show_map['css'] = $cf_item['cf_code'];

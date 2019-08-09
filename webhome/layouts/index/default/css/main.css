@@ -8,3 +8,8 @@
 .icons { width:24px; height:24px; margin-left: 5px; }
 .series_list li { line-height: 32px; }
 .pd-lr-clear { padding-left:0; padding-right:0; }
+
+.pos_fixed { position: fixed; }
+.btn_view { top:80px; right:50px; }
+
+.navbar-dark .navbar-nav .nav-link { color:rgba(255,255,255,.8); }

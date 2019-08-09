@@ -5,11 +5,16 @@ class AdminSeriesController extends AdminController {
 
     public function index() {
         $cmodel = $this->getModel('content');
-        $page = intval($this->http->inputGet('page'));
-        $page = $page==0 ? 1 : $page;
-        $pageData = $cmodel->setPageNum($page)->getPageData($this->c_type);
-        $this->view->assign('rows' , $pageData['rows']);
-        $this->view->assign('pager' , show_pagenums($page , $pageData['count'] , $cmodel->getPageSize() , "/admin/series"));
+        $pageData = $cmodel->where("c_type='".$this->c_type."' AND c_parentid=0")->order('c_id DESC')->query();
+        $this->view->assign('rows' , $pageData);
+        $this->view();
+    }
+
+    public function sublist() {
+        $cmodel = $this->getModel('content');
+        $pageData = $cmodel->where("c_type='".$this->c_type."' AND c_parentid=".$this->http->inputGet('c_id'))->order('c_order ASC, c_id ASC')->query();
+        $this->view->assign('rows' , $pageData);
+        $this->view->assign('c_parentid' , $this->http->inputGet('c_id'));
         $this->view();
     }
 
@@ -46,6 +51,19 @@ class AdminSeriesController extends AdminController {
 
         $this->view->assign('row' , $row);
         $this->view->assign('tags' , $tagRows);
+        $this->view();
+    }
+
+    public function subadd() {
+
+        $cmodel = $this->getModel('content');
+        $tmodel = $this->getModel('tag');
+        $row = $cmodel->data('c_id' , $this->http->inputGet('c_id'))->getRow();
+        $tagRows = $tmodel->select();
+
+        $this->view->assign('row' , $row);
+        $this->view->assign('tags' , $tagRows);
+        $this->view->assign('c_parentid' , $this->http->inputGet('c_parentid'));
         $this->view();
     }
 

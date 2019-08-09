@@ -16,7 +16,6 @@
                     <thead>
                         <tr>
                             <th>标题</th>
-                            <th>收藏时间</th>
                             <th>发布时间</th>
                             <th>操作</th>
                         </tr>
@@ -25,8 +24,8 @@
                             <tr>
                                 <td ><?php echo $row['c_title'];?></td>
                                 <td><?php echo $row['c_pubdate'];?></td>
-                                <td><?php echo $row['c_linkdate'];?></td>
                                 <td>
+                                    <a href="/admin/series/sublist?c_id=<?php echo $row['c_id'];?>">文章列表</a>
                                     <a href="javascript:;" onclick="location.href='/admin/series/add?c_id=<?php echo $row['c_id'];?>';">编辑</a>
                                     <a href="javascript:;" onclick="javascript:listDel(<?php echo $row['c_id'];?>)">删除</a>
                                 </td>
@@ -35,7 +34,6 @@
                         </tbody>
                     </thead>
                 </table>
-                <div class="pager"><?php echo $pager; ?></div>
             </div>
         </div>
     </div>
