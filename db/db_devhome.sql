@@ -2,21 +2,21 @@
 Navicat MySQL Data Transfer
 
 Source Server         : local_db
-Source Server Version : 100113
+Source Server Version : 50720
 Source Host           : localhost:3306
 Source Database       : db_devhome
 
 Target Server Type    : MYSQL
-Target Server Version : 100113
+Target Server Version : 50720
 File Encoding         : 65001
 
-Date: 2019-08-13 18:48:01
+Date: 2019-08-14 00:01:14
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for dh_admin
+-- Table structure for `dh_admin`
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_admin`;
 CREATE TABLE `dh_admin` (
@@ -34,7 +34,7 @@ CREATE TABLE `dh_admin` (
 INSERT INTO `dh_admin` VALUES ('1', 'ken', 'af974cf3ae8a5bf92832a864766f5b6c', '2019-07-29 10:40:38', '0');
 
 -- ----------------------------
--- Table structure for dh_category
+-- Table structure for `dh_category`
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_category`;
 CREATE TABLE `dh_category` (
@@ -87,7 +87,7 @@ INSERT INTO `dh_category` VALUES ('46', 'Angular', '15', 'angular', 'javascript'
 INSERT INTO `dh_category` VALUES ('47', 'Bash', '15', 'bash', 'bash', '0');
 
 -- ----------------------------
--- Table structure for dh_code_file
+-- Table structure for `dh_code_file`
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_code_file`;
 CREATE TABLE `dh_code_file` (
@@ -109,7 +109,7 @@ INSERT INTO `dh_code_file` VALUES ('2', 'style.css', '1', 'div.jqcloud {\n  font
 INSERT INTO `dh_code_file` VALUES ('3', 'main.js', '1', '$(function() {\n    var word_array = [\n      {text: \"Lorem\", weight: 15},\n      {text: \"Ipsum\", weight: 9, link: \"http://jquery.com/\"},\n      {text: \"Dolor\", weight: 6, html: {title: \"I can haz any html attribute\"}},\n      {text: \"Click\", weight: 7, handlers : { \n          click: function() { \n              alert(\"it works!\"); \n          }\n        }\n    } ,\n      {text: \"Amet2\", weight: 20},\n      {text: \"Amet1\", weight: 10},\n      {text: \"Amet3\", weight: 13},\n      {text: \"Amet4\", weight: 5},\n  ];\n  $(\"#example\").jQCloud(word_array);\n});', 'javascript', '0', 'javascript');
 
 -- ----------------------------
--- Table structure for dh_content
+-- Table structure for `dh_content`
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_content`;
 CREATE TABLE `dh_content` (
@@ -264,7 +264,7 @@ INSERT INTO `dh_content` VALUES ('162', 'collect', '34', 'FEX前端周刊', null
 INSERT INTO `dh_content` VALUES ('163', 'collect', '34', '腾讯Alloyteam', null, null, null, 'http://www.alloyteam.com/page/0/', null, '', null, '2019-08-12 15:43:38', '0', '', null, null, '0', null);
 
 -- ----------------------------
--- Table structure for dh_demo
+-- Table structure for `dh_demo`
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_demo`;
 CREATE TABLE `dh_demo` (
@@ -285,7 +285,7 @@ CREATE TABLE `dh_demo` (
 INSERT INTO `dh_demo` VALUES ('1', 'JQCloud标签云', '使用jQCloud插件生成标签云，可根据不同的权重区分每个标签的样式', '10', '0', '', '1', 'https://s2.ax1x.com/2019/08/09/eHJljg.png');
 
 -- ----------------------------
--- Table structure for dh_libs
+-- Table structure for `dh_libs`
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_libs`;
 CREATE TABLE `dh_libs` (
@@ -314,7 +314,7 @@ INSERT INTO `dh_libs` VALUES ('8', 'LESS', 'https://less.bootcss.com', 'https://
 INSERT INTO `dh_libs` VALUES ('10', 'jQCloud', 'https://github.com/lucaong/jQCloud', 'https://github.com/lucaong/jQCloud', '', '', 'https://raw.githubusercontent.com/lucaong/jQCloud/master/jqcloud/jqcloud-1.0.4.min.js', 'https://github.com/lucaong/jQCloud', null, '0');
 
 -- ----------------------------
--- Table structure for dh_projects
+-- Table structure for `dh_projects`
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_projects`;
 CREATE TABLE `dh_projects` (
@@ -330,7 +330,7 @@ CREATE TABLE `dh_projects` (
 INSERT INTO `dh_projects` VALUES ('1', '共享课堂-教学宝', '{\"root\":{\"data\":{\"id\":\"bw8dfevqskw0\",\"created\":1565686174285,\"text\":\"教学宝\"},\"children\":[{\"data\":{\"id\":\"bw8dfl71ra80\",\"created\":1565686188030,\"text\":\"登录页\",\"layout_mind_offset\":{\"x\":-40,\"y\":-72}},\"children\":[]},{\"data\":{\"id\":\"bw8dfoor0iw0\",\"created\":1565686195630,\"text\":\"我的课程\",\"layout_mind_offset\":{\"x\":-55,\"y\":-82}},\"children\":[{\"data\":{\"id\":\"bw8e2631ok80\",\"created\":1565687957512,\"text\":\"课程数据\",\"layout_right_offset\":{\"x\":16,\"y\":-41},\"expandState\":\"expand\"},\"children\":[{\"data\":{\"id\":\"bw8e2m7vjnc0\",\"created\":1565687992632,\"text\":\"全员\"},\"children\":[]},{\"data\":{\"id\":\"bw8e2wi857k0\",\"created\":1565688015027,\"text\":\"小组\",\"layout_right_offset\":{\"x\":-3,\"y\":1}},\"children\":[]}]},{\"data\":{\"id\":\"bw8e3qyqa000\",\"created\":1565688081327,\"text\":\"建课调整\",\"layout_right_offset\":{\"x\":21,\"y\":6}},\"children\":[]}]},{\"data\":{\"id\":\"bw8e99dgiow0\",\"created\":1565688513221,\"text\":\"我的云盘\",\"layout_mind_offset\":{\"x\":433,\"y\":145}},\"children\":[{\"data\":{\"id\":\"bw8e9hirra80\",\"created\":1565688530956,\"text\":\"上传\"},\"children\":[]}]},{\"data\":{\"id\":\"bw8eaqhxuts0\",\"created\":1565688628861,\"text\":\"班级管理\",\"layout_mind_offset\":{\"x\":565,\"y\":145}},\"children\":[{\"data\":{\"id\":\"bw8ed2ixoi80\",\"created\":1565688811771,\"text\":\"班级表现\",\"layout_right_offset\":{\"x\":-2,\"y\":-19}},\"children\":[{\"data\":{\"id\":\"bw8eee5gx9c0\",\"created\":1565688915443,\"text\":\"学生列表\"},\"children\":[]},{\"data\":{\"id\":\"bw8eenyve3k0\",\"created\":1565688936811,\"text\":\"学生点评\"},\"children\":[]}]},{\"data\":{\"id\":\"bw8eddmcsmo0\",\"created\":1565688835923,\"text\":\"点评设置\"},\"children\":[{\"data\":{\"id\":\"bw8efzzy5dk0\",\"created\":1565689041362,\"text\":\"类型管理\"},\"children\":[]},{\"data\":{\"id\":\"bw8eg6jus5k0\",\"created\":1565689055626,\"text\":\"标签管理\"},\"children\":[]}]}]}]},\"template\":\"default\",\"theme\":\"fresh-blue\",\"version\":\"1.4.43\"}');
 
 -- ----------------------------
--- Table structure for dh_proj_funcs_copy
+-- Table structure for `dh_proj_funcs_copy`
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_proj_funcs_copy`;
 CREATE TABLE `dh_proj_funcs_copy` (
@@ -347,7 +347,7 @@ CREATE TABLE `dh_proj_funcs_copy` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for dh_proj_task
+-- Table structure for `dh_proj_task`
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_proj_task`;
 CREATE TABLE `dh_proj_task` (
@@ -356,16 +356,20 @@ CREATE TABLE `dh_proj_task` (
   `task_mind` longtext COMMENT '脑图描述',
   `task_seq` longtext COMMENT '时序图',
   `proj_id` int(4) NOT NULL COMMENT '项目ID',
-  `task_pid` int(4) DEFAULT NULL COMMENT '上级任务ID',
+  `task_pid` int(4) DEFAULT '0' COMMENT '上级任务ID',
+  `task_state` tinyint(2) DEFAULT '0' COMMENT '任务完成',
   PRIMARY KEY (`task_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of dh_proj_task
 -- ----------------------------
+INSERT INTO `dh_proj_task` VALUES ('1', '班级管理', '{\"root\":{\"data\":{\"id\":\"bw8ltbzfh600\",\"created\":1565709833957},\"children\":[]},\"template\":\"default\",\"theme\":\"fresh-blue\",\"version\":\"1.4.43\"}', null, '1', '0', '0');
+INSERT INTO `dh_proj_task` VALUES ('2', '添加班级', '{\"root\":{\"data\":{\"id\":\"bw8ltxfv4h40\",\"created\":1565709880662,\"text\":\"添加班级\"},\"children\":[{\"data\":{\"id\":\"bw8luf8zf8g0\",\"created\":1565709919428,\"text\":\"验证名称不能为空\",\"layout_mind_offset\":{\"x\":-30,\"y\":-90}},\"children\":[]},{\"data\":{\"id\":\"bw8lv0nzulc0\",\"created\":1565709966048,\"text\":\"名称不能超过20\",\"layout_mind_offset\":{\"x\":487,\"y\":77}},\"children\":[]}]},\"template\":\"default\",\"theme\":\"fresh-blue\",\"version\":\"1.4.43\"}', null, '1', '1', '0');
+INSERT INTO `dh_proj_task` VALUES ('3', '删除班级', '{\"root\":{\"data\":{\"id\":\"bw8lvf3sfh40\",\"created\":1565709997478,\"text\":\"删除班级\"},\"children\":[{\"data\":{\"id\":\"bw8lvpgl9y80\",\"created\":1565710020020,\"text\":\"二次确认：确认删除班级吗？\"},\"children\":[]}]},\"template\":\"default\",\"theme\":\"fresh-blue\",\"version\":\"1.4.43\"}', null, '1', '1', '0');
 
 -- ----------------------------
--- Table structure for dh_pushlog
+-- Table structure for `dh_pushlog`
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_pushlog`;
 CREATE TABLE `dh_pushlog` (
@@ -383,7 +387,7 @@ CREATE TABLE `dh_pushlog` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for dh_pushuser
+-- Table structure for `dh_pushuser`
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_pushuser`;
 CREATE TABLE `dh_pushuser` (
@@ -398,7 +402,7 @@ CREATE TABLE `dh_pushuser` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for dh_searchlog
+-- Table structure for `dh_searchlog`
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_searchlog`;
 CREATE TABLE `dh_searchlog` (
@@ -415,7 +419,7 @@ CREATE TABLE `dh_searchlog` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for dh_setting
+-- Table structure for `dh_setting`
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_setting`;
 CREATE TABLE `dh_setting` (
@@ -439,7 +443,7 @@ CREATE TABLE `dh_setting` (
 INSERT INTO `dh_setting` VALUES ('1', '码农直通车', '逐步建立起一个完整的知识体系，便于学习和回顾', '汇总一些新发布的，或者已发布旧的系列型的技术文章，方便查看和回顾', '国内外技术社区很多，各自都有一些优秀的文章 和 代码资源 在这里收集和汇总一些内容，信息都是来自于各个不同的社区', 'wx279639439@163.com', null, '', '1', 'wx279639439@163.com', 'wx279639439@163.com');
 
 -- ----------------------------
--- Table structure for dh_tag
+-- Table structure for `dh_tag`
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_tag`;
 CREATE TABLE `dh_tag` (
@@ -479,7 +483,7 @@ INSERT INTO `dh_tag` VALUES ('34', '手册', null);
 INSERT INTO `dh_tag` VALUES ('35', '法撒旦法', null);
 
 -- ----------------------------
--- Table structure for dh_uisetting
+-- Table structure for `dh_uisetting`
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_uisetting`;
 CREATE TABLE `dh_uisetting` (
@@ -500,7 +504,7 @@ INSERT INTO `dh_uisetting` VALUES ('1', '默认模板', 'default', '<link href=\
 INSERT INTO `dh_uisetting` VALUES ('3', 'tip7', 'tip7', '', '', '', '0');
 
 -- ----------------------------
--- Table structure for dh_user
+-- Table structure for `dh_user`
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_user`;
 CREATE TABLE `dh_user` (
@@ -519,7 +523,7 @@ CREATE TABLE `dh_user` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for dh_visitlog
+-- Table structure for `dh_visitlog`
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_visitlog`;
 CREATE TABLE `dh_visitlog` (

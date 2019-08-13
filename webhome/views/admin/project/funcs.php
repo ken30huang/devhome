@@ -1,6 +1,7 @@
 <div class="row">
     <ol class="breadcrumb">
         <li><a href="/admin"><span class="glyphicon glyphicon-home"></span></a></li>
+        <li><a href="/admin/project">项目管理</a></li>
         <li class="active">功能列表</li>
     </ol>
 </div><!--/.row-->				
@@ -15,22 +16,34 @@
                 <table class="table table-bordered table-hover">
                         <thead>
                             <tr>
-                                <th>项目ID</th>
-                                <th>项目名</th>
+                                <th>功能模块</th>
+                                <th>具体功能点</th>
                                 <th>操作</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach($rows as $row):?>
+                            <?php foreach($rows as $task_id=>$row):?>
                             <tr>
-                                <td ><?php echo $row['proj_id'];?></td>
-                                <td><?php echo $row['proj_name'];?></td>
+                                <td><?php echo $row['task_name'];?></td>
+                                <td></td>
                                 <td>
-                                    <a href="/admin/project/funcs?proj_id=<?php echo $row['proj_id']; ?>">功能点</a>
-                                    <a href="/admin/project/add?proj_id=<?php echo $row['proj_id'];?>">编辑</a>
-                                    <a href="javascript:;" onclick="javascript:listDel(<?php echo $row['proj_id'];?>)">删除</a>
+                                    <a href="/admin/project/funcsadd?proj_id=<?php echo $row['proj_id'];?>&task_pid=<?php echo $task_id;?>">新增功能点</a>
+                                    <a href="/admin/project/funcsadd?proj_id=<?php echo $row['proj_id'];?>&task_id=<?php echo $task_id;?>">编辑</a>
+                                    <?php if(count($row['childs']) == 0):?>
+                                    <a href="javascript:;" onclick="javascript:taskDel(<?php echo $task_id;?>)">删除</a>
+                                    <?php endif;?>
                                 </td>
                             </tr>
+                                <?php foreach($row['childs'] as $child):?>
+                                <tr>
+                                    <td></td>
+                                    <td><?php echo $child['task_name'];?></td>
+                                    <td>
+                                        <a href="/admin/project/funcsadd?proj_id=<?php echo $child['proj_id'];?>&task_id=<?php echo $child['task_id'];?>">编辑</a>
+                                        <a href="javascript:;" onclick="javascript:taskDel(<?php echo $child['task_id'];?>)">删除</a>
+                                    </td>
+                                </tr>
+                                <?php endforeach;?>
                             <?php endforeach;?>
                         </tbody>
                     </thead>
@@ -42,4 +55,18 @@
 
 <script>
 var moduleURL = '/admin/project';
+
+function taskDel(del_id) {
+    ajaxReq({
+        url:moduleURL+'/funcsdel',
+        data:{ del_id: del_id },
+        succFun:function(res) {
+            if(res.code == '000') {
+                location.reload();
+            } else {
+                alert(res.msg);
+            }
+        }
+    });
+}
 </script>

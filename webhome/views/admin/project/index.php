@@ -26,7 +26,7 @@
                                 <td ><?php echo $row['proj_id'];?></td>
                                 <td><?php echo $row['proj_name'];?></td>
                                 <td>
-                                    <a href="/admin/project/funcs?proj_id=<?php echo $row['proj_id']; ?>">功能点</a>
+                                    <a href="/admin/project/funcs?proj_id=<?php echo $row['proj_id']; ?>">功能点拆分</a>
                                     <a href="/admin/project/add?proj_id=<?php echo $row['proj_id'];?>">编辑</a>
                                     <a href="javascript:;" onclick="javascript:listDel(<?php echo $row['proj_id'];?>)">删除</a>
                                 </td>
