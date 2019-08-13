@@ -59,6 +59,11 @@
                         <span class="glyphicon glyphicon-share-alt"></span> 代码段管理
                     </a>
                 </li>
+                <li>
+                    <a class="" href="/admin/project">
+                        <span class="glyphicon glyphicon-share-alt"></span> 项目管理
+                    </a>
+                </li>
             </ul>
         </li>
         <li class="parent ">
