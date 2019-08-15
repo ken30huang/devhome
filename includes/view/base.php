@@ -3,19 +3,25 @@
 class BaseView {
 
     private $_blocks = array();
-    private $_config = array();
     private $_vals = array();
+    private $_theme = '';
+    private $_vpath = '';
 
-    //初始化试图类
-    public function __construct($config) {
-        $this->_config = $config;
-        if(isset($this->_config['blocks'])) {
-            foreach($this->_config['blocks'] as $block) {
-                $this->getBlockCont($block);
-            }
+    public function setTheme($theme_path) {
+        if(!file_exists($theme_path)) {
+            die('View Error: Can not find theme file.');
         }
+        $this->_theme = $theme_path;
     }
 
+    public function setViewPath($view_path) {
+        if(!is_dir($view_path)) {
+            die('View Error: Can not find view path.');
+        }
+        $this->_vpath = $view_path;
+    }
+
+    //初始化试图类
     public function assign($key , $val) {
         $this->_vals[$key] = $val;
     }
@@ -32,21 +38,23 @@ class BaseView {
 		$this->_vals['csslinks'][] = '<link href="'.$style.'?t='.time().'" rel="stylesheet" />';
 	}
 
-    private function getBlockCont($block_name) {
+    public function setBlockCont($block_name) {
+        $this->_checkThemePath();
         $block_cont = '';
         ob_start();
         extract($this->_vals);
-        require(THEME_PATH.DS.$block_name.'.php');
+        require($this->_theme.DS.$block_name.'.php');
         $block_cont = ob_get_contents();
         ob_clean();
         $this->_vals[$block_name] = $block_cont;
     }
 
-    public function display() {
+    public function display($filename) {
+        $this->_checkViewPath();
         $main_cont = '';
         ob_start();
         extract($this->_vals);
-        require(V_PATH.DS.C_NAME.DS.A_NAME.'.php');
+        require($this->_vpath.DS.$filename.'.php');
         $main_cont = ob_get_contents();
         ob_clean();
         $this->_vals['main'] = $main_cont;
@@ -57,13 +65,13 @@ class BaseView {
         $all_cont = '';
         ob_start();
         extract($this->_vals);
-        require(THEME_PATH.DS.'template.php');
+        require($this->_theme.DS.'template.php');
         $all_cont = ob_get_contents();
         ob_clean();
         return $all_cont;
     }
 
-    public function show($name) {
+    public function show($name , $v_path='') {
         $all_cont = '';
         $real_path = [];
         $paths = explode('/', $name);
@@ -72,12 +80,29 @@ class BaseView {
                 $real_path[] = $path;
             }
         }
+        $show_path = empty($v_path) ? $this->_vpath:$v_path;
+        $show_file = $show_path.DS.implode(DS, $real_path).'.php';
+        if(!file_exists($show_file)) {
+            die('View Error: Can not find show file.');
+        }
         ob_start();
         extract($this->_vals);
-        require(V_PATH.DS.implode(DS, $real_path).'.php');
+        require($show_file);
         $all_cont = ob_get_contents();
         ob_clean();
         echo $all_cont;
+    }
+
+    private function _checkThemePath() {
+        if(empty($this->_theme)) {
+            die('View Error: Can not find theme path.');
+        }
+    }
+
+    private function _checkViewPath() {
+        if(empty($this->_vpath)) {
+            die('View Error: Can not find view path.1111');
+        }
     }
 }
 ?>

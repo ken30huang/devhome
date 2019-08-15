@@ -22,6 +22,15 @@ class Driver {
     }
 
     /**
+     * 批量加载驱动
+     */
+    public static function fetch($drivers=array()) {
+        foreach($drivers as $key=>$item) {
+            self::load($key , $item['config']);
+        }
+    }
+
+    /**
      * 获取驱动对象
      */
     public static function get($name) {

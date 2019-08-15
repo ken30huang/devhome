@@ -3,16 +3,15 @@ class InitApp {
 
     private static $_apps = array();
     private static $_view = NULL;
-    private static $_configs = array();
     private static $_webs = array();
 
-    public static function initView($config) {
+    public static function initView() {
         if(!isset(self::$_apps['view'])) {
             if(!incFile(ROOT_PATH.DS.'includes'.DS.'view'.DS.'base.php')) {
                 die('InitApp Error : Can not find view class');
             }
 
-            self::$_apps['view'] = new BaseView($config);
+            self::$_apps['view'] = new BaseView();
         }
     }
 
@@ -36,21 +35,13 @@ class InitApp {
         return self::$_apps[$name];
     }
 
-    public static function config($name , $config_path='') {
-        if(empty($config_path)) {
-            //没有路径，获取配置
-            if(!isset(self::$_configs[$name])) {
-                return array();
-            } else {
-                return self::$_configs[$name];
-            }
-        } else {
-            if(!file_exists($config_path)) {
-                die($this->_preErro.'Can not find config');
-            }
-            self::$_configs[$name] = require($config_path);
+    public static function config() {
+
+        if(!file_exists(APP_PATH.DS.'config.php')) {
+            die('InitApp Error : Can not find config file');
         }
-        
+
+        return require(APP_PATH.DS.'config.php');
     }
 }
 ?>

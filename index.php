@@ -1,4 +1,4 @@
 <?php
-define('HOME' , 'webhome');
-require('./'.HOME.'/index.php');
+require(dirname(__FILE__).'/includes/autoload.php');
+App::run();
 ?>
