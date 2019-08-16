@@ -13,3 +13,7 @@
 .btn_view { top:80px; right:50px; }
 
 .navbar-dark .navbar-nav .nav-link { color:rgba(255,255,255,.8); }
+
+.links-top { margin:140px; }
+.cate-nav { position: fixed; text-align: center; z-index: 99; top:70px; left: 0; right:0; padding:20px 0; background-color:#E53A40; color:#fff; }
+.cate-nav>a { color:#fff; padding:0 5px; }

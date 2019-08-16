@@ -8,9 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="/static/plugins/bootstrap4/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/applications/layouts/<?php echo $ui_path;?>/css/main.css?v=1.0.3"/>
+    <link rel="stylesheet" href="/applications/layouts/<?php echo $ui_path;?>/css/main.css?v=1.0.4"/>
     <script src="/static/js/libs/jquery/jquery.min.js"></script>
     <script src="/static/plugins/bootstrap4/js/bootstrap.min.js"></script>
+    <script src="/static/js/comm.js"></script>
 </head>
 
 <body>

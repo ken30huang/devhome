@@ -42,7 +42,7 @@
                         <?php endif;?>
                         </p>
                     </td>
-                    <td><pre><code><?php echo $row['c_cont']; ?></code></pre></td>
+                    <td><pre><code style="width:500px"><?php echo $row['c_cont']; ?></code></pre></td>
                 </tr>
             <?php endforeach;?>
             </tbody>

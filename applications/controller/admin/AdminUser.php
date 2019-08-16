@@ -34,7 +34,7 @@ class AdminUserController extends AdminController {
             $this->session->set('user' ,$rows[0] );
             $this->http->success()->json();
         } else {
-            $this->view->show('user/login', V_PATH);
+            $this->view->show('login', V_PATH);
         }
         
     }
