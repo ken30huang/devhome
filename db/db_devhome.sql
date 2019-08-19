@@ -2,21 +2,21 @@
 Navicat MySQL Data Transfer
 
 Source Server         : local_db
-Source Server Version : 50720
+Source Server Version : 100113
 Source Host           : localhost:3306
 Source Database       : db_devhome
 
 Target Server Type    : MYSQL
-Target Server Version : 50720
+Target Server Version : 100113
 File Encoding         : 65001
 
-Date: 2019-08-14 00:01:14
+Date: 2019-08-19 18:42:32
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for `dh_admin`
+-- Table structure for dh_admin
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_admin`;
 CREATE TABLE `dh_admin` (
@@ -34,7 +34,7 @@ CREATE TABLE `dh_admin` (
 INSERT INTO `dh_admin` VALUES ('1', 'ken', 'af974cf3ae8a5bf92832a864766f5b6c', '2019-07-29 10:40:38', '0');
 
 -- ----------------------------
--- Table structure for `dh_category`
+-- Table structure for dh_category
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_category`;
 CREATE TABLE `dh_category` (
@@ -87,7 +87,7 @@ INSERT INTO `dh_category` VALUES ('46', 'Angular', '15', 'angular', 'javascript'
 INSERT INTO `dh_category` VALUES ('47', 'Bash', '15', 'bash', 'bash', '0');
 
 -- ----------------------------
--- Table structure for `dh_code_file`
+-- Table structure for dh_code_file
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_code_file`;
 CREATE TABLE `dh_code_file` (
@@ -109,7 +109,7 @@ INSERT INTO `dh_code_file` VALUES ('2', 'style.css', '1', 'div.jqcloud {\n  font
 INSERT INTO `dh_code_file` VALUES ('3', 'main.js', '1', '$(function() {\n    var word_array = [\n      {text: \"Lorem\", weight: 15},\n      {text: \"Ipsum\", weight: 9, link: \"http://jquery.com/\"},\n      {text: \"Dolor\", weight: 6, html: {title: \"I can haz any html attribute\"}},\n      {text: \"Click\", weight: 7, handlers : { \n          click: function() { \n              alert(\"it works!\"); \n          }\n        }\n    } ,\n      {text: \"Amet2\", weight: 20},\n      {text: \"Amet1\", weight: 10},\n      {text: \"Amet3\", weight: 13},\n      {text: \"Amet4\", weight: 5},\n  ];\n  $(\"#example\").jQCloud(word_array);\n});', 'javascript', '0', 'javascript');
 
 -- ----------------------------
--- Table structure for `dh_content`
+-- Table structure for dh_content
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_content`;
 CREATE TABLE `dh_content` (
@@ -132,7 +132,7 @@ CREATE TABLE `dh_content` (
   `c_order` int(4) DEFAULT '0',
   `c_linkdate` datetime DEFAULT NULL COMMENT '链接发布时间',
   PRIMARY KEY (`c_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=164 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=166 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- ----------------------------
 -- Records of dh_content
@@ -262,9 +262,26 @@ INSERT INTO `dh_content` VALUES ('160', 'series', '0', '基本入门', '', 'css'
 INSERT INTO `dh_content` VALUES ('161', 'series', '0', '选择器概述', '', 'css', null, null, null, '<h1 id=\"基本选择器\">基本选择器</h1>\n<ul>\n<li><ul>\n<li>通配符选择器，即匹配所有标签</li>\n</ul>\n</li>\n<li>#id ID选择器，匹配某个ID值的元素</li>\n<li>E 元素选择器，匹配指定的元素</li>\n<li>.class 类选择器，匹配指定class值的元素</li>\n<li>selector1,...,selectorN 群组选择器</li>\n</ul>\n<p><a name=\"3ac34faf\"></a></p>\n<h2 id=\"通配符\">通配符</h2>\n<pre><code class=\"language-css\">* { color:red }</code></pre>\n<p>效果：网页中所有标签的字体变为红色</p>\n<p><a name=\"b7e74b59\"></a></p>\n<h2 id=\"id选择器\">ID选择器</h2>\n<pre><code class=\"language-css\">#red { color:red }</code></pre>\n<p>效果：id=\"red\"的元素的字体颜色设置为红色</p>\n<p><a name=\"a88fe50b\"></a></p>\n<h2 id=\"元素选择器\">元素选择器</h2>\n<pre><code class=\"language-css\">h2 { color:red }</code></pre>\n<p>效果：所有的h2元素的字体颜色设置为红色</p>\n<p><a name=\"703d7a70\"></a></p>\n<h2 id=\"类选择器\">类选择器</h2>\n<pre><code class=\"language-css\">.item1 { color:red }</code></pre>\n<p>效果：class=\"item1\"元素的字体颜色设置为红色</p>\n<p><a name=\"c954a6db\"></a></p>\n<h2 id=\"群组选择器\">群组选择器</h2>\n<p>群组选择器是可以自由的组合id选择器、元素选择器、类选择器来共用同一组样式，使用\",\"隔开</p>\n<pre><code class=\"language-css\">h2,#red,.item1 { color:red }</code></pre>\n<p>效果：匹配所有的h2元素，id=\"red\"以及class=\"item1\"的所有元素</p>\n<p><a name=\"8789939b\"></a></p>\n<h1 id=\"层级选择器\">层级选择器</h1>\n<ul>\n<li>E F 后代选择器，可匹配所有的子节点</li>\n<li>E&gt;F 父子选择器，只能匹配下一级的子节点，但不能匹配下一级再下一级的子节点</li>\n<li>E+F 邻居选择器，只能匹配相邻节点</li>\n<li>E~F 兄弟选择器，只能同级的节点</li>\n</ul>\n<p>HTML结构</p>\n<pre><code class=\"language-html\">&lt;div class=\"item1\"&gt;\n  &lt;div class=\"item2\"&gt;\n    &lt;div class=\"item2_sub1\"&gt;&lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n&lt;h2&gt;&lt;/h2&gt;\n&lt;h2&gt;&lt;/h2&gt;\n&lt;p class=\"item2\"&gt;&lt;/p&gt;</code></pre>\n<p><a name=\"a6f74eaa\"></a></p>\n<h2 id=\"后代选择器的用法\">后代选择器的用法</h2>\n<pre><code class=\"language-html\">&lt;style type=\"text/css\"&gt;\n.item1 .item2 {}\n&lt;/style&gt;</code></pre>\n<p>作用：</p>\n<ul>\n<li>匹配class=\"item1\"下的所有class=\"item2\"的元素以及属于class=\"item2\"的所有子元素（class=\"item2_sub1\"）</li>\n<li>可以匹配多层元素</li>\n<li>不属于class=\"item1\"下的则不匹配，如class=\"item2\"的p标签</li>\n</ul>\n<p><a name=\"32495652\"></a></p>\n<h2 id=\"父子选择器的用法\">父子选择器的用法</h2>\n<pre><code class=\"language-html\">&lt;style type=\"text/css\"&gt;\n.item1&gt;.item2 {}\n&lt;/style&gt;</code></pre>\n<p>作用：</p>\n<ul>\n<li>匹配class=\"item1\"下的所有class=\"item2\"的元素，但不包含class=\"item2\"下的子元素（class=\"item2_sub1\"）</li>\n<li>不属于class=\"item1\"下的则不匹配，如class=\"item2\"的p标签</li>\n<li>只能匹配一层</li>\n</ul>\n<p><a name=\"851b5a87\"></a></p>\n<h2 id=\"邻居选择器的用法\">邻居选择器的用法</h2>\n<pre><code class=\"language-html\">&lt;style type=\"text/css\"&gt;\n.item1+h2 {}\n&lt;/style&gt;</code></pre>\n<p>作用：</p>\n<ul>\n<li>匹配紧跟这个的符合规则的元素（上述代码匹配的是紧跟的h2标签）</li>\n<li>只能匹配一个元素</li>\n</ul>\n<p><a name=\"c9f16b29\"></a></p>\n<h2 id=\"兄弟选择器的用法\">兄弟选择器的用法</h2>\n<pre><code class=\"language-html\">&lt;style type=\"text/css\"&gt;\n.item1~h2 {}\n&lt;/style&gt;</code></pre>\n<p>作用：</p>\n<ul>\n<li>匹配同级符合规则的元素（上述代码匹配的是与.item1同级的所有h2标签）</li>\n<li>可以匹配多个元素</li>\n</ul>\n<p><a name=\"f7527f1f\"></a></p>\n<h1 id=\"动态伪类选择器\">动态伪类选择器</h1>\n<p>动态伪类针对的是鼠标在元素上不同行为的样式</p>\n<ul>\n<li>:link 超链接未访问时的样式</li>\n<li>:visited 超链接被访问时的样式</li>\n<li>:hover 鼠标覆盖到元素上的样式</li>\n<li>:active 鼠标事件点击元素时（从鼠标点击到释放之间）的样式</li>\n<li>:focus 输入框获得焦点</li>\n</ul>\n<pre><code class=\"language-html\">&lt;a href=\"#\"&gt;测试&lt;/a&gt;\n&lt;input type=\"text\" /&gt;</code></pre>\n<pre><code class=\"language-css\">//链接未访问时的状态\na:link {\n    color:red;\n}\n//链接被访问时的状态\na:visited {\n    color:blue;\n}\n//鼠标移动到链接上的状态\na:hover  {\n    color:blue;\n}\n//鼠标点击到链接上，且未释放的状态\na:active  {\n    color:blue;\n}\n//输入框获得焦点\ninput:focus {\n    border:1px solid blue;\n}</code></pre>\n<p><a name=\"095be4c5\"></a></p>\n<h1 id=\"目标伪类选择器\">目标伪类选择器</h1>\n<p>目标伪类选择器是CSS3中新增的一个特性，它也属于移动动态伪类选择器，因此写法和动态伪类选择器一样</p>\n<pre><code class=\"language-css\">.list :target {\n  display:block;\n}</code></pre>\n<p>大概的工作原理：</p>\n<ol>\n<li>捕获网页链接中#后面的hash字符串</li>\n<li>查找网页中id属性值等于hash字符串的元素，并将定义的样式作用于该元素</li>\n</ol>\n<p><a href=\"https://codepen.io/ken30huang/pen/mgyZPW\">Demo</a></p>\n<p><a name=\"94a7ddc7\"></a></p>\n<h1 id=\"状态伪类选择器\">状态伪类选择器</h1>\n<p>仅针对表单元素有效，写法参考动态伪类选择器</p>\n<ul>\n<li>:checked 复选框或单选框被选中的样式</li>\n<li>:enabled 匹配所有启用的表单元素（即没有设置disabled=\"disabled\"属性的元素）</li>\n<li>:disabled 匹配所有禁用的表单元素（即设置disabled=\"disabled\"属性的元素）</li>\n</ul>\n<p><a name=\"628b5c2c\"></a></p>\n<h1 id=\"结构伪类选择器\">结构伪类选择器</h1>\n<p>基于文档树节点的相互关系来定位匹配到相关的元素\n<a name=\"af9589d6\"></a></p>\n<h2 id=\"参数n\">参数n</h2>\n<p>传入一个参数n，它的特性：</p>\n<ul>\n<li>大于0的具体整数，如：1，2，3，4...，可匹配具体的某一个元素</li>\n<li>代表单双数的关键字，如odd（单数），even（双数），可匹配位于单数或者双数的元素</li>\n<li>公式：2n+1，-n+5，可匹配具体的某一个元素</li>\n<li>n=0，则不匹配元素\n<a name=\"11e2d8c8\"></a><h2 id=\"详细用法\">详细用法</h2>\n:first-child 匹配第一个子元素<pre><code class=\"language-css\">ul&gt;li:first-child { /** 匹配第一个li **/}</code></pre>\n</li>\n</ul>\n<p>:last-child 匹配最后一个子元素</p>\n<pre><code class=\"language-css\">ul&gt;li:last-child { /** 匹配最后一个li **/}</code></pre>\n<p>:nth-child(n) 通过参数n匹配某个指定的元素</p>\n<pre><code class=\"language-css\">ul&gt;li:nth-child（3） { /** 指定具体值，匹配第3个li **/}\nul&gt;li:nth-child（odd） { /** 匹配奇数项li **/}\nul&gt;li:nth-child（even） { /** 匹配偶数项li **/}\nul&gt;li:nth-child（2n） { /** 匹配偶数项li **/}\nul&gt;li:nth-child（n+5） { /** 匹配从第5个li到最后一个li **/}\nul&gt;li:nth-child（-n+5） { /** 匹配前第5个li **/}\nul&gt;li:nth-child（4n+1） { /** 匹配每隔3个li选中一个，即1,5,9,13.... **/}</code></pre>\n<p>:nth-last-child 与:nth-child效果相反，:nth-last-child从最后一个元素往前找</p>\n<pre><code class=\"language-css\">ul&gt;li:nth-last-child（3） { /** 指定具体值，匹配倒数第3个li **/}</code></pre>\n<p>:nth-of-type 匹配指定具体某一类元素</p>\n<pre><code class=\"language-css\">ul&gt;li:nth-of-type（3） { /** 筛选出所有子标签为li，然后再匹配到第3个li，该标签不一定是第3个子元素 **/}</code></pre>\n<p><a name=\"9acd09cf\"></a></p>\n<h1 id=\"属性选择器\">属性选择器</h1>\n<p>E[attr] 匹配具有指定属性的元素</p>\n<pre><code class=\"language-css\">ul&gt;li[id] { /** 匹配所有添加了id属性的li元素 **/ }\nul&gt;li[id][title] { /** 匹配所有添加了id属性和title属性的li元素 **/ }</code></pre>\n<p>E[attr=val] 匹配具体属性值的元素</p>\n<pre><code class=\"language-css\">ul&gt;li[id=first] { /** 匹配所有添加了id属性值=\"first\"的li元素 **/ }\nul&gt;li[id][title] { /** 匹配所有添加了id属性值=\"first\"和title属性的li元素 **/ }</code></pre>\n<p>E[attr|=val] 匹配attr属性值为val或者val-开头的元素</p>\n<pre><code class=\"language-css\">ul&gt;li[id|=first] { /** 匹配所有添加了id属性值=\"first\"或者以\"first-\"开头的li元素 **/ }</code></pre>\n<p>E[attr~=val] 匹配属性值中包含了某个<strong>单词</strong>的元素（<strong>匹配的是具体某个单词</strong>）</p>\n<pre><code class=\"language-css\">ul&gt;li[id~=first] { /** 匹配所有添加了id属性,且id属性值中包含了\"first\"这个单词的li元素 **/ }</code></pre>\n<p>E[attr<em>=val] 匹配属性值中包含了某个*</em>字符串<strong>的元素（</strong>匹配的仅仅是个字符串**）</p>\n<pre><code class=\"language-css\">ul&gt;li[id~=first] { /** 匹配所有添加了id属性,且id属性值中包含了\"first\"这个字符串的li元素 **/ }</code></pre>\n<p>E[attr^=val]和E[attr$=val] 匹配属性值中以某个字符串开头或结尾的元素</p>\n<pre><code class=\"language-css\">ul&gt;li[id^=first] { /** 匹配所有添加了id属性,且id属性值中以\"first\"这个字符串为开头的li元素 **/ }\nul&gt;li[id$=first] { /** 匹配所有添加了id属性,且id属性值中以\"first\"这个字符串为结尾的li元素 **/ }</code></pre>\n', null, '2019-08-09 18:42:18', '159', '', null, '# 基本选择器\n- * 通配符选择器，即匹配所有标签\n- #id ID选择器，匹配某个ID值的元素\n- E 元素选择器，匹配指定的元素\n- .class 类选择器，匹配指定class值的元素\n- selector1,...,selectorN 群组选择器\n\n<a name=\"3ac34faf\"></a>\n## 通配符\n```css\n* { color:red }\n```\n效果：网页中所有标签的字体变为红色\n\n<a name=\"b7e74b59\"></a>\n## ID选择器\n```css\n#red { color:red }\n```\n效果：id=\"red\"的元素的字体颜色设置为红色\n\n<a name=\"a88fe50b\"></a>\n## 元素选择器\n```css\nh2 { color:red }\n```\n效果：所有的h2元素的字体颜色设置为红色\n\n<a name=\"703d7a70\"></a>\n## 类选择器\n```css\n.item1 { color:red }\n```\n效果：class=\"item1\"元素的字体颜色设置为红色\n\n<a name=\"c954a6db\"></a>\n## 群组选择器\n群组选择器是可以自由的组合id选择器、元素选择器、类选择器来共用同一组样式，使用\",\"隔开\n```css\nh2,#red,.item1 { color:red }\n```\n效果：匹配所有的h2元素，id=\"red\"以及class=\"item1\"的所有元素\n\n<a name=\"8789939b\"></a>\n# 层级选择器\n\n- E F 后代选择器，可匹配所有的子节点\n- E>F 父子选择器，只能匹配下一级的子节点，但不能匹配下一级再下一级的子节点\n- E+F 邻居选择器，只能匹配相邻节点\n- E~F 兄弟选择器，只能同级的节点\n\nHTML结构\n```html\n<div class=\"item1\">\n  <div class=\"item2\">\n    <div class=\"item2_sub1\"></div>\n  </div>\n</div>\n<h2></h2>\n<h2></h2>\n<p class=\"item2\"></p>\n```\n\n<a name=\"a6f74eaa\"></a>\n## 后代选择器的用法\n```html\n<style type=\"text/css\">\n.item1 .item2 {}\n</style>\n```\n\n作用：\n\n- 匹配class=\"item1\"下的所有class=\"item2\"的元素以及属于class=\"item2\"的所有子元素（class=\"item2_sub1\"）\n- 可以匹配多层元素\n- 不属于class=\"item1\"下的则不匹配，如class=\"item2\"的p标签\n\n<a name=\"32495652\"></a>\n## 父子选择器的用法\n```html\n<style type=\"text/css\">\n.item1>.item2 {}\n</style>\n```\n\n作用：\n\n- 匹配class=\"item1\"下的所有class=\"item2\"的元素，但不包含class=\"item2\"下的子元素（class=\"item2_sub1\"）\n- 不属于class=\"item1\"下的则不匹配，如class=\"item2\"的p标签\n- 只能匹配一层\n\n<a name=\"851b5a87\"></a>\n## 邻居选择器的用法\n```html\n<style type=\"text/css\">\n.item1+h2 {}\n</style>\n```\n\n作用：\n\n- 匹配紧跟这个的符合规则的元素（上述代码匹配的是紧跟的h2标签）\n- 只能匹配一个元素\n\n<a name=\"c9f16b29\"></a>\n## 兄弟选择器的用法\n```html\n<style type=\"text/css\">\n.item1~h2 {}\n</style>\n```\n\n作用：\n\n- 匹配同级符合规则的元素（上述代码匹配的是与.item1同级的所有h2标签）\n- 可以匹配多个元素\n\n<a name=\"f7527f1f\"></a>\n# 动态伪类选择器\n动态伪类针对的是鼠标在元素上不同行为的样式\n\n- :link 超链接未访问时的样式\n- :visited 超链接被访问时的样式\n- :hover 鼠标覆盖到元素上的样式\n- :active 鼠标事件点击元素时（从鼠标点击到释放之间）的样式\n- :focus 输入框获得焦点\n\n```html\n<a href=\"#\">测试</a>\n<input type=\"text\" />\n```\n\n```css\n//链接未访问时的状态\na:link {\n	color:red;\n}\n//链接被访问时的状态\na:visited {\n	color:blue;\n}\n//鼠标移动到链接上的状态\na:hover  {\n	color:blue;\n}\n//鼠标点击到链接上，且未释放的状态\na:active  {\n	color:blue;\n}\n//输入框获得焦点\ninput:focus {\n	border:1px solid blue;\n}\n```\n\n<a name=\"095be4c5\"></a>\n# 目标伪类选择器\n目标伪类选择器是CSS3中新增的一个特性，它也属于移动动态伪类选择器，因此写法和动态伪类选择器一样\n```css\n.list :target {\n  display:block;\n}\n```\n\n大概的工作原理：\n\n1. 捕获网页链接中#后面的hash字符串\n1. 查找网页中id属性值等于hash字符串的元素，并将定义的样式作用于该元素\n\n[Demo](https://codepen.io/ken30huang/pen/mgyZPW)\n\n<a name=\"94a7ddc7\"></a>\n# 状态伪类选择器\n仅针对表单元素有效，写法参考动态伪类选择器\n\n- :checked 复选框或单选框被选中的样式\n- :enabled 匹配所有启用的表单元素（即没有设置disabled=\"disabled\"属性的元素）\n- :disabled 匹配所有禁用的表单元素（即设置disabled=\"disabled\"属性的元素）\n\n<a name=\"628b5c2c\"></a>\n# 结构伪类选择器\n基于文档树节点的相互关系来定位匹配到相关的元素\n<a name=\"af9589d6\"></a>\n## 参数n\n传入一个参数n，它的特性：\n\n- 大于0的具体整数，如：1，2，3，4...，可匹配具体的某一个元素\n- 代表单双数的关键字，如odd（单数），even（双数），可匹配位于单数或者双数的元素\n- 公式：2n+1，-n+5，可匹配具体的某一个元素\n- n=0，则不匹配元素\n<a name=\"11e2d8c8\"></a>\n## 详细用法\n:first-child 匹配第一个子元素\n```css\nul>li:first-child { /** 匹配第一个li **/}\n```\n\n:last-child 匹配最后一个子元素\n```css\nul>li:last-child { /** 匹配最后一个li **/}\n```\n\n:nth-child(n) 通过参数n匹配某个指定的元素\n```css\nul>li:nth-child（3） { /** 指定具体值，匹配第3个li **/}\nul>li:nth-child（odd） { /** 匹配奇数项li **/}\nul>li:nth-child（even） { /** 匹配偶数项li **/}\nul>li:nth-child（2n） { /** 匹配偶数项li **/}\nul>li:nth-child（n+5） { /** 匹配从第5个li到最后一个li **/}\nul>li:nth-child（-n+5） { /** 匹配前第5个li **/}\nul>li:nth-child（4n+1） { /** 匹配每隔3个li选中一个，即1,5,9,13.... **/}\n```\n:nth-last-child 与:nth-child效果相反，:nth-last-child从最后一个元素往前找\n```css\nul>li:nth-last-child（3） { /** 指定具体值，匹配倒数第3个li **/}\n```\n\n:nth-of-type 匹配指定具体某一类元素\n```css\nul>li:nth-of-type（3） { /** 筛选出所有子标签为li，然后再匹配到第3个li，该标签不一定是第3个子元素 **/}\n```\n\n<a name=\"9acd09cf\"></a>\n# 属性选择器\nE[attr] 匹配具有指定属性的元素\n```css\nul>li[id] { /** 匹配所有添加了id属性的li元素 **/ }\nul>li[id][title] { /** 匹配所有添加了id属性和title属性的li元素 **/ }\n```\nE[attr=val] 匹配具体属性值的元素\n```css\nul>li[id=first] { /** 匹配所有添加了id属性值=\"first\"的li元素 **/ }\nul>li[id][title] { /** 匹配所有添加了id属性值=\"first\"和title属性的li元素 **/ }\n```\nE[attr|=val] 匹配attr属性值为val或者val-开头的元素\n```css\nul>li[id|=first] { /** 匹配所有添加了id属性值=\"first\"或者以\"first-\"开头的li元素 **/ }\n```\nE[attr~=val] 匹配属性值中包含了某个**单词**的元素（**匹配的是具体某个单词**）\n```css\nul>li[id~=first] { /** 匹配所有添加了id属性,且id属性值中包含了\"first\"这个单词的li元素 **/ }\n```\nE[attr*=val] 匹配属性值中包含了某个**字符串**的元素（**匹配的仅仅是个字符串**）\n```css\nul>li[id~=first] { /** 匹配所有添加了id属性,且id属性值中包含了\"first\"这个字符串的li元素 **/ }\n```\n\nE[attr^=val]和E[attr$=val] 匹配属性值中以某个字符串开头或结尾的元素\n```css\nul>li[id^=first] { /** 匹配所有添加了id属性,且id属性值中以\"first\"这个字符串为开头的li元素 **/ }\nul>li[id$=first] { /** 匹配所有添加了id属性,且id属性值中以\"first\"这个字符串为结尾的li元素 **/ }\n```', '0', null);
 INSERT INTO `dh_content` VALUES ('162', 'collect', '34', 'FEX前端周刊', null, null, null, 'http://fex.baidu.com/weekly/', null, '', null, '2019-08-12 14:41:24', '0', '', null, null, '0', null);
 INSERT INTO `dh_content` VALUES ('163', 'collect', '34', '腾讯Alloyteam', null, null, null, 'http://www.alloyteam.com/page/0/', null, '', null, '2019-08-12 15:43:38', '0', '', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('164', 'series', '0', '设计模式', 'https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/design_thinking_x8f6.svg', '设计模式', null, '', null, '<p>设计模式的使用\n设计模式在软件开发中的两个主要用途。</p>\n<p>开发人员的共同平台\n设计模式提供了一个标准的术语系统，且具体到特定的情景。例如，单例设计模式意味着使用单个对象，这样所有熟悉单例设计模式的开发人员都能使用单个对象，并且可以通过这种方式告诉对方，程序使用的是单例模式。</p>\n<p>最佳的实践\n设计模式已经经历了很长一段时间的发展，它们提供了软件开发过程中面临的一般问题的最佳解决方案。学习这些模式有助于经验不足的开发人员通过一种简单快捷的方式来学习软件设计。</p>\n', '设计模式是一套被反复使用的、多数人知晓的、经过分类编目的、代码设计经验的总结。使用设计模式是为了重用代码、让代码更容易被他人理解、保证代码可靠性。', '2019-08-14 16:31:34', '0', '设计模式', null, '设计模式的使用\n设计模式在软件开发中的两个主要用途。\n\n开发人员的共同平台\n设计模式提供了一个标准的术语系统，且具体到特定的情景。例如，单例设计模式意味着使用单个对象，这样所有熟悉单例设计模式的开发人员都能使用单个对象，并且可以通过这种方式告诉对方，程序使用的是单例模式。\n\n最佳的实践\n设计模式已经经历了很长一段时间的发展，它们提供了软件开发过程中面临的一般问题的最佳解决方案。学习这些模式有助于经验不足的开发人员通过一种简单快捷的方式来学习软件设计。', '0', null);
+INSERT INTO `dh_content` VALUES ('165', 'snippet', '16', 'Jquery实现置顶和置底特效是一款非常实用的效果，当你网站的内容多的时候，它就可以用上场了，有了它之后你就不用滚动你的鼠标就可以实让页面的滚动条滚动到顶部和底部，用法很简单，不说了，看效果吧', null, null, 'jquery实现置顶和置底特效', 'https://www.cnblogs.com/eastson/archive/2012/09/22/2698461.html', null, '$(function(){  \n    $(\"#updown\").css(\"top\",window.screen.availHeight/2-100+\"px\");  \n    $(window).scroll(function() {         \n        if($(window).scrollTop() >= 100){  \n            $(\'#updown\').fadeIn(300);   \n        }else{      \n            $(\'#updown\').fadeOut(300);      \n        }    \n    });  \n    $(\'#updown .up\').click(function(){$(\'html,body\').animate({scrollTop: \'0px\'}, 800);});  \n    $(\'#updown .down\').click(function(){$(\'html,body\').animate({scrollTop: document.body.clientHeight+\'px\'}, 800);});  \n}); ', null, '2019-08-15 09:41:08', '0', 'jquery,置顶,置底,特效', null, null, '0', '2012-09-22 21:36:36');
 
 -- ----------------------------
--- Table structure for `dh_demo`
+-- Table structure for dh_cotent_mind
+-- ----------------------------
+DROP TABLE IF EXISTS `dh_cotent_mind`;
+CREATE TABLE `dh_cotent_mind` (
+  `cm_id` tinyint(4) NOT NULL AUTO_INCREMENT,
+  `c_id` int(11) DEFAULT NULL COMMENT '文章ID',
+  `cm_mindcont` longtext COMMENT '脑图内容',
+  PRIMARY KEY (`cm_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of dh_cotent_mind
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for dh_demo
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_demo`;
 CREATE TABLE `dh_demo` (
@@ -285,7 +302,7 @@ CREATE TABLE `dh_demo` (
 INSERT INTO `dh_demo` VALUES ('1', 'JQCloud标签云', '使用jQCloud插件生成标签云，可根据不同的权重区分每个标签的样式', '10', '0', '', '1', 'https://s2.ax1x.com/2019/08/09/eHJljg.png');
 
 -- ----------------------------
--- Table structure for `dh_libs`
+-- Table structure for dh_libs
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_libs`;
 CREATE TABLE `dh_libs` (
@@ -314,23 +331,7 @@ INSERT INTO `dh_libs` VALUES ('8', 'LESS', 'https://less.bootcss.com', 'https://
 INSERT INTO `dh_libs` VALUES ('10', 'jQCloud', 'https://github.com/lucaong/jQCloud', 'https://github.com/lucaong/jQCloud', '', '', 'https://raw.githubusercontent.com/lucaong/jQCloud/master/jqcloud/jqcloud-1.0.4.min.js', 'https://github.com/lucaong/jQCloud', null, '0');
 
 -- ----------------------------
--- Table structure for `dh_projects`
--- ----------------------------
-DROP TABLE IF EXISTS `dh_projects`;
-CREATE TABLE `dh_projects` (
-  `proj_id` int(4) NOT NULL AUTO_INCREMENT COMMENT '项目ID',
-  `proj_name` varchar(255) NOT NULL COMMENT '项目管理',
-  `proj_mind` longtext,
-  PRIMARY KEY (`proj_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of dh_projects
--- ----------------------------
-INSERT INTO `dh_projects` VALUES ('1', '共享课堂-教学宝', '{\"root\":{\"data\":{\"id\":\"bw8dfevqskw0\",\"created\":1565686174285,\"text\":\"教学宝\"},\"children\":[{\"data\":{\"id\":\"bw8dfl71ra80\",\"created\":1565686188030,\"text\":\"登录页\",\"layout_mind_offset\":{\"x\":-40,\"y\":-72}},\"children\":[]},{\"data\":{\"id\":\"bw8dfoor0iw0\",\"created\":1565686195630,\"text\":\"我的课程\",\"layout_mind_offset\":{\"x\":-55,\"y\":-82}},\"children\":[{\"data\":{\"id\":\"bw8e2631ok80\",\"created\":1565687957512,\"text\":\"课程数据\",\"layout_right_offset\":{\"x\":16,\"y\":-41},\"expandState\":\"expand\"},\"children\":[{\"data\":{\"id\":\"bw8e2m7vjnc0\",\"created\":1565687992632,\"text\":\"全员\"},\"children\":[]},{\"data\":{\"id\":\"bw8e2wi857k0\",\"created\":1565688015027,\"text\":\"小组\",\"layout_right_offset\":{\"x\":-3,\"y\":1}},\"children\":[]}]},{\"data\":{\"id\":\"bw8e3qyqa000\",\"created\":1565688081327,\"text\":\"建课调整\",\"layout_right_offset\":{\"x\":21,\"y\":6}},\"children\":[]}]},{\"data\":{\"id\":\"bw8e99dgiow0\",\"created\":1565688513221,\"text\":\"我的云盘\",\"layout_mind_offset\":{\"x\":433,\"y\":145}},\"children\":[{\"data\":{\"id\":\"bw8e9hirra80\",\"created\":1565688530956,\"text\":\"上传\"},\"children\":[]}]},{\"data\":{\"id\":\"bw8eaqhxuts0\",\"created\":1565688628861,\"text\":\"班级管理\",\"layout_mind_offset\":{\"x\":565,\"y\":145}},\"children\":[{\"data\":{\"id\":\"bw8ed2ixoi80\",\"created\":1565688811771,\"text\":\"班级表现\",\"layout_right_offset\":{\"x\":-2,\"y\":-19}},\"children\":[{\"data\":{\"id\":\"bw8eee5gx9c0\",\"created\":1565688915443,\"text\":\"学生列表\"},\"children\":[]},{\"data\":{\"id\":\"bw8eenyve3k0\",\"created\":1565688936811,\"text\":\"学生点评\"},\"children\":[]}]},{\"data\":{\"id\":\"bw8eddmcsmo0\",\"created\":1565688835923,\"text\":\"点评设置\"},\"children\":[{\"data\":{\"id\":\"bw8efzzy5dk0\",\"created\":1565689041362,\"text\":\"类型管理\"},\"children\":[]},{\"data\":{\"id\":\"bw8eg6jus5k0\",\"created\":1565689055626,\"text\":\"标签管理\"},\"children\":[]}]}]}]},\"template\":\"default\",\"theme\":\"fresh-blue\",\"version\":\"1.4.43\"}');
-
--- ----------------------------
--- Table structure for `dh_proj_funcs_copy`
+-- Table structure for dh_proj_funcs_copy
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_proj_funcs_copy`;
 CREATE TABLE `dh_proj_funcs_copy` (
@@ -347,29 +348,7 @@ CREATE TABLE `dh_proj_funcs_copy` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `dh_proj_task`
--- ----------------------------
-DROP TABLE IF EXISTS `dh_proj_task`;
-CREATE TABLE `dh_proj_task` (
-  `task_id` int(4) NOT NULL AUTO_INCREMENT,
-  `task_name` varchar(255) NOT NULL COMMENT '任务名称',
-  `task_mind` longtext COMMENT '脑图描述',
-  `task_seq` longtext COMMENT '时序图',
-  `proj_id` int(4) NOT NULL COMMENT '项目ID',
-  `task_pid` int(4) DEFAULT '0' COMMENT '上级任务ID',
-  `task_state` tinyint(2) DEFAULT '0' COMMENT '任务完成',
-  PRIMARY KEY (`task_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of dh_proj_task
--- ----------------------------
-INSERT INTO `dh_proj_task` VALUES ('1', '班级管理', '{\"root\":{\"data\":{\"id\":\"bw8ltbzfh600\",\"created\":1565709833957},\"children\":[]},\"template\":\"default\",\"theme\":\"fresh-blue\",\"version\":\"1.4.43\"}', null, '1', '0', '0');
-INSERT INTO `dh_proj_task` VALUES ('2', '添加班级', '{\"root\":{\"data\":{\"id\":\"bw8ltxfv4h40\",\"created\":1565709880662,\"text\":\"添加班级\"},\"children\":[{\"data\":{\"id\":\"bw8luf8zf8g0\",\"created\":1565709919428,\"text\":\"验证名称不能为空\",\"layout_mind_offset\":{\"x\":-30,\"y\":-90}},\"children\":[]},{\"data\":{\"id\":\"bw8lv0nzulc0\",\"created\":1565709966048,\"text\":\"名称不能超过20\",\"layout_mind_offset\":{\"x\":487,\"y\":77}},\"children\":[]}]},\"template\":\"default\",\"theme\":\"fresh-blue\",\"version\":\"1.4.43\"}', null, '1', '1', '0');
-INSERT INTO `dh_proj_task` VALUES ('3', '删除班级', '{\"root\":{\"data\":{\"id\":\"bw8lvf3sfh40\",\"created\":1565709997478,\"text\":\"删除班级\"},\"children\":[{\"data\":{\"id\":\"bw8lvpgl9y80\",\"created\":1565710020020,\"text\":\"二次确认：确认删除班级吗？\"},\"children\":[]}]},\"template\":\"default\",\"theme\":\"fresh-blue\",\"version\":\"1.4.43\"}', null, '1', '1', '0');
-
--- ----------------------------
--- Table structure for `dh_pushlog`
+-- Table structure for dh_pushlog
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_pushlog`;
 CREATE TABLE `dh_pushlog` (
@@ -387,7 +366,7 @@ CREATE TABLE `dh_pushlog` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `dh_pushuser`
+-- Table structure for dh_pushuser
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_pushuser`;
 CREATE TABLE `dh_pushuser` (
@@ -402,7 +381,7 @@ CREATE TABLE `dh_pushuser` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `dh_searchlog`
+-- Table structure for dh_searchlog
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_searchlog`;
 CREATE TABLE `dh_searchlog` (
@@ -419,7 +398,7 @@ CREATE TABLE `dh_searchlog` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `dh_setting`
+-- Table structure for dh_setting
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_setting`;
 CREATE TABLE `dh_setting` (
@@ -443,7 +422,7 @@ CREATE TABLE `dh_setting` (
 INSERT INTO `dh_setting` VALUES ('1', '码农直通车', '逐步建立起一个完整的知识体系，便于学习和回顾', '汇总一些新发布的，或者已发布旧的系列型的技术文章，方便查看和回顾', '国内外技术社区很多，各自都有一些优秀的文章 和 代码资源 在这里收集和汇总一些内容，信息都是来自于各个不同的社区', 'wx279639439@163.com', null, '', '1', 'wx279639439@163.com', 'wx279639439@163.com');
 
 -- ----------------------------
--- Table structure for `dh_tag`
+-- Table structure for dh_tag
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_tag`;
 CREATE TABLE `dh_tag` (
@@ -451,7 +430,7 @@ CREATE TABLE `dh_tag` (
   `tag_name` varchar(255) NOT NULL COMMENT '标签名',
   `tag_color` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`tag_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of dh_tag
@@ -480,10 +459,10 @@ INSERT INTO `dh_tag` VALUES ('31', '数据库', null);
 INSERT INTO `dh_tag` VALUES ('32', 'mysql', null);
 INSERT INTO `dh_tag` VALUES ('33', 'html5', null);
 INSERT INTO `dh_tag` VALUES ('34', '手册', null);
-INSERT INTO `dh_tag` VALUES ('35', '法撒旦法', null);
+INSERT INTO `dh_tag` VALUES ('36', '设计模式', null);
 
 -- ----------------------------
--- Table structure for `dh_uisetting`
+-- Table structure for dh_uisetting
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_uisetting`;
 CREATE TABLE `dh_uisetting` (
@@ -504,7 +483,7 @@ INSERT INTO `dh_uisetting` VALUES ('1', '默认模板', 'default', '<link href=\
 INSERT INTO `dh_uisetting` VALUES ('3', 'tip7', 'tip7', '', '', '', '0');
 
 -- ----------------------------
--- Table structure for `dh_user`
+-- Table structure for dh_user
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_user`;
 CREATE TABLE `dh_user` (
@@ -523,7 +502,7 @@ CREATE TABLE `dh_user` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `dh_visitlog`
+-- Table structure for dh_visitlog
 -- ----------------------------
 DROP TABLE IF EXISTS `dh_visitlog`;
 CREATE TABLE `dh_visitlog` (
