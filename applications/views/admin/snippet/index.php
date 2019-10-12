@@ -15,7 +15,7 @@
                 <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th>代码说明</th>
+                            <th width="400px">代码说明</th>
                             <th>编程语言</th>
                             <th>来源</th>
                             <th>发布时间</th>

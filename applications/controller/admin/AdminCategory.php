@@ -3,6 +3,8 @@ class AdminCategoryController extends AdminController {
 
     public function index() {
 
+        $this->checkLogin();
+
         $table = TableModel::getInstance('category' , 'cate_id');
         $rows = $table->select(array('order'=>'cate_id ASC'));
 

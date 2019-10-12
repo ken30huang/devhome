@@ -4,6 +4,8 @@ class AdminPageController extends AdminController {
     private $c_type = 'page';
 
     public function index() {
+
+        $this->checkLogin();
         $cmodel = $this->getModel('content');
         $page = intval($this->http->inputGet('page'));
         $treeData = $cmodel->getPageTree($this->c_type);

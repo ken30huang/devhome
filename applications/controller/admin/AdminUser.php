@@ -1,10 +1,9 @@
 <?php
 class AdminUserController extends AdminController {
-
-    private $c_type = 'article';
-
+    
     public function index() {
         
+        $this->checkLogin();
     }
 
     public function save() {

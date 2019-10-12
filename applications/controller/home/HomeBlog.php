@@ -6,7 +6,16 @@ class HomeBlogController extends IndexBaseController {
         $page = intval($this->http->inputGet('page'));
         $page = $page==0 ? 1 : $page;
         $pageData = $cmodel->setPageNum($page)->getPageData('article');
+
+        $seriesList = $cmodel->getLast('series', 50);
+        $pseries = array();
+        foreach($seriesList as $series) {
+            if(intval($series['c_parentid']) == 0) {
+                $pseries[$series['c_id']] = $series['c_title'];
+            }
+        }
         $this->assign('rows' , $pageData['rows']);
+        $this->assign('pseries' , $pseries);
         $this->assign('pager' , page_show($page , $pageData['count'] , $cmodel->getPageSize() , "/blog"));
         $this->display();
     }

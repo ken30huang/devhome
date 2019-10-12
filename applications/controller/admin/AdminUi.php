@@ -3,6 +3,8 @@ class AdminUiController extends AdminController {
 
 
     public function index() {
+
+        $this->checkLogin();
         $uimodel = $this->getModel('ui');
         $rows = $uimodel->order('ui_id ASC')->query();
         $this->view->assign('rows' , $rows);

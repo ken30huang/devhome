@@ -35,10 +35,12 @@
                     <td><?php echo $codenames[$row['c_cateid']];?></td>
                     <td>
                         <?php echo $row['c_title']; ?>
-                        <p>
+                        <p>参考:
                         <?php if(!empty($row['c_link'])):?>
                         <a href="<?php echo $row['c_link'];?>" target="_blank" title="<?php echo $row['c_linktitle'];?>">
-                        代码来源<img class="icons" src="<?php echo __STATIC__.'/icons/ico_link.svg'?>" /></a>
+                        <?php echo $row['c_linktitle'];?> <img class="icons" src="<?php echo __STATIC__.'/icons/ico_link.svg'?>" /></a>
+                        <?php else: ?>
+                        <?php echo $row['c_linktitle']; ?>
                         <?php endif;?>
                         </p>
                     </td>

@@ -4,6 +4,7 @@ class AdminArticleController extends AdminController {
     private $c_type = 'article';
 
     public function index() {
+        $this->checkLogin();
         $cmodel = $this->getModel('content');
         $page = intval($this->http->inputGet('page'));
         $page = $page==0 ? 1 : $page;

@@ -1,4 +1,4 @@
-<div class="container links-top mb-60">
+<div class="container mt-80 mb-20">
     <div class="cate-nav">
     <?php foreach($catemaps as $item):?>
     <a href="javascript:;" data-idx="<?php echo $item['cate_idx'];?>"><?php echo $item['cate_name'];?></a>
@@ -21,9 +21,12 @@
 <script>
 (function() {
     $('.cate-nav').on('click' , 'a' , function() {
+        $('.cate-nav a').removeClass('sel');
+        $(this).addClass('sel');
         var _idx = $(this).data('idx');
-        var _top = $('#nav-'+_idx).offset().top-140;
+        var _top = $('#nav-'+_idx).offset().top-60;
         $('html,body').animate({scrollTop: _top+'px'}, 800);
     });
 })(jQuery);
+
 </script>

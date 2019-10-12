@@ -6,8 +6,14 @@
             <img class="card-img-top" src="<?php echo $row['c_thumb']?>" alt="Card image cap" />
             <?php endif;?>
             <div class="card-body">
-                <h5 class="card-title"><a href="/blog/detail/<?php echo $row['c_alias']?>"><?php echo $row['c_title']?></a></h5>
+                <?php if($row['c_type']=='article'):?>
+                <h5 class="card-title"><a href="/home/blog/detail/<?php echo $row['c_alias']?>"><?php echo $row['c_title']?></a></h5>
                 <p class="card-text"><?php echo $row['c_summery']?></p>
+                <?php endif;?>
+                <?php if($row['c_type']=='series'):?>
+                <h5 class="card-title"><a href="/home/series/detail/<?php echo $row['c_parentid'];?>?c_id=<?php echo $row['c_id']?>"><?php echo $row['c_title']?></a></h5>
+                <p class="card-text">发布于<a href="/home/series/detail/<?php echo $row['c_parentid'];?> "><?php echo $pseries[$row['c_parentid']]; ?></a>系列</p>
+                <?php endif;?>
             </div>
         </div>
         <?php endforeach;?>

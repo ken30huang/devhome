@@ -36,6 +36,11 @@
                         <span class="glyphicon glyphicon-share-alt"></span> 知识点
                     </a>
                 </li>
+                <li>
+                    <a class="" href="/admin/rss">
+                        <span class="glyphicon glyphicon-share-alt"></span> RSS管理
+                    </a>
+                </li>
             </ul>
         </li>
         <li class="parent">

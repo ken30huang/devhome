@@ -2,6 +2,8 @@
 class AdminSettingController extends AdminController {
 
     public function index() {
+
+        $this->checkLogin();
         $model = TableModel::getInstance('setting');
         $rows = $model->select();
         $row = isset($rows[0]) ? $rows[0] : NULL;

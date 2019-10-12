@@ -4,8 +4,18 @@ class ContentModel extends DbModel {
     protected $table = 'content';
     protected $idkey = 'c_id';
 
-    public function getPageData($ctype) {
-        $where = " AND c_type='".$ctype."'";
+    public function getPageData($ctype , $condition='') {
+        
+        if(!empty($condition)) {
+            $where = $condition;
+        } else {
+            $where = " AND 1=1";
+            if(is_string($ctype)) {
+                $where .= " AND c_type='".$ctype."'";
+            } else if(is_array($ctype)) {
+                $where .= " AND c_type IN ('".implode("','" , $ctype)."')";
+            }
+        }
         $count = $this->getCount($where);
         $start = intval($this->pagenum-1)*$this->pagesize-1;
         $start = $start < 0 ? 0 : $start;

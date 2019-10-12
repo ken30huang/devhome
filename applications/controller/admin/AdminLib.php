@@ -2,6 +2,8 @@
 class AdminLibController extends AdminController {
 
     public function index() {
+
+        $this->checkLogin();
         $cmodel = $this->getModel('lib');
         $page = intval($this->http->inputGet('page'));
         $page = $page==0 ? 1 : $page;

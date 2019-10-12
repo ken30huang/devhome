@@ -3,6 +3,8 @@ class AdminDemoController extends AdminController {
 
 
     public function index() {
+
+        $this->checkLogin();
         $cmodel = $this->getModel('demo');
         $page = intval($this->http->inputGet('page'));
         $page = $page==0 ? 1 : $page;

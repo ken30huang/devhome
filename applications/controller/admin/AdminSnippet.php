@@ -4,6 +4,8 @@ class AdminSnippetController extends AdminController {
     private $c_type = 'snippet';
 
     public function index() {
+
+        $this->checkLogin();
         $cmodel = $this->getModel('content');
         $category_model = $this->getModel('category');
         $page = intval($this->http->inputGet('page'));
@@ -32,8 +34,8 @@ class AdminSnippetController extends AdminController {
     }
 
     public function del() {
-        $this->web->setReq('c_id' , $this->http->inputPost('del_id'));
-        $this->getModel('content')->deleteById();
+        $table = TableModel::getInstance('content' , 'c_id');
+        $table->data('c_id' , $this->http->inputPost('del_id'))->deleteById();
         $this->http->success()->json();
     }
 

@@ -13,7 +13,7 @@
 
         <div class="col-sm-9">
             <p class="h1"><?php echo $row['c_title'];?></p>
-            <div class="mt-40">
+            <div class="mt-40 c_cont">
                 <?php echo $row['c_cont'];?>
             </div>
         </div>

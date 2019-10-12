@@ -4,6 +4,8 @@ class AdminSeriesController extends AdminController {
     private $c_type = 'series';
 
     public function index() {
+
+        $this->checkLogin();
         $cmodel = $this->getModel('content');
         $pageData = $cmodel->where("c_type='".$this->c_type."' AND c_parentid=0")->order('c_id DESC')->query();
         $this->view->assign('rows' , $pageData);
