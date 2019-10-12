@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="/static/plugins/highlight/styles/an-old-hope.css" />
-<div class="container mt-80">
+<div class="container mt-80 mb-40">
     <div class="row">
         <div class="col-sm-3">
             <ul>
@@ -11,9 +11,14 @@
         </div>
         <div class="col-sm-6">
             <?php if($row['c_thumb']):?>
-            <div class="book_thumb mb-40"><img src="<?php echo $row['c_thumb'];?>" /></div>
+            <div class="book_thumb mb-40"><img width="240px" src="<?php echo $row['c_thumb'];?>" /></div>
             <?php endif;?>
             <article><?php echo $row['c_cont'];?></article>
+        </div>
+        <div class="col-sm-3">
+            <div class="dir_wrap">
+
+            </div>
         </div>
     </div>
 </div>
@@ -26,6 +31,13 @@ window.onload = function(){
 
     $('article').find('a').each(function() {
         $(this).attr('target' , '_blank');
+    })
+
+    var _wrap = $('.dir_wrap');
+    _wrap.empty();
+    $('article').find('h1,h2').each(function() {
+        var _dom = $(this).get(0);
+        _wrap.append('<div class="'+_dom.tagName+'"><a href="#'+_dom.innerHTML+'">'+_dom.innerHTML+'</a></div>');
     });
 }
 </script>

@@ -37,7 +37,7 @@
 .cate-nav>a:hover { background-color: #eee; }
 
 .flab-tool {
-    width:360px;
+    width:460px;
     top:60px;
     position: fixed;
     bottom: 10px;
@@ -53,7 +53,7 @@
     height:98%;
 }
 .flab-cont {
-    margin-left: 380px;
+    margin-left: 470px;
 }
 
 .c_cont table {
@@ -68,3 +68,13 @@
 .c_cont table tr {
     border-bottom:1px solid #f1f1f1;
 }
+
+.dir_wrap {
+    font-size:14px;
+}
+.dir_wrap a {
+    text-decoration: none;
+    color:#999;
+}
+.dir_wrap a:hover { color:#4589d0; }
+.dir_wrap .H2 { padding-left:16px; }

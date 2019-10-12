@@ -10,15 +10,36 @@ class HomeToolsController extends IndexBaseController {
     }
 
     public function flab() {
+        $libs = $this->getModel('lib')->select();
+        $links = [];
+        foreach($libs as $lib) {
+            if(!empty($lib['lib_js'])) {
+                $lib['ftype'] = 'js';
+                $lib['name'] = '[javascript]'.$lib['lib_name'];
+                $lib['url'] = $lib['lib_js'];
+                $links[] = $lib;
+            }
+            if(!empty($lib['lib_css'])) {
+                $lib['ftype'] = 'css';
+                $lib['name'] = '[css]'.$lib['lib_name'];
+                $lib['url'] = $lib['lib_css'];
+                $links[] = $lib;
+            }
+        }
+        $this->assign('libs' , $links);        
         $this->display();
     }
 
     public function flabview() {
         
         $data = $this->http->inputPost('pageData');
-        print_r($data);
-        // $this->display();
         $path = APP_PATH.DS.'views'.DS.MODULE_NAME.DS.C_NAME.DS.'flabview.php';
+        if(file_exists($path)) {
+            $pageData = json_decode($data , true);
+            require($path);
+        } else {
+            die('No such file : '.$path);
+        }
 
     }
 }
