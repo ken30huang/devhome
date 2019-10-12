@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 100113
 File Encoding         : 65001
 
-Date: 2019-10-12 09:00:14
+Date: 2019-10-12 18:13:41
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -171,7 +171,7 @@ INSERT INTO `dh_content` VALUES ('63', 'collect', '30', 'Sebastian Müller（英
 INSERT INTO `dh_content` VALUES ('65', 'page', '0', 'Blog', null, null, null, null, '/blog', '内容预览', null, '2019-08-06 17:52:26', '0', '前端,后端,服务器,区块链,机器学习,javascript,css,html,php,python,java,lua,nginx', '记录编程路上的点点滴滴', '', '0', null);
 INSERT INTO `dh_content` VALUES ('66', 'page', '0', '代码大全', null, null, null, null, '/codesnippet', '内容预览', null, '2019-08-20 12:06:31', '0', '代码,分享,收集', '', '', '0', null);
 INSERT INTO `dh_content` VALUES ('67', 'page', '0', '系列文档', null, null, null, null, '/series', '内容预览', null, '2019-08-09 15:55:42', '0', '整理收集来自于不同技术社区的技术类系列文章', '整理收集来自于不同技术社区的技术类系列文章', '', '0', null);
-INSERT INTO `dh_content` VALUES ('68', 'page', '0', '链接', null, null, null, null, '/links', '内容预览', null, '2019-08-06 17:55:03', '0', '', '', '', '0', null);
+INSERT INTO `dh_content` VALUES ('68', 'page', '0', '资源网站', null, null, null, null, '/links', '内容预览', null, '2019-10-12 17:45:41', '0', '', '', '', '0', null);
 INSERT INTO `dh_content` VALUES ('69', 'page', '0', 'Demo展示', null, null, null, null, '/demos', '内容预览', null, '2019-08-06 17:55:39', '0', 'Demo展示', '', '', '0', null);
 INSERT INTO `dh_content` VALUES ('71', 'collect', '35', 'ImageFinder', null, null, null, 'https://imagefinder.co/', null, '', null, '2019-07-30 15:50:44', '0', '免费,图片,视频', null, null, '0', null);
 INSERT INTO `dh_content` VALUES ('72', 'collect', '36', 'CSS Desk', null, null, null, 'http://cssdeck.com/', null, '', null, '2019-07-30 15:56:18', '0', 'css,代码,展示', null, null, '0', null);
@@ -330,17 +330,17 @@ CREATE TABLE `dh_libs` (
   `lib_keyword` varchar(255) DEFAULT NULL COMMENT '库所对应的关键字',
   `lib_type` tinyint(1) DEFAULT '0' COMMENT '库的类型: 0-开源项目,1-DEMO模板',
   PRIMARY KEY (`lib_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of dh_libs
 -- ----------------------------
-INSERT INTO `dh_libs` VALUES ('1', 'Layzr.js', 'http://callmecavs.com/layzr.js/', 'https://github.com/callmecavs/layzr.js', '一个小型的图片懒加载JS库，支持ES6标准开发模式', '', 'Javascript', '', null, '0');
-INSERT INTO `dh_libs` VALUES ('3', 'Slick.js', 'http://kenwheeler.github.io/slick/', 'https://github.com/kenwheeler/slick/', 'Slick.js是一款幻灯片特效JS库，依赖JQuery 1.7+', '//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css', 'jquery,javascript,幻灯片,js', 'https://codeload.github.com/kenwheeler/slick/zip/v1.8.1', null, '0');
-INSERT INTO `dh_libs` VALUES ('5', 'Vue.js', 'https://cn.vuejs.org/', 'https://cn.vuejs.org/v2/guide/', 'Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现代化的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。（来源：Vue.js官网）', '', '渐进式,javascript', 'https://cn.vuejs.org/js/vue.min.js', null, '0');
-INSERT INTO `dh_libs` VALUES ('6', 'Mock.js', 'http://mockjs.com/', 'https://github.com/nuysoft/Mock/wiki/Getting-Started', 'Mock.js,生成随机数据，拦截 Ajax 请求， 用于模拟后台响应数据', '', '测试', '', null, '0');
-INSERT INTO `dh_libs` VALUES ('7', '百度上传插件 Web Uploader', 'http://fex.baidu.com/webuploader/', 'http://fex.baidu.com/webuploader/getting-started.html', 'WebUploader是由Baidu WebFE(FEX)团队开发的一个简单的以HTML5为主，FLASH为辅的现代文件上传组件。在现代的浏览器里面能充分发挥HTML5的优势，同时又不摒弃主流IE浏览器，沿用原来的FLASH运行时，兼容IE6+，iOS 6+, android 4+。两套运行时，同样的调用方式，可供用户任意选用。采用大文件分片并发上传，极大的提高了文件上传效率。（来源：Web Uploader 官网）', '', '上传', 'https://github.com/fex-team/webuploader/releases', null, '0');
-INSERT INTO `dh_libs` VALUES ('8', 'LESS', 'https://less.bootcss.com', 'https://less.bootcss.com', 'It\'s CSS, with just a little more.', '', 'css', '', null, '0');
+INSERT INTO `dh_libs` VALUES ('1', 'Layzr.js', 'http://callmecavs.com/layzr.js/', 'https://github.com/callmecavs/layzr.js', '一个小型的图片懒加载JS库，支持ES6标准开发模式', '', '', '', null, '0');
+INSERT INTO `dh_libs` VALUES ('3', 'Slick.js', 'http://kenwheeler.github.io/slick/', 'https://github.com/kenwheeler/slick/', 'Slick.js是一款幻灯片特效JS库，依赖JQuery 1.7+', '//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css', '', 'https://codeload.github.com/kenwheeler/slick/zip/v1.8.1', null, '0');
+INSERT INTO `dh_libs` VALUES ('5', 'Vue.js', 'https://cn.vuejs.org/', 'https://cn.vuejs.org/v2/guide/', 'Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现代化的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。（来源：Vue.js官网）', '', '', 'https://cn.vuejs.org/js/vue.min.js', null, '0');
+INSERT INTO `dh_libs` VALUES ('6', 'Mock.js', 'http://mockjs.com/', 'https://github.com/nuysoft/Mock/wiki/Getting-Started', 'Mock.js,生成随机数据，拦截 Ajax 请求， 用于模拟后台响应数据', '', '', '', null, '0');
+INSERT INTO `dh_libs` VALUES ('7', '百度上传插件 Web Uploader', 'http://fex.baidu.com/webuploader/', 'http://fex.baidu.com/webuploader/getting-started.html', 'WebUploader是由Baidu WebFE(FEX)团队开发的一个简单的以HTML5为主，FLASH为辅的现代文件上传组件。在现代的浏览器里面能充分发挥HTML5的优势，同时又不摒弃主流IE浏览器，沿用原来的FLASH运行时，兼容IE6+，iOS 6+, android 4+。两套运行时，同样的调用方式，可供用户任意选用。采用大文件分片并发上传，极大的提高了文件上传效率。（来源：Web Uploader 官网）', '', '', 'https://github.com/fex-team/webuploader/releases', null, '0');
+INSERT INTO `dh_libs` VALUES ('8', 'LESS', 'https://less.bootcss.com', 'https://less.bootcss.com', 'It\'s CSS, with just a little more.', '', '', '', null, '0');
 INSERT INTO `dh_libs` VALUES ('10', 'jQCloud', 'https://github.com/lucaong/jQCloud', 'https://github.com/lucaong/jQCloud', '', '', 'https://raw.githubusercontent.com/lucaong/jQCloud/master/jqcloud/jqcloud-1.0.4.min.js', 'https://github.com/lucaong/jQCloud', null, '0');
 
 -- ----------------------------
