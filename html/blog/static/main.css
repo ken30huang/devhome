@@ -1,0 +1,39 @@
+.mt-80 { margin-top:80px; }
+.mt-20 { margin-top:20px; }
+.m-center { margin:0 auto; }
+.card-text-h100 { height: 100px; }
+
+html { font-size: 10px; }
+body {
+    background: #f6f7f8;
+}
+
+.slider {
+    position: absolute;
+    top:90px;
+    left:0;
+    width:280px;
+    background-color: #222;
+    bottom: 0;
+}
+.slider .slider_cont {
+    padding:6.4rem 3.2rem 0 3.2rem;
+}
+.slider .slider_cont .slider_header {
+    color:#fff;
+    font-size:2.8rem;
+}
+.slider .slider_menu {
+    padding-top:2rem;
+}
+.slider .slider_menu li a {
+    color:rgba(255, 255, 255, 0.8);
+    font-size:1.4rem;
+    display:block;
+    margin-bottom: 1rem;
+}
+
+.cont_wrap { margin-left:320px; margin-top: 90px; }
+.cont_wrap .cont_search {
+    line-height: 90px;
+}
