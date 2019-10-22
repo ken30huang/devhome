@@ -8,9 +8,11 @@ body {
     background: #f6f7f8;
 }
 
+img.res_width { max-width: 100%; }
+
 .slider {
-    position: absolute;
-    top:90px;
+    position: fixed;
+    top:0;
     left:0;
     width:280px;
     background-color: #222;
@@ -28,12 +30,47 @@ body {
 }
 .slider .slider_menu li a {
     color:rgba(255, 255, 255, 0.8);
-    font-size:1.4rem;
+    font-size:1.6rem;
     display:block;
     margin-bottom: 1rem;
 }
-
+.slider .slider_menu li a:hover,
+.slider .slider_menu li a.cur { color:#fff; }
 .cont_wrap { margin-left:320px; margin-top: 90px; }
 .cont_wrap .cont_search {
     line-height: 90px;
+}
+.cont_wrap .list_wrap {
+    margin-right:80px;
+}
+.cont_wrap .list_wrap .list_item {
+    float:left;
+    width:45%;
+    margin:0 20px 20px 0;
+    background-color: #fff;
+}
+.cont_wrap .list_wrap .list_item_body {
+    padding:20px;
+}
+.cont_wrap .list_wrap .list_item_body>h1 { margin-bottom:10px; }
+.cont_wrap .list_wrap .list_item_body>h1 a { color:#000; }
+.cont_wrap .list_wrap .list_item_summery { 
+    color:#888;
+    font-size:1.8rem;
+}
+.cont_wrap .list_wrap .list_item_info { font-size:1.6rem; }
+.cont_wrap .list_wrap .list_item_info a { color:#333; }
+
+.cont_wrap .list_pager {
+    width:80%;
+    text-align: center;
+    margin:60px 0;
+}
+.cont_wrap .list_pager li {
+    display: inline-block;
+}
+.cont_wrap .list_pager li a {
+    font-size: 1.6rem;
+    color:#333;
+    font-weight: bold;
 }
