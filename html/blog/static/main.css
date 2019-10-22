@@ -74,3 +74,19 @@ img.res_width { max-width: 100%; }
     color:#333;
     font-weight: bold;
 }
+
+.rss_tit { margin-left: 2rem; margin-bottom: 2rem; }
+
+.rss_list {
+    margin-left:4rem;
+}
+
+.rss_list li {
+    list-style-type: disc;
+    padding:1rem 0;
+}
+.rss_list li a {
+    font-size:1.8rem;
+    color:#333;
+    text-decoration: underline;
+}
