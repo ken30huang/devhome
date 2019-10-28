@@ -1,24 +1,21 @@
-<div class="container mt-80">
-    <div class="card-columns">
-        <?php foreach($rows as $row):?>
-        <div class="card">
-            <?php if(!empty($row['c_thumb'])):?>
-            <img class="card-img-top" src="<?php echo $row['c_thumb']?>" alt="Card image cap" />
-            <?php endif;?>
-            <div class="card-body">
-                <?php if($row['c_type']=='article'):?>
-                <h5 class="card-title"><a href="/home/blog/detail/<?php echo $row['c_alias']?>"><?php echo $row['c_title']?></a></h5>
-                <p class="card-text"><?php echo $row['c_summery']?></p>
-                <?php endif;?>
-                <?php if($row['c_type']=='series'):?>
-                <h5 class="card-title"><a href="/home/series/detail/<?php echo $row['c_parentid'];?>?c_id=<?php echo $row['c_id']?>"><?php echo $row['c_title']?></a></h5>
-                <p class="card-text">发布于<a href="/home/series/detail/<?php echo $row['c_parentid'];?> "><?php echo $pseries[$row['c_parentid']]; ?></a>系列</p>
-                <?php endif;?>
+<div class="list_wrap clearfix">
+    <?php foreach($all_list as $all):?>
+    <div class="list_item">
+        <!-- <img src="http://demo.sc.chinaz.net/Files/DownLoad/moban/201910/moban4105/images/thumbs/masonry/woodcraft-600.jpg" class="
+        res_width" /> -->
+        <div class="list_item_body">
+            <h1><a href="/home/blog/detail/<?php echo $all['c_alias']; ?>"><?php echo $all['c_title'];?></a></h1>
+            <div class="list_item_info">
+                <span class="list_item_tags">
+                    <?php $tagIndex=0; foreach($all['c_tags'] as $tag): ?>
+                    <a href="/home/index?tag=<?php echo urlencode($tag);?>"><?php echo $tag;?></a><?php echo ($tagIndex<(count($all['c_tags'])-1)?',':''); ?>
+                    <?php $tagIndex++; endforeach;?>
+                </span>
+                <span class="list_item_date"><?php echo $all['c_pubdate']; ?></span>
             </div>
+            <div class="list_item_summery"><?php echo $all['c_summery']; ?></div>
         </div>
-        <?php endforeach;?>
     </div>
-    
-    <div class="row mt-20"><?php echo $pager;?></div>
-    
+    <?php endforeach;?>
 </div>
+<div class="list_pager"> <?php echo $pager; ?> </div>

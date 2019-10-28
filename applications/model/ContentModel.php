@@ -20,8 +20,8 @@ class ContentModel extends DbModel {
         $start = intval($this->pagenum-1)*$this->pagesize-1;
         $start = $start < 0 ? 0 : $start;
         $rows = $this->select(array('order'=>'c_pubdate DESC , c_id DESC' , 'where'=>$where, 'limit'=>$start.','.$this->pagesize));
-
-        return array('rows'=>$rows, 'count'=>$count);
+        
+        return array('rows'=>$rows, 'count'=>$count , 'page'=>$this->pagenum, 'pagesize'=>$this->pagesize);
     }
 
     public function getPageDataBySearch($keyword = '') {

@@ -47,16 +47,17 @@ img.res_width { max-width: 100%; }
     float:left;
     width:45%;
     margin:0 20px 20px 0;
-    background-color: #fff;
 }
 .cont_wrap .list_wrap .list_item_body {
     padding:20px;
+    background-color: #fff;
 }
 .cont_wrap .list_wrap .list_item_body>h1 { margin-bottom:10px; }
 .cont_wrap .list_wrap .list_item_body>h1 a { color:#000; }
 .cont_wrap .list_wrap .list_item_summery { 
     color:#888;
-    font-size:1.8rem;
+    font-size:1.6rem;
+    line-height: 2rem;
 }
 .cont_wrap .list_wrap .list_item_info { font-size:1.6rem; }
 .cont_wrap .list_wrap .list_item_info a { color:#333; }

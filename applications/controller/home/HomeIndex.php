@@ -3,14 +3,18 @@ class HomeIndexController extends IndexBaseController {
 
     public function index() {
 
-        $demo_model = $this->getModel('demo');
         $c_model = $this->getModel('content');
-        $series_list = $c_model->where("c_type='series' AND c_parentid=0")->order('c_linkdate DESC')->range(0 , 5)->query();
+        $where = "AND (c_type='article') OR (c_type='series' AND c_parentid!=0)";
+        $page = intval($this->http->inputGet('page'));
+        $page = $page==0 ? 1 : $page;
+        $all_list = $c_model->setPageNum($page)->getPageData("" , $where);
+        $rows = $all_list['rows'];
+        foreach($rows as &$item) {
+            $item['c_tags'] = explode(',' , $item['c_tag']);
+        }
 
-        $this->assign('demo_list' , $demo_model->order('demo_id DESC')->range(0 , 4)->query());
-        $this->assign('blog_list' , $c_model->getLast('article' , 5));
-        $this->assign('know_list' , $c_model->getLast('knowledge' , 10));
-        $this->assign('series_list' , $series_list);   
+        $this->assign('all_list' , $rows);
+        $this->assign('pager' , page_show($all_list['page'] , $all_list['count'] , $all_list['pagesize'] , '/home/index'));
         $this->display();
     }
 }

@@ -14,7 +14,11 @@ class HomeBlogController extends IndexBaseController {
                 $pseries[$series['c_id']] = $series['c_title'];
             }
         }
-        $this->assign('rows' , $pageData['rows']);
+        
+        foreach($pageData['rows'] as &$item) {
+            $item['c_tags'] = explode(',' , $item['c_tag']);
+        }
+        $this->assign('all_list' , $pageData['rows']);
         $this->assign('pseries' , $pseries);
         $this->assign('pager' , page_show($page , $pageData['count'] , $cmodel->getPageSize() , "/blog"));
         $this->display();
