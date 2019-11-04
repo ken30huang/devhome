@@ -18,18 +18,6 @@
                             <input id="c_title" field="c_title" class="form-control" maxlength="255" placeholder="" value="<?php echo getRowVal('c_title' , $row);?>" />
                         </div>
                         <div class="form-group">
-                            <label>出处标题</label>
-                            <input id="c_linktitle" field="c_linktitle" class="form-control" placeholder="" value="<?php echo getRowVal('c_linktitle' , $row);?>" />
-                        </div>
-                        <div class="form-group">
-                            <label>出处链接</label>
-                            <input id="c_link" field="c_link" class="form-control" placeholder="" value="<?php echo getRowVal('c_link' , $row);?>" />
-                        </div>
-                        <div class="form-group">
-                            <label>发布时间</label>
-                            <input id="c_linkdate" field="c_linkdate" class="form-control" placeholder="" value="<?php echo getRowVal('c_linkdate' , $row);?>" />
-                        </div>
-                        <div class="form-group">
                             <label>SEO关键词</label>
                             <input id="c_seokeyword" field="c_seokeyword" class="form-control" placeholder="" value="<?php echo getRowVal('c_seokeyword' , $row);?>" />
                         </div>
@@ -42,9 +30,12 @@
                                 <?php endforeach;?>
                             </select>
                         </div>
+                        <div class="form-group"><h4>代码列表</h4></div>
                         <div class="form-group">
-                            <label>代码内容</label>
-                            <textarea id="c_cont" class="form-control" rows="4" placeholder=""><?php echo getRowVal('c_cont' , $row);?></textarea>
+                            <?php foreach($fileconts as $fileitem): ?>
+                            <input id="c_filename_<?php echo $fileitem['c_fileid']?>" class="form-control file_code_key" value="<?php echo getRowVal('c_filename' , $fileitem);?>" />
+                            <textarea id="c_filecont_<?php echo $fileitem['c_fileid']?>" class="form-control file_code_cont" rows="4" placeholder=""><?php echo getRowVal('c_filecont' , $fileitem);?></textarea>
+                            <?php endforeach?>
                         </div>
                         <button type="button" id="saveBtn" class="btn btn-primary">保存</button>
                         <button type="button" class="btn btn-default" onclick="javascript:history.back();">取消</button>
@@ -70,20 +61,22 @@ function contSave() {
         alert('请输入标题');
         return;
     }
-    if($('#c_link').val() == '') {
-        alert('请输入别名');
-        return;
-    }
+
+    var file_code_keys = $('.file_code_key');
+    var file_code_conts = $('.file_code_cont');
+    var _files = {};
+    file_code_keys.each(function(index) {
+        _files[this.value] = { content: (file_code_conts.eq(index).val()||'') };
+    });
     var _saveData = {
         c_title:$('#c_title').val(),
         c_id:$('#c_id').val(),
-        c_link:$('#c_link').val(),
-        c_cateid:$('#c_cateid').val(),
         c_seokeyword:$('#c_seokeyword').val(),
-        c_cont:$('#c_cont').val(),
-        c_linkdate:$('#c_linkdate').val(),
-        c_linktitle:$('#c_linktitle').val(),
+        c_cateid:$('#c_cateid').val(),
+        files:JSON.stringify(_files)
     };
+    // console.log(_saveData);
+    // return;
     ajaxReq({
         url:'/admin/snippet/save',
         data: _saveData,

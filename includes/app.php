@@ -62,7 +62,14 @@ class App {
         $load_path = CTRL_PATH.DS.MODULE_NAME.DS.ucfirst(MODULE_NAME).ucfirst(C_NAME).'.php';
         if(!incFile($load_path)) {
             //找不到具体的控制
-            die(self::$_preErro.'Can not find controller path');
+            $load_path = CTRL_PATH.DS.MODULE_NAME.DS.'DefaultController.php';
+            if(!incFile($load_path)) {
+                die(self::$_preErro.'Can not find controller path');
+            } else {
+                $defaultCtrl = new DefaultController();
+                $defaultCtrl->handleRequest();
+                exit;
+            }
         }
         $ctrl_name = ucfirst(MODULE_NAME).ucfirst(C_NAME).'Controller';
         if(!class_exists($ctrl_name)) {
@@ -72,7 +79,12 @@ class App {
         $ctrl_obj = new $ctrl_name;
         $ctrl_action = A_NAME;
         if(!method_exists($ctrl_obj , $ctrl_action)) {
-            die(self::$_preErro.'Can not find controller method function');
+            if(method_exists($ctrl_obj , 'emptyPage')) {
+                $ctrl_obj->emptyPage();
+                exit();
+            } else {
+                die(self::$_preErro.'Can not find controller method function');
+            }
         }
 
         $ctrl_obj->$ctrl_action();

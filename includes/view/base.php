@@ -6,12 +6,14 @@ class BaseView {
     private $_vals = array();
     private $_theme = '';
     private $_vpath = '';
+    private $_vfile = '';
 
-    public function setTheme($theme_path) {
+    public function setTheme($theme_path , $vfile="template") {
         if(!file_exists($theme_path)) {
             die('View Error: Can not find theme file.');
         }
         $this->_theme = $theme_path;
+        $this->_vfile = $vfile;
     }
 
     public function setViewPath($view_path) {
@@ -65,7 +67,7 @@ class BaseView {
         $all_cont = '';
         ob_start();
         extract($this->_vals);
-        require($this->_theme.DS.'template.php');
+        require($this->_theme.DS.$this->_vfile.'.php');
         $all_cont = ob_get_contents();
         ob_clean();
         return $all_cont;

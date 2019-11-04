@@ -57,5 +57,9 @@ abstract class WebController {
         $this->view->assign($key , $val);
     }
 
+    public function emptyPage() {
+        echo "Page not found.";
+    }
+
 }
 ?>

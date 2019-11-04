@@ -11,7 +11,6 @@ class HomeToolsController extends IndexBaseController {
 
     public function flab() {
         $libs = $this->getModel('lib')->select();
-        $links = [];
         foreach($libs as $lib) {
             if(!empty($lib['lib_js'])) {
                 $lib['ftype'] = 'js';
@@ -26,8 +25,9 @@ class HomeToolsController extends IndexBaseController {
                 $links[] = $lib;
             }
         }
+        $this->assign('title' , '前端实验室');     
         $this->assign('libs' , $links);        
-        $this->display();
+        $this->display('normal');
     }
 
     public function flabview() {

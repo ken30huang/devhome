@@ -3,7 +3,7 @@ class IndexBaseController extends WebController {
 
     private $_assigns = array('v'=>'index' , 'body'=>'' , 'script'=>'' , '');
 
-    public function display() {
+    public function display($tmpl='') {
 
         $ui_model = $this->getModel('ui');
         $ui_rows = $ui_model->order('ui_id DESC')->query();
@@ -38,8 +38,13 @@ class IndexBaseController extends WebController {
 
         //主模板
         $tmpl_path = APP_PATH.DS.'layouts'.DS.MODULE_NAME.DS.$sel_ui['ui_path'];
+        if(empty($tmpl)) {
+            $this->view->setTheme($tmpl_path);
+        } else {
+            $this->view->setTheme($tmpl_path , $tmpl);
+        }
+        
         $v_path = APP_PATH.DS.'views'.DS.MODULE_NAME.DS.C_NAME;
-        $this->view->setTheme($tmpl_path);
         $this->view->setViewPath($v_path);
 
         echo $this->view->display(A_NAME);

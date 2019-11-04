@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 100113
 File Encoding         : 65001
 
-Date: 2019-10-28 11:59:10
+Date: 2019-11-04 18:31:28
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -130,13 +130,12 @@ CREATE TABLE `dh_content` (
   `c_order` int(4) DEFAULT '0',
   `c_linkdate` datetime DEFAULT NULL COMMENT '链接发布时间',
   PRIMARY KEY (`c_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=185 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=192 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- ----------------------------
 -- Records of dh_content
 -- ----------------------------
 INSERT INTO `dh_content` VALUES ('14', 'page', '0', 'HOME', null, null, null, null, '/', '内容预览', null, '2019-07-22 14:45:56', '0', '', 'HOME', '', '0', null);
-INSERT INTO `dh_content` VALUES ('34', 'snippet', '16', 'N种JS小数点取整', null, null, 'js 向上取整、向下取整、四舍五入', 'https://www.cnblogs.com/Marydon20170307/p/8831055.html', null, 'Math.floor(5.55) //向下取整 结果为5 \nMath.floor(5.99) //向下取整 结果为5 \nMath.ceil(5.21) //向上取整，结果为6 \nMath.ceil(5.88) //向上取整，结果为6 \nMath.round(5.78) //四舍五入 结果为6 \nMath.round(5.33) //结果为5 ', null, '2019-10-11 13:15:03', '0', 'javascript,小数,取整,整数', null, null, '0', '2018-10-30 08:43:40');
 INSERT INTO `dh_content` VALUES ('36', 'collect', '32', 'OSCHINA在线工具', null, null, null, 'http://tool.oschina.net/', null, '为开发设计人员提供在线工具，提供jsbin在线 CSS、JS 调试，在线 API文档查看', null, '2019-07-25 12:03:58', '0', '工具,api,调试', null, null, '0', null);
 INSERT INTO `dh_content` VALUES ('37', 'collect', '33', 'Unheap', null, null, null, 'http://www.unheap.com/?badge=all', null, 'Javascript第三方插件网站，包含不同的分类，有输入相关的、菜单相关的、多媒体相关、移动端相关等', null, '2019-07-25 12:03:37', '0', 'jquery,javascript', null, null, '0', null);
 INSERT INTO `dh_content` VALUES ('38', 'collect', '31', 'Alloyteam导航', null, null, null, 'http://www.alloyteam.com/nav/', null, '', null, '2019-07-25 12:05:06', '0', '前端,导航', null, null, '0', null);
@@ -166,7 +165,7 @@ INSERT INTO `dh_content` VALUES ('61', 'collect', '48', 'React 大神博客（�
 INSERT INTO `dh_content` VALUES ('62', 'collect', '30', 'Codrops（英）', null, null, null, 'https://tympanus.net/codrops/', null, 'Code Snap', null, '2019-07-29 11:57:26', '0', 'css,前端,javascript', null, null, '0', null);
 INSERT INTO `dh_content` VALUES ('63', 'collect', '30', 'Sebastian Müller（英）', null, null, null, 'https://sbstjn.com/', null, 'Hi!  I work as an independent Serverless Consultant, GraphQL Specialist, and Senior Cloud Consultant for superluminar in Hamburg, Germany. I am a passionate Scrum Master, Full Stack Engineer, and Technology Enthusiast who’s fancy about vinyl records, design, people, and vegan food.', null, '2019-07-29 12:01:18', '0', 'serverless,GraphQL', null, null, '0', null);
 INSERT INTO `dh_content` VALUES ('65', 'page', '0', 'Blog', null, null, null, null, '/blog', '内容预览', null, '2019-08-06 17:52:26', '0', '前端,后端,服务器,区块链,机器学习,javascript,css,html,php,python,java,lua,nginx', '记录编程路上的点点滴滴', '', '0', null);
-INSERT INTO `dh_content` VALUES ('66', 'page', '0', '代码大全', null, null, null, null, '/codesnippet', '内容预览', null, '2019-08-20 12:06:31', '0', '代码,分享,收集', '', '', '0', null);
+INSERT INTO `dh_content` VALUES ('66', 'page', '0', '代码大全', null, null, null, null, '/snippet', '内容预览', null, '2019-08-20 12:06:31', '0', '代码,分享,收集', '', '', '0', null);
 INSERT INTO `dh_content` VALUES ('67', 'page', '0', '系列教程', null, null, null, null, '/series', '内容预览', null, '2019-10-23 12:03:20', '0', '整理收集来自于不同技术社区的技术类系列文章', '整理收集来自于不同技术社区的技术类系列文章', '', '0', null);
 INSERT INTO `dh_content` VALUES ('68', 'page', '0', '资源网站', null, null, null, null, '/links', '内容预览', null, '2019-10-12 17:45:41', '0', '', '', '', '0', null);
 INSERT INTO `dh_content` VALUES ('69', 'page', '0', 'Demo展示', null, null, null, null, '/demos', '内容预览', null, '2019-08-06 17:55:39', '0', 'Demo展示', '', '', '0', null);
@@ -270,6 +269,37 @@ INSERT INTO `dh_content` VALUES ('181', 'collect', '35', 'Free Images', null, nu
 INSERT INTO `dh_content` VALUES ('182', 'collect', '30', 'LogRocket Blog', null, null, null, 'https://blog.logrocket.com/', null, '', null, '2019-10-22 14:24:44', '0', '前端,博客', null, null, '0', null);
 INSERT INTO `dh_content` VALUES ('183', 'collect', '13', 'NodeGUI', null, null, null, 'https://docs.nodegui.org', null, '', null, '2019-10-22 14:25:32', '0', '桌面开发', null, null, '0', null);
 INSERT INTO `dh_content` VALUES ('184', 'page', '0', 'RSS订阅', null, null, null, null, '/rss', '内容预览', null, '2019-10-23 14:58:58', '0', '', '', '', '0', null);
+INSERT INTO `dh_content` VALUES ('185', 'collect', '30', 'Dmitri Pavlutin', null, null, null, 'https://dmitripavlutin.com/all-posts/', null, 'Thoughts on Frontend development', null, '2019-10-29 07:34:05', '0', '前端,博客', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('189', 'snippet', '16', 'js 向上取整、向下取整、四舍五入', null, null, null, null, null, '', null, '2019-11-04 16:13:30', '0', 'javascript,取整', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('190', 'snippet', '16', 'Gulp对ES6代码转换', null, null, null, null, null, '', null, '2019-11-04 16:15:26', '0', 'javascript,gulp,ES6', null, null, '0', null);
+INSERT INTO `dh_content` VALUES ('191', 'snippet', '16', 'CodeMirror在线代码编辑器实例', null, null, null, null, null, '', null, '2019-11-04 17:40:32', '0', 'javascript,代码,编辑器', null, null, '0', null);
+
+-- ----------------------------
+-- Table structure for dh_content_snippet
+-- ----------------------------
+DROP TABLE IF EXISTS `dh_content_snippet`;
+CREATE TABLE `dh_content_snippet` (
+  `c_fileid` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `c_cateid` varchar(255) NOT NULL DEFAULT '0' COMMENT '分类ID',
+  `c_filename` varchar(255) NOT NULL DEFAULT '' COMMENT '标题',
+  `c_thumb` varchar(255) DEFAULT NULL COMMENT '文章缩略图',
+  `c_tag` varchar(255) DEFAULT NULL COMMENT '标签',
+  `c_filecont` longtext COMMENT '文章内容',
+  `c_seokeyword` varchar(255) DEFAULT NULL,
+  `c_seodescription` varchar(255) DEFAULT NULL,
+  `c_contid` varchar(100) DEFAULT NULL COMMENT 'content表ID',
+  `c_filedate` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`c_fileid`)
+) ENGINE=InnoDB AUTO_INCREMENT=198 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+-- ----------------------------
+-- Records of dh_content_snippet
+-- ----------------------------
+INSERT INTO `dh_content_snippet` VALUES ('189', '16', 'Javascript内置对象Math取整方法', null, null, 'Math.floor(5.55) //向下取整 结果为5 \nMath.floor(5.99) //向下取整 结果为5 \nMath.ceil(5.21) //向上取整，结果为6 \nMath.ceil(5.88) //向上取整，结果为6 \nMath.round(5.78) //四舍五入 结果为6 \nMath.round(5.33) //结果为5 ', 'javascript,取整', null, '189', '2019-11-04 16:30:54');
+INSERT INTO `dh_content_snippet` VALUES ('191', '16', '需要引入Babel，配合gulp执行', null, null, '//执行任务\ngulp.task(\'default\', function() {\n	Return gulp.src(\'要处理的文件[./js/test.js]\')\n	.pipe(babel()).pipe(gulp.dest(\'指定生成目录[./dest]\'));\n	/**\n	Return 使得任务形成流, 一个个接着执行\n	Pipe node中流的管道概念\n	**/\n});\n\n实例代码:\nvar gulp = require(\'gulp\');\nvar gbabel = require(\'gulp-babel\');\n\ngulp.task(\'default\' , function() {\n	return gulp.src(\'./js/*.js\')\n		.pipe(gbabel({\n			presets:[\'babel-preset-es2015\']\n		}))\n		.pipe(gulp.dest(\'./dest\'));\n});', 'javascript,gulp,ES6', null, '190', null);
+INSERT INTO `dh_content_snippet` VALUES ('195', '16', '在网页中库文件，包含一个CSS和JS', null, null, '<link rel=\"stylesheet\" href=\"/pathto/codemirror/codemirror.css\" />\n<script src=\"/pathto/codemirror/codemirror.js\"></script>', 'javascript,代码,编辑器', null, '191', null);
+INSERT INTO `dh_content_snippet` VALUES ('196', '16', '添加textarea标签，作为编辑器的容器', null, null, '<textarea id=\"htmlCoder\" placeholder=\"请输入HTML代码\">', 'javascript,代码,编辑器', null, '191', null);
+INSERT INTO `dh_content_snippet` VALUES ('197', '16', '调用API，将输入框转换成代码编辑器', null, null, 'var htmlEditor = CodeMirror.fromTextArea(htmldom, {\n   lineNumbers: true //显示代码行数\n});', 'javascript,代码,编辑器', null, '191', null);
 
 -- ----------------------------
 -- Table structure for dh_demo
@@ -496,7 +526,7 @@ CREATE TABLE `dh_user` (
   `user_isvalid` tinyint(2) NOT NULL DEFAULT '0' COMMENT '是否验证:0-否,1-是',
   `user_name` varchar(50) NOT NULL COMMENT '用户',
   `user_logintime` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '登录时间',
-  `user_regtime` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '注册时间',
+  `user_regtime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP COMMENT '注册时间',
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

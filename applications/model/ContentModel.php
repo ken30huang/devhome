@@ -75,5 +75,20 @@ class ContentModel extends DbModel {
         $rows = $this->select(array('order'=>'c_pubdate DESC' , 'where'=>$where, 'limit'=>'0,'.$limit));
         return $rows;
     }
+
+    public function getContentLink($citem) {
+        
+        if($citem['c_type'] == 'article') {
+            return 'blog/detail/'.$citem['c_alias'];
+        } else if($citem['c_type'] == 'series') {
+            return 'series/detail/'.$citem['c_id'];
+        } else if($citem['c_type'] == 'wiki') {
+            return 'wiki/detail/'.$citem['c_id'];
+        } else if($citem['c_type'] == 'snippet') {
+            return 'snippet/detail/'.$citem['c_id'];
+        }
+
+        return '';
+    }
 }
 ?>

@@ -1,28 +1,35 @@
+<link href="/static/plugins/bootstrap4/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="/static/plugins/codemirror/codemirror.css" />
 <style>
 .CodeMirror { height:98%; width:98%; }
 .lib-list { height:126px; overflow:auto; }
+.flab-cont { background-color:#eee; }
+.flab-tool-item { position:relative; }
+.flab-tool-item .flab-tool-tit { position:absolute; top:0; right:0; color:#666; z-index:99; font-size:12px; }
 </style>
-<div style="margin-top:60px">
+<div class="container-fluid">
   <div class="pos_fixed btn_view">
       <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal"><i class="fa  fa-cog fa-fw"></i> 设置</button>
   </div>
-  <div class="">
-    <div class="flab-tool">
+  <div class="row col-12">
+    <div class="flab-tool col-4">
       <form id="flabForm" target="flabview" action="/home/tools/flabview" method="POST">
         <div class="flab-tool-item">
+          <div class="flab-tool-tit">HTML代码</div>
           <textarea id="htmlCoder" placeholder="请输入HTML代码"></textarea>
         </div>
         <div class="flab-tool-item">
+          <div class="flab-tool-tit">CSS代码</div>
           <textarea id="cssCoder" placeholder="请输入CSS代码"></textarea>
         </div>
         <div class="flab-tool-item">
+          <div class="flab-tool-tit">JS代码</div>
           <textarea id="jsCoder" placeholder="请输入Javascript代码"></textarea>
         </div>
         <textarea id="pageData" name="pageData" style="display:none"></textarea>
       </form>
     </div>
-    <div class="flab-cont">
+    <div class="flab-cont col-8">
       <iframe id="flabview" name="flabview" style="border:none;width:100%;height:100%;"></iframe>
     </div>
   </div>
@@ -68,6 +75,9 @@
   </div>
 </div>
 
+<script src="/static/js/libs/jquery/jquery.min.js"></script>
+<script src="/static/plugins/bootstrap4/js/bootstrap.min.js"></script>
+<script src="/static/js/comm.js?v=1.0.0"></script>
 <script src="/static/plugins/codemirror/codemirror.js"></script>
 <script>
 (function($) {
