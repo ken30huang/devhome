@@ -18,15 +18,5 @@
     document.querySelectorAll('pre code').forEach((block) => {
         hljs.highlightBlock(block);
     });
-
-    var dirArr = [];
-    $('.c_cont').find('h1,h2').each(function(){
-        var _this = $(this);
-        if(this.tagName == 'H1') {
-            dirArr.push('<li class="c_dir_h1"><a href="#'+_this.text()+'">'+_this.text()+'</a></li>');
-        } else if(this.tagName == 'H2') {
-            dirArr.push('<li class="c_dir_h2"><a href="#'+_this.text()+'">'+_this.text()+'</a></li>');
-        }
-    });
 })(jQuery);
 </script>

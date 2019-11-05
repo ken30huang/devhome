@@ -64,6 +64,9 @@ img.res_width { max-width: 100%; }
 }
 .cont_wrap .list_item_info { font-size:1.6rem; line-height: 2.4rem; }
 .cont_wrap .list_item_info a { color:#333; }
+.cont_wrap .list_item_body .list_item_btns {
+    text-align: right;
+}
 
 .cont_wrap .list_pager {
     width:80%;
@@ -78,6 +81,19 @@ img.res_width { max-width: 100%; }
     color:#333;
     font-weight: bold;
     padding: 10px;
+}
+
+.cont_wrap .list_empty {
+    text-align: center;
+    margin:80px;
+}
+.cont_wrap .list_empty .list_empty_img {
+    width:30rem
+}
+.cont_wrap .list_empty .list_empty_text {
+    font-size:2rem;
+    color: #ccc;
+    margin-top:40px;
 }
 
 .rss_tit { margin-left: 2rem; margin-bottom: 2rem; }

@@ -11,6 +11,9 @@ class HomeToolsController extends IndexBaseController {
 
     public function flab() {
         $libs = $this->getModel('lib')->select();
+        $islogin = $this->session->get('user');
+        $cate_model = $this->getModel('category');
+        
         foreach($libs as $lib) {
             if(!empty($lib['lib_js'])) {
                 $lib['ftype'] = 'js';
@@ -25,17 +28,26 @@ class HomeToolsController extends IndexBaseController {
                 $links[] = $lib;
             }
         }
-        $this->assign('title' , '前端实验室');     
-        $this->assign('libs' , $links);        
+        $this->assign('title' , '前端实验室');
+        $this->assign('libs' , $links);
+        $this->assign('islogin' , $islogin);
+        $this->assign('cate_list' , $cate_model->getChilds(15));
         $this->display('normal');
     }
 
     public function flabview() {
         
         $data = $this->http->inputPost('pageData');
+        $pageData = json_decode($data , true);
+        $pageData['http'] = '';
+        if(isset($pageData['export'])) {
+            $pageData['http'] = 'https:';
+            header('Content-Type: application/octet-stream;charset=utf-8');
+            header("Accept-Ranges:bytes");
+            header('Content-Disposition: attachment; filename='.date('YmdHis').'.html');
+        }
         $path = APP_PATH.DS.'views'.DS.MODULE_NAME.DS.C_NAME.DS.'flabview.php';
         if(file_exists($path)) {
-            $pageData = json_decode($data , true);
             require($path);
         } else {
             die('No such file : '.$path);

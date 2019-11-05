@@ -1,15 +1,19 @@
 <link href="/static/plugins/bootstrap4/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="/static/plugins/codemirror/codemirror.css" />
 <style>
-.CodeMirror { height:98%; width:98%; }
+.CodeMirror { height:94%; width:98%; margin:20px; border:1px solid #eee; border-radius:4px; }
 .lib-list { height:126px; overflow:auto; }
-.flab-cont { background-color:#eee; }
+.flab-cont { background-color:#f1f1f1; position:relative; }
+.flab-cont .btn-download { position:absolute; top:0; right:0;}
 .flab-tool-item { position:relative; }
-.flab-tool-item .flab-tool-tit { position:absolute; top:0; right:0; color:#666; z-index:99; font-size:12px; }
+.flab-tool-item .flab-tool-tit { position:absolute; top:-22px; right:0; color:#666; z-index:99; font-size:12px; }
 </style>
 <div class="container-fluid">
   <div class="pos_fixed btn_view">
-      <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal"><i class="fa  fa-cog fa-fw"></i> 设置</button>
+      
+      <?php if($islogin):?>
+      <button type="button" id="savePop" class="btn btn-primary" data-toggle="modal"><i class="fa fa-cog fa-fw"></i>保存</button>
+      <?php endif;?>
   </div>
   <div class="row col-12">
     <div class="flab-tool col-4">
@@ -19,57 +23,74 @@
           <textarea id="htmlCoder" placeholder="请输入HTML代码"></textarea>
         </div>
         <div class="flab-tool-item">
-          <div class="flab-tool-tit">CSS代码</div>
+          <div class="flab-tool-tit">CSS代码
+            <select id="cssType">
+              <option value="css">css</option>
+            </select>
+          </div>
           <textarea id="cssCoder" placeholder="请输入CSS代码"></textarea>
         </div>
         <div class="flab-tool-item">
-          <div class="flab-tool-tit">JS代码</div>
+          <div class="flab-tool-tit">JS代码
+            <select id="jsType">
+              <option value="javascript">javascript</option>
+              <option value="babel">React/Babel</option>
+              <option value="vue">Vue</option>
+            </select>
+          </div>
           <textarea id="jsCoder" placeholder="请输入Javascript代码"></textarea>
         </div>
         <textarea id="pageData" name="pageData" style="display:none"></textarea>
       </form>
     </div>
     <div class="flab-cont col-8">
+      <button type="button" id="createHTML" class="btn btn-primary btn-download" data-toggle="modal"><i class="fa fa-cog fa-fw"></i>生成HTML</button>
       <iframe id="flabview" name="flabview" style="border:none;width:100%;height:100%;"></iframe>
     </div>
   </div>
 </div>
-<!-- Modal -->
-<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
+
+<div id="saveModal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">编辑设置
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <div class="container-fluid ">
-          <form>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Javascript编辑模式</label>
-              <div>
-                <select id="jstype">
-                  <option value="javascript">Javascript</option>
-                  <option value="babel">Babel</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group form-check lib-list">
-              <?php foreach($libs as $lib): ?>
-              <div>
-              <label class="form-check-label" title="<?php echo $lib['lib_intro'];?>">
-                <input type="checkbox" name="libNames[]" ftype="<?php echo $lib['ftype'];?>" value="<?php echo $lib['url'];?>" class="form-check-input"> <?php echo $lib['name'];?>
-              </label>
-              </div>
-              <?php endforeach; ?>
-            </div>
-            <button type="button" data-dismiss="modal" class="btn btn-primary">确定</button>
-            <?php if(isset($_SESSION['user'])):?>
-            <button type="button" data-dismiss="modal" class="btn btn-primary">保存</button>
-            <?php endif; ?>
-          </form>
+        <div class="form-group">
+          <label>标题</label>
+          <input type="text" id="txtTitle" class="form-control" />
         </div>
+        <div class="form-group">
+          <label >简介</label>
+          <textarea class="form-control" id="txtSummery" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+          <label >分类</label>
+          <div class="form-row">
+            <select id="txtCate">
+              <?php foreach($cate_list as $cate_item):?>
+              <option value="<?php echo $cate_item['cate_id'];?>"><?php echo $cate_item['cate_name'];?></option>
+              <?php endforeach;?>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>同步</label>
+          <div class="form-row">
+            <select id="txtPost">
+              <option value="1">代码</option>
+              <option value="2">Demo & 代码</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" id="saveBtn" class="btn btn-primary">Save</button>
       </div>
     </div>
   </div>
@@ -87,8 +108,8 @@
 
     var all = $(window).height()-60;
     var itemH = parseInt(all/3);
-    $('.flab-tool-item').css({ height:(itemH-5)+'px' });
-    $('#flabview').css({ height: all+'px' });
+    $('.flab-tool-item').css({ height:(itemH-20)+'px' });
+    $('#flabview').css({ height: (all-60)+'px' });
   }
 
   initView();
@@ -105,10 +126,11 @@
     lineNumbers: true
   });
   var jsEditor = CodeMirror.fromTextArea(jsdom, {
-    lineNumbers: true
+    lineNumbers: true,
+    lineWrapping:true
   });
 
-  var editCont = { html:'', css:'' , js:'', cssLinks:[], jsLink:[] , jstype:'javascript' };
+  var editCont = { html:'', css:'' , js:'', cssLinks:[], jsLink:[] , jstype:'javascript',csstype:'css' };
   htmlEditor.on('change' , function() {
     editCont.html = htmlEditor.getValue();
     refreshCont();
@@ -122,8 +144,60 @@
     refreshCont();
   });
 
+  $('#cssType').on('change' , function() {
+    editCont.csstype = $('#cssType').val();
+    refreshCont();
+  });
+  $('#jsType').on('change' , function() {
+    editCont.jstype = $('#jsType').val();
+    refreshCont();
+  });
+  $('#savePop').on('click' , function() {
+    $('#saveModal').modal('show');
+  });
+  $('#saveBtn').on('click' , function() {
+    var title = $('#txtTitle').val();
+    var summery = $('#txtSummery').val();
+    if(!title || !summery) {
+      alert('请输入名称或内容');
+      return;
+    }
+    ajaxReq({
+      url:'/home/flab/save',
+      data:{
+        pageData:JSON.stringify(editCont),
+        title:title,
+        summery:summery,
+        postType:parseInt($('#txtPost').val()),
+        cateid:parseInt($('#txtCate').val()),
+      },
+      succFun:function(res) {
+        if(res.code == '000') {
+          location.reload();
+        } else {
+          alert(res.msg);
+        }
+      }
+    })
+  });
+
+  $('#createHTML').on('click' , function() {
+    if(!editCont.html) {
+      return;
+    }
+    refreshCont(1);
+  });
+
   var postTimer;
-  function refreshCont() {
+  function refreshCont(isExport) {
+    var flabForm = document.getElementById('flabForm');
+    if(isExport) {
+      editCont.export = 1;
+      flabForm.target = '_blank';
+    } else {
+      editCont.export && (delete editCont.export);
+      flabForm.target = 'flabview';
+    }
     postTimer && clearTimeout(postTimer);
     postTimer = setTimeout(function() {
       postCont();
@@ -133,7 +207,6 @@
   function postCont() {
     var flabForm = document.getElementById('flabForm');
     var pageData = document.getElementById('pageData');
-    var jstype = document.getElementById('jstype');
     var libNames = document.getElementsByName('libNames[]');
     editCont.cssLinks = [];
     editCont.jsLink = [];
@@ -144,7 +217,6 @@
         editCont.jsLink.push(libNames[i].value);
       }
     }
-    editCont.jstype = jstype.value+'';
     pageData.value = JSON.stringify(editCont);
     flabForm.submit();
   }

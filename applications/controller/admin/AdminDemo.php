@@ -22,8 +22,11 @@ class AdminDemoController extends AdminController {
     }
 
     public function del() {
-        $table = TableModel::getInstance('demo' , 'demo_id');
-        $table->data('demo_id' , $this->http->inputPost('del_id'))->deleteById();
+        $model = $this->getModel('demo');
+        $table = TableModel::getInstance('code_file' , 'cf_id');
+        $demo_id = $this->http->inputPost('del_id');
+        $table->deleteByWhere('demo_id='.$demo_id);
+        $model->data('demo_id' , $demo_id)->deleteById();
         $this->http->success()->json();
     }
 

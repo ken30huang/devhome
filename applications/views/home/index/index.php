@@ -1,6 +1,6 @@
 <div class="list_wrap clearfix">
     <?php foreach($all_list as $all):?>
-    <div class="list_item">
+    <div class="list_item list_<?php echo $all['c_type']; ?>_bg">
         <!-- <img src="http://demo.sc.chinaz.net/Files/DownLoad/moban/201910/moban4105/images/thumbs/masonry/woodcraft-600.jpg" class="
         res_width" /> -->
         <div class="list_item_body">

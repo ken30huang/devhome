@@ -1,15 +1,13 @@
-<div class="container mt-80">
-    <div class="card-columns">
-        <?php foreach($demo_list as $row):?>
-        <div class="card">
-            <?php if(!empty($row['demo_thumb'])):?>
-            <img class="card-img-top" src="<?php echo $row['demo_thumb']?>" alt="Card image cap" />
-            <?php endif;?>
-            <div class="card-body">
-                <h5 class="card-title"><?php echo $row['demo_name']?></h5>
-                <p class="card-text"><?php echo $row['demo_desc']?></p>
-            </div>
-            <div class="card-body">
+<div class="list_wrap clearfix">
+    <?php foreach($demo_list as $row):?>
+    <div class="list_row">
+        <?php if(!empty($row['demo_thumb'])):?>
+        <img src="<?php echo $row['demo_thumb']?>" class="res_width" />
+        <?php endif;?>
+        <div class="list_item_body">
+            <h1><?php echo $row['demo_name'];?></h1>
+            <p class="list_item_summery"><?php echo $row['demo_desc']?></p>
+            <div class="list_item_btns">
                 <?php if($row['demo_iscompile'] == 0):?>
                 <a href="<?php echo module_url('/demos/front?demo_id='.$row['demo_id']);?>" class="card-link">效果演示</a>
                 <?php else:?>
@@ -17,6 +15,6 @@
                 <?php endif;?>
             </div>
         </div>
-        <?php endforeach;?>
     </div>
+    <?php endforeach;?>
 </div>

@@ -16,7 +16,7 @@ class HomeSnippetController extends IndexBaseController {
 
         $this->assign('all_list' , $rows);
         $this->assign('cate_map' , $cate_map);
-        $this->assign('pager' , page_show($all_list['page'] , $all_list['count'] , $all_list['pagesize'] , '/home/index'));
+        $this->assign('pager' , page_show($all_list['page'] , $all_list['count'] , $all_list['pagesize'] , '/home/snippet'));
         $this->display();
     }
 
