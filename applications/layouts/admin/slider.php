@@ -97,6 +97,11 @@
                         <span class="glyphicon glyphicon-share-alt"></span> 内容分类
                     </a>
                 </li>
+                <li>
+                    <a class="" href="/admin/visitlog">
+                        <span class="glyphicon glyphicon-share-alt"></span> 访问列表
+                    </a>
+                </li>
             </ul>
         </li>
     </ul>

@@ -34,7 +34,7 @@
     <div class="cont_wrap">
         <?php echo $main; ?>
     </div>
-    <script src="/applications/layouts/<?php echo $ui_path;?>/js/main.js?v=1.0.0"></script>
+    <script src="/applications/layouts/<?php echo $ui_path;?>/js/main.js?v=1.0.2"></script>
 </body>
 
 </html>

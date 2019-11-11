@@ -49,5 +49,16 @@ class IndexBaseController extends WebController {
 
         echo $this->view->display(A_NAME);
     }
+
+    public function vlog() {
+        $model = TableModel::getInstance('visitlog' , 'v_id');
+        $logData = array(
+            'v_ip'=>$this->http->getIP(),
+            'v_link'=>$this->http->inputGet('vurl'),
+            'v_logtime'=>date('Y-m-d H:i:s'),
+            'v_staytime'=>intval($this->http->inputGet('vtime'))
+        );
+        $model->data($logData)->save();
+    }
 }
 ?>
