@@ -2,15 +2,15 @@
 Navicat MySQL Data Transfer
 
 Source Server         : local_db
-Source Server Version : 100113
+Source Server Version : 50720
 Source Host           : localhost:3306
 Source Database       : db_devhome
 
 Target Server Type    : MYSQL
-Target Server Version : 100113
+Target Server Version : 50720
 File Encoding         : 65001
 
-Date: 2019-11-14 15:21:04
+Date: 2019-11-14 23:32:49
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -144,7 +144,6 @@ INSERT INTO `dh_libs` VALUES ('128', 'dropzone', 'http://www.dropzonejs.com/', '
 INSERT INTO `dh_libs` VALUES ('129', 'pace', 'http://github.hubspot.com/pace/', 'https://github.com/HubSpot/pace', 'Automatic page load progress bar', 'pace,pace.js', null, '14001', '1.0.2', '0');
 INSERT INTO `dh_libs` VALUES ('130', 'mo-js', '', 'https://github.com/legomushroom/mojs.git', 'motion graphics toolbelt for the web', 'motion,effects,animation,motion graphics', null, '13986', '0.288.2', '0');
 INSERT INTO `dh_libs` VALUES ('132', 'ramda', 'https://www.github.com/ramda/ramda', 'git://github.com/ramda/ramda.git', 'A practical functional library for JavaScript programmers.', 'functional', null, '13967', '0.25.0', '0');
-INSERT INTO `dh_libs` VALUES ('133', 'angular-ui-router', 'https://angular-ui.github.com/', 'https://github.com/angular-ui/ui-router.git', 'State-based routing for AngularJS', 'angular,ui,angular-ui,ui-router,router,state-machine,state-tree', null, '13913', '1.0.18', '0');
 INSERT INTO `dh_libs` VALUES ('134', 'jasmine', 'http://jasmine.github.io/', 'https://github.com/jasmine/jasmine.git', 'Official packaging of Jasmine\'s core files for use by Node.js projects.', 'bdd,testing', null, '13881', '3.1.0', '0');
 INSERT INTO `dh_libs` VALUES ('135', 'react-select', 'https://jedwatson.github.io/react-select/', 'https://github.com/JedWatson/react-select.git', 'A Select control built with and for ReactJS', 'combobox,form,input,multiselect,react,react-component,select,ui', null, '13841', '1.2.1', '0');
 INSERT INTO `dh_libs` VALUES ('136', 'react-bootstrap', 'http://react-bootstrap.github.io/', 'https://github.com/react-bootstrap/react-bootstrap', 'Bootstrap 3 components built with React', 'react,ecosystem-react,react-component,bootstrap', null, '13825', '0.32.1', '0');
@@ -252,99 +251,50 @@ INSERT INTO `dh_libs` VALUES ('311', 'docsify', 'https://docsify.js.org', 'https
 INSERT INTO `dh_libs` VALUES ('312', 'jquery.transit', 'http://ricostacruz.com/jquery.transit/', 'https://github.com/rstacruz/jquery.transit', 'Smooth CSS3 transitions and transformations for jQuery.', 'css3,transitions,transformations,jquery', null, '7441', '0.9.12', '0');
 INSERT INTO `dh_libs` VALUES ('313', 'interact.js', 'http://interactjs.io', 'https://github.com/taye/interact.js.git', 'Drag and drop, resizing and multi-touch gestures with inertia and snapping for modern browsers (and also IE8+)', 'interact.js,draggable,droppable,drag,drop,drag and drop,resize,touch,multi-touch,gesture,snap,inertia,grid,autoscroll,SVG', null, '7425', '1.2.9', '0');
 INSERT INTO `dh_libs` VALUES ('314', 'Ladda', 'http://lab.hakim.se/ladda', 'https://github.com/hakimel/Ladda.git', 'Buttons with built-in loading indicators', 'Ladda,按钮,动画,特效', '让您的btn带上Loading的特效', '7365', '1.0.6', '52');
-INSERT INTO `dh_libs` VALUES ('315', 'signalr.js', '', 'git+https://github.com/SignalR/SignalR.git', 'Incredibly simple real-time web for .NET http://signalr.net', 'signalr,chat', null, '7351', '2.2.3', '0');
-INSERT INTO `dh_libs` VALUES ('316', 'mailcheck', '', 'git://github.com/mailcheck/mailcheck.git', 'A standalone module that suggests a right domain when your users misspell it in an email address.', 'form,email,spell check', null, '7337', '1.1.2', '0');
-INSERT INTO `dh_libs` VALUES ('317', 'iCheck', null, null, 'Highly customizable checkboxes and radio buttons (jQuery and Zepto). Features: identical inputs across different browsers and devices (both desktop and mobile), touch devices support (iOS, Android, BlackBerry, Windows Phone, Amazon Kindle), keyboard acces', null, null, '7324', null, '0');
-INSERT INTO `dh_libs` VALUES ('318', 'muuri', null, null, 'Responsive, sortable, filterable and draggable grid layouts.', null, null, '7267', null, '0');
-INSERT INTO `dh_libs` VALUES ('319', 'backbone.marionette', null, null, 'Make your Backbone.js apps dance!', null, null, '7172', null, '0');
-INSERT INTO `dh_libs` VALUES ('320', 'vis', null, null, 'A dynamic, browser-based visualization library.', null, null, '7155', null, '0');
-INSERT INTO `dh_libs` VALUES ('321', 'react-grid-layout', null, null, 'A draggable and resizable grid layout with responsive breakpoints, for React.', null, null, '7130', null, '0');
-INSERT INTO `dh_libs` VALUES ('322', 'tracking.js', null, null, 'A modern approach for Computer Vision on the web.', null, null, '7126', null, '0');
-INSERT INTO `dh_libs` VALUES ('323', 'cropper', null, null, 'A simple jQuery image cropping plugin.', null, null, '7107', null, '0');
-INSERT INTO `dh_libs` VALUES ('324', 'turbolinks', null, null, 'Turbolinks makes navigating your web application faster', null, null, '7087', null, '0');
-INSERT INTO `dh_libs` VALUES ('325', 'gmaps.js', null, null, 'the easiest way to use Google Maps', null, null, '7030', null, '0');
-INSERT INTO `dh_libs` VALUES ('326', 'webfont', null, null, 'Web Font Loader gives you added control when using linked fonts via @font-face.', null, null, '7014', null, '0');
-INSERT INTO `dh_libs` VALUES ('327', 'vue-material', null, null, 'Material Design for Vue.js', null, null, '6995', null, '0');
-INSERT INTO `dh_libs` VALUES ('328', 'dynamics.js', null, null, 'Javascript library to create physics-related animations', null, null, '6978', null, '0');
-INSERT INTO `dh_libs` VALUES ('329', 'EaselJS', null, null, 'EaselJS is a library for building high-performance interactive 2D content in HTML5. It provides a feature-rich display  list to allow you to manipulate and animate graphics. It also provides a robust interactive model for mouse and touch  interactions.', null, null, '6973', null, '0');
-INSERT INTO `dh_libs` VALUES ('330', 'tailwindcss', null, null, 'A utility-first CSS framework for rapidly building custom user interfaces.', null, null, '6951', null, '0');
-INSERT INTO `dh_libs` VALUES ('331', 'metrics-graphics', null, null, 'A library optimized for concise, principled data graphics and layouts', null, null, '6940', null, '0');
-INSERT INTO `dh_libs` VALUES ('332', 'markdown.js', null, null, 'A sensible Markdown parser for javascript', null, null, '6916', null, '0');
-INSERT INTO `dh_libs` VALUES ('333', 'layer', null, null, 'Cross-end web layer tool', null, null, '6902', null, '0');
-INSERT INTO `dh_libs` VALUES ('334', 'spectre.css', null, null, 'Spectre.css: a lightweight, responsive and modern CSS framework.', null, null, '6891', null, '0');
-INSERT INTO `dh_libs` VALUES ('335', 'typed.js', null, null, 'A jQuery typing animation script', null, null, '6872', null, '0');
-INSERT INTO `dh_libs` VALUES ('336', 'zurb-ink', null, null, 'Ink is a responsive email framework for making emails that look great on any device.', null, null, '6855', null, '0');
-INSERT INTO `dh_libs` VALUES ('337', 'foundation-emails', null, null, 'A framework for responsive emails made by ZURB', null, null, '6855', null, '0');
-INSERT INTO `dh_libs` VALUES ('338', 'morris.js', null, null, 'Easy, pretty charts', null, null, '6846', null, '0');
-INSERT INTO `dh_libs` VALUES ('339', 'color-thief', null, null, 'Get the dominant color or color palette from an image.', null, null, '6845', null, '0');
-INSERT INTO `dh_libs` VALUES ('340', 'core-js', null, null, 'Standard library', null, null, '6830', null, '0');
-INSERT INTO `dh_libs` VALUES ('341', 'onsen', null, null, 'HTML5 Mobile Framework & UI Components', null, null, '6771', null, '0');
-INSERT INTO `dh_libs` VALUES ('342', 'redux-persist', null, null, 'persist and rehydrate redux stores', null, null, '6754', null, '0');
-INSERT INTO `dh_libs` VALUES ('343', 'swipe', null, null, 'Swipe is a lightweight mobile slider with 1-to-1 touch movement.', null, null, '6735', null, '0');
-INSERT INTO `dh_libs` VALUES ('344', 'fuse.js', null, null, 'Lightweight fuzzy-search', null, null, '6731', null, '0');
-INSERT INTO `dh_libs` VALUES ('345', 'graphiql', null, null, 'An graphical interactive in-browser GraphQL IDE.', null, null, '6728', null, '0');
-INSERT INTO `dh_libs` VALUES ('346', 'numeral.js', null, null, 'Format and manipulate numbers.', null, null, '6693', null, '0');
-INSERT INTO `dh_libs` VALUES ('347', 'nvd3', null, null, 'A reusable charting library written in d3.js', null, null, '6682', null, '0');
-INSERT INTO `dh_libs` VALUES ('348', 'vex-js', null, null, 'Beautiful, functional, dialogs in Javascript', null, null, '6655', null, '0');
-INSERT INTO `dh_libs` VALUES ('349', 'vConsole', null, null, 'A lightweight, extendable front-end developer tool for mobile web page.', null, null, '6642', null, '0');
-INSERT INTO `dh_libs` VALUES ('350', 'wysihtml5', null, null, 'wysihtml5 is an open source rich text editor based on HTML5 technology and the progressive-enhancement approach.  It uses a sophisticated security concept and aims to generate fully valid HTML5 markup by preventing unmaintainable tag soups and inline styl', null, null, '6641', null, '0');
-INSERT INTO `dh_libs` VALUES ('351', 'flight', null, null, 'An event-driven web framework, from Twitter', null, null, '6640', null, '0');
-INSERT INTO `dh_libs` VALUES ('352', 'progressbar.js', null, null, 'Responsive and slick progress bars with animated SVG paths', null, null, '6606', null, '0');
-INSERT INTO `dh_libs` VALUES ('353', 'barba.js', null, null, 'Barba.js it\'s a small, flexible and dependency free library that helps you creating fluid and smooth transition between your website\'s pages.', null, null, '6590', null, '0');
-INSERT INTO `dh_libs` VALUES ('354', 'FitText.js', null, null, 'A jQuery plugin for inflating web type', null, null, '6570', null, '0');
-INSERT INTO `dh_libs` VALUES ('355', 'radium', null, null, 'A set of tools to manage inline styles on React elements', null, null, '6568', null, '0');
-INSERT INTO `dh_libs` VALUES ('356', 'simple-icons', null, null, 'PNG and SVG icons for popular brands', null, null, '6561', null, '0');
-INSERT INTO `dh_libs` VALUES ('357', 'jquery.perfect-scrollbar', null, null, 'Minimalistic but perfect custom scrollbar plugin', null, null, '6510', null, '0');
-INSERT INTO `dh_libs` VALUES ('358', 'zeroclipboard', null, null, 'The ZeroClipboard library provides an easy way to copy text to the clipboard using an invisible Adobe Flash movie and a JavaScript interface.', null, null, '6504', null, '0');
-INSERT INTO `dh_libs` VALUES ('359', 'jquery.adaptive-backgrounds', null, null, 'A simple jQuery plugin to extract the dominant color of an image and apply it to the background of its parent element.', null, null, '6469', null, '0');
-INSERT INTO `dh_libs` VALUES ('360', 'es5-shim', null, null, 'ECMAScript 5 compatibility shims for legacy JavaScript engines', null, null, '6462', null, '0');
-INSERT INTO `dh_libs` VALUES ('361', 'gpu.js', null, null, 'GPU Accelerated JavaScript', null, null, '6443', null, '0');
-INSERT INTO `dh_libs` VALUES ('362', 'sinon.js', null, null, 'JavaScript test spies, stubs and mocks.', null, null, '6416', null, '0');
-INSERT INTO `dh_libs` VALUES ('363', 'odometer.js', null, null, 'Transition numbers with ease', null, null, '6412', null, '0');
-INSERT INTO `dh_libs` VALUES ('364', 'victory', null, null, 'Data viz for React', null, null, '6405', null, '0');
-INSERT INTO `dh_libs` VALUES ('365', 'fingerprintjs2', null, null, 'Modern & flexible browser fingerprinting library', null, null, '6373', null, '0');
-INSERT INTO `dh_libs` VALUES ('366', 'dc', null, null, 'A multi-dimensional charting library built to work natively with crossfilter and rendered using d3.js ', null, null, '6365', null, '0');
-INSERT INTO `dh_libs` VALUES ('367', 'eonasdan-bootstrap-datetimepicker', null, null, 'A date/time picker component designed to work with Bootstrap 3 and Momentjs. For usage, installation and demos see Project Site on GitHub', null, null, '6361', null, '0');
-INSERT INTO `dh_libs` VALUES ('368', 'bootstrap-datetimepicker', null, null, 'A date/time picker component designed to work with Bootstrap 3 and Momentjs. For usage, installation and demos see Project Site on GitHub', null, null, '6361', null, '0');
-INSERT INTO `dh_libs` VALUES ('369', 'svg.js', null, null, 'A lightweight library for manipulating and animating SVG.', null, null, '6350', null, '0');
-INSERT INTO `dh_libs` VALUES ('370', 'mediaelement', null, null, 'HTML5 audio and video players in pure HTML and CSS. MediaElementPlayer.js uses the same HTML/CSS for all players.', null, null, '6339', null, '0');
-INSERT INTO `dh_libs` VALUES ('371', 'grapesjs', null, null, 'Free and Open Source Web Builder Framework', null, null, '6327', null, '0');
-INSERT INTO `dh_libs` VALUES ('372', 'synaptic', null, null, 'architecture-free neural network library', null, null, '6280', null, '0');
-INSERT INTO `dh_libs` VALUES ('373', 'rickshaw', null, null, 'JavaScript toolkit for creating interactive real-time graphs', null, null, '6279', null, '0');
-INSERT INTO `dh_libs` VALUES ('374', 'vega', null, null, 'The Vega visualization grammar.', null, null, '6278', null, '0');
-INSERT INTO `dh_libs` VALUES ('375', 'pikaday', null, null, 'A refreshing JavaScript Datepicker — lightweight, no dependencies, modular CSS', null, null, '6274', null, '0');
-INSERT INTO `dh_libs` VALUES ('376', 'awesomplete', null, null, 'Ultra lightweight, usable, beautiful autocomplete with zero dependencies.', null, null, '6246', null, '0');
-INSERT INTO `dh_libs` VALUES ('377', 'pdfmake', null, null, 'Client/server side PDF printing in pure JavaScript', null, null, '6206', null, '0');
-INSERT INTO `dh_libs` VALUES ('378', 'jquery.gridster', null, null, 'a drag-and-drop multi-column jQuery grid plugin', null, null, '6184', null, '0');
-INSERT INTO `dh_libs` VALUES ('379', 'x-editable', null, null, 'In-place editing with Twitter Bootstrap, jQuery UI or pure jQuery', null, null, '6144', null, '0');
-INSERT INTO `dh_libs` VALUES ('380', 'keymaster', null, null, 'library for defining and dispatching keyboard shortcuts', null, null, '6138', null, '0');
-INSERT INTO `dh_libs` VALUES ('381', 'es6-promise', null, null, 'A lightweight library that provides tools for organizing asynchronous code', null, null, '6130', null, '0');
-INSERT INTO `dh_libs` VALUES ('382', 'markdown-it', null, null, 'Markdown-it - modern pluggable markdown parser.', null, null, '6099', null, '0');
-INSERT INTO `dh_libs` VALUES ('383', 'snap.js', null, null, '', null, null, '6065', null, '0');
-INSERT INTO `dh_libs` VALUES ('384', 'page.js', null, null, 'Tiny client-side router', null, null, '6054', null, '0');
-INSERT INTO `dh_libs` VALUES ('385', 'crossfilter', null, null, 'Fast multidimensional filtering for coordinated views.', null, null, '6036', null, '0');
-INSERT INTO `dh_libs` VALUES ('386', 'reactstrap', null, null, 'React Bootstrap 4 components', null, null, '6025', null, '0');
-INSERT INTO `dh_libs` VALUES ('387', 'noty', null, null, 'Noty is a library that makes it easy to create alert - success - error - warning - information - confirmation messages as an alternative the standard alert dialog. Each notification is added to a queue. (Optional)', null, null, '6025', null, '0');
-INSERT INTO `dh_libs` VALUES ('388', 'jquery-noty', null, null, 'noty is a jQuery plugin that makes it easy to create alert - success - error - warning - information - confirmation messages as an alternative the standard alert dialog. Each notification is added to a queue. (Optional)', null, null, '6025', null, '0');
-INSERT INTO `dh_libs` VALUES ('389', 'sockjs-client', null, null, 'SockJS-client is a browser JavaScript library that provides a WebSocket-like object. SockJS gives you a coherent, cross-browser, Javascript API which creates a low latency, full duplex, cross-domain communication channel between the browser and the web se', null, null, '6016', null, '0');
-INSERT INTO `dh_libs` VALUES ('390', 'OwlCarousel2', null, null, 'Touch enabled jQuery plugin that lets you create beautiful responsive carousel slider.', null, null, '6014', null, '0');
-INSERT INTO `dh_libs` VALUES ('391', 'angular-strap', null, null, 'AngularStrap - AngularJS directives for Bootstrap', null, null, '6010', null, '0');
-INSERT INTO `dh_libs` VALUES ('392', 'notie', null, null, 'notie - a clean and simple notification, input, and selection suite for javascript, with no dependencies', null, null, '6006', null, '0');
-INSERT INTO `dh_libs` VALUES ('393', 'bacon.js', null, null, 'A small functional reactive programming lib for JavaScript.', null, null, '5979', null, '0');
-INSERT INTO `dh_libs` VALUES ('394', 'antd-mobile', null, null, 'A configurable Mobile UI specification and React-based implementation.', null, null, '5952', null, '0');
-INSERT INTO `dh_libs` VALUES ('395', 'lovefield', null, null, 'Lovefield - A relational database for web apps', null, null, '5927', null, '0');
-INSERT INTO `dh_libs` VALUES ('396', 'clusterize.js', null, null, 'Tiny vanilla JS plugin to display large data sets easily', null, null, '5920', null, '0');
-INSERT INTO `dh_libs` VALUES ('397', 'isomorphic-fetch', null, null, 'Isomorphic WHATWG Fetch API, for Node & Browserify', null, null, '5892', null, '0');
-INSERT INTO `dh_libs` VALUES ('398', 'shepherd', null, null, 'Guide your users through a tour of your app.', null, null, '5876', null, '0');
-INSERT INTO `dh_libs` VALUES ('399', 'tween.js', null, null, 'Super simple, fast and easy to use tweening engine which incorporates optimised Robert Penner\'s equations.', null, null, '5871', null, '0');
-INSERT INTO `dh_libs` VALUES ('400', 'wangEditor', null, null, 'wangEditor, your simple open-source easy-use rich text editor!', null, null, '5865', null, '0');
-INSERT INTO `dh_libs` VALUES ('401', 'mathjax', null, null, 'MathJax is an open source JavaScript display engine for mathematics that works in all browsers.', null, null, '5854', null, '0');
-INSERT INTO `dh_libs` VALUES ('402', 'PapaParse', null, null, 'Fast and powerful CSV parser for the browser that supports web workers and streaming large files. Converts CSV to JSON and JSON to CSV.', null, null, '5846', null, '0');
-INSERT INTO `dh_libs` VALUES ('403', 'js-sequence-diagrams', null, null, 'Generates UML sequence diagrams from simple text', null, null, '5842', null, '0');
-INSERT INTO `dh_libs` VALUES ('404', 'jquery-infinitescroll', null, null, 'Infinite Scroll is a JavaScript plugin that automatically adds the next page, saving users from a full page load.', null, null, '5824', null, '0');
-INSERT INTO `dh_libs` VALUES ('405', 'prism', null, null, 'Lightweight, robust, elegant syntax highlighting. A spin-off project from Dabblet.', null, null, '5821', null, '0');
-INSERT INTO `dh_libs` VALUES ('406', 'fancybox', null, null, 'Touch enabled, responsive and fully customizable jQuery lightbox script', null, null, '5786', null, '0');
-INSERT INTO `dh_libs` VALUES ('407', 'two.js', null, null, 'A two-dimensional drawing api meant for modern browsers.', null, null, '5783', null, '0');
+INSERT INTO `dh_libs` VALUES ('316', 'mailcheck', '', 'https://github.com/mailcheck/mailcheck.git', 'A standalone module that suggests a right domain when your users misspell it in an email address.', 'form,email,spell check', '', '7337', '1.1.2', '-1');
+INSERT INTO `dh_libs` VALUES ('317', 'iCheck', 'http://fronteed.com/iCheck/', 'https://github.com/fronteed/iCheck', 'Highly customizable checkboxes and radio buttons (jQuery and Zepto). Features: identical inputs across different browsers and devices (both desktop and mobile), touch devices support (iOS, Android, BlackBerry, Windows Phone, Amazon Kindle), keyboard acces', 'checkbox,radio,input,field,form,desktop,mobile,custom,replacement,accessibility,skins,ui,checked,disabled,indeterminate,css3,html5,tiny,lightweight,jquery,zepto', null, '7324', '1.0.2', '0');
+INSERT INTO `dh_libs` VALUES ('318', 'muuri', 'https://haltu.github.io/muuri/', 'https://github.com/haltu/muuri.git', 'Responsive, sortable, filterable and draggable grid layouts.', 'grid,layout,bin-packing,filter,sort,drag', 'Grid布局，它是响应式的，支持拖拽、过滤，支持IE9+', '7267', '0.5.4', '-1');
+INSERT INTO `dh_libs` VALUES ('320', 'vis', 'http://visjs.org/', 'git://github.com/almende/vis.git', 'A dynamic, browser-based visualization library.', 'vis,visualization,web based,browser based,javascript,chart,linechart,timeline,graph,network,browser', '2D/3D绘图插件', '7155', '4.21.0', '-1');
+INSERT INTO `dh_libs` VALUES ('321', 'react-grid-layout', 'https://strml.github.io/react-grid-layout/examples/0-showcase.html', 'git+https://github.com/STRML/react-grid-layout.git', 'A draggable and resizable grid layout with responsive breakpoints, for React.', 'react,grid,drag,draggable,resize,resizable,fluid,responsive', '基于React开发的可拖拽的Grid网格插件', '7130', '0.16.6', '-1');
+INSERT INTO `dh_libs` VALUES ('322', 'tracking.js', 'http://trackingjs.com', 'http://github.com:eduardolundgren/tracking.js.git', 'A modern approach for Computer Vision on the web.', 'tracking,trackingjs,webrtc', '基于浏览器的人脸识别捕捉工具', '7126', '1.1.3', '-1');
+INSERT INTO `dh_libs` VALUES ('323', 'cropper', '', 'https://github.com/fengyuanchen/cropper.git', 'A simple jQuery image cropping plugin.', 'image,cropping,jquery,plugin,html,css,javacript,front-end,web,development', '这是一款基于浏览器的图片编辑的工具', '7107', '4.0.0', '-1');
+INSERT INTO `dh_libs` VALUES ('324', 'turbolinks', '', 'https://github.com/turbolinks/turbolinks.git', 'Turbolinks makes navigating your web application faster', 'rails,navigate,fast,turbolinks,popular', null, '7087', '5.1.1', '0');
+INSERT INTO `dh_libs` VALUES ('328', 'dynamics.js', 'http://dynamicsjs.com', 'https://github.com/michaelvillar/dynamics.js', 'Javascript library to create physics-related animations', 'animation,javascript,requestAnimationFrame,spring,physic,dynamics', '2D物理动画库', '6978', '1.1.5', '-1');
+INSERT INTO `dh_libs` VALUES ('329', 'EaselJS', 'https://createjs.com/easeljs/', 'git+https://github.com/CreateJS/EaselJS.git', 'EaselJS is a library for building high-performance interactive 2D content in HTML5. It provides a feature-rich display  list to allow you to manipulate and animate graphics. It also provides a robust interactive model for mouse and touch  interactions.', 'canvas,webgl,graphics,animation,html5', null, '6973', '1.0.2', '0');
+INSERT INTO `dh_libs` VALUES ('330', 'tailwindcss', 'https://tailwindcss.com', 'https://github.com/tailwindcss/tailwindcss', 'A utility-first CSS framework for rapidly building custom user interfaces.', 'tailwindcss,css,css-framework,postcss,functional-css,utility-classes,responsive', '一个快速自定义CSS框架', '6951', '0.5.3', '-1');
+INSERT INTO `dh_libs` VALUES ('331', 'metrics-graphics', 'http://metricsgraphicsjs.org', 'git://github.com/mozilla/metrics-graphics.git', 'A library optimized for concise, principled data graphics and layouts', 'metrics-graphics,metricsgraphicsjs,metricsgraphics,metricsgraphics.js,d3 charts', null, '6940', '2.15.1', '0');
+INSERT INTO `dh_libs` VALUES ('332', 'markdown.js', 'https://github.com/evilstreak/markdown-js/', 'https://github.com/evilstreak/markdown-js', 'A sensible Markdown parser for javascript', 'markdown,markdown-js,text processing,ast', null, '6916', '0.5.0', '0');
+INSERT INTO `dh_libs` VALUES ('333', 'layer', 'http://layer.layui.com/', 'https://github.com/sentsin/layer', 'Cross-end web layer tool', 'layer,layui,dialog,jquery', ' 基于jquery的弹出层UI框架', '6902', '2.3', '-1');
+INSERT INTO `dh_libs` VALUES ('334', 'spectre.css', 'https://picturepan2.github.io/spectre', 'git+https://github.com/picturepan2/spectre.git', 'Spectre.css: a lightweight, responsive and modern CSS framework.', 'css,framework,flexbox,responsive,mobile-friendly,front-end,less,modern', 'CSS框架', '6891', '0.5.1', '-1');
+INSERT INTO `dh_libs` VALUES ('336', 'zurb-ink', 'http://zurb.com/ink', 'https://github.com/zurb/ink.git', 'Ink is a responsive email framework for making emails that look great on any device.', 'ink,css,email,html,zurb', '支持响应式的邮件内容CSS框架', '6855', '1.0.5', '-1');
+INSERT INTO `dh_libs` VALUES ('338', 'morris.js', 'http://morrisjs.github.io/morris.js/', 'https://github.com/morrisjs/morris.js.git', 'Easy, pretty charts', 'graphs,line,time,charts', '图表插件', '6846', '0.5.1', '-1');
+INSERT INTO `dh_libs` VALUES ('339', 'color-thief', 'http://lokeshdhakar.com/projects/color-thief/', 'https://github.com/lokesh/color-thief.git', 'Get the dominant color or color palette from an image.', 'color,palette,sampling,image,picture,photo,canvas', '从图片中获取颜色', '6845', '2.0.1', '-1');
+INSERT INTO `dh_libs` VALUES ('343', 'swipe', 'http://swipejs.com/', 'https://github.com/thebird/Swipe.git', 'Swipe is a lightweight mobile slider with 1-to-1 touch movement.', 'swipe,touch,mobile,slider', '手机端触碰翻页的插件', '6735', '2.0.0', '-1');
+INSERT INTO `dh_libs` VALUES ('345', 'graphiql', '', 'https://github.com/graphql/graphiql.git', 'An graphical interactive in-browser GraphQL IDE.', 'graphiql', 'GraphQL IDE', '6728', '0.11.11', '-1');
+INSERT INTO `dh_libs` VALUES ('346', 'numeral.js', 'http://numeraljs.com/', 'https://github.com/adamwdraper/Numeral-js', 'Format and manipulate numbers.', 'numeral,number,format,time,money,percentage', '操作数字，自定义数字格式', '6693', '2.0.6', '-1');
+INSERT INTO `dh_libs` VALUES ('349', 'vConsole', '', 'git+https://github.com/Tencent/vConsole.git', 'A lightweight, extendable front-end developer tool for mobile web page.', 'console,lightweight,extendable,debug,mobile', '针对移动端网页的模拟浏览器console调试工具', '6642', '3.2.0', '-1');
+INSERT INTO `dh_libs` VALUES ('353', 'barba.js', 'http://barbajs.org', 'https://github.com/luruke/barba.js', 'Barba.js it\'s a small, flexible and dependency free library that helps you creating fluid and smooth transition between your website\'s pages.', 'pjax,transitions,navigation', '实现网站不同页面之间的平滑过渡的跳转', '6590', '1.0.0', '-1');
+INSERT INTO `dh_libs` VALUES ('356', 'simple-icons', 'https://simpleicons.org', 'https://github.com/danleech/simple-icons.git', 'PNG and SVG icons for popular brands', 'icons,SVG,PNG,image', '免费的SVG商标', '6561', '3.0.1', '-1');
+INSERT INTO `dh_libs` VALUES ('357', 'jquery.perfect-scrollbar', 'https://utatti.github.io/perfect-scrollbar/', 'https://github.com/utatti/perfect-scrollbar', 'Minimalistic but perfect custom scrollbar plugin', 'jquery-plugin,frontend,scroll,scrollbar', '轻量级的滚动插件', '6510', '1.3.0', '-1');
+INSERT INTO `dh_libs` VALUES ('360', 'es5-shim', 'https://github.com/es-shims/es5-shim/', 'https://github.com/es-shims/es5-shim.git', 'ECMAScript 5 compatibility shims for legacy JavaScript engines', 'shim,es5,es5 shim,javascript,ecmascript,polyfill', 'ES5兼容插件', '6462', '4.5.10', '-1');
+INSERT INTO `dh_libs` VALUES ('361', 'gpu.js', 'http://gpu.rocks/', 'git+https://github.com/gpujs/gpu.js.git', 'GPU Accelerated JavaScript', 'gpgpu,GPU,webgl,accelerate', 'GPU加速Javascript执行库', '6443', '1.2.0', '-1');
+INSERT INTO `dh_libs` VALUES ('362', 'sinon.js', 'http://sinonjs.org/', 'https://github.com/sinonjs/sinon', 'JavaScript test spies, stubs and mocks.', 'utility,popular,spies,stubs,mock,testing', '单元测试库', '6416', '5.0.10', '-1');
+INSERT INTO `dh_libs` VALUES ('365', 'fingerprintjs2', 'https://valve.github.io/fingerprintjs2/', 'https://github.com/Valve/fingerprintjs2.git', 'Modern & flexible browser fingerprinting library', 'browser,identification,fingerprint,fingerprinting,privacy', '基于浏览器的指纹提取库', '6373', '1.8.0', '-1');
+INSERT INTO `dh_libs` VALUES ('371', 'grapesjs', 'https://grapesjs.com', 'https://github.com/artf/grapesjs.git', 'Free and Open Source Web Builder Framework', 'wte,grapes,grapesjs,web,template,editor,site,builder,html,website,newsletter,wysiwyg', '网页设计工具', '6327', '0.14.15', '-1');
+INSERT INTO `dh_libs` VALUES ('374', 'vega', 'https://vega.github.io/vega/', 'https://github.com/vega/vega.git', 'The Vega visualization grammar.', 'vega,vega.js', null, '6278', '3.3.1', '0');
+INSERT INTO `dh_libs` VALUES ('377', 'pdfmake', 'https://bpampuch.github.io/pdfmake', 'git://github.com/bpampuch/pdfmake.git', 'Client/server side PDF printing in pure JavaScript', 'pdf,javascript,printing,layout', null, '6206', '0.1.36', '0');
+INSERT INTO `dh_libs` VALUES ('381', 'es6-promise', '', 'git://github.com/jakearchibald/es6-promise.git', 'A lightweight library that provides tools for organizing asynchronous code', 'promises,futures', '兼容IE9以下的浏览器支持Promise特性', '6130', '4.1.1', '-1');
+INSERT INTO `dh_libs` VALUES ('384', 'page.js', '', 'git://github.com/visionmedia/page.js.git', 'Tiny client-side router', 'page,route,router,routes,pushState', '轻量级的路由库', '6054', '1.8.6', '-1');
+INSERT INTO `dh_libs` VALUES ('392', 'notie', 'https://jaredreich.com/notie', 'https://github.com/jaredreich/notie.git', 'notie - a clean and simple notification, input, and selection suite for javascript, with no dependencies', 'tip,javascript,notification,alert,prompt,confirm,growl,toast,message', 'CSS样式库', '6006', '4.3.1', '-1');
+INSERT INTO `dh_libs` VALUES ('394', 'antd-mobile', 'http://mobile.ant.design', 'http://github.com/ant-design/ant-design-mobile', 'A configurable Mobile UI specification and React-based implementation.', 'ant,design,react,react-component,component,components,ui,framework,frontend', '一个基于 Preact / React / React Native 的 UI 组件库', '5952', '2.1.10', '-1');
+INSERT INTO `dh_libs` VALUES ('397', 'isomorphic-fetch', '', 'https://github.com/matthew-andrews/isomorphic-fetch.git', 'Isomorphic WHATWG Fetch API, for Node & Browserify', 'fetch,api,node,browserify', 'fetch低版本的兼容库', '5892', '', '-1');
+INSERT INTO `dh_libs` VALUES ('398', 'shepherd', 'https://shepherdjs.dev/', 'git://github.com/HubSpot/shepherd.git', 'Guide your users through a tour of your app.', 'guider,tour,javascript,css', '帮助指引库', '5876', '1.8.1', '-1');
+INSERT INTO `dh_libs` VALUES ('399', 'tween.js', '', 'https://github.com/tweenjs/tween.js.git', 'Super simple, fast and easy to use tweening engine which incorporates optimised Robert Penner\'s equations.', 'tween,interpolation', '动画库', '5871', '17.2.0', '-1');
+INSERT INTO `dh_libs` VALUES ('401', 'mathjax', 'http://www.mathjax.org/', 'https://github.com/mathjax/MathJax', 'MathJax is an open source JavaScript display engine for mathematics that works in all browsers.', 'Math,MathML,LaTeX,TeX', '数学公式显示引擎', '5854', '2.7.4', '-1');
+INSERT INTO `dh_libs` VALUES ('403', 'js-sequence-diagrams', 'http://bramp.github.io/js-sequence-diagrams/', 'git://github.com/bramp/js-sequence-diagrams.git', 'Generates UML sequence diagrams from simple text', 'svg,uml,sequence,diagram', '生成UML图形', '5842', '1.0.6', '-1');
+INSERT INTO `dh_libs` VALUES ('404', 'jquery-infinitescroll', 'https://infinite-scroll.com/', 'git://github.com/metafizzy/infinite-scroll.git', 'Infinite Scroll is a JavaScript plugin that automatically adds the next page, saving users from a full page load.', 'jquery,scroll,infinite,masonry,plugin,ui,DOM,browser', '滚动加载内容插件', '5824', '3.0.4', '-1');
+INSERT INTO `dh_libs` VALUES ('406', 'fancybox', 'https://fancyapps.com/fancybox/3/', 'https://github.com/fancyapps/fancybox', 'Touch enabled, responsive and fully customizable jQuery lightbox script', 'fancybox,jquery,images,image,zoom,zooming', '基于jquery弹出层插件', '5786', '3.3.5', '-1');
+INSERT INTO `dh_libs` VALUES ('407', 'two.js', 'http://jonobr1.github.com/two.js', 'https://github.com/jonobr1/two.js.git', 'A two-dimensional drawing api meant for modern browsers.', 'dom,w3c,visualization,svg,animation,canvas2d,webgl,rendering,motiongraphics', '2D艺术绘图插件', '5783', '0.6.0', '-1');
 INSERT INTO `dh_libs` VALUES ('408', 'tinymce', null, null, 'TinyMCE rich text editor', null, null, '5754', null, '0');
 INSERT INTO `dh_libs` VALUES ('409', 'chai', null, null, 'BDD/TDD assertion library for node.js and the browser. Test framework agnostic.', null, null, '5737', null, '0');
 INSERT INTO `dh_libs` VALUES ('410', 'react-slick', null, null, ' React port of slick carousel', null, null, '5721', null, '0');
