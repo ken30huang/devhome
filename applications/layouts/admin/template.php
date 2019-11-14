@@ -9,7 +9,7 @@
 
 	<link href="/static/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/static/plugins/bootstrap/css/datepicker3.css" rel="stylesheet">
-    <link href="/static/plugins/bootstrap/css/styles.css" rel="stylesheet">
+    <link href="/static/plugins/bootstrap/css/styles.css?v=1.0.0" rel="stylesheet">
     
 	<?php if(isset($csslinks)):?>
     <?php foreach($csslinks as $linkhref):?>

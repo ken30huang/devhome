@@ -10,24 +10,28 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <button type="button" class="btn btn-primary" onclick="location.href='/admin/lib/add';">新增库</button>
+                <button type="button" class="btn btn-primary" onclick="location.href='/admin/lib/add';">新增库</button>
             </div>
             <div class="panel-body">
                 <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
                             <th>库名称</th>
-                            <th>库主页</th>
-                            <th>类型</th>
+                            <th>官网</th>
+                            <th>Github地址</th>
+                            <th>Version</th>
                             <th>操作</th>
                         </tr>
                         <tbody>
                             <?php foreach($rows as $row):?>
                             <tr>
                                 <td ><?php echo $row['lib_name'];?></td>
-                                <td><?php echo $row['lib_site'];?></td>
-                                <td><?php echo (intval($row['lib_type'])==0?'开源项目':'DEMO模板');?></td>
+                                <td><a href="<?php echo $row['lib_site'];?>" target="_blank"><?php echo $row['lib_site'];?></a></td>
+                                <td><a href="<?php echo $row['lib_github'];?>" target="_blank"><?php echo $row['lib_github'];?></a></td>
+                                <td ><?php echo $row['lib_version'];?></td>
                                 <td>
-                                    <a href="javascript:;" onclick="location.href='/admin/lib/add?lib_id=<?php echo $row['lib_id'];?>';">编辑</a>
+                                    <a href="javascript:;" onclick="javascript:requestLib(<?php echo $row['lib_id'];?>);">同步内容</a>
+                                    <a href="javascript:;" onclick="location.href='/admin/lib/add?lib_id=<?php echo $row['lib_id'];?>&page=<?php echo $page; ?>';">编辑</a>
                                     <a href="javascript:;" onclick="javascript:listDel(<?php echo $row['lib_id'];?>)">删除</a>
                                 </td>
                             </tr>
@@ -35,7 +39,9 @@
                         </tbody>
                     </thead>
                 </table>
-                <div class="pager"><?php echo $pager; ?></div>
+                <div class="pager mypager">
+                    <?php echo $pager; ?>
+                </div>
             </div>
         </div>
     </div>
@@ -43,4 +49,20 @@
 
 <script>
 var moduleURL = '/admin/lib';
+
+function requestLib(lib_id) {
+    ajaxReq({
+        url:moduleURL+'/getdetail',
+        data:{
+            'lib_id':lib_id,
+        },
+        method:'POST',
+        succFun:function(res) {
+            console.log(res);
+            if(res.code == '000') {
+                location.reload();
+            }
+        }
+    });
+}
 </script>

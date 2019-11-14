@@ -26,30 +26,24 @@
                             <input id="lib_github" field="lib_github" class="form-control" placeholder="" value="<?php echo getRowVal('lib_github' , $row);?>" />
                         </div>
                         <div class="form-group">
-                            <label>文档地址</label>
-                            <input id="lib_github" field="lib_github" class="form-control" placeholder="" value="<?php echo getRowVal('lib_github' , $row);?>" />
+                            <label>库介绍（同步）</label>
+                            <input id="lib_intro_res" field="lib_intro_res" class="form-control" placeholder="" value="<?php echo getRowVal('lib_intro_res' , $row);?>" />
                         </div>
                         <div class="form-group">
-                            <label>库介绍</label>
-                            <input id="lib_intro" field="lib_intro" class="form-control" rows="4" placeholder="" value="<?php echo getRowVal('lib_intro' , $row);?>" />
+                            <label>库介绍（简介）</label>
+                            <input id="lib_intro_show" field="lib_intro_show" class="form-control" placeholder="" value="<?php echo getRowVal('lib_intro_show' , $row);?>" />
                         </div>
                         <div class="form-group">
-                            <label>CSS链接</label>
-                            <input id="lib_css" field="lib_css" class="form-control" rows="3" placeholder="" value="<?php echo getRowVal('lib_css' , $row);?>" />
+                            <label>库关键字</label>
+                            <input id="lib_keyword" field="lib_keyword" class="form-control" placeholder="" value="<?php echo getRowVal('lib_keyword' , $row);?>" />
                         </div>
                         <div class="form-group">
-                            <label>JS链接</label>
-                            <input id="lib_js" field="lib_js" class="form-control" rows="3" placeholder="" value="<?php echo getRowVal('lib_js' , $row);?>" />
-                        </div>
-                        <div class="form-group">
-                            <label>包下载地址</label>
-                            <input id="lib_download" field="lib_download" class="form-control" placeholder="" value="<?php echo getRowVal('lib_github' , $row);?>" />
-                        </div>
-                        <div class="form-group">
-                            <label>lib_type</label>
-                            <select class="form-control" id="lib_type" field="lib_type">
-                                <option value="0" <?php echo getSelVal('lib_type' , '0' , $row)?>>开源项目</option>
-                                <option value="1" <?php echo getSelVal('lib_type' , '1' , $row)?>>DEMO模板</option>
+                            <label>库类型</label>
+                            <select id="lib_cateid" field="lib_cateid" class="form-control">
+                                <option value="-1">请选择</option>
+                                <?php foreach($cate_list as $cate): ?>
+                                    <option value="<?php echo $cate['cate_id'];?>" <?php if(getRowVal('lib_cateid' , $row)){ echo 'selected'; } ?>><?php echo $cate['cate_name'];?></option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
                         <button type="button" onclick="javascript:formSave()" class="btn btn-primary">保存</button>
@@ -77,6 +71,6 @@ function formValid() {
 }
 
 function saveCallback() {
-    location.href = moduleURL;
+    location.href = moduleURL+'?page=<?php echo $_GET['page']; ?>';
 }
 </script>

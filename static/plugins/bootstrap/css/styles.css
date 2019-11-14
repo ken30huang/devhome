@@ -861,3 +861,20 @@ h1.page-header {
 .fixed-table-pagination .pagination-detail {
 	margin-top: 20px;
 }
+
+.mypager a {
+	display:inline-block;
+	width:30px;
+	height:30px;
+	border-radius: 4px;
+	line-height: 30px;
+	text-align: center;
+	color:#4589d0;
+	border:1px solid #4589d0;
+	margin-right:10px;
+	text-decoration: none;
+}
+.mypager a.cur {
+	background-color: #4589d0;
+	color:#fff;
+}
