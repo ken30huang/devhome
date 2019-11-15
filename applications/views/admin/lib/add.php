@@ -39,12 +39,25 @@
                         </div>
                         <div class="form-group">
                             <label>库类型</label>
-                            <select id="lib_cateid" field="lib_cateid" class="form-control">
-                                <option value="-1">请选择</option>
+                            <div>
                                 <?php foreach($cate_list as $cate): ?>
-                                    <option value="<?php echo $cate['cate_id'];?>" <?php if(getRowVal('lib_cateid' , $row)){ echo 'selected'; } ?>><?php echo $cate['cate_name'];?></option>
+                                <label><input type="checkbox" field="lib_cateid" value="<?php echo $cate['cate_id'];?>" <?php if(getRowVal('lib_cateid' , $row)){ if(strpos($row['lib_cateid'], $cate['cate_id']) !== FALSE) { echo 'checked'; }; } ?>><?php echo $cate['cate_name'];?></label>
                                 <?php endforeach; ?>
-                            </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>是否显示</label>
+                            <div>
+                                <label><input type="radio" field="lib_status" name="lib_status" value="1" <?php if(getRowVal('lib_status' , $row)){ if(intval($row['lib_status']) === 1) { echo 'checked'; } } ?>/>是</label>
+                                <label><input type="radio" field="lib_status" name="lib_status" value="-1" <?php if(getRowVal('lib_status' , $row)){ if(intval($row['lib_status']) === -1) { echo 'checked'; } } ?>/>否</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>是否留意</label>
+                            <div>
+                                <label><input type="radio" field="lib_remark" name="lib_remark" value="1" <?php if(getRowVal('lib_remark' , $row)){ if(intval($row['lib_remark']) === 1) { echo 'checked'; } } ?>/>是</label>
+                                <label><input type="radio" field="lib_remark" name="lib_remark" value="-1" <?php if(getRowVal('lib_remark' , $row)){ if(intval($row['lib_remark']) === -1) { echo 'checked'; } } ?>/>否</label>
+                            </div>
                         </div>
                         <button type="button" onclick="javascript:formSave()" class="btn btn-primary">保存</button>
                         <button type="button" class="btn btn-default" onclick="javascript:history.back();">取消</button>
