@@ -2,18 +2,75 @@
 Navicat MySQL Data Transfer
 
 Source Server         : local_db
-Source Server Version : 100113
+Source Server Version : 50720
 Source Host           : localhost:3306
 Source Database       : db_devhome
 
 Target Server Type    : MYSQL
-Target Server Version : 100113
+Target Server Version : 50720
 File Encoding         : 65001
 
-Date: 2019-11-15 18:04:45
+Date: 2019-11-17 18:10:58
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for dh_lib_files
+-- ----------------------------
+DROP TABLE IF EXISTS `dh_lib_files`;
+CREATE TABLE `dh_lib_files` (
+  `file_id` int(11) NOT NULL AUTO_INCREMENT,
+  `file_name` varchar(255) NOT NULL,
+  `file_type` varchar(10) NOT NULL,
+  `file_url` varchar(255) NOT NULL,
+  `lib_id` int(11) DEFAULT '0',
+  `file_install_cont` text,
+  PRIMARY KEY (`file_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of dh_lib_files
+-- ----------------------------
+INSERT INTO `dh_lib_files` VALUES ('1', 'bootstrap.min.css', 'css', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', '11', null);
+INSERT INTO `dh_lib_files` VALUES ('2', 'bootstrap.min.js', 'js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', '11', null);
+INSERT INTO `dh_lib_files` VALUES ('3', 'popper.min.js', 'js', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js', '11', null);
+INSERT INTO `dh_lib_files` VALUES ('4', 'vue.js', 'js', 'https://cdn.jsdelivr.net/npm/vue', '12', null);
+INSERT INTO `dh_lib_files` VALUES ('5', 'react.production.min.js', 'js', 'https://unpkg.com/react@16/umd/react.production.min.js', '13', null);
+INSERT INTO `dh_lib_files` VALUES ('6', 'react-dom.production.min.js', 'js', 'https://unpkg.com/react-dom@16/umd/react-dom.production.min.js', '14', null);
+INSERT INTO `dh_lib_files` VALUES ('7', 'd3.v5.min.js', 'js', 'https://d3js.org/d3.v5.min.js', '15', null);
+INSERT INTO `dh_lib_files` VALUES ('8', 'animate.min.css', 'css', 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css', '23', null);
+INSERT INTO `dh_lib_files` VALUES ('9', 'jquery-3.4.1.min.js', 'js', 'https://code.jquery.com/jquery-3.4.1.min.js', '24', null);
+INSERT INTO `dh_lib_files` VALUES ('10', 'axios.min.js', 'js', 'https://unpkg.com/axios/dist/axios.min.js', '26', null);
+INSERT INTO `dh_lib_files` VALUES ('11', 'three.min.js', 'js', 'https://threejs.org/build/three.min.js', '27', null);
+INSERT INTO `dh_lib_files` VALUES ('12', 'chart.js', 'js', 'https://www.jsdelivr.com/package/npm/chart.js', '32', null);
+INSERT INTO `dh_lib_files` VALUES ('13', 'moment.min.js', 'js', 'https://momentjs.com/downloads/moment.min.js', '34', null);
+INSERT INTO `dh_lib_files` VALUES ('14', 'google-icon', 'css', 'https://fonts.googleapis.com/icon?family=Material+Icons', '35', null);
+INSERT INTO `dh_lib_files` VALUES ('15', 'materialize.min.css', 'css', 'https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css', '39', null);
+INSERT INTO `dh_lib_files` VALUES ('16', 'materialize.min.js', 'js', 'https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js', '39', null);
+INSERT INTO `dh_lib_files` VALUES ('17', 'bulma.min.css', 'css', 'https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css', '44', null);
+INSERT INTO `dh_lib_files` VALUES ('18', 'immutable.min.js', 'js', 'https://cdnjs.cloudflare.com/ajax/libs/immutable/3.8.2/immutable.min.js', '55', null);
+INSERT INTO `dh_lib_files` VALUES ('19', 'fullpage.min.js', 'js', 'https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.7/fullpage.min.js', '57', null);
+INSERT INTO `dh_lib_files` VALUES ('20', 'fullpage.min.css', 'css', 'https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.7/fullpage.min.css', '57', null);
+INSERT INTO `dh_lib_files` VALUES ('21', 'clipboard.min.js', 'js', 'https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js', '59', null);
+INSERT INTO `dh_lib_files` VALUES ('22', 'anime.min.js', 'js', 'https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js', '62', null);
+INSERT INTO `dh_lib_files` VALUES ('23', 'phaser.min.js', 'js', '//cdn.jsdelivr.net/npm/phaser@3.20.1/dist/phaser.min.js', '66', null);
+INSERT INTO `dh_lib_files` VALUES ('24', 'slick-theme.css', 'css', '//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css', '68', null);
+INSERT INTO `dh_lib_files` VALUES ('25', 'slick.css', 'css', '//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css', '68', null);
+INSERT INTO `dh_lib_files` VALUES ('26', 'slick.min.js', 'js', '//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js', '68', null);
+INSERT INTO `dh_lib_files` VALUES ('27', 'weui.min.js', 'js', 'https://res.wx.qq.com/open/libs/weuijs/1.2.1/weui.min.js', '74', null);
+INSERT INTO `dh_lib_files` VALUES ('28', 'mermaid.min.js', 'js', 'https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js', '76', null);
+INSERT INTO `dh_lib_files` VALUES ('29', 'hover.css', 'css', 'http://ianlunn.github.io/Hover/css/hover.css', '77', null);
+INSERT INTO `dh_lib_files` VALUES ('30', 'quill.snow.css', 'css', 'https://cdn.quilljs.com/1.0.0/quill.snow.css', '78', null);
+INSERT INTO `dh_lib_files` VALUES ('31', 'quill.js', 'js', 'https://cdn.quilljs.com/1.0.0/quill.js', '78', null);
+INSERT INTO `dh_lib_files` VALUES ('32', 'rxjs.umd.min.js', 'js', 'https://unpkg.com/rxjs@6.5.3/bundles/rxjs.umd.min.js', '80', null);
+INSERT INTO `dh_lib_files` VALUES ('33', 'bootstrap-material-design.min.css', 'css', 'https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css', '79', null);
+INSERT INTO `dh_lib_files` VALUES ('34', 'bootstrap-material-popper.js', 'js', 'https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js', '79', null);
+INSERT INTO `dh_lib_files` VALUES ('35', 'bootstrap-material-design.js', 'js', 'https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js', '79', null);
+INSERT INTO `dh_lib_files` VALUES ('36', 'sweetalert.min.js', 'js', 'https://unpkg.com/sweetalert/dist/sweetalert.min.js', '82', null);
+INSERT INTO `dh_lib_files` VALUES ('37', 'hammer.min.js', 'js', 'http://hammerjs.github.io/dist/hammer.min.js', '84', null);
+INSERT INTO `dh_lib_files` VALUES ('38', 'dragula.min.js', 'js', 'https://bevacqua.github.io/dragula/dist/dragula.js', '86', null);
+INSERT INTO `dh_lib_files` VALUES ('39', 'skrollr.min.js', 'js', 'http://prinzhorn.github.io/skrollr/dist/skrollr.min.js', '87', null);
 
 -- ----------------------------
 -- Table structure for dh_libs
@@ -39,79 +96,64 @@ CREATE TABLE `dh_libs` (
 -- Records of dh_libs
 -- ----------------------------
 INSERT INTO `dh_libs` VALUES ('11', 'twitter-bootstrap', 'http://getbootstrap.com/', 'https://github.com/twbs/bootstrap', 'The most popular front-end framework for developing responsive, mobile first projects on the web.', 'css,less,mobile-first,responsive,front-end,framework,web,twitter,bootstrap', 'Twitter前端团队开发的UI框架', '127718', '4.1.1', '49,51,58,60,61,62,66,68,73,74,83', '1', '1');
-INSERT INTO `dh_libs` VALUES ('12', 'vue', 'http://vuejs.org', 'https://github.com/vuejs/vue.git', 'Simple, Fast & Composable MVVM for building interactive interfaces', 'mvvm,browser,framework', '一套用于构建用户界面的渐进式框架', '115357', '2.5.16', '49,60,64,71', '1', '1');
-INSERT INTO `dh_libs` VALUES ('13', 'react', 'https://facebook.github.io/react/', 'https://github.com/facebook/react', 'React is a JavaScript library for building user interfaces.', 'react,jsx,transformer,view', '用于构建用户界面的 JavaScript 库', '112304', '16.4.0', '49,55,60,65,71,73', '1', '1');
+INSERT INTO `dh_libs` VALUES ('12', 'vue', 'https://cn.vuejs.org', 'https://github.com/vuejs/vue.git', 'Simple, Fast & Composable MVVM for building interactive interfaces', 'mvvm,browser,framework', '一套用于构建用户界面的渐进式框架', '115357', '2.5.16', '49,60,64,71', '1', '1');
+INSERT INTO `dh_libs` VALUES ('13', 'react', 'https://zh-hans.reactjs.org/', 'https://github.com/facebook/react/', 'React is a JavaScript library for building user interfaces.', 'react,jsx,transformer,view', '用于构建用户界面的 JavaScript 库', '112304', '16.4.0', '49,55,60,65,71,73', '1', '1');
 INSERT INTO `dh_libs` VALUES ('14', 'react-dom', 'https://facebook.github.io/react/', 'https://github.com/facebook/react', 'The entry point of the DOM-related rendering paths. It is intended to be paired with the isomorphic React, which is shipped as react to npm.', 'react,jsx,transformer,view,dom,server', '用于构建用户界面的 JavaScript 库', '112304', '16.4.0', '49,65,70,71,73,81,83', '1', '1');
 INSERT INTO `dh_libs` VALUES ('15', 'd3', 'https://d3js.org', 'https://github.com/d3/d3.git', 'A JavaScript visualization library for HTML and SVG.', 'dom,w3c,visualization,svg,animation,canvas', 'SVG绘图库', '79155', '4.13.0', '49,52,53,57,60,71,73,74,76,81', '1', '1');
-INSERT INTO `dh_libs` VALUES ('22', 'font-awesome', 'http://fontawesome.io/', 'git://github.com/FortAwesome/Font-Awesome.git', 'The iconic font and CSS framework', 'css,font,icons', 'web图标框架', '57599', '4.7.0', '49,60,68,72,73,74,76', '1', '1');
 INSERT INTO `dh_libs` VALUES ('23', 'animate.css', 'http://daneden.github.io/animate.css', 'https://github.com/daneden/animate.css', 'Plug and play, app-like animations for your websites and web apps.', 'animation,css', 'CSS3动画库', '54494', '3.5.2', '52,60,73,74,83', '1', '1');
 INSERT INTO `dh_libs` VALUES ('24', 'jquery', 'http://jquery.com/', 'https://github.com/jquery/jquery.git', 'JavaScript library for DOM operations', 'jquery,library,ajax,framework,toolkit,popular', 'Javascript框架，实现UI操作、ajax请求发送', '50048', '3.3.1', '60,71,73', '1', '1');
-INSERT INTO `dh_libs` VALUES ('26', 'axios', '', 'https://github.com/mzabriskie/axios.git', 'Promise based HTTP client for the browser and node.js', 'xhr,http,ajax,promise,node', null, '49043', '0.18.0', '0', '-1', '-1');
+INSERT INTO `dh_libs` VALUES ('26', 'axios', '', 'https://github.com/mzabriskie/axios.git', 'Promise based HTTP client for the browser and node.js', 'xhr,http,ajax,promise,node', '', '49043', '0.18.0', '0', '1', '1');
 INSERT INTO `dh_libs` VALUES ('27', 'three.js', 'http://threejs.org/', 'https://github.com/mrdoob/three.js.git', 'JavaScript 3D library', '3d,WebGL', null, '45202', '92', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('28', 'redux', 'http://redux.js.org', 'https://github.com/reactjs/redux.git', 'Predictable state container for JavaScript apps', 'flux,redux,reducer,react,reactjs,hot,reload,hmr,live,edit,webpack', null, '44300', '4.0.0', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('29', 'socket.io', 'https://socket.io', 'git://github.com/socketio/socket.io.git', 'node.js realtime framework server', 'websockets,node,popular', null, '43728', '2.1.1', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('31', 'reveal.js', 'http://lab.hakim.se/reveal-js/', 'https://github.com/hakimel/reveal.js.git', 'The HTML Presentation Framework', 'reveal.js,reveal,presentations,slides', null, '42660', '3.6.0', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('32', 'Chart.js', 'http://www.chartjs.org', 'https://github.com/chartjs/Chart.js.git', 'Simple HTML5 charts using the canvas element.', 'charts', null, '39625', '2.7.2', '0', '-1', '-1');
+INSERT INTO `dh_libs` VALUES ('32', 'Chart.js', 'http://www.chartjs.org', 'https://github.com/chartjs/Chart.js.git', 'Simple HTML5 charts using the canvas element.', 'charts', '图表库', '39625', '2.7.2', '0', '1', '-1');
 INSERT INTO `dh_libs` VALUES ('33', 'typescript', 'http://www.typescriptlang.org', 'https://github.com/Microsoft/TypeScript', 'TypeScript is a language for application scale JavaScript development', 'compiler,language', null, '39532', '2.8.3', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('34', 'moment.js', 'http://momentjs.com/', 'https://github.com/moment/moment', 'Parse, validate, manipulate, and display dates', 'date,moment,time', null, '38766', '2.22.1', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('35', 'material-design-icons', '', 'https://github.com/google/material-design-icons', 'Material Design icons by Google', 'icons,material,material-design,google', null, '36150', '3.0.1', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('36', 'ionic', '', 'https://github.com/driftyco/ionic.git', 'Advanced HTML5 Mobile App Framework.', 'html5,mobile', null, '35451', '1.3.2', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('37', 'lodash.js', 'http://lodash.com/', 'https://github.com/lodash/lodash.git', 'A utility library delivering consistency, customization, performance, & extras.', 'amd,browser,client,customize,functional,server,util', null, '34918', '4.17.10', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('38', 'antd', 'http://ant.design/', 'https://github.com/ant-design/ant-design', 'An UI design language', 'ant,design,react,react-component,component,components,ui,framework,frontend', null, '34141', '3.5.4', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('39', 'materialize', 'http://materializecss.com/', 'git://github.com/Dogfalo/materialize.git', 'Builds Materialize distribution packages', 'css,js,sass,mobile-first,responsive,front-end,framework,ux,material,design', null, '34051', '0.100.2', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('40', 'impress.js', '', 'https://github.com/impress/impress.js.git', 'It\'s a presentation framework based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com', 'slideshow,slides,css3', null, '34004', '0.5.3', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('41', 'react-router', '', 'https://github.com/reactjs/react-router.git', 'A complete routing library for React.js', 'react,reactjs,router,routes,routing', null, '32756', '4.2.0', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('42', 'react-router-dom', 'https://reacttraining.com/react-router/', 'https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom', 'DOM bindings for React Router', 'react,router,route,routing,history,link', null, '32756', '4.2.2', '0', '-1', '-1');
+INSERT INTO `dh_libs` VALUES ('34', 'moment.js', 'http://momentjs.com/', 'https://github.com/moment/moment', 'Parse, validate, manipulate, and display dates', 'date,moment,time', '日期转换库', '38766', '2.22.1', '0', '1', '1');
+INSERT INTO `dh_libs` VALUES ('35', 'material-design-icons', 'http://google.github.io/material-design-icons/', 'https://github.com/google/material-design-icons', 'Material Design icons by Google', 'icons,material,material-design,google', 'Google图标库', '36150', '3.0.1', '0', '1', '-1');
+INSERT INTO `dh_libs` VALUES ('36', 'ionic', 'https://ionicframework.com/', 'https://github.com/ionic-team/ionic', 'Advanced HTML5 Mobile App Framework.', 'html5,mobile', '多端跨平台开发框架', '35451', '1.3.2', '0', '1', '-1');
+INSERT INTO `dh_libs` VALUES ('37', 'lodash.js', 'http://lodash.com/', 'https://github.com/lodash/lodash.git', 'A utility library delivering consistency, customization, performance, & extras.', 'amd,browser,client,customize,functional,server,util', '基于函数式的Javascript库', '34918', '4.17.10', '0', '1', '-1');
+INSERT INTO `dh_libs` VALUES ('38', 'antd', 'http://ant.design/', 'https://github.com/ant-design/ant-design', 'An UI design language', 'ant,design,react,react-component,component,components,ui,framework,frontend', '基于React的UI框架', '34141', '3.5.4', '0', '1', '1');
+INSERT INTO `dh_libs` VALUES ('39', 'materialize', 'http://materializecss.com/', 'git://github.com/Dogfalo/materialize.git', 'Builds Materialize distribution packages', 'css,js,sass,mobile-first,responsive,front-end,framework,ux,material,design', '响应式UI框架', '34051', '0.100.2', '0', '1', '-1');
+INSERT INTO `dh_libs` VALUES ('40', 'impress.js', 'http://impress.js.org', 'https://github.com/impress/impress.js.git', 'It\'s a presentation framework based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com', 'slideshow,slides,css3', '基于CSS3变换特性的库', '34004', '0.5.3', '0', '1', '-1');
+INSERT INTO `dh_libs` VALUES ('41', 'react-router', 'https://reacttraining.com/react-router/', 'https://github.com/ReactTraining/react-router', 'A complete routing library for React.js', 'react,reactjs,router,routes,routing', '一个React常用的路由库', '32756', '4.2.0', '0', '1', '1');
 INSERT INTO `dh_libs` VALUES ('43', 'normalize', 'http://necolas.github.com/normalize.css/', 'https://github.com/necolas/normalize.css', 'Normalize.css as a node packaged module', 'cross browser', null, '32548', '8.0.0', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('44', 'element-ui', 'http://element.eleme.io', 'git@github.com:ElemeFE/element.git', 'A Component Library for Vue.js.', 'eleme,vue,components', null, '31335', '2.4.0', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('45', 'material-design-lite', '', 'https://github.com/google/material-design-lite', 'Material Design Components in CSS, JS and HTML', 'material,design,styleguide,style,guide', null, '30657', '1.3.0', '0', '-1', '-1');
+INSERT INTO `dh_libs` VALUES ('44', 'element-ui', 'https://element.eleme.cn/#/zh-CN', 'https://github.com/ElemeFE/element', 'A Component Library for Vue.js.', 'eleme,vue,components', '一个Vue的组件库', '31335', '2.4.0', '0', '1', '1');
+INSERT INTO `dh_libs` VALUES ('45', 'material-design-lite', 'https://getmdl.io', 'https://github.com/google/material-design-lite', 'Material Design Components in CSS, JS and HTML', 'material,design,styleguide,style,guide', 'Google开发的原型设计组件', '30657', '1.3.0', '0', '1', '1');
 INSERT INTO `dh_libs` VALUES ('46', 'gulp', 'http://gulpjs.com', 'https://github.com/gulpjs/gulp.git', 'The streaming build system', 'gulp', null, '30382', '3.8.5', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('47', 'echarts', 'http://echarts.baidu.com', 'git://github.com/ecomfe/echarts', 'A powerful charting and visualization library for browser', 'baidu,echarts,canvas,data visualization', null, '30345', '4.1.0', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('48', 'bulma', 'http://bulma.io', 'git+https://github.com/jgthms/bulma.git', 'Modern CSS framework based on Flexbox', 'css,sass,flexbox,responsive,framework', null, '30140', '0.7.1', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('49', 'babel-polyfill', 'https://babeljs.io/', 'https://github.com/babel/babel/tree/master/packages/babel-polyfill', 'Provides polyfills necessary for a full ES2015+ environment', 'compiler,JavaScript,babel,ast,flavortown,es6,es2015', null, '29870', '6.26.0', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('50', 'babel-core', 'https://babeljs.io/', 'git://github.com/babel/babel', 'A compiler for writing next generation JavaScript', '6to5,babel,classes,const,es6,harmony,let,modules,transpile,transpiler,var', null, '29870', '6.1.19', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('51', 'blueimp-file-upload', '', 'git://github.com/blueimp/jQuery-File-Upload.git', 'File Upload widget with multiple file selection, drag&amp;drop support, progress bar, validation and preview images, audio and video for jQuery. Supports cross-domain, chunked and resumable file uploads. Works with any server-side platform (Google App Eng', 'jquery,file,upload,widget,multiple,selection,drag,drop,progress,preview,cross-domain,cross-site,chunk,resume,gae,go,python,php,bootstrap', null, '29224', '9.21.0', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('52', 'foundation', 'http://foundation.zurb.com', 'https://github.com/zurb/foundation-sites.git', 'The most advanced responsive front-end framework in the world.', 'foundation,responsive,zurb', null, '27662', '6.4.3', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('53', 'foundation-essential', 'http://foundation.zurb.com', 'https://github.com/zurb/foundation-sites.git', 'The most advanced responsive front-end framework in the world.', 'foundation,essential,responsive,zurb', null, '27662', '6.2.2', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('54', 'backbone.js', 'http://backbonejs.org/', 'https://github.com/jashkenas/backbone.git', 'Give your JS App some Backbone with Models, Views, Collections, and Events.', 'collections,models,controllers,events,popular', null, '27305', '1.3.3', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('55', 'immutable', '', 'https://github.com/facebook/immutable-js', 'Immutable Data Collections', 'immutable,persistent,lazy,data,datastructure,functional,collection,stateless,sequence,iteration', null, '25180', '3.8.2', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('56', 'admin-lte', 'http://almsaeedstudio.com', 'git://github.com/almasaeed2010/AdminLTE.git', 'Admin dashboard and control panel template', 'css,js,html,template,admin,bootstrap,theme,backend,responsive', null, '25113', '2.4.3', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('57', 'fullPage.js', 'http://alvarotrigo.com/fullPage/', 'git://github.com/alvarotrigo/fullPage.js.git', 'Create  beautiful fullscreen scrolling websites', 'jquery,scrolling,single_page,one_page,sliding', null, '24724', '2.9.7', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('58', 'async', '', 'https://github.com/caolan/async.git', 'Higher-order functions and common patterns for asynchronous code', 'async,callback,utility,module', null, '24680', '2.6.1', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('59', 'clipboard.js', 'https://clipboardjs.com', 'git://github.com/zenorocha/clipboard.js', 'Modern copy to clipboard. No Flash. Just 2kb', 'clipboard,copy,cut', null, '23726', '2.0.1', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('60', 'underscore.js', 'http://jashkenas.github.io/underscore/', 'https://github.com/jashkenas/underscore/', 'JavaScript\'s functional programming helper library.', 'utility,popular', null, '23721', '1.9.0', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('61', 'pdf.js', '', 'git://github.com/mozilla/pdf.js.git', 'PDF Reader in JavaScript', 'PDF,reader,Js', null, '23608', '2.0.489', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('62', 'animejs', 'http://anime-js.com', 'https://github.com/juliangarnier/anime.git', 'Polyvalent Javascript animation engine', 'anime,animation,javascript,CSS,transforms,SVG,canvas', null, '23537', '2.2.0', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('63', 'modernizr', 'http://www.modernizr.com/', 'https://github.com/Modernizr/Modernizr', 'Modernizr is a JavaScript library that detects HTML5 and CSS3 features in the user’s browser.', 'modernizr,js,javascript,css,css3,html,html5,popular', null, '23011', '2.8.3', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('64', 'select2', 'https://select2.github.io/', 'https://github.com/select2/select2', 'Select2 is a jQuery based replacement for select boxes. It supports searching, remote data sets, and infinite scrolling of results.', 'select,jquery,dropdown,ui', null, '22850', '4.0.5', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('65', 'leaflet', 'http://leafletjs.com/', 'https://github.com/Leaflet/Leaflet.git', 'JavaScript library for mobile-friendly interactive maps', 'maps,mobile', null, '22844', '1.3.1', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('66', 'phaser', 'http://phaser.io/', 'https://github.com/photonstorm/phaser.git', 'A fast, free and fun HTML5 Game Framework for Desktop and Mobile web browsers.', 'HTML5,game,canvas,2d,WebGL,web audio,physics,tweens,javascript,typescript', null, '22675', '2.6.2', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('67', 'video.js', 'http://videojs.com/', 'https://github.com/videojs/video.js', 'An HTML5 and Flash video player with a common API and skin for both.', 'flash,html5,player,video,videojs', null, '22657', '7.0.3', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('68', 'slick-carousel', '', 'https://github.com/kenwheeler/slick.git', 'the last carousel you\'ll ever need', 'carousel,slick,responsive', null, '22545', '1.9.0', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('69', 'chosen', 'http://harvesthq.github.com/chosen', 'https://github.com/harvesthq/chosen.git', 'Chosen is a JavaScript plugin that makes select boxes user-friendly. It is currently available in both jQuery and Prototype flavors.', 'select,multiselect,dropdown,form,input,ui', null, '21819', '1.8.5', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('70', 'fetch', '', 'https://github.com/github/fetch', 'A window.fetch JavaScript polyfill.', 'polyfill,fetch,window.fetch', null, '20394', '2.0.4', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('71', 'pixi.js', 'http://goodboydigital.com/', 'https://github.com/pixijs/pixi.js.git', 'Pixi.js is a fast lightweight 2D library that works across all devices.', '2d,animation,canvas,graphics,rendering,webgl', null, '20282', '4.8.0', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('73', 'preact', 'https://preactjs.com', 'https://github.com/developit/preact', 'Fast 3kb React alternative with the same ES6 API. Components & Virtual DOM.', 'preact,jsx,vdom,virtual dom,components,view', null, '20228', '8.2.9', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('74', 'weui', '', 'git+https://github.com/weui/weui.git', 'A UI library by WeChat official design team, includes the most useful widgets/modules in mobile web applications.', 'weui,wechat,weixin,css,less,mobile', null, '20191', '1.1.2', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('75', 'ember.js', 'http://emberjs.com/', 'https://github.com/emberjs/ember.js', 'Ember is a JavaScript framework for creating ambitious web applications that eliminates boilerplate and provides a standard application architecture.', 'ember,ember.js', null, '20050', '2.18.2', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('76', 'mermaid', '', 'https://github.com/knsv/mermaid', 'Markdownish syntax for generating flowcharts, sequence diagrams, class diagrams and gantt charts.', 'diagram,markdown,flowchart,sequence diagram,gantt,class diagram,git graph', null, '19980', '7.1.2', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('77', 'hover.css', 'http://ianlunn.co.uk/', 'https://github.com/IanLunn/Hover', 'A collection of CSS3 powered hover effects to be applied to call to actions, buttons, logos, featured images and so on.', '2d,3d,CSS,CSS3,animations,effects,transitions', null, '19921', '2.3.1', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('78', 'quill', 'http://quilljs.com', 'https://github.com/quilljs/quill', 'Cross browser rich text editor', 'editor,rich text,wysiwyg', null, '19842', '1.3.6', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('79', 'bootstrap-material-design', '', 'https://github.com/FezVrasta/bootstrap-material-design.git', 'Material Design for Bootstrap 3', 'material,design,bootstrap,theme,google,android,browser,framework', null, '19544', '4.0.2', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('80', 'rxjs', '', 'https://github.com/Reactive-Extensions/RxJS.git', 'Library for composing asynchronous and event-based operations in JavaScript', 'LINQ,FRP,Reactive,Events,Rx,RxJS', null, '19383', '6.2.0', '0', '-1', '-1');
+INSERT INTO `dh_libs` VALUES ('47', 'echarts', 'https://www.echartsjs.com/zh/index.html', '//github.com/ecomfe/echarts', 'A powerful charting and visualization library for browser', 'baidu,echarts,canvas,data visualization', '百度研发的图表插件', '30345', '4.1.0', '0', '1', '1');
+INSERT INTO `dh_libs` VALUES ('48', 'bulma', 'http://bulma.io', 'https://github.com/jgthms/bulma.git', 'Modern CSS framework based on Flexbox', 'css,sass,flexbox,responsive,framework', '基于Flexbox的CSS框架', '30140', '0.7.1', '0', '1', '1');
+INSERT INTO `dh_libs` VALUES ('49', 'babel-polyfill', 'https://babeljs.io/', 'https://github.com/babel/babel/tree/master/packages/babel-polyfill', 'Provides polyfills necessary for a full ES2015+ environment', 'compiler,JavaScript,babel,ast,flavortown,es6,es2015', 'Babel兼容插件', '29870', '6.26.0', '0', '1', '1');
+INSERT INTO `dh_libs` VALUES ('50', 'babel-core', 'https://babeljs.io/', 'git://github.com/babel/babel', 'A compiler for writing next generation JavaScript', '6to5,babel,classes,const,es6,harmony,let,modules,transpile,transpiler,var', 'ES6转ES5工具', '29870', '6.1.19', '0', '1', '1');
+INSERT INTO `dh_libs` VALUES ('52', 'foundation', 'http://foundation.zurb.com', 'https://github.com/zurb/foundation-sites.git', 'The most advanced responsive front-end framework in the world.', 'foundation,responsive,zurb', '响应式的前端框架', '27662', '6.4.3', '0', '1', '-1');
+INSERT INTO `dh_libs` VALUES ('55', 'immutable', 'https://immutable-js.github.io/immutable-js/', 'https://github.com/facebook/immutable-js', 'Immutable Data Collections', 'immutable,persistent,lazy,data,datastructure,functional,collection,stateless,sequence,iteration', '不可变数据结构Javascript库', '25180', '3.8.2', '0', '1', '1');
+INSERT INTO `dh_libs` VALUES ('56', 'admin-lte', 'https://adminlte.io/', '//github.com/almasaeed2010/AdminLTE.git', 'Admin dashboard and control panel template', 'css,js,html,template,admin,bootstrap,theme,backend,responsive', '基于Bootstrap开发的后台UI框架', '25113', '2.4.3', '0', '1', '1');
+INSERT INTO `dh_libs` VALUES ('57', 'fullPage.js', 'http://alvarotrigo.com/fullPage/', 'git://github.com/alvarotrigo/fullPage.js.git', 'Create  beautiful fullscreen scrolling websites', 'jquery,scrolling,single_page,one_page,sliding', '全屏滚动效果库', '24724', '2.9.7', '0', '1', '1');
+INSERT INTO `dh_libs` VALUES ('59', 'clipboard.js', 'https://clipboardjs.com', 'https://github.com/zenorocha/clipboard.js', 'Modern copy to clipboard. No Flash. Just 2kb', 'clipboard,copy,cut', '实现复制到粘贴板', '23726', '2.0.1', '0', '1', '1');
+INSERT INTO `dh_libs` VALUES ('60', 'underscore.js', 'https://underscorejs.org/', 'https://github.com/jashkenas/underscore/', 'JavaScript\'s functional programming helper library.', 'utility,popular,函数式', 'Javascript函数式编程库', '23721', '1.9.0', '0', '1', '1');
+INSERT INTO `dh_libs` VALUES ('61', 'pdf.js', '', 'git://github.com/mozilla/pdf.js.git', 'PDF Reader in JavaScript', 'PDF,reader,Js', '在线PDF阅读器', '23608', '2.0.489', '0', '1', '-1');
+INSERT INTO `dh_libs` VALUES ('62', 'animejs', 'http://anime-js.com', 'https://github.com/juliangarnier/anime.git', 'Polyvalent Javascript animation engine', 'anime,animation,javascript,CSS,transforms,SVG,canvas', '动画引擎，支持CSS3、DOM、SVG、Canvas', '23537', '2.2.0', '0', '1', '1');
+INSERT INTO `dh_libs` VALUES ('63', 'modernizr', 'http://www.modernizr.com/', 'https://github.com/Modernizr/Modernizr', 'Modernizr is a JavaScript library that detects HTML5 and CSS3 features in the user’s browser.', 'modernizr,js,javascript,css,css3,html,html5,popular', '检测您的浏览器支持哪些HTML5和CSS3特性', '23011', '2.8.3', '0', '1', '1');
+INSERT INTO `dh_libs` VALUES ('64', 'select2', 'https://select2.github.io/', 'https://github.com/select2/select2', 'Select2 is a jQuery based replacement for select boxes. It supports searching, remote data sets, and infinite scrolling of results.', 'select,jquery,dropdown,ui', '基于jquery用于美化select标签的插件', '22850', '4.0.5', '0', '1', '1');
+INSERT INTO `dh_libs` VALUES ('66', 'phaser', 'http://phaser.io/', 'https://github.com/photonstorm/phaser.git', 'A fast, free and fun HTML5 Game Framework for Desktop and Mobile web browsers.', 'HTML5,game,canvas,2d,WebGL,web audio,physics,tweens,javascript,typescript', 'HTML5 2D游戏框架，支持PC端和手机端', '22675', '2.6.2', '0', '1', '1');
+INSERT INTO `dh_libs` VALUES ('68', 'slick-carousel', 'http://kenwheeler.github.io/slick/', 'https://github.com/kenwheeler/slick.git', 'the last carousel you\'ll ever need', 'carousel,slick,responsive', '跑马灯（幻灯片切换效果）', '22545', '1.9.0', '0', '1', '1');
+INSERT INTO `dh_libs` VALUES ('69', 'chosen', 'http://harvesthq.github.com/chosen', 'https://github.com/harvesthq/chosen.git', 'Chosen is a JavaScript plugin that makes select boxes user-friendly. It is currently available in both jQuery and Prototype flavors.', 'select,multiselect,dropdown,form,input,ui', '美化select标签的jquery插件', '21819', '1.8.5', '0', '1', '1');
+INSERT INTO `dh_libs` VALUES ('71', 'pixi.js', 'https://github.com/pixijs/pixi.js', 'https://github.com/pixijs/pixi.js.git', 'Pixi.js is a fast lightweight 2D library that works across all devices.', '2d,animation,canvas,graphics,rendering,webgl', '轻量级2D动画引擎', '20282', '4.8.0', '0', '1', '1');
+INSERT INTO `dh_libs` VALUES ('73', 'preact', 'https://preactjs.com', 'https://github.com/developit/preact', 'Fast 3kb React alternative with the same ES6 API. Components & Virtual DOM.', 'preact,jsx,vdom,virtual dom,components,view', '轻量级的类React的前端框架', '20228', '8.2.9', '0', '1', '1');
+INSERT INTO `dh_libs` VALUES ('74', 'weui', 'https://weui.io/', 'https://github.com/weui/weui.git', 'A UI library by WeChat official design team, includes the most useful widgets/modules in mobile web applications.', 'weui,wechat,weixin,css,less,mobile', '微信端H5 UI框架', '20191', '1.1.2', '0', '1', '1');
+INSERT INTO `dh_libs` VALUES ('75', 'ember.js', 'http://emberjs.com/', 'https://github.com/emberjs/ember.js', 'Ember is a JavaScript framework for creating ambitious web applications that eliminates boilerplate and provides a standard application architecture.', 'ember,ember.js', '基于Node的MVC开发框架', '20050', '2.18.2', '0', '1', '-1');
+INSERT INTO `dh_libs` VALUES ('76', 'mermaid', 'http://mermaid-js.github.io/mermaid/#/', 'https://github.com/knsv/mermaid', 'Markdownish syntax for generating flowcharts, sequence diagrams, class diagrams and gantt charts.', 'diagram,markdown,flowchart,sequence diagram,gantt,class diagram,git graph', 'UML绘图工具', '19980', '7.1.2', '0', '1', '1');
+INSERT INTO `dh_libs` VALUES ('77', 'hover.css', 'http://ianlunn.co.uk/', 'https://github.com/IanLunn/Hover', 'A collection of CSS3 powered hover effects to be applied to call to actions, buttons, logos, featured images and so on.', '2d,3d,CSS,CSS3,animations,effects,transitions', '鼠标覆盖元素动画特效', '19921', '2.3.1', '0', '1', '1');
+INSERT INTO `dh_libs` VALUES ('78', 'quill', 'http://quilljs.com', 'https://github.com/quilljs/quill', 'Cross browser rich text editor', 'editor,rich text,wysiwyg', '跨浏览器的富文本编辑器', '19842', '1.3.6', '0', '1', '1');
+INSERT INTO `dh_libs` VALUES ('79', 'bootstrap-material-design', 'https://fezvrasta.github.io/bootstrap-material-design/', 'https://github.com/FezVrasta/bootstrap-material-design.git', 'Material Design for Bootstrap 3', 'material,design,bootstrap,theme,google,android,browser,framework', '基于Bootstrap的原型设计库', '19544', '4.0.2', '0', '1', '1');
+INSERT INTO `dh_libs` VALUES ('80', 'rxjs', 'https://rxjs.dev/', 'https://github.com/ReactiveX/rxjs', 'Library for composing asynchronous and event-based operations in JavaScript', 'LINQ,FRP,Reactive,Events,Rx,RxJS', '基于响应式编程的Javascript库', '19383', '6.2.0', '0', '1', '1');
 INSERT INTO `dh_libs` VALUES ('81', 'styled-components', 'https://styled-components.com/', 'https://github.com/styled-components/styled-components.git', 'Visual primitives for the component age. Use the best bits of ES6 and CSS to style your apps without stress', 'react,css,css-in-js,styled-components', null, '19348', '3.3.0', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('82', 'sweetalert', 'https://sweetalert.js.org/', 'https://github.com/t4t5/sweetalert.git', 'A beautiful replacement for JavaScript\'s \"alert\"', 'alert,modal,sweetalert,popup,dialog,ui', null, '19138', '2.1.0', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('84', 'hammer.js', 'http://eightmedia.github.com/hammer.js/', 'https://github.com/hammerjs/hammer.js.git', 'A javascript library for multi-touch gestures', 'events,touch,gestures', null, '19048', '2.0.8', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('86', 'dragula', '', 'https://github.com/bevacqua/dragula.git', 'Drag and drop so simple it hurts', 'dragula', null, '18160', '3.7.2', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('87', 'skrollr', 'http://prinzhorn.github.io/skrollr/', 'https://github.com/Prinzhorn/skrollr.git', 'Stand-alone parallax scrolling library with zero dependencies.', 'skrollr,standalone,scrolling,parallax,mobile', null, '18090', '0.6.30', '0', '-1', '-1');
+INSERT INTO `dh_libs` VALUES ('82', 'sweetalert', 'https://sweetalert.js.org/', 'https://github.com/t4t5/sweetalert.git', 'A beautiful replacement for JavaScript\'s ', 'alert,modal,sweetalert,popup,dialog,ui', '美化alert弹出特效', '19138', '2.1.0', '0', '1', '1');
+INSERT INTO `dh_libs` VALUES ('84', 'hammer.js', 'http://eightmedia.github.io/hammer.js/', 'https://github.com/hammerjs/hammer.js.git', 'A javascript library for multi-touch gestures', 'events,touch,gestures', '触碰特效', '19048', '2.0.8', '0', '1', '1');
+INSERT INTO `dh_libs` VALUES ('86', 'dragula', 'https://bevacqua.github.io/dragula/', 'https://github.com/bevacqua/dragula.git', 'Drag and drop so simple it hurts', 'dragula', '简易拖拽库', '18160', '3.7.2', '0', '1', '1');
+INSERT INTO `dh_libs` VALUES ('87', 'skrollr', 'http://prinzhorn.github.io/skrollr/', 'https://github.com/Prinzhorn/skrollr.git', 'Stand-alone parallax scrolling library with zero dependencies.', 'skrollr,standalone,scrolling,parallax,mobile', '滚动特效库', '18090', '0.6.30', '0', '1', '1');
 INSERT INTO `dh_libs` VALUES ('88', 'webtorrent', 'http://webtorrent.io', 'https://github.com/feross/webtorrent.git', 'Streaming torrent client', 'torrent,bittorrent,bittorrent client,streaming,download,webrtc,webrtc data,webtorrent,mad science', null, '17806', '0.100.0', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('89', 'iview', 'https://www.iviewui.com', 'https://github.com/iview/iview.git', 'A high quality  UI components Library with Vue.js', 'iview,vue,vue.js,component,components,ui,framework', null, '17714', '2.14.0', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('90', 'Swiper', 'http://www.idangero.us/sliders/swiper', 'https://github.com/nolimits4web/Swiper.git', 'Most modern mobile touch slider and framework with hardware accelerated transitions', 'mobile,slider', null, '17712', '4.3.0', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('91', 'marked', '', 'git://github.com/markedjs/marked.git', 'A markdown parser built for speed', 'markdown,markup,html', null, '17453', '0.4.0', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('92', 'bluebird', '', 'git://github.com/petkaantonov/bluebird.git', 'Full featured Promises/A+ implementation with exceptionally good performance', 'promise,performance,fast,promises-aplus,async', null, '17356', '3.5.1', '0', '-1', '-1');
+INSERT INTO `dh_libs` VALUES ('89', 'iview', 'https://www.iviewui.com', 'https://github.com/iview/iview.git', 'A high quality  UI components Library with Vue.js', 'iview,vue,vue.js,component,components,ui,framework', '一套基于 Vue.js 的高质量 UI 组件库', '17714', '2.14.0', '0', '1', '1');
 INSERT INTO `dh_libs` VALUES ('93', 'jade', 'http://jade-lang.com/', 'https://github.com/jadejs/jade', 'A clean, whitespace-sensitive template language for writing HTML', 'template,jade', null, '17300', '1.11.0', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('94', 'photoswipe', 'http://www.photoswipe.com/', 'git://github.com/dimsemenov/PhotoSwipe.git', 'JavaScript gallery', 'image,gallery,lightbox,photo,touch,swipe,zoom', null, '17250', '4.1.2', '0', '-1', '-1');
-INSERT INTO `dh_libs` VALUES ('95', 'intro.js', 'http://usablica.github.com/intro.js/', 'https://github.com/usablica/intro.js.git', 'Better introductions for websites and features with a step-by-step guide for your projects', 'intro.js,tutorial,step-by-step guide,introductions', null, '17201', '2.9.3', '0', '-1', '-1');
+INSERT INTO `dh_libs` VALUES ('94', 'photoswipe', 'http://www.photoswipe.com/', 'git://github.com/dimsemenov/PhotoSwipe.git', 'JavaScript gallery', 'image,gallery,lightbox,photo,touch,swipe,zoom', '图片预览库', '17250', '4.1.2', '0', '1', '1');
+INSERT INTO `dh_libs` VALUES ('95', 'intro.js', 'http://usablica.github.com/intro.js/', 'https://github.com/usablica/intro.js.git', 'Better introductions for websites and features with a step-by-step guide for your projects', 'intro.js,tutorial,step-by-step guide,introductions', '帮助信息引导库', '17201', '2.9.3', '0', '1', '1');
 INSERT INTO `dh_libs` VALUES ('96', 'vuex', 'https://vuex.vuejs.org/', 'git+https://github.com/vuejs/vuex.git', 'state management for Vue.js', 'vue,Application,Architecture,Flux', null, '17088', '3.0.1', '0', '-1', '-1');
 INSERT INTO `dh_libs` VALUES ('97', 'nprogress', 'http://ricostacruz.com/nprogress/', 'https://github.com/rstacruz/nprogress.git', 'Simple slim progress bars', 'progress,load,ajax', null, '17067', '0.2.0', '0', '-1', '-1');
 INSERT INTO `dh_libs` VALUES ('98', 'mobx', 'https://mobxjs.github.io/mobx', 'git+https://github.com/mobxjs/mobx.git', 'Simple, scalable state management.', 'mobx,mobservable,observable,react-component,react,reactjs,reactive,model,frp,functional-reactive-programming,state management,data flow', null, '16941', '4.3.0', '0', '-1', '-1');
