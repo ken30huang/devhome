@@ -31,6 +31,7 @@
                                 <td ><?php echo $row['lib_version'];?></td>
                                 <td>
                                     <a href="javascript:;" onclick="javascript:requestLib(<?php echo $row['lib_id'];?>);">同步内容</a>
+                                    <a href="/admin/lib/filelist?lib_id=<?php echo $row['lib_id'];?>&page=<?php echo $page; ?>">文件列表</a>
                                     <a href="javascript:;" onclick="location.href='/admin/lib/add?lib_id=<?php echo $row['lib_id'];?>&page=<?php echo $page; ?>';">编辑</a>
                                     <a href="javascript:;" onclick="javascript:listDel(<?php echo $row['lib_id'];?>)">删除</a>
                                 </td>

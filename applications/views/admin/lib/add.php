@@ -60,6 +60,7 @@
                             </div>
                         </div>
                         <button type="button" onclick="javascript:formSave()" class="btn btn-primary">保存</button>
+                        <input type="hidden" field="save_opr" name="save_opr" value="lib" />
                         <button type="button" class="btn btn-default" onclick="javascript:history.back();">取消</button>
                     </div>
                 </form>

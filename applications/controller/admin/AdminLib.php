@@ -16,7 +16,14 @@ class AdminLibController extends AdminController {
 
     public function save() {
         $post = $this->http->inputPost();
-        $this->getModel('lib')->data($post)->save();
+        $model = null;
+        if($post['save_opr'] == 'lib') {
+            $model = $this->getModel('lib');
+        } else {
+            $model = TableModel::getInstance('lib_files' , 'file_id');
+        }
+        unset($post['save_opr']);
+        $model->data($post)->save();
         $this->http->success()->json();
     }
 
@@ -80,6 +87,27 @@ class AdminLibController extends AdminController {
         $update = array('lib_id'=>$row['lib_id'] , 'lib_site'=>$homepage , 'lib_github'=>$github, 'lib_keyword'=>implode(',',$keywords) , 'lib_version'=>$version);
         $cmodel->data($update)->save();
         $this->http->success()->json();
+    }
+
+    public function filelist() {
+        $model = TableModel::getInstance('lib_files' , 'file_id');
+        $file_list = $model->where("lib_id=".$this->http->inputGet('lib_id'))->order('file_id ASC')->query();
+        $this->_assignData();
+        $this->view->assign('file_list' , $file_list);
+        $this->view();
+    }
+
+    public function fileadd() {
+        $model = TableModel::getInstance('lib_files' , 'file_id');
+        $file_row = $model->data('file_id' , $this->http->inputGet('file_id'))->getRow();
+        $this->_assignData();
+        $this->view->assign('file_row' , $file_row);
+        $this->view();
+    }
+
+    private function _assignData() {
+        $this->view->assign('lib_id' , $this->http->inputGet('lib_id'));
+        $this->view->assign('page' , $this->http->inputGet('page'));
     }
 
 }
