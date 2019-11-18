@@ -9,8 +9,7 @@
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-body">
-                <button type="button" class="btn btn-primary" onclick="location.href='/admin/lib/add';">新增库</button>
-                <button type="button" class="btn btn-primary" onclick="location.href='/admin/lib/add';">新增库</button>
+                <button type="button" class="btn btn-primary" onclick="location.href='/admin/lib/add?page=<?php echo $page; ?>';">新增库</button>
             </div>
             <div class="panel-body">
                 <table class="table table-bordered table-hover">
@@ -30,7 +29,6 @@
                                 <td><a href="<?php echo $row['lib_github'];?>" target="_blank"><?php echo $row['lib_github'];?></a></td>
                                 <td ><?php echo $row['lib_version'];?></td>
                                 <td>
-                                    <a href="javascript:;" onclick="javascript:requestLib(<?php echo $row['lib_id'];?>);">同步内容</a>
                                     <a href="/admin/lib/filelist?lib_id=<?php echo $row['lib_id'];?>&page=<?php echo $page; ?>">文件列表</a>
                                     <a href="javascript:;" onclick="location.href='/admin/lib/add?lib_id=<?php echo $row['lib_id'];?>&page=<?php echo $page; ?>';">编辑</a>
                                     <a href="javascript:;" onclick="javascript:listDel(<?php echo $row['lib_id'];?>)">删除</a>
