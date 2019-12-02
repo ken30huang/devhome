@@ -34,7 +34,7 @@ class AdminCategoryController extends AdminController {
 
     public function save() {
         $table = TableModel::getInstance('category' , 'cate_id');
-        $table->data($this->http->inputAll())->save();
+        $table->data($this->http->inputPost())->save();
         $this->http->success()->json();
     }
 

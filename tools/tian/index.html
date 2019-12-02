@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>汉字</title>
+    <style type="text/css">
+    * { margin:0; padding:0; }
+    </style>
+</head>
+
+<body>
+    <div id="character-target-div"></div>
+    <div style="position:absolute;top:10px;left:10px">
+        <a href="javascript:radicalColor('#168F16');">设置部首颜色</a>
+        <a href="javascript:animateCharacter();">展示笔顺动画</a>
+        <a href="javascript:handWriting();">开启手写模式</a>
+        <a href="javascript:showTianBackground()">设置田字背景</a>
+        <a href="javascript:reset();">重置状态</a>
+        <a href="javascript:setTextColor('#168F16');">设置笔画颜色</a>
+    </div>
+    
+    <script src="./hanzi-writer.min.js"></script>
+    <script src="./polyfill.min.js"></script>
+    <script>
+    var tdiv = document.getElementById('character-target-div');
+    tdiv.style.width = window.innerWidth+'px';
+    tdiv.style.height = window.innerHeight+'px';
+
+    var charaOptions = {
+        width: window.innerWidth,
+        height: window.innerHeight,
+        onLoadCharDataSuccess:function(charData) {
+        }
+    };
+    var defaultOptions = { showText:'' };
+    var writer = null;
+    //设置文字
+    function setCharacter(showText) {
+        if(!showText) {
+            writer = null;
+            return;
+        }
+        //设置文字的时候
+        defaultOptions.showText = showText;
+        showTianBackground();
+    }
+    // setCharacter('凯');
+
+    function showTianBackground() {
+        var tW = window.innerWidth; //总宽度
+        var tH = window.innerHeight; //总高度
+        var tianArr = ['<svg xmlns="http://www.w3.org/2000/svg" width="'+tW+'" height="'+tH+'" id="grid-background-target">'];
+            tianArr.push('<line x1="0" y1="0" x2="'+tW+'" y2="'+tH+'" stroke="#DDD" />');
+            tianArr.push('<line x1="'+tW+'" y1="0" x2="0" y2="'+tH+'" stroke="#DDD" />');
+            tianArr.push('<line x1="'+parseInt(tW/2)+'" y1="0" x2="'+parseInt(tW/2)+'" y2="'+tH+'" stroke="#DDD" />');
+            tianArr.push('<line x1="0" y1="'+parseInt(tH/2)+'" x2="'+tW+'" y2="'+parseInt(tH/2)+'" stroke="#DDD" />');
+            tianArr.push('</svg>');
+        tdiv.innerHTML = tianArr.join('');
+        writer = HanziWriter.create('grid-background-target', defaultOptions.showText , charaOptions);
+        writer.showCharacter();
+        _sendToApp('setCharacter' , 0, '加载完成');
+    }
+
+    //设置部首
+    function radicalColor(radicalColor) {
+        writer && writer.updateColor('radicalColor', radicalColor); 
+    }
+
+    function animateCharacter() {
+        //设置的笔画动画
+        writer && writer.animateCharacter({
+            onComplete: function() {
+                //完成以后给客户端回调
+                _sendToApp('animateCharacter' , 0);
+            }
+        });
+        
+    }
+
+    var loopTimer = null;
+    function loopCharacterAnimation() {
+        if(!writer) { return true; }
+        writer.loopCharacterAnimation();
+    }
+
+    function handWriting() {
+        writer && writer.hideCharacter();
+        writer && writer.quiz({
+            onCorrectStroke:function() {
+                // console.log('手写中');
+                _sendToApp('handWriting' , 1);
+            },
+            onComplete:function() {
+                // console.log('手写完成');
+                _sendToApp('handWriting' , 2);
+            }
+        });
+        _sendToApp('handWriting' , 0);
+    }
+
+    function reset() {
+        tdiv.innerHTML = '';
+        setCharacter(defaultOptions.showText);
+        showTianBackground();
+    }
+
+    function setTextColor(tColor) {
+        writer && writer.updateColor('strokeColor', tColor);
+    }
+
+    function getStrokesCount() {
+    }
+
+    function _sendToApp(sendKey , sendCode , message) {
+        if(!window.nativeApi) {
+            //非客户端
+            return;
+        }
+        window.nativeApi.hanZiCallback(sendKey, JOSN.stringify({message:message||'',code:sendCode}));
+    }
+    </script>
+</body>
+
+</html>

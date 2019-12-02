@@ -13,6 +13,7 @@ class HomeToolsController extends IndexBaseController {
         $libs = $this->getModel('lib')->select();
         $islogin = $this->session->get('user');
         $cate_model = $this->getModel('category');
+        $links = array();
         
         foreach($libs as $lib) {
             if(!empty($lib['lib_js'])) {

@@ -10,10 +10,67 @@ Target Server Type    : MYSQL
 Target Server Version : 100113
 File Encoding         : 65001
 
-Date: 2019-11-18 18:06:55
+Date: 2019-11-19 17:22:29
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for dh_lib_files
+-- ----------------------------
+DROP TABLE IF EXISTS `dh_lib_files`;
+CREATE TABLE `dh_lib_files` (
+  `file_id` int(11) NOT NULL AUTO_INCREMENT,
+  `file_name` varchar(255) NOT NULL,
+  `file_type` varchar(10) NOT NULL,
+  `file_url` varchar(255) NOT NULL,
+  `lib_id` int(11) DEFAULT '0',
+  `file_install_cont` text,
+  PRIMARY KEY (`file_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of dh_lib_files
+-- ----------------------------
+INSERT INTO `dh_lib_files` VALUES ('1', 'bootstrap.min.css', 'css', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', '11', null);
+INSERT INTO `dh_lib_files` VALUES ('2', 'bootstrap.min.js', 'js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', '11', null);
+INSERT INTO `dh_lib_files` VALUES ('3', 'popper.min.js', 'js', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js', '11', null);
+INSERT INTO `dh_lib_files` VALUES ('4', 'vue.js', 'js', 'https://cdn.jsdelivr.net/npm/vue', '12', null);
+INSERT INTO `dh_lib_files` VALUES ('5', 'react.production.min.js', 'js', 'https://unpkg.com/react@16/umd/react.production.min.js', '13', null);
+INSERT INTO `dh_lib_files` VALUES ('6', 'react-dom.production.min.js', 'js', 'https://unpkg.com/react-dom@16/umd/react-dom.production.min.js', '14', null);
+INSERT INTO `dh_lib_files` VALUES ('7', 'd3.v5.min.js', 'js', 'https://d3js.org/d3.v5.min.js', '15', null);
+INSERT INTO `dh_lib_files` VALUES ('8', 'animate.min.css', 'css', 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css', '23', null);
+INSERT INTO `dh_lib_files` VALUES ('9', 'jquery-3.4.1.min.js', 'js', 'https://code.jquery.com/jquery-3.4.1.min.js', '24', null);
+INSERT INTO `dh_lib_files` VALUES ('10', 'axios.min.js', 'js', 'https://unpkg.com/axios/dist/axios.min.js', '26', null);
+INSERT INTO `dh_lib_files` VALUES ('11', 'three.min.js', 'js', 'https://threejs.org/build/three.min.js', '27', null);
+INSERT INTO `dh_lib_files` VALUES ('12', 'chart.js', 'js', 'https://www.jsdelivr.com/package/npm/chart.js', '32', null);
+INSERT INTO `dh_lib_files` VALUES ('13', 'moment.min.js', 'js', 'https://momentjs.com/downloads/moment.min.js', '34', null);
+INSERT INTO `dh_lib_files` VALUES ('14', 'google-icon', 'css', 'https://fonts.googleapis.com/icon?family=Material+Icons', '35', null);
+INSERT INTO `dh_lib_files` VALUES ('15', 'materialize.min.css', 'css', 'https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css', '39', null);
+INSERT INTO `dh_lib_files` VALUES ('16', 'materialize.min.js', 'js', 'https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js', '39', null);
+INSERT INTO `dh_lib_files` VALUES ('17', 'bulma.min.css', 'css', 'https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css', '44', null);
+INSERT INTO `dh_lib_files` VALUES ('18', 'immutable.min.js', 'js', 'https://cdnjs.cloudflare.com/ajax/libs/immutable/3.8.2/immutable.min.js', '55', null);
+INSERT INTO `dh_lib_files` VALUES ('19', 'fullpage.min.js', 'js', 'https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.7/fullpage.min.js', '57', null);
+INSERT INTO `dh_lib_files` VALUES ('20', 'fullpage.min.css', 'css', 'https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.7/fullpage.min.css', '57', null);
+INSERT INTO `dh_lib_files` VALUES ('21', 'clipboard.min.js', 'js', 'https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js', '59', null);
+INSERT INTO `dh_lib_files` VALUES ('22', 'anime.min.js', 'js', 'https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js', '62', null);
+INSERT INTO `dh_lib_files` VALUES ('23', 'phaser.min.js', 'js', '//cdn.jsdelivr.net/npm/phaser@3.20.1/dist/phaser.min.js', '66', null);
+INSERT INTO `dh_lib_files` VALUES ('24', 'slick-theme.css', 'css', '//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css', '68', null);
+INSERT INTO `dh_lib_files` VALUES ('25', 'slick.css', 'css', '//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css', '68', null);
+INSERT INTO `dh_lib_files` VALUES ('26', 'slick.min.js', 'js', '//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js', '68', null);
+INSERT INTO `dh_lib_files` VALUES ('27', 'weui.min.js', 'js', 'https://res.wx.qq.com/open/libs/weuijs/1.2.1/weui.min.js', '74', null);
+INSERT INTO `dh_lib_files` VALUES ('28', 'mermaid.min.js', 'js', 'https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js', '76', null);
+INSERT INTO `dh_lib_files` VALUES ('29', 'hover.css', 'css', 'http://ianlunn.github.io/Hover/css/hover.css', '77', null);
+INSERT INTO `dh_lib_files` VALUES ('30', 'quill.snow.css', 'css', 'https://cdn.quilljs.com/1.0.0/quill.snow.css', '78', null);
+INSERT INTO `dh_lib_files` VALUES ('31', 'quill.js', 'js', 'https://cdn.quilljs.com/1.0.0/quill.js', '78', null);
+INSERT INTO `dh_lib_files` VALUES ('32', 'rxjs.umd.min.js', 'js', 'https://unpkg.com/rxjs@6.5.3/bundles/rxjs.umd.min.js', '80', null);
+INSERT INTO `dh_lib_files` VALUES ('33', 'bootstrap-material-design.min.css', 'css', 'https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css', '79', null);
+INSERT INTO `dh_lib_files` VALUES ('34', 'bootstrap-material-popper.js', 'js', 'https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js', '79', null);
+INSERT INTO `dh_lib_files` VALUES ('35', 'bootstrap-material-design.js', 'js', 'https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js', '79', null);
+INSERT INTO `dh_lib_files` VALUES ('36', 'sweetalert.min.js', 'js', 'https://unpkg.com/sweetalert/dist/sweetalert.min.js', '82', null);
+INSERT INTO `dh_lib_files` VALUES ('37', 'hammer.min.js', 'js', 'http://hammerjs.github.io/dist/hammer.min.js', '84', null);
+INSERT INTO `dh_lib_files` VALUES ('38', 'dragula.min.js', 'js', 'https://bevacqua.github.io/dragula/dist/dragula.js', '86', null);
+INSERT INTO `dh_lib_files` VALUES ('39', 'skrollr.min.js', 'js', 'http://prinzhorn.github.io/skrollr/dist/skrollr.min.js', '87', null);
 
 -- ----------------------------
 -- Table structure for dh_libs
@@ -335,20 +392,3 @@ INSERT INTO `dh_libs` VALUES ('497', 'elevator.js', 'http://tholman.com/elevator
 INSERT INTO `dh_libs` VALUES ('498', 'Flowtype.js', 'http://simplefocus.com/flowtype/', 'git://github.com/simplefocus/FlowType.JS', 'Web typography at its finest: font-size and line-height based on element width.', 'flowtype', '基于jquery的自适用字体大小插件', '4543', '1.1.0', '62,72', '1', '-1');
 INSERT INTO `dh_libs` VALUES ('499', 'heatmap.js', 'https://www.patrick-wied.at/static/heatmapjs/', 'git://github.com/pa7/heatmap.js.git', 'Dynamic JavaScript Heatmaps for the Web', 'heatmap,googlemaps,leaflet', '3D绘图插件', '4501', '2.0.2', '53,57', '1', '-1');
 INSERT INTO `dh_libs` VALUES ('500', 'Sal.js', 'https://mciastek.github.io/sal/', 'https://github.com/mciastek/sal', 'Lightweight scroll animation library', '滚动,scroll,animation,动画', '轻量级滚动动画库', '0', null, '52,73,74,86', '1', '1');
-
--- ----------------------------
--- Table structure for dh_libs_file
--- ----------------------------
-DROP TABLE IF EXISTS `dh_libs_file`;
-CREATE TABLE `dh_libs_file` (
-  `lf_id` int(11) NOT NULL AUTO_INCREMENT,
-  `lf_name` varchar(50) NOT NULL COMMENT '库名称',
-  `lf_url` varchar(255) DEFAULT NULL COMMENT '库主页',
-  `lf_type` varchar(255) DEFAULT NULL COMMENT '文件类型',
-  `lib_id` int(11) DEFAULT '0',
-  PRIMARY KEY (`lf_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of dh_libs_file
--- ----------------------------

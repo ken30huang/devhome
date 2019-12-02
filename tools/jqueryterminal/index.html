@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>基于JQuery的命令行解析插件</title>
+    <link rel="stylesheet" href="./src/terminal.min.css" />
+
+    <script src="/static/js/libs/jquery/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="term_demo"></div>
+    <script src="./src/terminal.min.js"></script>
+    <script>
+    (function($, undefined) {
+        $('#term_demo').terminal(function(command) {
+            if (command !== '') {
+                try {
+                    var result = window.eval(command);
+                    if (result !== undefined) {
+                        this.echo(new String(result));
+                    }
+                } catch(e) {
+                    this.error(new String(e));
+                }
+            } else {
+            this.echo('');
+            }
+        }, {
+            greetings: 'JavaScript Interpreter',
+            name: 'js_demo',
+            height: 200,
+            prompt: 'js> '
+        });
+    })(jQuery , undefined);
+    </script>
+</body>
