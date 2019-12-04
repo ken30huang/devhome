@@ -13,7 +13,10 @@ class DbModel {
 
     public function __construct() {
         //从驱动获取数据库操作对象
-        $this->db = Driver::get('db');
+        $config = InitApp::config();
+        $db_config = $config['drivers']['db']['config'];
+        $driverClass = Driver::get('db');
+        $this->db = new $driverClass($db_config);
     }
 
     public function data($key , $val=NULL) {

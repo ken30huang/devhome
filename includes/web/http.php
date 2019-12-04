@@ -142,5 +142,10 @@ class WebHttp {
 		
 		return $output;
 	}
+
+	public function output($content) {
+		echo $content;
+		exit;
+	}
 }
 ?>

@@ -16,7 +16,7 @@ class Driver {
                 die('Driver Load Error : Can not find driver path');
             }
             $driver_class = ucfirst($name).'Driver';
-            self::$_drivers[$name] = new $driver_class($config);
+            self::$_drivers[$name] = $driver_class;
         }
 
     }
