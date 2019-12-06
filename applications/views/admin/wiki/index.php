@@ -16,7 +16,7 @@
                     <thead>
                         <tr>
                             <th>标题</th>
-                            <th>内容</th>
+                            <th width="600">内容</th>
                             <th>来源</th>
                             <th>操作</th>
                         </tr>

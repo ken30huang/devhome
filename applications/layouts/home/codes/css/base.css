@@ -15,4 +15,12 @@ a { text-decoration: none; }
     clear: both;
 }
 
+
 .mgn-btm-80 { margin-bottom: 80px; }
+
+.pos_rel { position: relative; }
+.pos_abs { position: absolute; }
+
+.flex_box { display: flex; }
+
+.f_l { float: left; }

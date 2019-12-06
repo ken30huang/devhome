@@ -156,7 +156,6 @@ img.res_width { max-width: 100%; }
     background-color: #ddd;
 }
 
-
 .c_wrap .c_dir {
     padding:16px;
     position: absolute;
@@ -181,3 +180,90 @@ img.res_width { max-width: 100%; }
     color:#333;
     cursor: pointer;
 }
+
+.home_search { 
+    font-size:14px;
+    width:90%;
+}
+
+.home_search .home_tabs a {
+    display: inline-block;
+    font-size:18px;
+    text-decoration: none;
+    color:#333;
+    margin:0 10px 10px 0;
+    padding:0 0 10px 0;
+}
+.home_search .home_tabs a.cur {
+    color:#222;
+    font-weight: bold;
+    border-bottom: 2px #222 solid;
+}
+.home_search .input_wrap {
+    border:2px solid #222;
+    background-color: #000;
+}
+.home_search .input_wrap .lib_name_input {
+    padding:10px;
+    font-size:14px;
+    border: none;
+    outline: none;
+    width:90%;
+}
+
+.home_search .btn_search {
+    width: 7%;
+    height: 36px;
+    background-color: #000;
+    border: none;
+    color:#fff;
+    cursor: pointer;
+}
+
+.home_search .home_search_panels {
+    padding-top:20px;
+    width:90%;
+    font-size:16px;
+}
+
+
+.home_search .category_box a { display: inline-block; margin:0 10px 4px 0; color:#333; }
+.home_search .category_box a.sel {color:#222; border-bottom: 2px solid #222; }
+
+.home_search_result {
+    margin-top:20px;
+}
+.home_search .lib_item {
+    padding:20px;
+    border-radius: 8px;
+    border:1px solid #eee;
+    background-color: #fff;
+    line-height: 30px;
+    margin-bottom: 20px;
+}
+.home_search .lib_item .lib_name {
+    font-size:18px;
+}
+
+.home_search .lib_item .lib_intro {
+    color:#666;
+}
+.home_search .lib_item .lib_link {
+    text-align: right;
+}
+.home_search .lib_item .lib_link a {
+    color:#333;
+    display: inline-block;
+    margin-left:10px;
+}
+
+.photo_tit {
+    line-height: 40px;
+}
+
+.photo_change { padding:6px; }
+.photo_page_num { padding:6px; }
+
+.photo_item { float: left; padding:20px; }
+.photo_item .photo_show { width:100px; height:80px; overflow:hidden; }
+.photo_item .photo_btns { right:10px; bottom:10px; color:#fff; }

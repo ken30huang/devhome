@@ -6,10 +6,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" href="/static/imgs/favicon.ico" />
-    <link rel="stylesheet" href="/applications/layouts/<?php echo $ui_path;?>/css/base.css?v=1.0.9"/>
-    <link rel="stylesheet" href="/applications/layouts/<?php echo $ui_path;?>/css/main.css?v=1.1.3"/>
+    <link rel="stylesheet" href="/applications/layouts/<?php echo $ui_path;?>/css/base.css?v=1.1.1"/>
+    <link rel="stylesheet" href="/applications/layouts/<?php echo $ui_path;?>/css/main.css?v=1.1.5"/>
 
     <script src="/static/js/libs/jquery/jquery.min.js"></script>
+    <script src="/static/js/comm.js"></script>
+
     <title>Code's Home</title>
 </head>
 
@@ -25,6 +27,14 @@
                         <a class="nav-link" href="<?php echo $menu['c_alias'];?>"><?php echo $menu['c_title'];?></a>
                     </li>
                     <?php endforeach;?>
+                    <?php if(isset($_SESSION['user'])):?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/home/maintain/lib">未维护的库</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/home/maintain/libremark">我关注的库</a>
+                    </li>
+                    <?php endif;?>
                 </ul>
             </div>
             <div class="slider_social">
