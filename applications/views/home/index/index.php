@@ -20,57 +20,17 @@
         </div>
     </div>
     <div class="home_search_panels" style="display:none">
-        <div class="photo_tit">* 特别声明：图片来源从<a href="https://pixabay.com" target="_blank">pixabay.com</a>实时获取，图片搜索会有点慢，请耐心等待。</div>
-        <div class="category_box">
-            <select id="photo_lang" class="photo_change">
-                <option value="cn">中文</option>
-                <option value="en">英文</option>
-            </select>
-            <select id="photo_type" class="photo_change">
-                <option value="all">所有</option>
-                <option value="photo">图片</option>
-                <option value="illustration">插画</option>
-                <option value="vector">矢量</option>
-            </select>
-            <select id="photo_category" class="photo_change">
-                <option value="">全部类型</option>
-                <option value="computer">计算机/沟通</option>
-                <option value="science">科学/技术</option>
-                <option value="music">音乐</option>
-                <option value="travel">旅游度假</option>
-                <option value="nature">自然风景</option>
-                <option value="business">商业/金融</option>
-                <option value="fashion">美妆/时尚</option>
-                <option value="backgrounds">背景/花纹</option>
-                <option value="education">教育</option>
-                <option value="people">人物</option>
-                <option value="feelings">表情</option>
-                <option value="religion">宗教</option>
-                <option value="health">医学/健康</option>
-                <option value="places">地点/地标</option>
-                <option value="animals">动物</option>
-                <option value="industry">产业/技术</option>
-                <option value="food">食物/饮料</option>
-                <option value="sports">运动</option>
-                <option value="transportation"></option>
-                <option value="buildings">建筑</option>
-            </select>
-            每页显示：
-            <select id="page_show" class="photo_change">
-                <option value="40">40</option>
-                <option value="60">60</option>
-                <option value="60">80</option>
-                <option value="60">100</option>
-            </select>
-            页码：
-            <select id="page_num" class="photo_page_num">
-                <option value="1">1</option>
-            </select>
+        <div class="home_search_photo">
+            图片：<br />
+            <label for="piqsels_site"><input type="radio" checked="checked" id="piqsels_site" name="search_site" value="https://www.piqsels.com/zh/search?q=" /> Piqsels（中文）</label>
+            <label for="pxfuel_site"><input type="radio" id="pxfuel_site" name="search_site" value="https://www.pxfuel.com/en/search?q=" /> Pxfuel（英文）</label>
+        </div>
+        <div class="home_search_photo">
+            图标：<br />
+            <label for="uxwing_site"><input type="radio" id="uxwing_site" name="search_site" value="https://uxwing.com/?s=" /> UXWING（英文）</label>
         </div>
     </div>
     <div class="home_search_result">
-    </div>
-    <div class="home_search_result clearfix">
     </div>
 </div>
 <script>
@@ -100,6 +60,10 @@
         lib_search();
     });
     $('.btn_search').click(function() {
+        if(!_inputEl.val()) {
+            alert('请输入搜索关键字');
+            return;
+        }
         if(show_index == 0) {
             lib_search();
         } else {
@@ -131,6 +95,13 @@
                     for(var i=0; i<rows.length; i++) {
                         var site_link = '';
                         var git_link = '';
+                        var intros = [];
+                        if(rows[i].lib_intro_show) {
+                            intros.push(rows[i].lib_intro_show);
+                        }
+                        if(rows[i].lib_intro_res) {
+                            intros.push(rows[i].lib_intro_res);
+                        }
                         if(rows[i].lib_site) {
                             site_link = '<a href="'+rows[i].lib_site+'" class="home_link" target="_blank">官网</a>';
                         }
@@ -139,7 +110,7 @@
                         }
                         htmls.push('<div class="lib_item">');
                         htmls.push(' <p class="lib_name">'+rows[i].lib_name+'</p>');
-                        htmls.push(' <p class="lib_intro">'+(rows[i].lib_intro_show||rows[i].lib_intro_res)+'</p>');
+                        htmls.push(' <p class="lib_intro">'+intros.join("<br />")+'</p>');
                         htmls.push(' <p class="lib_link">'+site_link+git_link+'</p>');
                         htmls.push('</div>');
                     }
@@ -149,56 +120,11 @@
         });
     }
 
-    $('.photo_change').on('change' , function() {
-        $('#page_num').val('1');
-        photo_search(1);
-    });
-    $('#page_num').on('change' , function() {
-        photo_search();
-    });
-
     function photo_search() {
-        result_box.eq(1).html('正在获取图片，请稍后...');
-        var page_num = parseInt($('#page_num').val());
-        var photo_lang = $('#photo_lang').val();
-        var photo_type = $('#photo_type').val();
-        var photo_category = $('#photo_category').val();
-        var keyword = encodeURIComponent(_inputEl.val());
-        var page_show = $('#page_show').val();
-        if(!keyword) { return; }
-        var url = '/api/photo/pixabay?q='+keyword+'&photo_lang='+photo_lang+'&photo_type='+photo_type+'&photo_category='+photo_category;
-        url += '&page_num='+page_num + '&page_show='+page_show;
-        ajaxReq({
-            url:url,
-            succFun:function(res) {
-                var hits = res.hits||[];
-                var htmls = [];
-                for(var i=0; i<hits.length; i++) {
-                    htmls.push('<div class="photo_item pos_rel">');
-                    htmls.push(' <div class="photo_show"><img src="'+hits[i].webformatURL+'"></div>');
-                    htmls.push(' <div class="photo_btns pos_abs"><a target="_blank" href="'+hits[i].largeImageURL+'">原始大图</a></div>');
-                    htmls.push('</div>');
-                }
-                result_box.eq(1).html(htmls.join(''));
-
-                if(page_num == 1) {
-                    //重新计算页码
-                    $('#page_num')[0].length = 1;
-                    var total = res.total||0;
-                    var pageTotal = Math.ceil(total/page_show);
-                    if(pageTotal > 1) {
-                        console.log('pageTotal = ' + pageTotal);
-                        var start = 2;
-                        while(start < pageTotal) {
-                            $('#page_num').append('<option value="'+start+'">'+start+'</option>');
-                            start ++;
-                        }
-                    }
-                }
-                
-                
-            }
-        });
+        var _sel = $('input[name="search_site"]:checked');
+        if(_sel) {
+            window.open(_sel.val() + encodeURIComponent(_inputEl.val()));
+        }
     }
 
 })(jQuery);

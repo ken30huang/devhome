@@ -6,8 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" href="/static/imgs/favicon.ico" />
-    <link rel="stylesheet" href="/applications/layouts/<?php echo $ui_path;?>/css/base.css?v=1.1.1"/>
-    <link rel="stylesheet" href="/applications/layouts/<?php echo $ui_path;?>/css/main.css?v=1.1.5"/>
+    <link rel="stylesheet" href="/applications/layouts/<?php echo $ui_path;?>/css/base.css?v=1.1.2"/>
+    <link rel="stylesheet" href="/applications/layouts/<?php echo $ui_path;?>/css/main.css?v=1.1.4"/>
 
     <script src="/static/js/libs/jquery/jquery.min.js"></script>
     <script src="/static/js/comm.js"></script>
@@ -19,7 +19,9 @@
     <!-- http://www.htmleaf.com -->
     <div class="slider">
         <div class="slider_cont">
-            <div class="slider_header">Code's Home</div>
+            <div class="slider_header">
+                <img class="slider_avater" src="https://avatars.dicebear.com/v2/gridy/robot.svg" />
+            </div>
             <div class="slider_menu">
                 <ul>
                     <?php foreach($menu_list as $menu):?>

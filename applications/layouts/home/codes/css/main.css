@@ -33,9 +33,18 @@ img.res_width { max-width: 100%; }
     font-size:1.6rem;
     display:block;
     margin-bottom: 1rem;
+    padding-left:1rem;
 }
 .slider .slider_menu li a:hover,
 .slider .slider_menu li a.cur { color:#fff; }
+
+.slider .slider_avater {
+    width:140px;
+    height:140px;
+    border-radius: 80px;
+    border:4px solid #fff;
+}
+
 .cont_wrap { margin-left:320px; margin-top: 80px; }
 .cont_wrap .cont_search {
     line-height: 90px;
@@ -225,7 +234,13 @@ img.res_width { max-width: 100%; }
     width:90%;
     font-size:16px;
 }
-
+.home_search .home_search_panels::nth-child(2) {
+    line-height:30px;
+}
+.home_search .home_search_photo {
+    line-height: 30px;
+    margin-top: 20px;
+}
 
 .home_search .category_box a { display: inline-block; margin:0 10px 4px 0; color:#333; }
 .home_search .category_box a.sel {color:#222; border-bottom: 2px solid #222; }
