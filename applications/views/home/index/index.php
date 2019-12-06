@@ -8,9 +8,11 @@
         <button type="button" class="btn_search">搜索</button>
     </div>
     <div class="home_search_panels">
-        <div class="photo_tit">* 库来源：<a href="https://www.bootcdn.cn/" target="_blank">BootCDN</a>
+        <div class="photo_tit">* 库的主要来源：<a href="https://www.bootcdn.cn/" target="_blank">BootCDN</a>
         | <a href="https://www.uisdc.com/tag/%e9%85%b7%e7%ab%99" target="_blank">酷站-优设网</a> |
-        <a href="https://javascriptweekly.com/">Javascript Week</a>
+        <a href="https://javascriptweekly.com/" target="_blank">Javascript Week</a> |
+        <a href="https://webtoolsweekly.com" target="_blank">Webtools Weekly</a> |
+        <a href="https://css-weekly.com" target="_blank">css-weekly.com</a>
         <p>目前以前端库为主，逐渐扩展到php，python，c/c++，java等编程语言</p>
         </div>
         <div class="category_box lib_sel">
@@ -53,9 +55,12 @@
     });
     category_box.off().on('click' , 'a' , function() {
         var _this = $(this);
-        _this.addClass('sel');
         if(!lib_cateids[_this.data('cateid')]) {
             lib_cateids[_this.data('cateid')] = true;
+            _this.addClass('sel');
+        } else {
+            lib_cateids[_this.data('cateid')] && (delete lib_cateids[_this.data('cateid')]);
+            _this.removeClass('sel');
         }
         lib_search();
     });

@@ -3,7 +3,7 @@ class HomeMaintainController extends IndexBaseController {
     
     public function lib() {
         $limit = 10;
-        $where = "lib_status=1 AND (lib_cateid='0' OR lib_cateid='-1')";
+        $where = "lib_status=-1 AND (lib_cateid='0' OR lib_cateid='-1')";
         $rows = $this->getModel('lib')->where($where)->order('lib_id DESC')->range(0, $limit)->query();
         $this->assign('rows' , $rows);
         $this->display();

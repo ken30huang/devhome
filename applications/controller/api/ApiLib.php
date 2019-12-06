@@ -7,7 +7,13 @@ class ApiLibController extends WebController {
         $post = $this->http->inputPost();
         $where = "lib_status=1 ";
         if(isset($post['cate_id'])) {
-            $where .= " AND lib_cateid LIKE '%".intval($post['cate_id']).",%'";
+            $cate_arr = explode(',' , $post['cate_id']);
+            $where_or = array();
+            $where .= " AND (";
+            foreach($cate_arr as $cate_id) {
+                $where_or[] = "lib_cateid LIKE '%".intval($cate_id).",%'";
+            }
+            $where .= implode(' OR ' , $where_or).")";
         }
         if(isset($post['lib_name'])) {
             $where .= " AND (lib_intro_show LIKE '%".$post['lib_name']."%' OR lib_name LIKE '%".$post['lib_name']."%' 
