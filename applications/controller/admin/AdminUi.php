@@ -13,7 +13,7 @@ class AdminUiController extends AdminController {
 
     public function save() {
         $uimodel = $this->getModel('ui');
-        $uimodel->data($this->http->inputAll())->save();
+        $uimodel->data($this->http->inputPost())->save();
         $this->http->success()->json();
     }
 

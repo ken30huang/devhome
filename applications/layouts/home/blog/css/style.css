@@ -370,7 +370,7 @@ li > a:only-child:after {
 
 }
 .sidenav img{
-    border-radius: 50%;
+    /* border-radius: 50%; */
 	margin:0 auto;
 }
 h1.top_hd a {
@@ -803,6 +803,26 @@ label {
 .links_wrap .link_info { margin-top:1rem;}
 .links_wrap .link_info li {
     padding:.2rem 0;
+}
+.list_empty {
+    width:50%;
+    margin:0 auto;
+    text-align: center;
+}
+.list_empty .list_empty_img {
+    max-width: 100%;
+}
+
+.rss_tit {
+    margin-bottom: 1.6rem;
+}
+.rss_list li {
+    padding-bottom: .8rem;
+}
+
+.list_wrap .list_row {
+    margin-bottom: 20px;
+    line-height: 2.4rem;
 }
 /* //contact */
 /* -- Responsive code -- */

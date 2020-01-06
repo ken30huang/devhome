@@ -9,7 +9,7 @@
     <link rel="shortcut icon" href="/static/imgs/favicon.ico" />
 	<!-- Custom Theme files -->
 	<link href="/applications/layouts/<?php echo $ui_path;?>/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
-	<link href="/applications/layouts/<?php echo $ui_path;?>/css/style.css?v=1.0.3" type="text/css" rel="stylesheet" media="all">
+	<link href="/applications/layouts/<?php echo $ui_path;?>/css/style.css?v=1.0.4" type="text/css" rel="stylesheet" media="all">
 	<!-- font-awesome icons -->
 	<link href="/applications/layouts/<?php echo $ui_path;?>/css/fontawesome-all.min.css" rel="stylesheet" />
 	<!-- //Custom Theme files -->
@@ -19,7 +19,7 @@
 <body>
 	<div class="sidenav text-center">
 		<div class="side_top">
-			<img src="/applications/layouts/<?php echo $ui_path;?>/images/about.jpg" alt="news image" class="img-fluid navimg">
+			<img src="/static/imgs/ico_code.png" alt="news image" class="img-fluid navimg">
 			<h1 class="top_hd mt-2"><a href="/home">Code's Home</a></h1>
 		</div>
 		<!-- header -->

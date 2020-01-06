@@ -1,4 +1,4 @@
-<div class="list_wrap clearfix">
+<div class="list_wrap clearfix news">
     <div class="list_row">
         <div class="list_item_body">
             <h1><a href="/home/tools/flab" target="_blank">前端实验室</a></h1>

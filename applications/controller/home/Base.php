@@ -20,7 +20,7 @@ class IndexBaseController extends WebController {
 
         $cont_model = $this->getModel('content')->clearQuery();
         $menu_list =  $cont_model->where("c_type='page'")->order('c_order ASC,c_id ASC')->query();
-        $alias = $this->uri->get(0);
+        $alias = $this->uri->get(1);
 
         foreach($menu_list as &$menu) {
             $menu['isactive'] = 0;
