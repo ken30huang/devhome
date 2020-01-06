@@ -59,10 +59,10 @@ body a:focus {
 }
 /*-- bottom-to-top --*/
 .side_top {
-    padding: 2em 1em;
+    padding: 1em;
 }
 nav ul li {
-    padding: 0.5rem;
+    padding: 0.2rem;
 }
 /*-- header --*/
 
@@ -394,7 +394,7 @@ p.top_hdp {
     -moz-background-size: cover;
     -o-background-size: cover;
     -ms-background-size: cover;
-  padding: 18vw 0;
+  padding: 10vw 0;
 }
 .banner-text-w3ls h3 {
     color: #fff;
@@ -736,6 +736,74 @@ label {
 	min-height: 500px;
 }
 
+.detail_wrap {
+    padding:3rem;
+}
+
+.detail_wrap .c_cont p {
+    line-height: 2.4rem;
+}
+
+.detail_wrap .c_cont h1 {
+    padding-top: 2rem;
+    padding-bottom: 1.6rem;
+}
+.detail_wrap .c_cont h2,
+.detail_wrap .c_cont h3{
+    padding-bottom: 1rem;
+}
+
+.detail_wrap .c_cont .hljs {
+    line-height: 1.4rem;
+}
+
+.detail_wrap .c_cont pre {
+    position: relative;
+    padding: 1rem;
+    background-color: #1C1D21;
+}
+.detail_wrap .c_cont pre a.clipboard {
+    width: 30px;
+    height: 30px;
+    display: block;
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-align: center;
+    line-height: 30px;
+}
+
+.detail_wrap .c_cont pre a.clipboard {
+    width: 30px;
+    height: 30px;
+    display: block;
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-align: center;
+    line-height: 30px;
+}
+.detail_wrap .c_cont ul {
+    margin-left:30px;
+    margin-bottom: 20px;
+    list-style-type: unset;
+}
+.detail_wrap .c_cont ul li {
+    padding:.2rem 0;
+}
+
+.links_wrap {
+    padding:4rem 10rem;
+}
+.links_wrap .list_item {
+    margin-bottom:2rem;
+}
+.links_wrap .link_info { margin-top:1rem;}
+.links_wrap .link_info li {
+    padding:.2rem 0;
+}
 /* //contact */
 /* -- Responsive code -- */
 @media screen and (max-width: 1440px) {

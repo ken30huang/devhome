@@ -51,9 +51,15 @@ class IndexBaseController extends WebController {
     }
 
     public function vlog() {
+        $ip = $this->http->getIP();
         $model = TableModel::getInstance('visitlog' , 'v_id');
+        $filter_model = TableModel::getInstance('visitlog_filter' , 'vf_id');
+        $f_count = $filter_model->getCount(" AND vf_ip='".$ip."'");
+        if($f_count > 0) {
+            return;
+        }
         $logData = array(
-            'v_ip'=>$this->http->getIP(),
+            'v_ip'=>$ip,
             'v_link'=>$this->http->inputGet('vurl'),
             'v_logtime'=>date('Y-m-d H:i:s'),
             'v_staytime'=>intval($this->http->inputGet('vtime'))

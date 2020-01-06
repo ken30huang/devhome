@@ -1,13 +1,14 @@
-
-<div class="list_wrap clearfix">
-    <?php foreach($catemaps as $item):?>
+<div class="links_wrap clearfix">
+    <?php foreach($catemaps as $item): if(count($item['c_lists'])==0) { continue; } ?>
     <div class="list_item">
-        <div class="list_item_body">
+        <div class="link_body">
             <h1 id="nav-<?php echo $item['cate_idx']?>"><?php echo $item['cate_name'];?></h1>
-            <div class="list_item_info">
+            <div class="link_info">
                 <ul>
                 <?php foreach($item['c_lists'] as $c_item): ?>
-                    <li><a href="<?php echo $c_item['c_link']?>" target="_blank"><?php echo $c_item['c_title'];?></a></li>
+                    <li>
+                        <a href="<?php echo $c_item['c_link']?>" target="_blank"><?php echo $c_item['c_title'];?> <i class="fa fa-external-link" aria-hidden="true"></i></a>
+                    </li>
                 <?php endforeach;?>
                 </ul>
             </div>
@@ -18,13 +19,7 @@
 
 <script>
 (function() {
-    $('.cate-nav').on('click' , 'a' , function() {
-        $('.cate-nav a').removeClass('sel');
-        $(this).addClass('sel');
-        var _idx = $(this).data('idx');
-        var _top = $('#nav-'+_idx).offset().top-60;
-        $('html,body').animate({scrollTop: _top+'px'}, 800);
-    });
+    
 })(jQuery);
 
 </script>

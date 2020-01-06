@@ -20,7 +20,7 @@
                         <tbody>
                             <?php foreach($rows as $row):?>
                             <tr>
-                                <td ><?php echo $row['v_ip'];?></td>
+                                <td ><?php echo $row['v_ip'];?> <a href="javascript:;" onclick="javascript:filterIP('<?php echo $row['v_ip'];?>')">过滤IP</a></td>
                                 <td><?php echo $row['v_link'];?></td>
                                 <td><?php echo $row['v_logtime'];?></td>
                                 <td><?php echo ceil($row['v_staytime']/1000);?></td>
@@ -36,5 +36,17 @@
 </div><!--/.row-->
 
 <script>
-var moduleURL = '/admin/article';
+function filterIP(ipAddress) {
+    ajaxReq({
+        url:'/admin/visitlog/filter',
+        data: { ip:ipAddress },
+        succFun:function(res) {
+            if(res.code == '000') {
+                location.reload();
+            } else {
+                alert(res.msg);
+            }
+        }
+    });
+}
 </script>

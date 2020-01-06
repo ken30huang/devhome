@@ -7,24 +7,13 @@
 	<meta charset="utf-8" />
     <meta name="keywords" content="" />
     <link rel="shortcut icon" href="/static/imgs/favicon.ico" />
-	<script>
-		addEventListener("load", function () {
-			setTimeout(hideURLbar, 0);
-		}, false);
-
-		function hideURLbar() {
-			window.scrollTo(0, 1);
-		}
-	</script>
 	<!-- Custom Theme files -->
 	<link href="/applications/layouts/<?php echo $ui_path;?>/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
-	<link href="/applications/layouts/<?php echo $ui_path;?>/css/style.css?v=1.0.1" type="text/css" rel="stylesheet" media="all">
+	<link href="/applications/layouts/<?php echo $ui_path;?>/css/style.css?v=1.0.3" type="text/css" rel="stylesheet" media="all">
 	<!-- font-awesome icons -->
-	<link href="/applications/layouts/<?php echo $ui_path;?>/css/fontawesome-all.min.css" rel="stylesheet">
+	<link href="/applications/layouts/<?php echo $ui_path;?>/css/fontawesome-all.min.css" rel="stylesheet" />
 	<!-- //Custom Theme files -->
-	<!-- online-fonts -->
-	<link href="http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
-	<!-- //online-fonts -->
+	<script src="/static/js/libs/jquery/jquery.min.js"></script>
 </head>
 
 <body>
@@ -52,9 +41,12 @@
 		<!-- //header -->
 	</div>
 	<div class="main">
-        <?php echo $main; ?>
+		<?php echo $main; ?>
+		<div class="cpy-right text-center">
+			<p>Copyright &copy; 2020 Collect from
+			<a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
+		</div>
 	</div>
-
 </body>
 
 </html>

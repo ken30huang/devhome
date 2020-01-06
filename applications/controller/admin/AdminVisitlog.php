@@ -17,5 +17,15 @@ class AdminVisitlogController extends AdminController {
         $this->view();
     }
 
+    public function filter() {
+        $ip = $this->http->inputPost('ip');
+        $model = TableModel::getInstance('visitlog_filter' , 'vf_id');
+        $count = $model->getCount(" AND vf_ip='".$ip."'");
+        if($count == 0) {
+            $model->data(array('vf_ip'=>$ip))->save();
+        }
+        $this->http->success()->json();
+    }
+
 }
 ?>

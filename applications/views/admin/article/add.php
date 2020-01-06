@@ -22,6 +22,10 @@
                             <input id="c_alias" field="c_alias" class="form-control" placeholder="" value="<?php echo getRowVal('c_alias' , $row);?>" />
                         </div>
                         <div class="form-group">
+                            <label>文章链接</label>
+                            <input id="c_link" field="c_link" class="form-control" placeholder="" value="<?php echo getRowVal('c_link' , $row);?>" />
+                        </div>
+                        <div class="form-group">
                             <label>SEO关键词</label>
                             <input id="c_seokeyword" field="c_seokeyword" class="form-control" placeholder="" value="<?php echo getRowVal('c_seokeyword' , $row);?>" />
                         </div>
@@ -81,7 +85,7 @@ function contSave() {
         alert('请输入标题');
         return;
     }
-    if($('#c_alias').val() == '') {
+    if($('#c_alias').val() == '' && $('#c_link').val() == '') {
         alert('请输入别名');
         return;
     }
@@ -103,6 +107,7 @@ function contSave() {
         c_title:$('#c_title').val(),
         c_id:$('#c_id').val(),
         c_alias:$('#c_alias').val(),
+        c_link:$('#c_link').val(),
         c_seokeyword:$('#c_seokeyword').val(),
         c_seodescription:$('#c_seodescription').val(),
         c_tag:tag,

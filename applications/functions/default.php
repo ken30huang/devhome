@@ -18,7 +18,7 @@ function page_show($page , $total , $pagesize=10 , $url) {
     }
     
     $page_show = array();
-    $page_show[] = '<nav aria-label="Page navigation example" class="m-center"><ul class="pagination">';
+    $page_show[] = '<nav aria-label="Page navigation example" class="m-center"><ul class="pagination justify-content-center">';
     $page_show[] = '<li class="page-item"><a class="page-link" href="'. $url.'?page='.($prev).'">Previous</a></li>';
     for($i=$start; $i<=$end; $i++) {
         $page_show[] = '<li class="page-item '.($i==$page?'active':'').'"><a class="page-link" href="'. $url.'?page='.($i).'">'.$i.'</a></li>';
