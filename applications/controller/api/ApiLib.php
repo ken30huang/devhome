@@ -25,5 +25,10 @@ class ApiLibController extends WebController {
         $rows = $this->getModel('lib')->where($where)->order('lib_id DESC')->range(0, $limit)->query();
         $this->http->res('rows' , $rows)->success()->json();
     }
+
+    public function frontcates() {
+        $lib_cates = $this->getModel('category')->getChilds(33);
+        $this->http->res('rows' , $lib_cates)->success()->json();
+    }
 }
 ?>

@@ -15,11 +15,7 @@
         <a href="https://css-weekly.com" target="_blank">css-weekly.com</a>
         <p>目前以前端库为主，逐渐扩展到php，python，c/c++，java等编程语言</p>
         </div>
-        <div class="category_box lib_sel">
-            <?php foreach($lib_cates as $cate_item):?>
-            <a href="javascript:;" data-cateid="<?php echo $cate_item['cate_id'];?>"><?php echo $cate_item['cate_name']?></a>
-            <?php endforeach;?>
-        </div>
+        <div class="category_box lib_sel">类型加载中...</div>
     </div>
     <div class="home_search_panels" style="display:none">
         <div class="home_search_photo">
@@ -75,6 +71,24 @@
             photo_search();
         }
     });
+
+    function lib_cate_query() {
+        ajaxReq({
+            url:'/api/lib/frontcates',
+            succFun:function(res) {
+                if(res.code == '000') {
+                    // console.log(res);
+                    var rows = res.rows||[];
+                    var lib_cates = [];
+                    for(var i=0; i<rows.length; i++) {
+                        lib_cates.push('<a href="javascript:;" class="" data-cateid="'+rows[i].cate_id+'">'+rows[i].cate_name+'</a>');
+                    }
+                    $('.category_box').html(lib_cates.join(''));
+                }
+            }
+        });
+    }
+    lib_cate_query();
 
     lib_search();
     function lib_search() {

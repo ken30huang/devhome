@@ -824,6 +824,24 @@ label {
     margin-bottom: 20px;
     line-height: 2.4rem;
 }
+
+.home_search {
+    padding: 60px 60px 0 60px;
+}
+
+.home_search .lib_sel {
+    font-size:14px;
+}
+.home_search .lib_sel>a {
+    display: inline-block;
+    margin:0 10px 4px 0;
+    border:1px solid #fff;
+}
+.home_search .lib_sel>a.sel,
+.home_search .lib_sel>a:hover {
+    border-bottom: #1d89e4 solid 1px;
+}
+
 /* //contact */
 /* -- Responsive code -- */
 @media screen and (max-width: 1440px) {
