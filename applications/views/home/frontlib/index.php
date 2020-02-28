@@ -128,7 +128,7 @@
                             git_link = '<a href="'+rows[i].lib_github+'" class="git_link" target="_blank">Github地址</a>';
                         }
                         htmls.push('<div class="lib_item">');
-                        htmls.push(' <p class="lib_name">'+rows[i].lib_name+'</p>');
+                        htmls.push(' <h4 class="lib_name">'+rows[i].lib_name+'</h4>');
                         htmls.push(' <p class="lib_intro">'+intros.join("<br />")+'</p>');
                         htmls.push(' <p class="lib_link">'+site_link+git_link+'</p>');
                         htmls.push('</div>');

@@ -3,7 +3,6 @@ html {
 }
 body {
 	margin: 0;
-	font-family: 'Lato', sans-serif;
 	background: #fff;
 }
 
@@ -30,7 +29,6 @@ h4,
 h5,
 h6 {
 	margin: 0;
-	font-family: 'Lato', sans-serif;
 }
 
 p {
@@ -840,6 +838,23 @@ label {
 .home_search .lib_sel>a.sel,
 .home_search .lib_sel>a:hover {
     border-bottom: #1d89e4 solid 1px;
+}
+
+.lib_item { margin-top:30px; }
+.lib_item h4 {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    line-height: 30px;
+}
+.lib_item .lib_link a {
+    background-color: #1d89e4;
+    border: 2px solid #fff;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 2px;
+    padding: 4px 10px;
+    display: inline-block;
 }
 
 /* //contact */

@@ -9,7 +9,20 @@
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-body">
-                <button type="button" class="btn btn-primary" onclick="location.href='/admin/lib/add?page=<?php echo $page; ?>';">新增库</button>
+                <div class="row">
+                    <div class="col-lg-2">
+                    <button type="button" class="btn btn-primary" onclick="location.href='/admin/lib/add?page=<?php echo $page; ?>';">新增库</button>
+                    </div>
+                    <div class="col-lg-10">
+                        <div class="input-group">
+                        <input type="text" class="form-control search_key" placeholder="Search for...">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default btn-query" type="button">查询</button>
+                        </span>
+                        </div><!-- /input-group -->
+                    </div><!-- /.col-lg-6 -->
+                </div><!-- /.row -->
+                
             </div>
             <div class="panel-body">
                 <table class="table table-bordered table-hover">
@@ -49,19 +62,11 @@
 <script>
 var moduleURL = '/admin/lib';
 
-function requestLib(lib_id) {
-    ajaxReq({
-        url:moduleURL+'/getdetail',
-        data:{
-            'lib_id':lib_id,
-        },
-        method:'POST',
-        succFun:function(res) {
-            console.log(res);
-            if(res.code == '000') {
-                location.reload();
-            }
-        }
+(function() {
+    
+    $('.btn-query').off().on('click' , function() {
+        var search_key = $('.search_key').val();
+        location.href = "/admin/lib?q="+encodeURIComponent(search_key);
     });
-}
+})(jQuery)
 </script>

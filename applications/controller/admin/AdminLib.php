@@ -5,9 +5,14 @@ class AdminLibController extends AdminController {
 
         $this->checkLogin();
         $cmodel = $this->getModel('lib');
+        $where = "";
         $page = intval($this->http->inputGet('page'));
+        $q = $this->http->inputGet('q');
         $page = $page==0 ? 1 : $page;
-        $pageData = $cmodel->setPageNum($page)->getPageData();
+        if($q != '') {
+            $where .= " AND (lib_name LIKE '%".$q."%')";
+        }
+        $pageData = $cmodel->setPageNum($page)->getPageData($where);
         $this->view->assign('rows' , $pageData['rows']);
         $this->view->assign('page' , $page);
         $this->view->assign('pager' , show_pagenums($page , $pageData['count'] , $cmodel->getPageSize() , "/admin/lib"));
