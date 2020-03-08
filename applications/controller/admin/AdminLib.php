@@ -24,11 +24,11 @@ class AdminLibController extends AdminController {
         $model = null;
         if($post['save_opr'] == 'lib') {
             $model = $this->getModel('lib');
+            $post['lib_cateid'] = $post['lib_cateid'].',';
         } else {
             $model = TableModel::getInstance('lib_files' , 'file_id');
         }
         unset($post['save_opr']);
-        $post['lib_cateid'] = $post['lib_cateid'].',';
         $model->data($post)->save();
         $this->http->success()->json();
     }

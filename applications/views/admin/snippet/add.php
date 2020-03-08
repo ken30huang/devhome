@@ -22,6 +22,14 @@
                             <input id="c_seokeyword" field="c_seokeyword" class="form-control" placeholder="" value="<?php echo getRowVal('c_seokeyword' , $row);?>" />
                         </div>
                         <div class="form-group">
+                            <label>来源</label>
+                            <input id="c_link" field="c_link" class="form-control" placeholder="" value="<?php echo getRowVal('c_link' , $row);?>" />
+                        </div>
+                        <div class="form-group">
+                            <label>来源标题</label>
+                            <input id="c_linktitle" field="c_linktitle" class="form-control" placeholder="" value="<?php echo getRowVal('c_linktitle' , $row);?>" />
+                        </div>
+                        <div class="form-group">
                             <label>编程语言</label>
                             <select class="form-control" id="c_cateid" field="c_cateid">
                                 <option value="0">请选择</option>
@@ -30,12 +38,9 @@
                                 <?php endforeach;?>
                             </select>
                         </div>
-                        <div class="form-group"><h4>代码列表</h4></div>
                         <div class="form-group">
-                            <?php foreach($fileconts as $fileitem): ?>
-                            <input id="c_filename_<?php echo $fileitem['c_fileid']?>" class="form-control file_code_key" value="<?php echo getRowVal('c_filename' , $fileitem);?>" />
-                            <textarea id="c_filecont_<?php echo $fileitem['c_fileid']?>" class="form-control file_code_cont" rows="4" placeholder=""><?php echo getRowVal('c_filecont' , $fileitem);?></textarea>
-                            <?php endforeach?>
+                            <label>代码</label>
+                            <textarea id="c_cont" field="c_cont" class="form-control" rows="8" placeholder=""><?php echo getRowVal('c_cont' , $row);?></textarea>
                         </div>
                         <button type="button" id="saveBtn" class="btn btn-primary">保存</button>
                         <button type="button" class="btn btn-default" onclick="javascript:history.back();">取消</button>
@@ -73,10 +78,8 @@ function contSave() {
         c_id:$('#c_id').val(),
         c_seokeyword:$('#c_seokeyword').val(),
         c_cateid:$('#c_cateid').val(),
-        files:JSON.stringify(_files)
+        c_cont:$('#c_cont').val()
     };
-    // console.log(_saveData);
-    // return;
     ajaxReq({
         url:'/admin/snippet/save',
         data: _saveData,

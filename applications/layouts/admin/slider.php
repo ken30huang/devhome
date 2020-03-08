@@ -65,8 +65,8 @@
                     </a>
                 </li>
                 <li>
-                    <a class="" href="/admin/project">
-                        <span class="glyphicon glyphicon-share-alt"></span> 项目管理
+                    <a class="" href="/admin/online">
+                        <span class="glyphicon glyphicon-share-alt"></span> 预设环境管理
                     </a>
                 </li>
             </ul>
