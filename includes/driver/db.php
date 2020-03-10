@@ -77,7 +77,6 @@ class DbDriver {
 	public function delete($table , $where) {
 
 		$sql = "DELETE FROM ".$this->_prex.$table." WHERE ".$where;
-		// echo $sql;
 		$res = $this->_dbh->exec($sql);
 		$this->checkError();
 	}

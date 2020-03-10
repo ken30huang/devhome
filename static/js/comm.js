@@ -214,3 +214,12 @@ function formSave() {
 
 
 }
+
+(function() {
+    var time = (new Date()).getTime();
+    window.onbeforeunload = function() {
+        //窗口关闭时记录
+        var url = location.href;
+        (new Image()).src = '/home/index/vlog?vurl='+url+'&vtime='+((new Date()).getTime()-time);
+    }
+})(jQuery);

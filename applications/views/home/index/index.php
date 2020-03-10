@@ -13,16 +13,26 @@
 </div> -->
 <!-- news -->
 <div class="news" id="news">
-    <h3 class="w3_head mb-4 text-left"> 开发日志</h3>
+    <h3 class="w3_head mb-4 text-left"> 最新日志</h3>
     <?php foreach($articles as $aitem): ?>
     <div class="row news-grids-left mt-5">
         <div class="col-lg-12">
             <?php if($aitem['c_link']): ?>
-            <h5><a href="<?php echo $aitem['c_link'] ?>" target="_blank"><?php echo $aitem['c_title'] ?> <i class="fa fa-external-link" aria-hidden="true"></i></a></h5>
+                <?php if($aitem['c_type']=='knowledge'):?>
+                <h5>[知识点]<?php echo $aitem['c_title'] ?></h5>
+                <p>知识来源：<a href="<?php echo $aitem['c_link'] ?>" target="_blank"><?php echo $aitem['c_linktitle'] ?> <i class="fa fa-external-link" aria-hidden="true"></i></a></p>
+                <?php else:?>
+                <h5><a href="<?php echo $aitem['c_link'] ?>" target="_blank"><?php echo $aitem['c_title'] ?> <i class="fa fa-external-link" aria-hidden="true"></i></a></h5>
+                <?php endif;?>
             <?php else:?>
             <h5><a href="/home/blog/detail/<?php echo $aitem['c_alias'] ?>"><?php echo $aitem['c_title'] ?></a></h5>
             <?php endif; ?>
-            <p class="mt-3"><?php echo $aitem['c_summery']; ?></p>
+            <p class="mt-3">
+                <?php echo $aitem['c_summery']; ?>
+                <?php if($aitem['c_thumb']):?>
+                <img src="<?php echo $aitem['c_thumb'];?>" />
+                <?php endif; ?>
+            </p>
         </div>
     </div>
     <?php endforeach; ?>

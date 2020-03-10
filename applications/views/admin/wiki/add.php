@@ -18,8 +18,19 @@
                             <input id="c_title" field="c_title" class="form-control" placeholder="" value="<?php echo getRowVal('c_title' , $row);?>" />
                         </div>
                         <div class="form-group">
+                            <label>页面别名</label>
+                            <input id="c_alias" field="c_alias" class="form-control" placeholder="" value="<?php echo getRowVal('c_alias' , $row);?>" />
+                        </div>
+                        <div class="form-group">
                             <label>知识点来源</label>
-                            <input id="c_link" field="c_link" class="form-control" placeholder="" value="<?php echo getRowVal('c_link' , $row);?>" />
+                            <div class="row">
+                                <div class="col-lg-6">
+                                <input id="c_linktitle" field="c_linktitle" class="form-control" placeholder="来源标题" value="<?php echo getRowVal('c_link' , $row);?>" />
+                                </div>
+                                <div class="col-lg-6">
+                                <input id="c_link" field="c_link" class="form-control" placeholder="来源地址" value="<?php echo getRowVal('c_link' , $row);?>" />
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label>文档Tags</label>
@@ -31,8 +42,13 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label>缩略图</label>
+                            <input id="c_thumb" field="c_thumb" class="form-control" placeholder="" value="<?php echo getRowVal('c_thumb' , $row);?>" />
+                        </div>
+                        <div class="form-group">
                             <label>文章内容</label>
-                            <textarea id="c_cont" field="c_cont" class="form-control" rows="4" placeholder=""><?php echo getRowVal('c_cont' , $row);?></textarea>
+                            <textarea id="c_mdcont" field="c_mdcont" class="form-control" rows="6" placeholder=""><?php echo getRowVal('c_mdcont' , $row);?></textarea>
+                            <div id="c_cont" style="border:1px solid #ccc;height:240px; padding:10px; overflow:auto;"><?php echo getRowVal('c_cont' , $row , '内容预览');?></div>
                         </div>
                         <button type="button" id="saveBtn" class="btn btn-primary">保存</button>
                         <button type="button" class="btn btn-default" onclick="javascript:history.back();">取消</button>
@@ -43,11 +59,15 @@
     </div><!-- /.col-->
 </div><!-- /.row -->
 
+<script src="/static/plugins/marked/marked.min.js"></script>
 <script>
 
 (function($) {
     var _this = this;
-
+    $('#c_mdcont').on('keyup' , function() {
+        var _showHTML = marked(this.value);
+        $('#c_cont').html(_showHTML);
+    });
     $('#saveBtn').on('click', function() {
         contSave();
     });
@@ -59,7 +79,7 @@ function contSave() {
         alert('请输入标题');
         return;
     }
-    if($('#c_cont').val() == '') {
+    if($('#c_mdcont').val() == '') {
         alert('请输入内容');
         return;
     }
@@ -78,7 +98,11 @@ function contSave() {
         c_id:$('#c_id').val(),
         c_link:$('#c_link').val(),
         c_tag:tag,
-        c_cont:$('#c_cont').val()
+        c_cont:$('#c_cont').html(),
+        c_mdcont:$('#c_mdcont').val(),
+        c_linktitle:$('#c_linktitle').val(),
+        c_alias:$('#c_alias').val(),
+        c_thumb:$('#c_thumb').val()
     };
     ajaxReq({
         url:'/admin/wiki/save',

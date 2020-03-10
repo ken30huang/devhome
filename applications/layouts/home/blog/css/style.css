@@ -472,7 +472,8 @@ ul.list-unstyled li {
    border-top: solid 6px #f4f4f4;
 }
 .news img{
-	border-radius:5px;
+    border-radius:5px;
+    max-width: 100%;
 }
 .newsgrid1 {
     padding: 0;

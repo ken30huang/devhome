@@ -9,12 +9,12 @@
     <link rel="shortcut icon" href="/static/imgs/favicon.ico" />
 	<!-- Custom Theme files -->
 	<link href="/applications/layouts/<?php echo $ui_path;?>/css/bootstrap.css?v=1.0.0" type="text/css" rel="stylesheet" media="all">
-	<link href="/applications/layouts/<?php echo $ui_path;?>/css/style.css?v=1.0.7" type="text/css" rel="stylesheet" media="all">
+	<link href="/applications/layouts/<?php echo $ui_path;?>/css/style.css?v=1.0.8" type="text/css" rel="stylesheet" media="all">
 	<!-- font-awesome icons -->
 	<link href="/applications/layouts/<?php echo $ui_path;?>/css/fontawesome-all.min.css" rel="stylesheet" />
 	<!-- //Custom Theme files -->
 	<script src="/static/js/libs/jquery/jquery.min.js"></script>
-	<script src="/static/js/comm.js"></script>
+	<script src="/static/js/comm.js?v=1.0.1"></script>
 </head>
 
 <body>

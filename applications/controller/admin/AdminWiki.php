@@ -21,10 +21,10 @@ class AdminWikiController extends AdminController {
         $post['c_type'] = $this->c_type;
         foreach($tags as $tname) {
             if(empty($tname)) continue;
-            $tcount = $tmodel->getCount(" AND tag_name='".$tname."'");
+            $tcount = $tmodel->getCount(" AND tag_name='".$tname."' AND tag_type='".$this->c_type."'");
             
             if($tcount == 0) {
-                $tmodel->data(array('tag_name'=>$tname))->save();
+                $tmodel->data(array('tag_name'=>$tname, 'tag_type'=>$this->c_type))->save();
             }
         }
         if(intval($post['c_id']) == 0) {
@@ -44,7 +44,7 @@ class AdminWikiController extends AdminController {
         $cmodel = $this->getModel('content');
         $tmodel = $this->getModel('tag');
         $row = $cmodel->data('c_id' , $this->http->inputGet('c_id'))->getRow();
-        $tagRows = $tmodel->select();
+        $tagRows = $tmodel->select(array('where'=>" AND tag_type='".$this->c_type."'"));
 
         $this->view->assign('row' , $row);
         $this->view->assign('tags' , $tagRows);

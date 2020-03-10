@@ -16,7 +16,6 @@
                     <thead>
                         <tr>
                             <th>标题</th>
-                            <th width="600">内容</th>
                             <th>来源</th>
                             <th>操作</th>
                         </tr>
@@ -24,7 +23,6 @@
                             <?php foreach($rows as $row):?>
                             <tr>
                                 <td ><?php echo $row['c_title'];?></td>
-                                <td><?php echo $row['c_cont'];?></td>
                                 <td><a href="<?php echo $row['c_link'];?>" target="_blank">查看</a></td>
                                 <td>
                                     <a href="javascript:;" onclick="location.href='/admin/wiki/add?c_id=<?php echo $row['c_id'];?>';">编辑</a>

@@ -1,7 +1,7 @@
 <?php
 Class TableModel extends DbModel {
 
-    private static $_model = null;
+    private static $_model = array();
 
     public function __construct($table , $keyid = 'id') {
         
@@ -13,11 +13,11 @@ Class TableModel extends DbModel {
 
     public static function getInstance($table , $keyid = 'id') {
         
-        if(!self::$_model) {
-            self::$_model = new TableModel($table , $keyid);
+        if(!isset(self::$_model[$table])) {
+            self::$_model[$table] = new TableModel($table , $keyid);
         }
 
-        return self::$_model;
+        return self::$_model[$table];
     }
 }
 ?>
