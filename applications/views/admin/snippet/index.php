@@ -42,3 +42,5 @@
         </div>
     </div>
 </div><!--/.row-->
+
+<script>var moduleURL = '/admin/snippet';</script>

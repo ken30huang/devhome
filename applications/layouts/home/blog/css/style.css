@@ -841,7 +841,10 @@ label {
     border-bottom: #1d89e4 solid 1px;
 }
 
-.lib_item { margin-top:30px; }
+.lib_item { 
+    margin-top:30px; 
+    margin-bottom: 40px;
+}
 .lib_item h4 {
     font-size: 18px;
     font-weight: 600;
@@ -856,6 +859,22 @@ label {
     letter-spacing: 2px;
     padding: 4px 10px;
     display: inline-block;
+}
+.lib_item .lib_cont {
+}
+.lib_item .lib_cont p,
+.lib_item .lib_cont li {
+    font-weight: normal;
+    color:#666;
+    font-size:14px;
+}
+.lib_item .lib_cont img {
+    max-width: 100%;
+}
+.lib_item .lib_tag {
+    padding-top:10px;
+    padding-bottom: 10px;
+    border-bottom:1px solid #ccc;
 }
 
 /* //contact */

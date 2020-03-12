@@ -25,12 +25,16 @@
                             <label>知识点来源</label>
                             <div class="row">
                                 <div class="col-lg-6">
-                                <input id="c_linktitle" field="c_linktitle" class="form-control" placeholder="来源标题" value="<?php echo getRowVal('c_link' , $row);?>" />
+                                <input id="c_linktitle" field="c_linktitle" class="form-control" placeholder="来源标题" value="<?php echo getRowVal('c_linktitle' , $row);?>" />
                                 </div>
                                 <div class="col-lg-6">
                                 <input id="c_link" field="c_link" class="form-control" placeholder="来源地址" value="<?php echo getRowVal('c_link' , $row);?>" />
                                 </div>
                             </div>
+                        </div>
+                        <div class="form-group">
+                            <label>摘要</label>
+                            <textarea id="c_summery" field="c_summery" class="form-control" rows="3" placeholder=""><?php echo getRowVal('c_summery' , $row);?></textarea>
                         </div>
                         <div class="form-group">
                             <label>文档Tags</label>
@@ -48,7 +52,7 @@
                         <div class="form-group">
                             <label>文章内容</label>
                             <textarea id="c_mdcont" field="c_mdcont" class="form-control" rows="6" placeholder=""><?php echo getRowVal('c_mdcont' , $row);?></textarea>
-                            <div id="c_cont" style="border:1px solid #ccc;height:240px; padding:10px; overflow:auto;"><?php echo getRowVal('c_cont' , $row , '内容预览');?></div>
+                            <div id="c_cont" class="img_fixed" style="border:1px solid #ccc;height:240px; padding:10px; overflow:auto;"><?php echo getRowVal('c_cont' , $row , '内容预览');?></div>
                         </div>
                         <button type="button" id="saveBtn" class="btn btn-primary">保存</button>
                         <button type="button" class="btn btn-default" onclick="javascript:history.back();">取消</button>
@@ -102,7 +106,8 @@ function contSave() {
         c_mdcont:$('#c_mdcont').val(),
         c_linktitle:$('#c_linktitle').val(),
         c_alias:$('#c_alias').val(),
-        c_thumb:$('#c_thumb').val()
+        c_thumb:$('#c_thumb').val(),
+        c_summery:$('#c_summery').val()
     };
     ajaxReq({
         url:'/admin/wiki/save',

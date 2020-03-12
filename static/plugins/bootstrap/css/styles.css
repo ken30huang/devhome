@@ -878,3 +878,7 @@ h1.page-header {
 	background-color: #4589d0;
 	color:#fff;
 }
+
+.img_fixed img {
+	max-width: 100%;
+}

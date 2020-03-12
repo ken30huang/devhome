@@ -2,6 +2,7 @@
     <div class="home_tabs">
         <a href="javascript:;" class="cur">搜库</a>
         <a href="javascript:;">搜图</a>
+        <a href="javascript:;">知识点</a>
     </div>
     <div class="input_wrap">
         <input id="search_name" class="lib_name_input" maxlength="50" />
@@ -27,6 +28,9 @@
             图标：<br />
             <label for="uxwing_site"><input type="radio" id="uxwing_site" name="search_site" value="https://uxwing.com/?s=" /> UXWING（英文）</label>
         </div>
+    </div>
+    <div class="home_search_panels" style="display:none">输入关键字</div>
+    <div class="home_search_result">
     </div>
     <div class="home_search_result">
     </div>
@@ -67,8 +71,10 @@
         }
         if(show_index == 0) {
             lib_search();
-        } else {
+        } else if(show_index == 1) {
             photo_search();
+        } else {
+            wiki_search();
         }
     });
 
@@ -144,6 +150,37 @@
         if(_sel) {
             window.open(_sel.val() + encodeURIComponent(_inputEl.val()));
         }
+    }
+
+    function wiki_search() {
+        
+        ajaxReq({
+            url:'/api/lib/frontwiki',
+            data:{
+                key_word:_inputEl.val()
+            },
+            succFun:function(res) {
+                if(res.code == '000') {
+                    var rows = res.rows||[];
+                    var htmls = [];
+                    for(var i=0; i<rows.length; i++) {
+                        var site_link = '';
+                        var git_link = '';
+                        var c_tags_arr = (rows[i].c_tag||'').split(',');
+                        var c_tags = [];
+                        for(var t_index=0; t_index<c_tags_arr.length; t_index++) {
+                            c_tags.push('<a href="javascript:;" data-tag="'+c_tags_arr[t_index]+'">'+c_tags_arr[t_index]+'</a>');
+                        }
+                        htmls.push('<div class="lib_item">');
+                        htmls.push(' <h4 class="lib_name">'+rows[i].c_title+'</h4>');
+                        htmls.push(' <h4 class="lib_cont">'+rows[i].c_cont+'</h4>');
+                        htmls.push(' <p class="lib_tag">'+c_tags.join()+'</p>');
+                        htmls.push('</div>');
+                    }
+                    result_box.eq(1).html(htmls.join('')).show();
+                }
+            }
+        });
     }
 
 })(jQuery);

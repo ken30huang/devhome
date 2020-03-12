@@ -78,7 +78,9 @@ function contSave() {
         c_id:$('#c_id').val(),
         c_seokeyword:$('#c_seokeyword').val(),
         c_cateid:$('#c_cateid').val(),
-        c_cont:$('#c_cont').val()
+        c_cont:$('#c_cont').val(),
+        c_link:$('#c_link').val(),
+        c_linktitle:$('#c_linktitle').val(),
     };
     ajaxReq({
         url:'/admin/snippet/save',
