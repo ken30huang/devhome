@@ -37,6 +37,7 @@ class DbDriver {
 		$limit = isset($options['limit']) ? ' LIMIT '.$options['limit'] : '';
 
 		$sql = "SELECT ".$fields." FROM ".$this->_prex.$table." AS ".$table." ".$join." WHERE 1 ".$where.$group.$order.$limit;
+		// echo $sql;
 		$res = $this->_dbh->query($sql , PDO::FETCH_ASSOC);
 
 		$this->checkError();

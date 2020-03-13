@@ -34,7 +34,8 @@ class ApiLibController extends WebController {
     public function frontwiki() {
         $limit = 10;
         $key_word = $this->http->inputPost('key_word');
-        $where = "c_type='knowledge'";
+        $openid = $this->http->inputPost('openid');
+        $where = " AND content.c_type='knowledge'";
         if(strlen($key_word) > 0) {
             $where .= " AND (c_title LIKE '%".$key_word."%' OR c_cont LIKE '%".$key_word."%' 
                 OR c_tag LIKE '%".$key_word."%')";
@@ -42,7 +43,21 @@ class ApiLibController extends WebController {
         if(strlen($key_word) > 0) {
             $limit = 1000;
         }
-        $rows = $this->getModel('content')->where($where)->order('c_pubdate DESC')->range(0, $limit)->query();
+        $selectOptions = array(
+            'field'=>' content.c_id , content.c_title,content.c_summery, content.c_tag, b.cf_openid as openid',
+            'join'=>"LEFT JOIN (select * from dh_content_collects where cf_openid='".$openid."' group by cf_cid) b ON content.c_id=b.cf_cid",
+            'limit'=>'0 , '.$limit,
+            'where'=>$where,
+            'order'=>'content.c_pubdate DESC'
+        );
+        $rows = $this->getModel('content')->select($selectOptions);
+        foreach($rows as &$item) {
+            $item['iscollect'] = 0;
+            if(!empty($item['openid'])) {
+                $item['iscollect'] = 1;
+            }
+            unset($item['openid']);
+        }
         $this->http->res('rows' , $rows)->success()->json();
     }
 
@@ -53,6 +68,28 @@ class ApiLibController extends WebController {
 
     public function cinfo() {
         $row = $this->getModel('content')->data('c_id' , $this->http->inputPost('c_id'))->getRow();
+        $this->http->res('row' , $row)->success()->json();
+    }
+
+    public function collect() {
+        $collectTM = TableModel::getInstance('content_collects');
+        $post = array(
+            'cf_cid'=>$this->http->inputPost('cid'),
+            'cf_openid'=>$this->http->inputPost('openid'),
+            'cf_addtime'=>date('Y-m-d H:i:s')
+        );
+        $where = " AND cf_cid=".$post['cf_cid']." AND cf_openid='".$post['cf_openid']."'";
+        $count = $collectTM->getCount($where);
+        if($count > 0) {
+            $collectTM->deleteByWhere('1 '.$where);
+        } else {
+            $collectTM->data($post)->save();
+        }
+        $this->http->success()->json();
+    }
+
+    public function viewcont() {
+        $row = $this->getModel('content')->data('c_id' , $this->http->inputPost('c_id'))->save();
         $this->http->res('row' , $row)->success()->json();
     }
 
