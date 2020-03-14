@@ -89,8 +89,18 @@ class ApiLibController extends WebController {
     }
 
     public function viewcont() {
-        $row = $this->getModel('content')->data('c_id' , $this->http->inputPost('c_id'))->save();
-        $this->http->res('row' , $row)->success()->json();
+        $cid = intval($this->http->inputPost('c_id'));
+        $cModel = $this->getModel('content');
+        $row = $cModel->data('c_id' , $cid)->getRow();
+        $vcount = intval($row['c_viewcount'])+1;
+        $cModel->data(array('c_id'=>$cid , 'c_viewcount'=>$vcount))->save();
+        $this->http->success()->json();
+    }
+
+    public function mycollects() {
+        $collectTM = TableModel::getInstance('content_collects');
+        $rows = $collectTM->where("cf_openid='".$this->http->inputPost('openid')."'")->order('cf_addtime DESC')->query();
+        $this->http->res('rows' , $rows)->success()->json();
     }
 
 }
