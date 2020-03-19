@@ -14,7 +14,7 @@
 	<link href="/applications/layouts/<?php echo $ui_path;?>/css/fontawesome-all.min.css" rel="stylesheet" />
 	<!-- //Custom Theme files -->
 	<script src="/static/js/libs/jquery/jquery.min.js"></script>
-	<script src="/static/js/comm.js?v=1.0.1"></script>
+	<script src="/static/js/comm.js?v=1.0.2"></script>
 </head>
 
 <body>

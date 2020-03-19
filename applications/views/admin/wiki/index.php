@@ -23,7 +23,7 @@
                             <?php foreach($rows as $row):?>
                             <tr>
                                 <td ><?php echo $row['c_title'];?></td>
-                                <td><a href="<?php echo $row['c_link'];?>" target="_blank">查看</a></td>
+                                <td><?php echo $row['c_linktitle'];?></td>
                                 <td>
                                     <a href="javascript:;" onclick="location.href='/admin/wiki/add?c_id=<?php echo $row['c_id'];?>';">编辑</a>
                                     <a href="javascript:;" onclick="javascript:listDel(<?php echo $row['c_id'];?>)">删除</a>

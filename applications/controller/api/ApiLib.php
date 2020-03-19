@@ -44,7 +44,7 @@ class ApiLibController extends WebController {
             $limit = 1000;
         }
         $selectOptions = array(
-            'field'=>' content.c_id , content.c_title,content.c_summery, content.c_tag, b.cf_openid as openid',
+            'field'=>' content.c_id , content.c_title,content.c_summery, content.c_tag, content.c_thumb, b.cf_openid as openid',
             'join'=>"LEFT JOIN (select * from dh_content_collects where cf_openid='".$openid."' group by cf_cid) b ON content.c_id=b.cf_cid",
             'limit'=>'0 , '.$limit,
             'where'=>$where,
