@@ -1,11 +1,12 @@
 <?php
 class HomeFlabController extends IndexBaseController {
 
-    public function save() {
-        
-        $demo_id = 0;
-        
-        $this->http->success()->json();
+    public function index() {
+        $this->displayView('index');
+    }
+
+    public function run() {
+        $post = $this->http->inputPost();
     }
 }
 ?>

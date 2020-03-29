@@ -1,9 +1,13 @@
 <link rel="stylesheet" href="/static/plugins/highlight/styles/an-old-hope.css" />
-<div class="detail_wrap mgn-btm-80 ">
-    <a href="javascript:history.back();">返回</a>
-    <h1><?php echo $row['c_title'];?></h1>
-    <div class="mt-40 c_cont">
-        <?php echo $row['c_cont'];?>
+
+<div class="row mt-100">
+    <div class="paper container ">
+        <div class="col card-btm-20">
+                <article class="article c_cont">
+                    <?php echo $row['c_cont']; ?>
+                </article>
+            </div>
+        </div>
     </div>
 </div>
 

@@ -1,0 +1,11 @@
+.mt-90 { margin-top: 90px; }
+.mt-100 { margin-top: 100px; }
+.mt-70 { margin-top: 70px; }
+.full-width { width:100%; }
+.list-btm-20 li { margin-bottom: 20px; }
+.card-btm-20 .card { margin-bottom: 20px; }
+.edit_tab { margin-bottom: 0; }
+.edit_tab .tab-item { cursor: pointer;}
+.code-edit { overflow: hidden;}
+.code-edit>textarea { width: 100%;height:100%;}
+.CodeMirror { height: 100%;}

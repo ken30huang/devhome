@@ -50,6 +50,32 @@ class IndexBaseController extends WebController {
         echo $this->view->display(A_NAME);
     }
 
+    protected function displayView($tmpl) {
+        $ui_model = $this->getModel('ui');
+        $ui_rows = $ui_model->order('ui_id DESC')->query();
+        $sel_ui = NULL;
+        foreach($ui_rows as $ui_item) {
+            if($ui_item['ui_isactive'] == 1) {
+                $sel_ui = $ui_item;
+                break;
+            }
+        }
+        if($sel_ui === NULL) {
+            $sel_ui = $ui_rows[0];
+        }
+        $v_path = APP_PATH.DS.'views'.DS.MODULE_NAME;
+        $v_arr = explode('/' , $tmpl);
+        $file = A_NAME;
+        if(count($v_arr) == 1) {
+            $v_path .= DS.C_NAME;
+        } else {
+            $v_path .= DS.$v_arr[0];
+            $file = $v_arr[1];
+        }
+        $this->assign('ui_path' , MODULE_NAME.'/'.$sel_ui['ui_path']);
+        echo $this->view->show($file , $v_path);
+    }
+
     public function vlog() {
         $ip = $this->http->getIP();
         $model = TableModel::getInstance('visitlog' , 'v_id');
