@@ -1,6 +1,7 @@
 .mt-90 { margin-top: 90px; }
 .mt-100 { margin-top: 100px; }
 .mt-70 { margin-top: 70px; }
+.mt-40 { margin-top: 40px; }
 .full-width { width:100%; }
 .list-btm-20 li { margin-bottom: 20px; }
 .card-btm-20 .card { margin-bottom: 20px; }
@@ -9,3 +10,10 @@
 .code-edit { overflow: hidden;}
 .code-edit>textarea { width: 100%;height:100%;}
 .CodeMirror { height: 100%;}
+.js_cont { max-height:120px; overflow:auto;}
+.chk-inline { margin-bottom:4px; }
+.chk-inline input[type="checkbox"] { display: inline; margin-right:6px; }
+.links_nav .active {
+    border-bottom: 3px #4589d0 solid;
+    color: #666;
+}

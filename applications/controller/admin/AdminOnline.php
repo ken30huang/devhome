@@ -4,7 +4,7 @@ class AdminOnlineController extends AdminController {
     public function index() {
         $this->checkLogin();
         $cmodel = $this->getModel('online');
-        $this->view->assign('rows' , $cmodel->order('ol_id desc')->query());
+        $this->view->assign('rows' , $cmodel->order($cmodel->getKey().' desc')->query());
         $this->view();
     }
 
@@ -17,13 +17,13 @@ class AdminOnlineController extends AdminController {
 
     public function del() {
         $cmodel = $this->getModel('online');
-        $cmodel->data('ol_id' , $this->http->inputPost('del_id'))->deleteById();
+        $cmodel->data($cmodel->getKey() , $this->http->inputPost('del_id'))->deleteById();
         $this->http->success()->json();
     }
 
     public function add() {
         $cmodel = $this->getModel('online');
-        $row = $cmodel->data('ol_id' , $this->http->inputGet('ol_id'))->getRow();
+        $row = $cmodel->data($cmodel->getKey() , $this->http->inputGet('env_id'))->getRow();
         $this->view->assign('row' , $row);
         $this->view();
     }

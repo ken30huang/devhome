@@ -54,7 +54,6 @@ class BaseView {
     public function display($filename) {
         $this->_checkViewPath();
         $main_cont = '';
-        echo $this->_vpath.'----'.$filename;
         ob_start();
         extract($this->_vals);
         require($this->_vpath.DS.$filename.'.php');

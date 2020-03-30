@@ -78,6 +78,10 @@ class DbModel {
         $this->idkey = $key;
         return $this;
     }
+    
+    public function getKey() {
+        return $this->idkey;
+    }
 
     public function getInsertID() {
         return $this->lastId;

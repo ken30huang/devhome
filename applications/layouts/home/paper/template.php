@@ -9,8 +9,8 @@
     <link rel="shortcut icon" href="/static/imgs/favicon.ico" />
     <link rel="stylesheet" href="/applications/layouts/<?php echo $ui_path;?>/css/paper.min.css" />
     <link rel="stylesheet" href="/applications/layouts/<?php echo $ui_path;?>/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="/applications/layouts/<?php echo $ui_path;?>/css/common.css" />
-    <script src="/applications/layouts/<?php echo $ui_path;?>/js/jquery.slim.min.js"></script>
+    <link rel="stylesheet" href="/applications/layouts/<?php echo $ui_path;?>/css/common.css?v=1.0.1" />
+    <script src="/static/js/libs/jquery/jquery.min.js"></script>
 </head>
 
 <body>
@@ -31,7 +31,7 @@
                 <ul class="inline">
                     <li><a href="/home/note">笔记&教程</a></li>
                     <li><a href="/home/flab">实验区</a></li>
-                    <li><a href="/home/index/about">关于我</a></li>
+                    <li><a href="/home/index/about">关于</a></li>
                 </ul>
             </div>
         </div>

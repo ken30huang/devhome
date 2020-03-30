@@ -22,11 +22,11 @@
                         <tbody>
                             <?php foreach($rows as $row):?>
                             <tr>
-                                <td ><?php echo $row['ol_name'];?></td>
-                                <td ><?php echo $row['ol_desc'];?></td>
+                                <td ><?php echo $row['env_name'];?></td>
+                                <td ><?php echo $row['env_desc'];?></td>
                                 <td>
-                                    <a href="javascript:;" onclick="location.href='/admin/online/add?ol_id=<?php echo $row['ol_id'];?>';">编辑</a>
-                                    <a href="javascript:;" onclick="javascript:listDel(<?php echo $row['ol_id'];?>)">删除</a>
+                                    <a href="javascript:;" onclick="location.href='/admin/online/add?env_id=<?php echo $row['env_id'];?>';">编辑</a>
+                                    <a href="javascript:;" onclick="javascript:listDel(<?php echo $row['env_id'];?>)">删除</a>
                                 </td>
                             </tr>
                             <?php endforeach;?>

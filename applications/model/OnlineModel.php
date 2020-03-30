@@ -1,7 +1,7 @@
 <?php
 class OnlineModel extends DbModel {
 
-    protected $table = 'online';
-    protected $idkey = 'ol_id';
+    protected $table = 'env';
+    protected $idkey = 'env_id';
 }
 ?>

@@ -20,6 +20,18 @@
                 </div>
             </div>
         </div>
+        <div class="card mt-40">
+            <div class="card-body">
+                <h4 class="card-title">笔记 & 教程</h4>
+                <div class="row">
+                    <ul class="list-btm-20">
+                        <?php foreach($dir_list as $dir):?>
+                            <li><a href="/home/note/detail/<?php echo $dir['c_id'];?>"><?php echo $dir['c_title'];?></a></li>
+                        <?php endforeach ?>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <script src="/static/plugins/highlight/highlight.pack.js"></script>

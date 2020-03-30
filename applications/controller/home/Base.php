@@ -68,6 +68,7 @@ class IndexBaseController extends WebController {
         $file = A_NAME;
         if(count($v_arr) == 1) {
             $v_path .= DS.C_NAME;
+            $file = $tmpl;
         } else {
             $v_path .= DS.$v_arr[0];
             $file = $v_arr[1];

@@ -36,7 +36,6 @@ class HomeNoteController extends IndexBaseController {
         
         $this->assign('dir_list' , $series_list);
         $this->assign('row' , $row);
-        $this->assign('parentid' , $c_parentid);
         $this->display();
     }
 }

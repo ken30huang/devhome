@@ -5,7 +5,7 @@
     </div>
     <div class="row flex-center child-borders">
         <a href="/home/blog" class="paper-btn margin background-primary">BLOG</a>
-        <a href="/home/links" class="paper-btn margin">收藏导航</a>
+        <a href="/home/links" class="paper-btn margin">资源导航</a>
         <a href="/home/weekly" class="paper-btn margin">技术周刊</a>
     </div>
 </div>
