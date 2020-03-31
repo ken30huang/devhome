@@ -73,5 +73,13 @@ class HomeFlabController extends IndexBaseController {
             $this->assign('jstype' , $post['js_type']); 
         }
     }
+
+    public function save() {
+        $post = $this->http->inputPost();
+        // print_r($post);
+        $tableModel = TableModel::getInstance('demo' , 'demo_id');
+        $tableModel->data($post)->save();
+        $this->http->success()->json();
+    }
 }
 ?>

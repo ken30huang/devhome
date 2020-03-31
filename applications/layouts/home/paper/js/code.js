@@ -99,8 +99,11 @@
         ajaxReq({
             url:'/home/flab/save',
             data:savePost,
-            succFun:function() {
-                
+            succFun:function(res) {
+                if(res.code == '000') {
+                    alert('保存成功');
+                    $('#chkSaveBox')[0].checked = false;
+                }
             }
         });
     });
