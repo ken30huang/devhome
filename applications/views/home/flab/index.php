@@ -14,6 +14,7 @@
     <script src="/static/js/libs/jquery/jquery.min.js"></script>
     <script src="/static/js/libs/base64/base64.min.js"></script>
     <script src="/static/plugins/codemirror/codemirror.js"></script>
+    <script src="/static/js/comm.js"></script>
 </head>
 
 <body style="overflow:hidden;">
@@ -97,8 +98,28 @@
             <label for="modal-2" class="modal-link">Close</label>
         </div>
     </div>
+    <input class="modal-state" id="chkSaveBox" type="checkbox">
+    <div class="modal">
+        <label class="modal-bg" for="chkSaveBox"></label>
+        <div class="modal-body">
+            <label class="btn-close" for="chkSaveBox">X</label>
+            <h4 class="modal-title">保存成Demo</h4>
+            <p class="modal-text">
+                <div class="form-group">
+                    <label>Demo名称</label>
+                    <input type="text" placeholder="Demo名称" id="demo_name" />
+                </div>
+                <div class="form-group">
+                    <label>Demo描述</label>
+                    <textarea id="demo_desc" placeholder="Demo名称"></textarea>
+                </div>
+            </p>
+            <a href="javascript:;" id="postCont">保存</a>
+            <label for="chkSaveBox" class="modal-link">Close</label>
+        </div>
+    </div>
 </body>
 
-<script src="/applications/layouts/<?php echo $ui_path;?>/js/code.js"></script>
+<script src="/applications/layouts/<?php echo $ui_path;?>/js/code.js?v=1.0.0"></script>
 
 </html>

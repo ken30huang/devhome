@@ -69,5 +69,41 @@
         $('#modal-2')[0].checked = false;
     });
 
+    $('#saveBtn').on('click' , function() {
+        var html = runForm.html_content.value;
+        if(!html) {
+            alert('请输入HTML内容');
+            return;
+        }
+        $('#chkSaveBox')[0].checked = true;
+    });
+
+    $('#postCont').on('click' , function() {
+        var demo_name =$('#demo_name').val();
+        var demo_desc = $('#demo_desc').val();
+        var savePost = {
+            demo_name:demo_name,
+            demo_desc:demo_desc,
+            demo_html:runForm.html_content.value,
+            demo_css:runForm.css_content.value,
+            demo_js:runForm.js_content.value,
+            demo_jstype:runForm.js_type.value,
+            demo_jslinks:runForm.js_links.value
+        };
+
+        if(!savePost.demo_name || !savePost.demo_desc) {
+            alert('请输入名称和描述');
+            return;
+        }
+
+        ajaxReq({
+            url:'/home/flab/save',
+            data:savePost,
+            succFun:function() {
+                
+            }
+        });
+    });
+
     
 })(jQuery);
