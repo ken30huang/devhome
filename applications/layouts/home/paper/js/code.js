@@ -44,6 +44,16 @@
             clearTimeout(tt);
         } , 200);
     }
+    function initEditorData() {
+        editorCont.html = Base64.decode(runForm.html_content.value);
+        editorCont.css = Base64.decode(runForm.css_content.value);
+        editorCont.js = Base64.decode(runForm.js_content.value);
+
+        if(runForm.issubmit.value === '1') {
+            runForm.submit();
+        }
+    }
+    initEditorData();
 
     $('#settingBtn').on('click' , function() {
         $('#modal-2')[0].checked = true;
@@ -81,6 +91,7 @@
     $('#postCont').on('click' , function() {
         var demo_name =$('#demo_name').val();
         var demo_desc = $('#demo_desc').val();
+        var demo_id = parseInt($('#demo_id').val());
         var savePost = {
             demo_name:demo_name,
             demo_desc:demo_desc,
@@ -90,6 +101,10 @@
             demo_jstype:runForm.js_type.value,
             demo_jslinks:runForm.js_links.value
         };
+
+        if(demo_id > 0) {
+            savePost.demo_id = demo_id;
+        }
 
         if(!savePost.demo_name || !savePost.demo_desc) {
             alert('请输入名称和描述');

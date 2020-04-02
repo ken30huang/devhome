@@ -17,3 +17,11 @@
     border-bottom: 3px #4589d0 solid;
     color: #666;
 }
+.c_cont blockquote {
+    background-color: #eee;
+    margin:0;
+    padding:40px 20px;
+    border-left:4px solid #4589d0;
+}
+
+.c_cont h2 { font-size:20px; font-weight: bold; }

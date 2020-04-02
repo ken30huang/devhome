@@ -23,6 +23,7 @@ class HomeFlabController extends IndexBaseController {
             }
         }
         $this->assign('jslist' , $js);
+        $this->assign('row' , array());
         $this->displayView('index');
     }
 

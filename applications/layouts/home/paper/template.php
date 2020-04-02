@@ -9,7 +9,7 @@
     <link rel="shortcut icon" href="/static/imgs/favicon.ico" />
     <link rel="stylesheet" href="/applications/layouts/<?php echo $ui_path;?>/css/paper.min.css" />
     <link rel="stylesheet" href="/applications/layouts/<?php echo $ui_path;?>/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="/applications/layouts/<?php echo $ui_path;?>/css/common.css?v=1.0.1" />
+    <link rel="stylesheet" href="/applications/layouts/<?php echo $ui_path;?>/css/common.css?v=1.0.2" />
     <script src="/static/js/libs/jquery/jquery.min.js"></script>
 </head>
 

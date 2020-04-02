@@ -51,13 +51,13 @@
                 <div class="col-4 tab-item">Javascript代码</div>
             </div>
             <div class="code-edit">
-                <textarea id="html_content" class="code-text"></textarea>
+                <textarea id="html_content" class="code-text"><?php if(isset($html)): echo $html; endif;?></textarea>
             </div>
             <div class="code-edit" style="display: none;">
-                <textarea id="css_content" class="code-text"></textarea>
+                <textarea id="css_content" class="code-text"><?php if(isset($css)): echo $css; endif;?></textarea>
             </div>
             <div class="code-edit" style="display: none;">
-                <textarea id="js_content" class="code-text"></textarea>
+                <textarea id="js_content" class="code-text"><?php if(isset($js)): echo $js; endif;?></textarea>
             </div>
         </div>
         <div class="col-6 border-dashed  code-item">
@@ -65,11 +65,12 @@
         </div>
     </div>
     <form name="runForm" action="/home/flab/run" target="code_result" method="post">
-        <input type="hidden" name="html_content" />
-        <input type="hidden" name="js_content" />
-        <input type="hidden" name="css_content" />
-        <input type="hidden" name="js_type" value="javascript" />
-        <input type="hidden" name="js_links" />
+        <input type="hidden" name="html_content" value="<?php echo getRowVal('demo_html' , $row);?>" />
+        <input type="hidden" name="js_content" value="<?php echo getRowVal('demo_js' , $row);?>" />
+        <input type="hidden" name="css_content" value="<?php echo getRowVal('demo_css' , $row);?>" />
+        <input type="hidden" name="js_type" value="<?php echo getRowVal('demo_jstype' , $row);?>" />
+        <input type="hidden" name="js_links" value="<?php echo getRowVal('demo_jslinks' , $row);?>" />
+        <input type="hidden" name="issubmit" value="<?php echo (isset($issubmit)?'1':'0'); ?>" />
     </form>
     <input class="modal-state" id="modal-2" type="checkbox">
     <div class="modal">
@@ -80,8 +81,8 @@
             <p class="modal-text">
                 Javascript类型:
                 <select id="js_type">
-                    <option value="javascript">javascript</option>
-                    <option value="babel">babel</option>
+                    <option value="javascript" <?php echo getSelVal('demo_jstype' , 'javascript' , $row);?>>javascript</option>
+                    <option value="babel" <?php echo getSelVal('demo_jstype' , 'babel' , $row);?>>babel</option>
                 </select>
             </p>
             <p class="modal-text">
@@ -89,7 +90,16 @@
                 <div class="js_cont">
                     <?php foreach($jslist as $link):?>
                     <div class="chk-inline">
-                    <label class="for"><input type="checkbox" name="js_checks[]" value="<?php echo $link['key'];?>"><?php echo $link['val'];?></label>
+                        <label class="for">
+                            <input
+                                type="checkbox"
+                                name="js_checks[]"
+                                value="<?php echo $link['key'];?>"
+                                <?php if(isset($js_links)):?>
+                                    <?php if(in_array($link['key'] , $js_links)):?> checked <?php endif;?>
+                                <?php endif;?>
+                                /><?php echo $link['val'];?>
+                        </label>
                     </div>
                     <?php endforeach;?>
                 </div>
@@ -102,16 +112,17 @@
     <div class="modal">
         <label class="modal-bg" for="chkSaveBox"></label>
         <div class="modal-body">
+            <input type="hidden" id="demo_id" value="<?php echo getRowVal('demo_id' , $row , '0');?>" />
             <label class="btn-close" for="chkSaveBox">X</label>
             <h4 class="modal-title">保存成Demo</h4>
             <p class="modal-text">
                 <div class="form-group">
                     <label>Demo名称</label>
-                    <input type="text" placeholder="Demo名称" id="demo_name" />
+                    <input type="text" placeholder="Demo名称" id="demo_name" value="<?php echo getRowVal('demo_name' , $row);?>" />
                 </div>
                 <div class="form-group">
                     <label>Demo描述</label>
-                    <textarea id="demo_desc" placeholder="Demo名称"></textarea>
+                    <textarea id="demo_desc" placeholder="Demo描述"><?php echo getRowVal('demo_desc' , $row);?></textarea>
                 </div>
             </p>
             <a href="javascript:;" id="postCont">保存</a>
@@ -120,6 +131,6 @@
     </div>
 </body>
 
-<script src="/applications/layouts/<?php echo $ui_path;?>/js/code.js?v=1.0.0"></script>
+<script src="/applications/layouts/<?php echo $ui_path;?>/js/code.js?v=1.0.2"></script>
 
 </html>

@@ -1,20 +1,14 @@
-<div class="list_wrap clearfix">
-    <?php foreach($demo_list as $row):?>
-    <div class="list_row">
-        <?php if(!empty($row['demo_thumb'])):?>
-        <img src="<?php echo $row['demo_thumb']?>" class="res_width" />
-        <?php endif;?>
-        <div class="list_item_body">
-            <h1><?php echo $row['demo_name'];?></h1>
-            <p class="list_item_summery"><?php echo $row['demo_desc']?></p>
-            <div class="list_item_btns">
-                <?php if($row['demo_iscompile'] == 0):?>
-                <a href="<?php echo module_url('/demos/front?demo_id='.$row['demo_id']);?>" class="card-link">效果演示</a>
-                <?php else:?>
-                <a href="<?php echo module_url('/demos/coderun?demo_id='.$row['demo_id']);?>" class="card-link">在线运行</a>
-                <?php endif;?>
-            </div>
+<div class="pager container">
+<div class="row mt-100 demos_wrap">
+    <?php foreach($demo_list as $demo): ?>
+    <div class="card" >
+        <div class="card-body">
+            <h4 class="card-title"><?php echo $demo['demo_name']?></h4>
+            <p class="card-text"><?php echo $demo['demo_desc']?></p>
+            <a class="card-link" href="/home/demos/code/<?php echo $demo['demo_id'];?>">代码</a>
+            <a class="card-link" target="_blank" href="/home/demos/front/<?php echo $demo['demo_id'];?>">效果</a>
         </div>
     </div>
-    <?php endforeach;?>
+    <?php endforeach; ?>
+</div>
 </div>
