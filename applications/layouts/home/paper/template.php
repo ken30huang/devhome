@@ -29,7 +29,7 @@
             </button>
             <div class="collapsible-body">
                 <ul class="inline">
-                    <li><a href="/home/note">笔记&教程</a></li>
+                    <li><a href="/doc">笔记&教程</a></li>
                     <li><a href="/home/flab">实验区</a></li>
                     <li><a href="/home/index/about">关于</a></li>
                 </ul>

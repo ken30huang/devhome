@@ -42,17 +42,35 @@ class App {
         define('CTRL_PATH' , APP_PATH.DS.'controller');
         define('THEME_PATH' , APP_PATH.DS.'layouts'.DS.$module_name);
         define('V_PATH' , APP_PATH.DS.'views'.DS.$module_name.DS.C_NAME);
+        define('THEME_URL' , '/applications/layouts/'.$module_name.'/');
         //加入模型父类
         incFile(ROOT_PATH.DS.'includes'.DS.'model'.DS.'DbModel.php');
         incFile(ROOT_PATH.DS.'includes'.DS.'model'.DS.'TableModel.php');
-        //初始化视图
-        InitApp::initView();
+
+        //走自定义初始化
+        $main = ROOT_PATH.DS.'applications'.DS.$module_name.DS.$module_name.'.php';
+        if(file_exists($main)) {
+            incFile($main);
+            if(function_exists($module_name.'_run')) {
+                // define('APP_PATH' , );
+                call_user_func($module_name.'_run');
+            } else {
+                exit("Can not find run function.");
+            }
+            return false;
+        } else {
+            //初始化视图
+            InitApp::initView();
+            return true;
+        }
     }
 
     //执行
     public static function run() {
 
-        self::init();
+        if(!self::init()) {
+            return;
+        }
         
         //加入控制器父类
         incFile(ROOT_PATH.DS.'includes'.DS.'controller'.DS.'WebController.php');

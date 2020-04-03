@@ -20,14 +20,14 @@ function ajaxReq(options) {
     });
 }
 
-function listEdit(id) {
+function listEdit(id, link) {
     
     if(typeof moduleURL == 'undefined') {
         alert('未设置moduleURL');
         return;
     }
     ajaxReq({
-        url:moduleURL+'/info',
+        url:moduleURL+'/'+(link||'info'),
         data:{ edit_id:id },
         succFun:function(res) {
             if(res.code == '000') {
@@ -46,14 +46,14 @@ function listEdit(id) {
 
 
 
-function listDel(id) {
+function listDel(id , link) {
     
     if(typeof moduleURL == 'undefined') {
         alert('未设置moduleURL');
         return;
     }
     ajaxReq({
-        url:moduleURL+'/del',
+        url:moduleURL+'/'+(link||'del'),
         data:{ del_id:id },
         succFun:function(res) {
             if(res.code == '000') {
@@ -177,7 +177,7 @@ function renderData(res) {
     return postData;
 }
 
-function formSave() {
+function formSave(link) {
 
     if($('#editForm').length == 0) {
         alert('找不到表单对象');
@@ -197,7 +197,7 @@ function formSave() {
 
     var postData = fetchPostData();
     ajaxReq({
-        url:moduleURL+'/save',
+        url:moduleURL+'/'+(link||'save'),
         data: postData,
         succFun:function(res) {
             if(res.code == '000') {
@@ -214,12 +214,3 @@ function formSave() {
 
 
 }
-
-(function() {
-    var time = (new Date()).getTime();
-    window.onbeforeunload = function() {
-        //窗口关闭时记录
-        var url = location.href;
-        (new Image()).src = '/home/index/vlog?vurl='+url+'&vtime='+((new Date()).getTime()-time);
-    }
-})(jQuery);

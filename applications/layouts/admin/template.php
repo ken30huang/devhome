@@ -19,7 +19,7 @@
 
 	<script src="/static/js/libs/jquery/jquery.min.js"></script>
 	<script src="/static/plugins/bootstrap/js/bootstrap.min.js"></script>
-	<script src="/static/js/comm.js?v=1.0.0"></script>
+	<script src="/static/js/comm.js?v=1.0.1"></script>
 </head>
 
 <body>

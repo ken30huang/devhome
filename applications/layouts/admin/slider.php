@@ -104,6 +104,24 @@
                 </li>
             </ul>
         </li>
+        <li class="parent ">
+            <a href="#">
+                <span class="glyphicon glyphicon-list"></span> 文档设置 <span data-toggle="collapse" href="#sub-item-4"
+                    class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span>
+            </a>
+            <ul class="children collapse" id="sub-item-4">
+                <li>
+                    <a class="" href="/admin/doc/setting">
+                        <span class="glyphicon glyphicon-share-alt"></span> 全局设置
+                    </a>
+                </li>
+                <li>
+                    <a class="" href="/admin/doc/nav">
+                        <span class="glyphicon glyphicon-share-alt"></span> 导航管理
+                    </a>
+                </li>
+            </ul>
+        </li>
     </ul>
 </div>
 <!--/.sidebar-->
