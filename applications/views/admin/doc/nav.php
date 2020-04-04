@@ -42,6 +42,7 @@
                                 <td><?php echo $item['dn_path'];?></td>
                                 <td><input type="text" data-id="<?php echo $item['dn_id']?>" size="4" value="<?php echo $item['dn_order'];?>" /></td>
                                 <td>
+                                    <a href="/admin/doc/clist?dn_id=<?php echo $item['dn_id'];?>">文档管理</a>
                                     <a href="javascript:;" onclick="javascript:listEdit(<?php echo $item['dn_id'];?> , 'navedit')">编辑</a>
                                     <a href="javascript:;" onclick="javascript:listDel(<?php echo $item['dn_id'];?>, 'navdel')">删除</a>
                                 </td>
@@ -87,6 +88,10 @@
                         <select class="form-control" id="dn_pid" field="dn_pid">
                             <option value="0">一级导航</option>
                         </select>
+                    </div>
+                    <div class="form-group">
+                        <label>主页</label>
+                        <textarea id="dn_content" field="dn_content" class="form-control" rows="6"></textarea>
                     </div>
                 </form>
             </div>

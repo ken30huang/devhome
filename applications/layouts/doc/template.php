@@ -15,9 +15,11 @@
             <?php
             foreach($setting_data as $setting) {
                 if($setting['ds_type'] == 'String') {
-                    echo $setting['ds_key'].":'".$setting['ds_value']."',";
+                    echo "'".$setting['ds_key']."':'".$setting['ds_value']."',";
+                } else if($setting['ds_type'] == 'Content') {
+                    echo "'".$setting['ds_key']."':".$setting['ds_content'].",";
                 } else {
-                    echo $setting['ds_key'].":".$setting['ds_value'];
+                    echo "'".$setting['ds_key']."':".$setting['ds_value'].',';
                 }
             }
             ?>

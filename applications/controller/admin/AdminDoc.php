@@ -99,5 +99,35 @@ class AdminDocController extends AdminController {
         $rows = $model->where('dn_pid=0 AND dn_type='.$dn_type)->query();
         $this->http->res('rows' , $rows)->success()->json();
     }
+
+    public function clist() {
+        $model = $this->getModel('content');
+        $dn_id = $this->http->inputGet('dn_id');
+        $rows = $model->where('c_cateid='.$dn_id." AND c_type='doc'")->order('c_order ASC, c_id ASC')->query();
+        $this->assign('rows' , $rows);
+        $this->assign('dn_id' , $dn_id);
+        $this->view();
+    }
+
+    public function cadd() {
+        $model = $this->getModel('content');
+        $dn_id = $this->http->inputGet('dn_id');
+        $c_id = $this->http->inputGet('c_id');
+        $row = $model->data('c_id' , $this->http->inputGet('c_id'))->getRow();
+        $this->assign('row' , $row);
+        $this->assign('dn_id' , $dn_id);
+        $this->view();
+    }
+
+    public function csave() {
+        $model = $this->getModel('content');
+        $post = $this->http->inputPost();
+        $row = TableModel::getInstance('doc_nav' , 'dn_id')->data("dn_id", $post['c_cateid'])->getRow();
+        if($row) {
+            $post['c_parentid'] = $row['dn_pid'];
+        }
+        $model->data($post)->save();
+        $this->http->success()->json();
+    }
 }
 ?>
