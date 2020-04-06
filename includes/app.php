@@ -52,7 +52,6 @@ class App {
         if(file_exists($main)) {
             incFile($main);
             if(function_exists($module_name.'_run')) {
-                // define('APP_PATH' , );
                 call_user_func($module_name.'_run');
             } else {
                 exit("Can not find run function.");

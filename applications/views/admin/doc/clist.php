@@ -11,6 +11,7 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <button type="button" class="btn btn-primary" onclick="location.href='/admin/doc/cadd?dn_id=<?php echo $dn_id;?>'">新增文章</button>
+                <button type="button" id="saveBtn" class="btn btn-primary">保存</button>
             </div>
             <div class="panel-body">
                 <table class="table table-bordered table-hover">
@@ -41,6 +42,21 @@
 
 <script>
 var moduleURL = '/admin/doc';
+
+$('#saveBtn').on('click' , function() {
+    var orders = [];
+    $('input[name="c_order[]"]').each(function() {
+        var orderId = $(this).data('id');
+        orders.push({ id:parseInt(orderId) , order:parseInt($(this).val()) });
+    });
+    ajaxReq({
+        url:moduleURL+'/cordersave',
+        data: { orders:orders },
+        succFun:function(res) {
+            location.reload();
+        },
+    });
+});
 
 
 </script>

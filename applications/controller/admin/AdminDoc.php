@@ -58,7 +58,7 @@ class AdminDocController extends AdminController {
 
     private function _getNav() {
         $model = TableModel::getInstance('doc_nav' , 'dn_id');
-        $rows = $model->order('dn_order ASC')->query();
+        $rows = $model->order('dn_order ASC, dn_id ASC')->query();
         $navdata = array();
         foreach($rows as $row) {
             if(!isset($navdata[$row['dn_type']])) {
@@ -77,6 +77,7 @@ class AdminDocController extends AdminController {
                 //一级导航
                 $navs[$row['dn_type']][$row['dn_id']] = array(
                     'id'=>$row['dn_id'],
+                    'order'=>$row['dn_order'],
                     'name'=>$row['dn_name'],
                     'childs'=>array()
                 );
@@ -127,6 +128,24 @@ class AdminDocController extends AdminController {
             $post['c_parentid'] = $row['dn_pid'];
         }
         $model->data($post)->save();
+        $this->http->success()->json();
+    }
+
+    public function navordersave() {
+        $model = TableModel::getInstance('doc_nav' , 'dn_id');
+        $post = $this->http->inputPost();
+        foreach($post['orders'] as $order) {
+            $model->data(array('dn_id'=>$order['id'] , 'dn_order'=>$order['order']))->save();
+        }
+        $this->http->success()->json();
+    }
+
+    public function cordersave() {
+        $model = $this->getModel('content');
+        $post = $this->http->inputPost();
+        foreach($post['orders'] as $order) {
+            $model->data(array('c_id'=>$order['id'] , 'c_order'=>$order['order']))->save();
+        }
         $this->http->success()->json();
     }
 }

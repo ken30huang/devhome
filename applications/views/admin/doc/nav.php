@@ -10,6 +10,7 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">新增导航</button>
+                <button type="button" id="saveBtn" class="btn btn-primary">保存</button>
             </div>
             <div class="panel-body">
                 <?php foreach($navdata as $nav):?>
@@ -28,7 +29,7 @@
                         <tr>
                             <td ><?php if(count($row['childs'])>0) { echo '└── '; } else { echo '├── ';} ?><?php echo $row['name'];?></td>
                             <td></td>
-                            <td></td>
+                            <td><input type="text" data-orderid="<?php echo $row['id']?>" size="4" value="<?php echo $row['order'];?>" /></td>
                             <td>
                                 <a href="javascript:;" onclick="javascript:listEdit(<?php echo $row['id'];?> , 'navedit')">编辑</a>
                                 <?php if(count($row['childs'])==0):?>
@@ -40,7 +41,7 @@
                             <tr>
                                 <td ><?php echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── '.$item['dn_name'];?></td>
                                 <td><?php echo $item['dn_path'];?></td>
-                                <td><input type="text" data-id="<?php echo $item['dn_id']?>" size="4" value="<?php echo $item['dn_order'];?>" /></td>
+                                <td><input type="text" data-orderid="<?php echo $item['dn_id']?>" size="4" value="<?php echo $item['dn_order'];?>" /></td>
                                 <td>
                                     <a href="/admin/doc/clist?dn_id=<?php echo $item['dn_id'];?>">文档管理</a>
                                     <a href="javascript:;" onclick="javascript:listEdit(<?php echo $item['dn_id'];?> , 'navedit')">编辑</a>
@@ -131,6 +132,21 @@ $('#dn_type').on('change' , function() {
 });
 
 getChildNav();
+
+$('#saveBtn').on('click' , function() {
+    var orders = [];
+    $('input[data-orderid]').each(function() {
+        var orderId = $(this).data('orderid');
+        orders.push({ id:parseInt(orderId) , order:parseInt($(this).val()) });
+    });
+    ajaxReq({
+        url:moduleURL+'/navordersave',
+        data: { orders:orders },
+        succFun:function(res) {
+            location.reload();
+        },
+    });
+});
 
 
 </script>
