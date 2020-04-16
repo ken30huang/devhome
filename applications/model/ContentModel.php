@@ -6,15 +6,15 @@ class ContentModel extends DbModel {
 
     public function getPageData($ctype , $condition='') {
         
-        if(!empty($condition)) {
-            $where = $condition;
-        } else {
-            $where = " AND 1=1";
-            if(is_string($ctype)) {
-                $where .= " AND c_type='".$ctype."'";
-            } else if(is_array($ctype)) {
-                $where .= " AND c_type IN ('".implode("','" , $ctype)."')";
-            }
+        
+        $where = " AND 1=1";
+        if(is_string($ctype)) {
+            $where .= " AND c_type='".$ctype."'";
+        } else if(is_array($ctype)) {
+            $where .= " AND c_type IN ('".implode("','" , $ctype)."')";
+        }
+        if(!empty($condition)){
+            $where .= " AND ".$condition;
         }
         $count = $this->getCount($where);
         $start = intval($this->pagenum-1)*$this->pagesize-1;

@@ -4,7 +4,8 @@ class HomeLinksController extends IndexBaseController {
     public function index() {
         $cate_list = $this->getModel('category')->getChilds(9);
         $links_list = $this->getModel('content')->where("c_type='collect'")->order('c_pubdate DESC')->query();
-
+        $rss_list = $this->getModel('rss')->order('rss_id ASC')->query();
+        
         $c_groups = array();
         foreach($links_list as $link) {
             if(!isset($c_groups[$link['c_cateid']])) {
@@ -26,6 +27,7 @@ class HomeLinksController extends IndexBaseController {
             $idx++;
         }
         $this->assign('catemaps' , $catemaps);
+        $this->assign('rss_list' , $rss_list);
         $this->display();
     }
 }

@@ -3,14 +3,21 @@ class HomeBlogController extends IndexBaseController {
 
     public function index() {
         $cmodel = $this->getModel('content');
+        $tagmodel = $this->getModel('tag');
         $page = intval($this->http->inputGet('page'));
         $page = $page==0 ? 1 : $page;
-        $pageData = $cmodel->setPageNum($page)->getPageData('article');
+        $condition = '';
+        if(!empty($this->http->inputGet('tag'))) {
+            $tag = urldecode($this->http->inputGet('tag'));
+            $condition = "c_tag LIKE '%".$tag."%'";
+        }
+        $pageData = $cmodel->setPageNum($page)->getPageData('article' , $condition);
         
         foreach($pageData['rows'] as &$item) {
             $item['c_tags'] = explode(',' , $item['c_tag']);
         }
         $this->assign('all_list' , $pageData['rows']);
+        $this->assign('all_tags' , $tagmodel->select());
         $this->assign('pager' , page_show($page , $pageData['count'] , $cmodel->getPageSize() , "/blog"));
         $this->display();
     }

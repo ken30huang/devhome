@@ -18,6 +18,10 @@
                             <input id="c_title" field="c_title" class="form-control" placeholder="" value="<?php echo getRowVal('c_title' , $row);?>" />
                         </div>
                         <div class="form-group">
+                            <label>文件上传</label>
+                            <input id="c_file" type="file" class="form-control" />
+                        </div>
+                        <div class="form-group">
                             <label>文章摘要</label>
                             <textarea id="c_summery" class="form-control" rows="4" placeholder=""><?php echo getRowVal('c_summery' , $row);?></textarea>
                         </div>
@@ -47,6 +51,18 @@
 
     $('#saveBtn').on('click', function() {
         contSave();
+    });
+
+    $('#c_file').on('change' , function() {
+        var _file = $('#c_file')[0].files;
+        var reader = new FileReader();
+        reader.readAsText(_file[0]);
+        reader.onload = function() {
+            var _cont = reader.result||'';
+            $('#c_mdcont').val(_cont);
+            var _showHTML = marked(_cont);
+            $('#showMd').html(_showHTML);
+        }
     });
 
 })(jQuery);
