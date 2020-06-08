@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/applications/layouts/<?php echo $ui_path;?>/css/font-awesome.min.css" />
     <link rel="stylesheet" href="/applications/layouts/<?php echo $ui_path;?>/css/common.css?v=1.0.2" />
     <script src="/static/js/libs/jquery/jquery.min.js"></script>
+    <script src="/static/js/comm.js"></script>
 </head>
 
 <body>
@@ -31,6 +32,7 @@
                 <ul class="inline">
                     <li><a href="/doc/#/html5css3/">笔记&教程</a></li>
                     <li><a href="/home/flab">实验区</a></li>
+                    <li><a href="/home/frontlib">第三方库集合</a></li>
                     <li><a href="/home/index/about">关于</a></li>
                 </ul>
             </div>

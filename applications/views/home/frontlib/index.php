@@ -1,58 +1,60 @@
-<div class="home_search clearfix mgn-btm-80">
-    <div class="home_tabs">
-        <a href="javascript:;" class="cur">搜库</a>
-        <a href="javascript:;">搜图</a>
-        <a href="javascript:;">知识点</a>
+<div class="container  mt-90">
+    <div class="form-group">
+        <input type="text" id="search_name" class="input-block text-center" placeholder="请输入您要搜索的内容" />
     </div>
-    <div class="input_wrap">
-        <input id="search_name" class="lib_name_input" maxlength="50" />
-        <button type="button" class="btn_search">搜索</button>
-    </div>
-    <div class="home_search_panels">
-        <div class="photo_tit">* 库的主要来源：<a href="https://www.bootcdn.cn/" target="_blank">BootCDN</a>
-        | <a href="https://www.uisdc.com/tag/%e9%85%b7%e7%ab%99" target="_blank">酷站-优设网</a> |
-        <a href="https://javascriptweekly.com/" target="_blank">Javascript Week</a> |
-        <a href="https://webtoolsweekly.com" target="_blank">Webtools Weekly</a> |
-        <a href="https://css-weekly.com" target="_blank">css-weekly.com</a>
-        <p>目前以前端库为主，逐渐扩展到php，python，c/c++，java等编程语言</p>
+    <div class="flex-spaces tabs">
+        <input id="tab1" type="radio" name="tabs" checked>
+        <label for="tab1">搜库</label>
+
+        <input id="tab2" type="radio" name="tabs">
+        <label for="tab2">搜图</label>
+
+        <input id="tab3" type="radio" name="tabs">
+        <label for="tab3">知识点</label>
+
+        <div class="content" id="content1">
+            <div class="row">
+                <div class="md-8 sm-12 col card-btm-20 home_search_result">
+                    数据加载中...
+                </div>
+                <div class="md-4 sm-12 col sidebar">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">标签</h4>
+                            <div class="row category_box"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="category_box lib_sel">类型加载中...</div>
-    </div>
-    <div class="home_search_panels" style="display:none">
-        <div class="home_search_photo">
-            图片：<br />
-            <label for="piqsels_site"><input type="radio" checked="checked" id="piqsels_site" name="search_site" value="https://www.piqsels.com/zh/search?q=" /> Piqsels（中文）</label>
-            <label for="pxfuel_site"><input type="radio" id="pxfuel_site" name="search_site" value="https://www.pxfuel.com/en/search?q=" /> Pxfuel（英文）</label>
+        <div class="content" id="content2">
+            <fieldset class="form-group">
+                <label for="paperRadios1" class="paper-radio">
+                    <input type="radio" checked="checked" name="search_site" id="paperRadios1" value="https://www.piqsels.com/zh/search?q="> <span>Piqsels（中文）<span>
+                </label>
+                <label for="paperRadios2" class="paper-radio">
+                    <input type="radio" name="search_site" id="paperRadios2" value="https://uxwing.com/?s="> <span> Pxfuel（英文）<span>
+                </label>
+                <label for="paperRadios3" class="paper-radio">
+                    <input type="radio" name="search_site" id="paperRadios3" value="https://www.piqsels.com/zh/search?q="> <span> UXWING（英文）<span>
+                </label>
+            </fieldset>
         </div>
-        <div class="home_search_photo">
-            图标：<br />
-            <label for="uxwing_site"><input type="radio" id="uxwing_site" name="search_site" value="https://uxwing.com/?s=" /> UXWING（英文）</label>
+        <div class="content" id="content3">
+            Working on it...(建设中)
         </div>
-    </div>
-    <div class="home_search_panels" style="display:none">输入关键字</div>
-    <div class="home_search_result">
-    </div>
-    <div class="home_search_result">
     </div>
 </div>
 <script>
 (function($) {
 
-    var tabs = $('.home_tabs a');
     var panels = $('.home_search_panels');
     var _inputEl = $('#search_name');
-    var category_box = $('.lib_sel');
+    var category_box = $('.category_box');
     var result_box = $('.home_search_result');
     var show_index = 0;
     var lib_cateids = {};
-    
-    tabs.off().on('click' , function() {
-        show_index = tabs.index($(this));
-        tabs.removeClass('cur').eq(show_index).addClass('cur');
-        panels.hide().eq(show_index).show();
-        result_box.hide().eq(show_index).show();
-        _inputEl.val('');
-    });
+
     category_box.off().on('click' , 'a' , function() {
         var _this = $(this);
         if(!lib_cateids[_this.data('cateid')]) {
@@ -64,7 +66,10 @@
         }
         lib_search();
     });
-    $('.btn_search').click(function() {
+    _inputEl.off().on('keyup' , function(e) {
+        if(e.keyCode != 13) {
+            return;
+        }
         if(!_inputEl.val()) {
             alert('请输入搜索关键字');
             return;
@@ -133,10 +138,12 @@
                         if(rows[i].lib_github) {
                             git_link = '<a href="'+rows[i].lib_github+'" class="git_link" target="_blank">Github地址</a>';
                         }
-                        htmls.push('<div class="lib_item">');
-                        htmls.push(' <h4 class="lib_name">'+rows[i].lib_name+'</h4>');
-                        htmls.push(' <p class="lib_intro">'+intros.join("<br />")+'</p>');
-                        htmls.push(' <p class="lib_link">'+site_link+git_link+'</p>');
+                        htmls.push('<div class="card">');
+                        htmls.push(' <div class="card-body">');
+                        htmls.push('  <h4 class="card-title">'+rows[i].lib_name+'</h4>');
+                        htmls.push('  <p class="card-text">'+intros.join("<br />")+'</p>');
+                        htmls.push('  <p class="lib_link">'+site_link+git_link+'</p>');
+                        htmls.push(' </div>');
                         htmls.push('</div>');
                     }
                     result_box.eq(0).html(htmls.join(''));
